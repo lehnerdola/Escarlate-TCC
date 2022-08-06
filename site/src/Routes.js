@@ -16,6 +16,7 @@ export default function Index(){
   <BrowserRouter>
   <Routes>
     <Route exact path='/' element={<LandingPage/>} />
+    <Route exact path='/login' element={<Login/>} />
   </Routes>
   </BrowserRouter>
   </React.StrictMode>

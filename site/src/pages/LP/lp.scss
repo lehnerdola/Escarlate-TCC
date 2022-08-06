@@ -1,0 +1,125 @@
+.div-mae-lp{
+background-color: #1F1F1F;
+height: 1440px;
+}
+.container-lp{
+    display: flex;
+    background-color: #A83F37;
+    height: 99px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img-header{
+    margin-top: 3em;
+}
+
+.sub-div-lp{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.bt-login{
+    margin-right: 15px;
+    background-color: #000;
+    padding: 8px;
+    width: 9em;
+    border-radius: 200px;
+}
+
+.bt-cadastro{
+    margin-right: 15px;
+    background-color: #000;
+    padding: 8px;
+    width: 10em;
+    border-radius: 200px;
+}
+
+.txt-bt-header{
+    font-size: 14px;
+    color: #fff;
+    font-family: 'CinzelDecorative-Black';
+}
+
+.container-lp-1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #1F1F1F;
+}
+
+.sub-div-lp-1{
+display: flex;
+justify-content: flex-start;
+flex-direction: column;
+align-items: center;
+}
+
+.txt-nav-1{
+width: 500px;    
+word-wrap: break-word;    
+margin-left: 1em;
+font-family: 'CinzelDecorative-Black';
+font-size: 75px;    
+color: #fff;
+}
+
+.txt-nav-2{
+font-family: 'CinzelDecorative-Regular';
+color: #A83F37;
+text-align: center;
+text-shadow: -2px -3px black;
+font-size: 50px;
+}
+
+.txt-nav-3{
+width: 400px;
+text-align: right;
+word-wrap: break-word;
+line-height: 28px;
+color: #fff;
+font-family: 'Bungee-Inline';
+font-size: 17px;
+}
+
+.span-nav{
+    color: #A83F37;
+}
+
+.conf-img-guitar{
+    margin-bottom: -15em;
+    margin-left: -5em;
+    width: 80%;
+    transform: rotate(-60deg);
+}
+
+.conf-img-guitar-2{
+    margin-top: 5em;
+    width: 80%;
+    transform: rotate(235deg);
+
+}
+
+.div-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3em;
+}
+
+.conf-gif{
+    margin-left: -10em;
+    width: 10em;
+    margin-top: 10em;
+}
+
+.sub-div-img{
+    margin-bottom: -8em;
+    width: 80%;
+}
+
