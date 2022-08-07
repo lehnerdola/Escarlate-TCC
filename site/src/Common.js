@@ -13,9 +13,18 @@ const Common = createGlobalStyle
 }
 
 @font-face {
+    font-family:'CinzelDecorative-Bold' ;
+    src: url(../fonts/CinzelDecorative-Bold.otf);
+}
+
+@font-face {
     font-family:'CinzelDecorative-Regular' ;
     src: url(../fonts/CinzelDecorative-Regular.otf);
 }
+
+
+
+
 *{
  margin: 0;
  padding:0;
