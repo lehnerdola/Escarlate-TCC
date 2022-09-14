@@ -22,6 +22,10 @@ const Common = createGlobalStyle
     src: url(../fonts/CinzelDecorative-Regular.otf);
 }
 
+@font-face {
+    font-family:'Cinzel-Regular' ;
+    src: url(../fonts/Cinzel-Regular.otf);
+}
 
 *{
  margin: 0;

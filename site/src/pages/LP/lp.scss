@@ -1,113 +1,186 @@
 .cabeçalho-lp{
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
-position: absolute;
-width: 1294px;
-height: 90px;
-left: -14px;
-top: 0px;
-background: #A83F37;
-}
-
-.botao-cabeçalho-lp{
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: space-around;
-}
-
-.bt-login{
-position: absolute;
-width: 122px;
-height: 42px;
-left: 988px;
-background: #000000;
-border-radius: 200px;
-}
-
-.bt-cadastro{
-position: absolute;
-width: 122px;
-height: 42px;
-left: 1122px;
-background: #000000;
-border-radius: 200px;
-}
-
-.bt-login-txt, .bt-cadastro-txt{
-font-family: 'CinzelDecorative-Black';
-font-style: normal;
-font-weight: 900;
-font-size: 13px;
-line-height: 20px;
-text-transform: capitalize;
-color: #FFFFFF;
-}
-
-.faixa-1-lp{
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: space-between;
-width: 1280px;
-height: 750px;
-padding: 5em;
-background-color: #1f1f1f;
-}
-
-.titulo-1-lp{
-left: calc(50% - 553px/2 - 349.5px);
-top: calc(50% - 138px/2 - 114px);
-font-family: 'CinzelDecorative-Black';
-font-style: normal;
-font-weight: 900;
-font-size: 70px;
-line-height: 94px;
-text-transform: capitalize;
-color: #FFFFFF;
--webkit-text-stroke:#000000;
--webkit-text-stroke-width: 1.7px;
-mix-blend-mode: normal;
-}
-.titulo-2-lp{
-font-family: 'CinzelDecorative';
-font-style: normal;
-font-weight: 400;
-font-size: 52px;
-line-height: 54px;
-color: #A83F37; 
--webkit-text-stroke:#000000;
--webkit-text-stroke-width: 0.6px;
-text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.txt-1-lp{
-color: #FFFFFF;
-font-family: 'CinzelDecorative-Regular';
-font-style: normal;
-width: 500px;
-padding-top: 1rem;
-font-weight: 400;
-font-size: 25px;
-line-height: 40px;
-text-transform: capitalize;
--webkit-text-stroke-width: 0px;
-}
-
-.cor-txt{
-    color: #A83F37;
-}
-
-.cor-letra-lp{
-    color: #A83F37;
-}
-
-.faixa-2-lp{
     display: flex;
-    background: rgb(31,31,31);
-    background: linear-gradient(180deg, rgba(31,31,31,1) 21%, rgba(168,63,55,1) 80%);
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 1294px;
+    height: 90px;
+    left: -14px;
+    top: 0px;
+    background: #A83F37;
+    }
+    
+    .botao-cabeçalho-lp{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    }
+    
+    .bt-login{
+    position: absolute;
+    width: 122px;
+    height: 42px;
+    left: 988px;
+    background: #000000;
+    border-radius: 200px;
+    }
+    
+    .bt-cadastro{
+    position: absolute;
+    width: 122px;
+    height: 42px;
+    left: 1122px;
+    background: #000000;
+    border-radius: 200px;
+    }
+    
+    .bt-login-txt, .bt-cadastro-txt{
+    font-family: 'CinzelDecorative-Black';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 13px;
+    line-height: 20px;
+    text-transform: capitalize;
+    color: #FFFFFF;
+    }
+    
+    .faixa-1-lp{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     width: 1280px;
-}
-
+    height: 750px;
+    padding: 5em;
+    background-color: #1f1f1f;
+    }
+    
+    .titulo-1-lp{
+    left: calc(50% - 553px/2 - 349.5px);
+    top: calc(50% - 138px/2 - 114px);
+    font-family: 'CinzelDecorative-Black';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 66px;
+    line-height: 94px;
+    text-transform: capitalize;
+    color: #FFFFFF;
+    -webkit-text-stroke:#000000;
+    -webkit-text-stroke-width: 1.7px;
+    mix-blend-mode: normal;
+    }
+    .titulo-2-lp{
+    font-family: 'CinzelDecorative';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 54px;
+    color: #A83F37; 
+    -webkit-text-stroke:#000000;
+    -webkit-text-stroke-width: 0.6px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    
+    .txt-1-lp{
+    color: #FFFFFF;
+    font-family: 'CinzelDecorative-Regular';
+    font-style: normal;
+    width: 500px;
+    padding-top: 1rem;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    text-transform: capitalize;
+    -webkit-text-stroke-width: 0px;
+    }
+    
+    .cor-txt{
+        color: #A83F37;
+    }
+    
+    .cor-letra-lp{
+        color: #A83F37;
+    }
+    
+    .faixa-2-lp{
+        display: flex;
+        background: rgb(31,31,31);
+        background: linear-gradient(180deg, rgba(31,31,31,1) 21%, rgba(168,63,55,1) 80%);
+        width: 1280px;
+        padding-left: 6em;
+        align-items: center;
+    }
+    
+    .texto-f2-lp{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    }
+    
+    .texto-1-f2-lp{
+     display: flex;
+     flex-direction: column;
+     width: 900px;
+     font-size: 25px;
+     padding-left: 7em;
+     font-family: 'CinzelDecorative-Black';
+    }
+    
+    .titulo-3-lp{
+        width: 580px;
+        height: 162px;
+       
+        color: #FFFFFF;
+        font-family: 'CinzelDecorative-Regular';
+        font-style: normal;
+        font-weight: 200;
+        font-size: 38px;
+        line-height: 54px;
+        text-align: right;
+        text-indent: 3px;
+        text-transform: capitalize;
+        font-feature-settings: 'kern' off;
+    }
+    
+    .txt-f2-lp{
+        text-align: right;
+        text-indent: 3px;
+        font-family: 'Cinzel-Regular';
+        font-style: normal;
+        font-weight: 50px;
+        font-size: 26px;
+        color: #FFFFFF; 
+        -webkit-text-stroke:#000000;
+        -webkit-text-stroke-width: 0.2px;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);   
+        width: 580px;
+    }
+    
+    .desc-lp{
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+        padding-top: 1rem;
+        padding-right: 5rem;
+        padding-top: 5rem;
+    }
+    
+    .txt-desc{
+    font-family: 'Cinzel-Regular';
+    width: 200px;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: 100px;
+    }
+    
+    .faixa-3{
+    background: rgb(168,63,55);
+    background: linear-gradient(90180deg, rgba(168,63,55,1) 21%, rgba(31,31,31,1) 80%);
+    height: 580px;
+    width: 1280px;
+    }
