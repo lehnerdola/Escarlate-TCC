@@ -14,7 +14,7 @@ const Common = createGlobalStyle
 
 @font-face {
     font-family:'CinzelDecorative-Bold' ;
-    src: url(../fonts/CinzelDecorative-Bold.otf);
+    src: url(../fonts/Cinzel-Bold.otf);
 }
 
 @font-face {
