@@ -15,9 +15,11 @@ export default function LandingPage() {
             onHoverEnd={e => {}}/>
 
             <div className="botao-cabeçalho-lp">
+           <Link  className="bt-login" to='../LoginADM'> 
             <button className="bt-login">
-            <p className="bt-login-txt">Login</p>
+            <p className="bt-login-txt"> Login </p> 
             </button>
+            </Link>
             <button className="bt-cadastro">
             <p className="bt-cadastro-txt">Cadastre-se</p>
             </button>
