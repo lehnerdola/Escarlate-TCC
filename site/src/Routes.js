@@ -2,7 +2,6 @@ import React from 'react';
 import {BrowserRouter,Route,Routes,} from 'react-router-dom';
 
 import LandingPage from './pages/LP/LandingPage';
-import Adm from './pages/ADM/Adm';
 import Login from './pages/Login e Cadastro/Login';
 import Cadastro from './pages/Login e Cadastro/Cadastro';
 import Feed from './pages/Feed/Feed';
