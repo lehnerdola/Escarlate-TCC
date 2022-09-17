@@ -7,7 +7,8 @@ import Cadastro from './pages/Login e Cadastro/Cadastro';
 import Feed from './pages/Feed/Feed';
 import Carrinho from './pages/Carrinho/Carrinho';
 import Pagamento from './pages/Pagamento/Pagamento';
-import LoginADM from './pages/Login e Cadastro/Adm/loginADM';
+import LoginADM from './pages/ADM/Login/loginADM';
+import CadProduto from './pages/ADM/Produtos/cadProd';
 
 export default function Index(){
     return(
@@ -17,6 +18,7 @@ export default function Index(){
     <Route exact path='/' element={<LandingPage/>} />
     <Route exact path='/login' element={<Login/>} />
     <Route exact path='/LoginADM' element={<LoginADM/>} />
+    <Route exact path='/cadProduto' element={<CadProduto/>}/>   
   </Routes>
   </BrowserRouter>
   </React.StrictMode>

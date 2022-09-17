@@ -9,5 +9,5 @@ export async function adminLogin(cpf, senha) {
        and ds_senha = ?
        `;
        const [resp] = await con.query(c, [cpf, senha]);
-       return resp;
-}
+       return resp[0];
+ }
