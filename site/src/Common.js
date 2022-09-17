@@ -3,29 +3,45 @@ import {createGlobalStyle} from 'styled-components';
 const Common = createGlobalStyle 
 `
 
+
+@font-face {
+    font-family:'Cinzel-Regular';
+    src: url(../../fonts/Cinzel-Regular.otf);
+}
+
+@font-face {
+    font-family:'CinzelDecorative-Regular';
+    src: url(../../fonts/CinzelDecorative-Regular.otf);
+}
+
+
 @font-face {
     font-family:'Bungee-Inline' ;
-    src: url(../fonts/Bungee-Inline.otf);
+    src: url(../../fonts/Bungee-Inline.otf);
 }
 @font-face {
     font-family:'CinzelDecorative-Black' ;
-    src: url(../fonts/CinzelDecorative-Black.otf);
+    src: url(../../fonts/CinzelDecorative-Black.otf);
 }
 
 @font-face {
     font-family:'CinzelDecorative-Bold' ;
-    src: url(../fonts/Cinzel-Bold.otf);
+    src: url(../../fonts/Cinzel-Bold.otf);
 }
 
 @font-face {
-    font-family:'CinzelDecorative-Regular' ;
-    src: url(../fonts/CinzelDecorative-Regular.otf);
+    font-family:'Poppins-Regular' ;
+    src: url(../../fonts/Poppins-Regular.otf);
 }
 
 @font-face {
-    font-family:'Cinzel-Regular' ;
-    src: url(../fonts/Cinzel-Regular.otf);
+    font-family:'Poppins-Medium' ;
+    src: url(../../fonts/Poppins-Medium.otf);
 }
+@font-face {
+    font-family:'Poppins-Bold' ;
+    src: url(../../fonts/Poppins-Bold.otf);
+
 
 *{
  margin: 0;

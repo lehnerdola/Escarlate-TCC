@@ -4,7 +4,7 @@
     justify-content: space-between;
     align-items: center;
     position: absolute;
-    width: 1294px;
+    width: 1325px;
     height: 90px;
     left: -14px;
     top: 0px;
@@ -52,7 +52,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 1280px;
+    width: 1311px;
     height: 750px;
     padding: 5em;
     background-color: #1f1f1f;
@@ -73,7 +73,7 @@
     mix-blend-mode: normal;
     }
     .titulo-2-lp{
-    font-family: 'CinzelDecorative';
+    font-family: 'CinzelDecorative-Regular';
     font-style: normal;
     font-weight: 400;
     font-size: 50px;
@@ -109,7 +109,7 @@
         display: flex;
         background: rgb(31,31,31);
         background: linear-gradient(180deg, rgba(31,31,31,1) 21%, rgba(168,63,55,1) 80%);
-        width: 1280px;
+        width: 1311px;
         padding-left: 6em;
         align-items: center;
     }
@@ -120,6 +120,8 @@
     align-items: center;
     justify-content: space-around;
     }
+
+   // *{ border: 1px solid black;}
     
     .texto-1-f2-lp{
      display: flex;
@@ -183,5 +185,5 @@
     background: rgb(168,63,55);
     background: linear-gradient(90180deg, rgba(168,63,55,1) 21%, rgba(31,31,31,1) 80%);
     height: 580px;
-    width: 1280px;
+    width: 1311px;
     }

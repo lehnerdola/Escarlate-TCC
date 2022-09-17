@@ -26,15 +26,16 @@
     }
     .input-adm{
         width: 20vw;
-        height: 3.5vh;
+        height: 3.8vh;
         left: 123px;
         top: 387px;
-        background: #EBEBEB;    
-        border: none;
-        border-radius: 10px;
         font-weight: bold;
         font-family: 'Cinzel-Regular';    
         text-align: center;
+        outline: 0px;
+        background-color: #fff;
+        border-radius: 7px;
+        border: none;
     }
 
     .botao-login-adm{
@@ -43,6 +44,8 @@
         background: #EBEBEB;
         border-radius: 10px;
         margin-top: 1rem;
+        border: none;
+        margin-left: 6.3em;
     }
     .bt-login-adm{
         color: #a3281f;
@@ -53,5 +56,14 @@
         margin-bottom: 20px;
 
     }
-}
 
+    .conf-olho{
+     margin-left: -2em;
+     margin-bottom: -0.2em;
+     width: 1em;
+    }
+
+    .txt-erro-login-adm{
+         font-family: 'Cinzel-Regular'
+    }
+}
