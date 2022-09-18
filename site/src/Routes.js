@@ -7,9 +7,9 @@ import Cadastro from './pages/Login e Cadastro/Cadastro';
 import Feed from './pages/Feed/Feed';
 import Carrinho from './pages/Carrinho/Carrinho';
 import Pagamento from './pages/Pagamento/Pagamento';
+import Produtos from './pages/ADM/Produtos';
 import LoginADM from './pages/ADM/Login/loginADM';
 import TelaInicial from './pages/ADM/TelaInicial/index';
-import CardHome from './pages/Components/Adm/CardHome';
 
 export default function Index(){
     return(
@@ -20,7 +20,7 @@ export default function Index(){
     <Route exact path='/login' element={<Login/>} />
     <Route exact path='/LoginADM' element={<LoginADM/>} />
     <Route exact path='/TelaInicial' element={<TelaInicial/>}/>
-    <Route exact path='/CardHome' element={<CardHome/>}/>    
+    <Route exact path='/Produtos' element={<Produtos/>}/>    
   </Routes>
   </BrowserRouter>
   </React.StrictMode>

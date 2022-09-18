@@ -1,0 +1,19 @@
+.produtos-adm{
+    display: flex;
+    flex-direction: row;
+    background-color: #1f1f1f;
+
+    .content-produtos-adm{
+        display: flex;
+        flex-direction: column;
+        margin-left: 3em;
+        justify-content: space-around;
+    }
+
+
+    .tit-produtos{
+        font-family: 'Poppins-Regular';
+        color:#fff;
+        padding-bottom: 0.8em;
+    }
+}

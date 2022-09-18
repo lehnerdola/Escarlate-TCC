@@ -9,13 +9,17 @@
         width: 20vw;
         justify-content: space-between;
         align-items: center;
-        height: 100vh;
+        height: 136vh;
         border-right: 0.5px solid #fff;
     }
 
     .logo-conf{
         margin-top: 1em;
     }
+
+   .conf-card-produto{
+    cursor: default;
+   }
 
     .tit-tela-inicial-adm{
         font-family: 'Poppins-SemiBold';
@@ -34,6 +38,6 @@
 
     .exit-icon{
         width: 1.5em;
-        margin-bottom: 3em;
+        margin-bottom: 16em;
     }
 }

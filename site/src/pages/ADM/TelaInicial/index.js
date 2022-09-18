@@ -1,12 +1,18 @@
 import storage from 'local-storage';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
+
 import './index.scss';
+
 import logo from '../../../assets/images/Captura de Tela (2).png'
 import CardHome from '../../Components/Adm/CardHome';
-import queen from '../../../assets/images/Queen.jpg'
-import sair from '../../../assets/images/Vector.png'
+import queen from '../../../assets/images/Queen.jpg';
+import album from '../../../assets/images/Screenshot_20220806-195359-947 3.png';
+import perfil from '../../../assets/images/1659575103611 1.png';
+import produtos from '../../../assets/images/🦆 icon _box seam_.png';
+
+import sair from '../../../assets/images/Vector.png';
 
 export default function TelaInicial(){
 
@@ -47,9 +53,12 @@ export default function TelaInicial(){
             <div className='cards-adm'>
                 
                 <CardHome img={queen} nome='Visualizar Artistas' />
-                <CardHome img={queen} nome='Visualizar Músicas'/>
-                <CardHome img={queen} nome='Visualizar Clientes'/>
-                <CardHome img={queen} nome='Visualizar Pedidos'/>
+                <CardHome img={album} nome='Visualizar Músicas' />
+                <CardHome img={perfil} nome='Visualizar Clientes'/>
+                <CardHome nome='Visualizar Pedidos'/>
+                <Link to='/Produtos' className='conf-card-produto'>
+                <CardHome img={produtos} nome='Visualizar Produtos'/>
+                </Link> 
             </div>
             </div>
            
