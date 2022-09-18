@@ -39,8 +39,8 @@ const Common = createGlobalStyle
     src: url(../../fonts/Poppins-Medium.otf);
 }
 @font-face {
-    font-family:'Poppins-Bold' ;
-    src: url(../../fonts/Poppins-Bold.otf);
+    font-family:'Poppins-SemiBold' ;
+    src: url(../../fonts/Poppins-SemiBold.otf);
 
 
 *{

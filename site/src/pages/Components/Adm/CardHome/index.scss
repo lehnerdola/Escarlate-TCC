@@ -1,0 +1,24 @@
+.card-home{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border: 3px solid #a83f37 ;
+    width: 35vw;
+    height: 30vh;
+    margin-top: 5em;
+
+    .conf-img-card{
+        width: 7.5em;
+        border-radius: 150px;
+    }
+
+    .txt-card-adm{
+        font-family: 'Poppins-Regular';
+        color: #fff;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+  
+}

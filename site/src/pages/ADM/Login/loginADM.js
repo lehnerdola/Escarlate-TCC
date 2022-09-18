@@ -59,7 +59,7 @@ export default function LoginADM(){
             }, 2400);
 
             setTimeout(() => {
-                navigate('/cadProduto');
+                navigate('/TelaInicial');
             }, 1000);
          }
             

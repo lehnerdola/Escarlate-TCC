@@ -1,0 +1,39 @@
+.tela-inicial-adm{
+    display: flex;
+    flex-direction: row;
+    background-color: #1f1f1f;
+    .menu-adm{
+        display: flex;
+        flex-direction: column;
+        background-color: #1f1f1f;
+        width: 20vw;
+        justify-content: space-between;
+        align-items: center;
+        height: 100vh;
+        border-right: 0.5px solid #fff;
+    }
+
+    .logo-conf{
+        margin-top: 1em;
+    }
+
+    .tit-tela-inicial-adm{
+        font-family: 'Poppins-SemiBold';
+        color: #fff;
+        padding-left: 2.5em;
+        padding-top: 1em;
+        font-size: 25px;
+    }
+
+    .cards-adm{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .exit-icon{
+        width: 1.5em;
+        margin-bottom: 3em;
+    }
+}
