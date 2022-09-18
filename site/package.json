@@ -7,12 +7,12 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
-    "framer-motion": "^7.3.4",
+    "framer-motion": "^7.3.5",
     "local-storage": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-intersection-observer": "^9.4.0",
-    "react-router-dom": "^6.3.0",
+    "react-router-dom": "^6.4.0",
     "react-scripts": "5.0.1",
     "react-top-loading-bar": "^2.3.1",
     "router-dom": "^2.2.9",
@@ -45,6 +45,6 @@
     ]
   },
   "devDependencies": {
-    "sass": "^1.54.0"
+    "sass": "^1.54.9"
   }
 }
