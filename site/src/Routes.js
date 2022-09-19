@@ -7,9 +7,10 @@ import Cadastro from './pages/Login e Cadastro/Cadastro';
 import Feed from './pages/Feed/Feed';
 import Carrinho from './pages/Carrinho/Carrinho';
 import Pagamento from './pages/Pagamento/Pagamento';
-import Produtos from './pages/ADM/Produtos';
+import Produtos from './pages/ADM/Produtos/TodosProdutos';
 import LoginADM from './pages/ADM/Login/loginADM';
 import TelaInicial from './pages/ADM/TelaInicial/index';
+import CadProdutos from './pages/ADM/Produtos/CadProdutos';
 
 export default function Index(){
     return(
@@ -20,7 +21,8 @@ export default function Index(){
     <Route exact path='/login' element={<Login/>} />
     <Route exact path='/LoginADM' element={<LoginADM/>} />
     <Route exact path='/TelaInicial' element={<TelaInicial/>}/>
-    <Route exact path='/Produtos' element={<Produtos/>}/>    
+    <Route exact path='/Produtos' element={<Produtos/>}/>  
+    <Route exact path='/CadProdutos' element={<CadProdutos/>}/>    
   </Routes>
   </BrowserRouter>
   </React.StrictMode>

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import './loginADM.scss'
+import '../../../Common.scss';
 import { Logar } from "../../../api/adminAPI.js";
 import LoadingBar from 'react-top-loading-bar';
 import {motion} from 'framer-motion';

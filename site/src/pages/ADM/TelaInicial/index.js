@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import {Link, useNavigate} from 'react-router-dom'
 
 import './index.scss';
+import '../../../Common.scss';
 
 import logo from '../../../assets/images/Captura de Tela (2).png'
 import CardHome from '../../Components/Adm/CardHome';

@@ -1,0 +1,32 @@
+.cad-prod{
+    display: flex;
+    flex-direction: row;
+    background-color: #1f1f1f;
+
+    .nav-cad-prod{
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .content-nav-cad-prod{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 80vw;
+    }
+
+   
+    .aside-cad-prod{
+        display: flex;
+        flex-direction: column;
+        font-family: 'Poppins-Regular';
+        color: #fff;
+    }
+
+    .tit-cad-prod{
+        font-family: 'Poppins-Regular';
+        color: #fff;
+    }
+}

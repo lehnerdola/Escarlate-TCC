@@ -18,7 +18,7 @@ export async function adminLogin(cpf, senha) {
       insert into tb_produto(id_artista, id_produto_categoria, nm_produto, ds_tam, bt_disponivel, vl_preco, qtd_produto) 
       values (?, ?, ?, ?, ?, ?, ?, ?)
       `;
-      const [resp] = await con.query(c, [produto.artista, produto.categoria,  produto.nome, produto.tamanho, produto.disponivel, produto.preco, produto.qtd, produto.imagem]);
+      const [resp] = await con.query(c, [produto.artista, produto.categoria, produto.nome, produto.tamanho, produto.disponivel, produto.preco, produto.qtd]);
       produto.id = resp.insertId;
 
       return produto;

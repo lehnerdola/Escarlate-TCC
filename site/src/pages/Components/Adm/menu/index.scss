@@ -23,10 +23,17 @@
         line-height: 40px;
         text-align: center;
     }
+
+    .link-config-txt{
+        color: #fff;
+        text-decoration: none;
+    }
     
     .txt-menu-adm:hover{
     border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
+    text-transform: none;
     background-color: rgb(203, 59, 59);
     }
 

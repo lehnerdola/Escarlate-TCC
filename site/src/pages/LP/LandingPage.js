@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 
+import guitarra from '../../assets/images/zyro-image.png';
+import logo from '../../assets/images/Group 1.png';
+import '../../Common.scss'
 import './lp.scss'
 
 export default function LandingPage() {
@@ -9,7 +12,7 @@ export default function LandingPage() {
       <section className="section-mae">
          <header className="cabeçalho-lp"> 
 
-         <motion.img src="./images/Group 1.png" width={200} height={60}
+         <motion.img src={logo} width={200} height={60}
             whileHover={{ scale: 1.3 }}
             onHoverStart={e => {}}
             onHoverEnd={e => {}}/>
@@ -51,7 +54,7 @@ export default function LandingPage() {
          </p>
          </div>
 
-         <motion.img src="./images/zyro-image.png" width={500}
+         <motion.img src={guitarra} width={500}
          animate={{rotate:360}}
          transition={{ease:"linear", delay:0, duration:2, type:"spring"}}
          />
