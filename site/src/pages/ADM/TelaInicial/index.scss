@@ -2,11 +2,12 @@
     display: flex;
     flex-direction: row;
     background-color: #1f1f1f;
+    align-items: center;
     .menu-adm{
         display: flex;
         flex-direction: column;
         background-color: #1f1f1f;
-        width: 20vw;
+        width: 30vw;
         justify-content: space-between;
         align-items: center;
         height: 136vh;
@@ -14,7 +15,7 @@
     }
 
     .logo-conf{
-        margin-top: 1em;
+        margin-top: 9rem;
     }
 
    .conf-card-produto{
@@ -34,6 +35,8 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-around;
+        align-items: center;
+
     }
 
     .exit-icon{

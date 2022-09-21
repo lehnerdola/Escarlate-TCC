@@ -49,7 +49,7 @@ export default function TelaInicial(){
                 />
             </div>
             <div>
-                <h1 className='tit-tela-inicial-adm'>Seja bem-vindo (nome)! </h1>
+                <h1 className='tit-tela-inicial-adm'>Seja bem-vindo! </h1>
             
             <div className='cards-adm'>
                 

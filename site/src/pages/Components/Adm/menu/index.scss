@@ -4,6 +4,11 @@
     background-color: #1f1f1f;
     height: 100vh;
 
+    .logo-cad-prod{
+        margin-top: 9rem;
+    }
+    
+
     .menu-adm{
     display: flex;
     flex-direction: column;
@@ -35,6 +40,7 @@
     text-decoration: none;
     text-transform: none;
     background-color: rgb(203, 59, 59);
+    width: 6rem;
     }
 
     .exit-icon{

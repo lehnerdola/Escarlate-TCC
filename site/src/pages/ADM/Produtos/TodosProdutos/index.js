@@ -17,8 +17,11 @@ export default function Produtos(){
                 <BotaoADM nome='Adicionar Novo Produto'/>
                 </Link>
                 </div>
-                
+
+                <Link to='/CadProdutos'>
                 <CardPAH txt1='Camiseta Queen cor laranja' txt2='R$00,00' txt3='Disponível' txt4='Ver tamanhos disponíveis' img={queencamiseta} btnome='APAGAR PRODUTO' btnome2='EDITAR PRODUTO'/>
+                </Link>
+
 
                 <CardPAH txt1='Camiseta Queen cor laranja' txt2='R$00,00' txt3='Disponível' txt4='Ver tamanhos disponíveis' img={queencamiseta} btnome='APAGAR PRODUTO' btnome2='EDITAR PRODUTO'/>
 

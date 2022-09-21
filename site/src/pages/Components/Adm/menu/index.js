@@ -8,7 +8,7 @@ export default function MenuADM(props){
     return(
         <div className='menu'>
             <div className='menu-adm'>
-            <img src={logo} width={155}/>
+            <img className='logo-cad-prod' src={logo} width={155}/>
 
             <div className='menu-itens'>
             <img/>

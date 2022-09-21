@@ -38,10 +38,20 @@ export default function CadProdutos()
     alert('Categoria: ' + idCategoria  );
 }
 
+function salvarClick() {
+    setIdcategoria(0);
+    setCategorias('');
+    setCatSelecionadas('');
+    setNome('');
+    setTamanho('');
+    setDisponivel('');
+    setPreco('');
+}
+
     function buscarNomeCategoria(id) {
         const cat = categorias.find(item => item.id == id);
         return cat.categoria;
-    }
+    } 
 
     function adicionarCategoria() {
         const categorias = [...catSelecionadas, idCategoria];
@@ -51,7 +61,7 @@ export default function CadProdutos()
     async function carregarCategorias() {
         const r = await listarCategorias();
         setCategorias(r);
-    }
+    } 
 
 
     useEffect(() => {
@@ -68,18 +78,18 @@ export default function CadProdutos()
               <div className='content-nav-cad-prod'>
                 <img src={addimgft} width={250}/>
                 <aside className='aside-cad-prod'>
-                    <p>Nome do produto</p>
-                    <input value={nome} onChange={e => setNome(e.target)}/>
-                    <p>Preço do produto</p>
-                    <input value={preco} onChange={e => setPreco(e.target.value)}/>
+                    <p>Nome do produto:</p>
+                    <input className='input-cad-prod' value={nome} onChange={e => setNome(e.target)}/>
+                    <p>Preço do produto:</p>
+                    <input className='input-cad-prod' value={preco} onChange={e => setPreco(e.target.value)}/>
                     <p>Disponível?</p>
-                    <input type='checkbox' checked={disponivel} onChange={e => setDisponivel(e.target.checked)}/>
-                    <p>Tamanhos disponíveis</p>
-                    <input value={tamanho} onChange={e => setTamanho(e.target.value)}/>
-                    <p>Quantidade</p>
-                    <input value={qtd} onChange={e => setQtd(e.target.value)}/>
-                    <p>Categoria do produto</p>
-                    <select value={idCategoria} onChange={(e) => setIdCategoria(e.target.value)}>
+                    <input className='input-cad-prod' type='checkbox' checked={disponivel} onChange={e => setDisponivel(e.target.checked)}/>
+                    <p>Tamanhos disponíveis:</p>
+                    <input  className='input-cad-prod' value={tamanho} onChange={e => setTamanho(e.target.value)}/>
+                    <p>Quantidade:</p>
+                    <input className='input-cad-prod' value={qtd} onChange={e => setQtd(e.target.value)}/>
+                    <p>Categoria do produto:</p>
+                    <select className='input-cad-prod' value={idCategoria} onChange={(e) => setIdCategoria(e.target.value)}>
                     
                     {categorias.map(item =>
                     <option value={item.id}>{item.categoria}</option>
@@ -89,7 +99,7 @@ export default function CadProdutos()
                    
                     </select>
 
-                    <button onClick={adicionarCategoria} className='btn-categoria'>+</button> 
+                    <button  onClick={adicionarCategoria} className='input-cad-prod'>+</button> 
                        
                     <div className='cat-conteiner'>
                             {catSelecionadas.map(id =>
@@ -99,7 +109,7 @@ export default function CadProdutos()
                         )}
                     </div>                    
 
-                    <button onClick={salvar}>Salvar</button>
+                    <button  onClick={salvarClick}>Salvar</button>
 
                 </aside>
               </div>
