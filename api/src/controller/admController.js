@@ -1,4 +1,4 @@
-import { adminLogin, cadastrarProduto, inserirImagemProduto } from "../repository/admRepository.js";
+import { adminLogin, cadastrarProduto, inserirImagemProduto, salvarProdutoCategoria } from "../repository/admRepository.js";
 
 import { Router } from "express";
 const server = Router();
@@ -26,10 +26,15 @@ server.post('/admin/login', async (req,resp) => {
      })
 server.post('/admin/cadproduto' , async (req,resp) =>{
      try {
-          const novoProduto = req.body;
+          const produto = req.body;
 
-          const produtoInserido = await cadastrarProduto(novoProduto);
-          resp.send(produtoInserido);
+          const idProduto = await cadastrarProduto(produto);
+          
+          for (const idCateg of produto.categoria) {
+            await salvarProdutoCategoria(idProduto, idCateg);
+        }
+
+        resp.status(204).send();
      } catch (err) {
           resp.status(400).send({
                erro: err.message

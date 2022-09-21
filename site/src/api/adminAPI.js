@@ -11,15 +11,14 @@ export async function Logar(cpf,senha){
     return r.data;
 }
 
-export async function cadastrarProduto(artista, categoria, nome, tamanho, disponivel, preco, qtd, usuario) {
+export async function cadastrarProduto(artista, nome, tamanho, disponivel, preco, qtd, usuario) {
 	const r = await api.post("/admin/cadproduto", {
 		artista: artista,
-		categoria: categoria,
 		nome: nome,
         tamanho: tamanho,
         disponivel: disponivel,
 		preco: preco,
-        qtd: qtd,
+        qtd: qtd
 	});
 	return r.data;
 }
@@ -35,3 +34,9 @@ export async function enviarImagemProduto(imagem, id){
     });
     return resposta.status;
 }
+
+export async function listarCategorias() {
+    const r = await api.get('/produto/categoria');
+    return r.data;
+}
+
