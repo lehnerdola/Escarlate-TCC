@@ -4,6 +4,7 @@ import { Router } from "express";
 const server = Router();
 
 import multer from 'multer';
+import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
 const upload = multer({ dest: 'storage/produtos' })
 
 server.post('/admin/login', async (req,resp) => {
@@ -30,9 +31,14 @@ server.post('/admin/cadproduto' , async (req,resp) =>{
 
           const idProduto = await cadastrarProduto(produto);
           
-          for (const idCateg of produto.categoria) {
-            await salvarProdutoCategoria(idProduto, idCateg);
+          for (const idCateg of produto.categorias) {
+            const cat = await buscarCategoriaPorId(idCateg);
+
+            if (cat != undefined)
+                await salvarProdutoCategoria(idProduto, idCateg);
         }
+
+        
 
         resp.status(204).send();
      } catch (err) {
@@ -42,7 +48,7 @@ server.post('/admin/cadproduto' , async (req,resp) =>{
      }
 })    
 
-server.put('/produto/:id/img', upload.single('img') , async (req, resp) => {
+server.put('/produto/:id/imagem', upload.single('imagem') , async (req, resp) => {
      try {
          const { id } = req.params;
          const imagem = req.file.path;

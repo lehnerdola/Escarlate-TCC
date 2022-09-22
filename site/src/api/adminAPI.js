@@ -11,26 +11,19 @@ export async function Logar(cpf,senha){
     return r.data;
 }
 
-export async function cadastrarProduto(artista, nome, tamanho, disponivel, preco, qtd, usuario) {
-	const r = await api.post("/admin/cadproduto", {
-		artista: artista,
-		nome: nome,
-        tamanho: tamanho,
-        disponivel: disponivel,
-		preco: preco,
-        qtd: qtd
-	});
+export async function cadastrarProduto( IdArtista, nome, tamanho, disponivel, preco, qtd, categorias) {
+	const r = await api.post('/admin/cadproduto', { IdArtista, nome, tamanho, disponivel, preco, qtd, categorias});
 	return r.data;
 }
 
 export async function enviarImagemProduto(imagem, id){
     const formData = new FormData();
-    formData.append('img', imagem)
+    formData.append('imagem', imagem);
 
-    const resposta = await api.put(`/produto/${id}/img`, formData, {
+    const resposta = await api.put(`/produto/${id}/imagem`, formData, {
         headers: {
             "Content-Type": "multipart/form-data"
-        }
+        },
     });
     return resposta.status;
 }
@@ -40,3 +33,11 @@ export async function listarCategorias() {
     return r.data;
 }
 
+export async function listarArtistas() {
+    const r = await api.get('/artistas');
+    return r.data;
+}
+
+export function buscarImagem(imagem){
+    return `${api.getUri()}/${imagem}`
+}
