@@ -11,7 +11,7 @@ import storage from 'local-storage'
 
 export default function CadProdutos()
 {
-    const [IdArtista, setIdArtista] = useState();   
+    const [idArtista, setIdArtista] = useState();   
     const [artistas, setArtistas] = useState([]);
 
     const [idCategoria, setIdCategoria] = useState();   
@@ -25,18 +25,17 @@ export default function CadProdutos()
     const [preco, setPreco] = useState('');
 
     const [imagem, setImagem] = useState();
-    const [qtd, setQtd] = useState('');
+    const [quantidade, setQuantidade] = useState('');
 
     async function salvar() {
         try {
               
-            const r = cadastrarProduto(IdArtista,nome, tamanho, disponivel, preco, qtd, catSelecionadas);
-        //  await enviarimagem(novoProduto, imagem);
+            const r = await cadastrarProduto(idArtista,nome, tamanho, disponivel, preco, quantidade, catSelecionadas);
 
             alert('produto cadastrado')
         }
         catch (err) {
-            alert(err.message);
+            alert(err.response.data.erro);
         }
     }
 
@@ -120,17 +119,26 @@ function salvarClick() {
                     <p>Tamanhos disponíveis:</p>
                     <input  className='input-cad-prod' value={tamanho} onChange={e => setTamanho(e.target.value)}/>
                     <p>Quantidade:</p>
-                    <input className='input-cad-prod' value={qtd} onChange={e => setQtd(e.target.value)}/>
+                    <input className='input-cad-prod' value={quantidade} onChange={e => setQuantidade(e.target.value)}/>
                     <p>Categoria do produto:</p>
                     <select className='input-cad-prod' value={idCategoria} onChange={(e) => setIdCategoria(e.target.value)}>
+                        
 
                     {categorias.map(item =>
                     <option value={item.id}>{item.categoria}</option>
                     )};
                     </select>
+                    <div className='cat-conteiner'>
+                            {catSelecionadas.map(id =>
+                            <div className='cat-selecionada'>
+                                {buscarNomeCategoria(id)}
+                            </div>
+                        )}
+                    </div>
+                    <button  onClick={adicionarCategoria} className='botao-adm-1'>+</button> 
 
                     <p>Artista:</p>
-                    <select className='input-cad-prod' value={IdArtista} onChange={(e) => setIdArtista(e.target.value)}>
+                    <select className='input-cad-prod' value={idArtista} onChange={(e) => setIdArtista(e.target.value)}>
 
                     {artistas.map(item =>
                     <option value={item.id}>{item.artista}</option>
@@ -138,17 +146,7 @@ function salvarClick() {
 
                     </select>
 
-                    <button  onClick={adicionarCategoria} className='input-cad-prod'>+</button> 
-                       
-                    <div className='cat-conteiner'>
-                            {catSelecionadas.map(id =>
-                            <div className='cat-selecionada'>
-                                {buscarNomeCategoria(id)}
-                            </div>
-                        )}
-                    </div>                    
-
-                    <button  onClick={salvar}>Salvar</button>
+                    <button  onClick={salvar} className='botao-adm-2'>Salvar</button>
 
                 </aside>
               </div>

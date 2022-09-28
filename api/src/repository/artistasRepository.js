@@ -14,7 +14,7 @@ export async function listarArtistas() {
 export async function buscarArtistaPorId(id) {
     const c = `
         select id_artista              as id,
-               nm_departamento         as artista
+               nm_artista              as artista
           from tb_artista
          where id_artista = ?
     `

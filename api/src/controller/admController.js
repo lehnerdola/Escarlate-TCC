@@ -1,4 +1,4 @@
-import { adminLogin, cadastrarProduto, inserirImagemProduto, salvarProdutoCategoria } from "../repository/admRepository.js";
+import { adminLogin} from "../repository/admRepository.js";
 
 import { Router } from "express";
 const server = Router();
@@ -24,46 +24,8 @@ server.post('/admin/login', async (req,resp) => {
                 erro: err.message
             });
        } 
-     })
-server.post('/admin/cadproduto' , async (req,resp) =>{
-     try {
-          const produto = req.body;
+     });
+     
 
-          const idProduto = await cadastrarProduto(produto);
-          
-          for (const idCateg of produto.categorias) {
-            const cat = await buscarCategoriaPorId(idCateg);
-
-            if (cat != undefined)
-                await salvarProdutoCategoria(idProduto, idCateg);
-        }
-
-        
-
-        resp.status(204).send();
-     } catch (err) {
-          resp.status(400).send({
-               erro: err.message
-           })
-     }
-})    
-
-server.put('/produto/:id/imagem', upload.single('imagem') , async (req, resp) => {
-     try {
-         const { id } = req.params;
-         const imagem = req.file.path;
- 
-         const resposta = await inserirImagemProduto(imagem, id);
-         if (resposta != 1) {
-             throw new Error('UEPAAAA, deu erro!')
-         }
- 
-         resp.status(204).send();
-     } catch (err) {
-         resp.status(400).send({
-             erro:err.message
-         })
-     }
- })
 
 export default server;
