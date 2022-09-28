@@ -16,18 +16,7 @@ export async function cadastrarProduto( idArtista, nome, tamanho, disponivel, pr
 	return r.data;
 }
 
-/*  export async function enviarImagemProduto(imagem, id){
-    const formData = new FormData();
-    formData.append('imagem', imagem);
 
-    const resposta = await api.put(`/produto/${id}/imagem`, formData, {
-        headers: {
-            "Content-Type": "multipart/form-data"
-        },
-    });
-    return resposta.status;
-}
-*/
 export async function listarCategorias() {
     const r = await api.get('/produto/categoria');
     return r.data;
