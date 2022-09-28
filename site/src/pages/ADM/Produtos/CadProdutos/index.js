@@ -4,9 +4,9 @@ import './index.scss';
 import addimgft from '../../../../assets/images/Group 61.png';
 import BotaoADM from '../../../Components/Adm/Button/' 
 import { useState } from 'react';
-import { cadastrarProduto } from '../../../../api/adminAPI.js';
+import { cadastrarProduto, enviarImagem } from '../../../../api/adminAPI.js';
 import { useEffect } from 'react';
-import { listarCategorias, listarArtistas, enviarimagem, buscarImagem } from '../../../../api/adminAPI.js';
+import { listarCategorias, listarArtistas, buscarImagem } from '../../../../api/adminAPI.js';
 import storage from 'local-storage'
 
 export default function CadProdutos()
@@ -30,7 +30,8 @@ export default function CadProdutos()
     async function salvar() {
         try {
               
-            const r = await cadastrarProduto(idArtista,nome, tamanho, disponivel, preco, quantidade, catSelecionadas);
+            const novoProduto =  await cadastrarProduto(idArtista,nome, tamanho, disponivel, preco, quantidade, catSelecionadas);
+            const r = await enviarImagem(novoProduto.id, imagem)
 
             alert('produto cadastrado')
         }
