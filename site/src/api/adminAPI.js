@@ -30,3 +30,15 @@ export async function listarArtistas() {
 export function buscarImagem(imagem){
     return `${api.getUri()}/${imagem}`
 }   
+
+export async function enviarImagemProduto(imagem, id){
+    const formData = new FormData();
+    formData.append('imagem', imagem);
+
+    const resposta = await api.put(`/produto/${id}/imagem`, formData, {
+        headers: {
+            "Content-Type": "multipart/form-data"
+        },
+    });
+    return resposta.status;
+}

@@ -20,3 +20,16 @@ export async function salvarProdutoCategoria(idProduto, idCategoria){
 
     const [resp] = await con.query(comando, [idProduto, idCategoria])
 }
+
+export async function inserirImagemProduto(imagem, id){
+    const c = 
+    `
+    UPDATE tb_produto
+    SET img_produto      = ?
+    WHERE id_produto     = ?
+    `;
+  const [resp] = await con.query(c, [imagem, id]);
+  return resp.affectedRows;
+}
+
+    

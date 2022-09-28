@@ -6,7 +6,7 @@ import BotaoADM from '../../../Components/Adm/Button/'
 import { useState } from 'react';
 import { cadastrarProduto } from '../../../../api/adminAPI.js';
 import { useEffect } from 'react';
-import { listarCategorias, listarArtistas, enviarimagem, buscarImagem } from '../../../../api/adminAPI.js';
+import { listarCategorias, listarArtistas, enviarImagemProduto, buscarImagem } from '../../../../api/adminAPI.js';
 import storage from 'local-storage'
 
 export default function CadProdutos()
@@ -31,6 +31,7 @@ export default function CadProdutos()
         try {
               
             const r = await cadastrarProduto(idArtista,nome, tamanho, disponivel, preco, quantidade, catSelecionadas);
+            await enviarImagemProduto(imagem, r.id)
 
             alert('produto cadastrado')
         }
@@ -101,7 +102,7 @@ function salvarClick() {
                     <input type='file' id='img' onChange={e => setImagem(e.target.files[0])} className='form_input'/>
                    
                     {imagem &&
-                    <img src={mostrarImagem()}/> 
+                    <img className='imagem-cadastro-produto' src={mostrarImagem()}/> 
                     }
 
                     {!imagem &&

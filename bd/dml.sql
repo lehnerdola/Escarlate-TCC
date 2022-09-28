@@ -23,6 +23,7 @@ alter table tb_categoria_musical
 desc tb_artista_categoria;
 drop table tb_artista_categoria;
 
+
 -- tb_produto
 desc tb_produto;
 drop table tb_produto;
