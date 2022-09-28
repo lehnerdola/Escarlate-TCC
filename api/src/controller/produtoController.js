@@ -47,7 +47,7 @@ server.post('/admin/produto', async (req,resp) => {
             throw new Error('UEPAAAA, deu erro!')
         }
 
-        resp.status(204).send();
+        resp.status(204).send()
     } catch (err) {
         resp.status(400).send({
             erro:err.message
