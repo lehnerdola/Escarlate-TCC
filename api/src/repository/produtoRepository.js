@@ -48,3 +48,14 @@ export async function alterarProduto(id, produto){
 
     return resp.affectedRows;
 }
+
+export async function excluirProduto(id){
+    const comando = 
+    `
+    delete from tb_produto
+    where id_produto = ?
+    `
+    const [resposta] = await con.query  (comando, [id])
+
+    return resposta.affectedRows;
+}
