@@ -1,8 +1,8 @@
 import { Router } from "express";
 import multer from 'multer';
 import { buscarArtistaPorId } from "../repository/artistasRepository.js";
-import {inserirImagemProduto} from "../repository/produtoRepository.js"
-import { salvarProduto, salvarProdutoCategoria } from "../repository/produtoRepository.js";
+
+import { salvarProduto, salvarProdutoCategoria, inserirImagemProduto, alterarProduto } from "../repository/produtoRepository.js";
 import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
 import { validarProduto } from "../service/produtoValidacao.js";
 
@@ -54,6 +54,27 @@ server.post('/admin/produto', async (req,resp) => {
         })
     }
 })
+
+server.put('/alterar/:id' , async (req, resp) => {
+    try {
+        const {id} = req.params;
+        const produto = req.body;
+
+        const resposta = await alterarProduto(id,produto);
+        if(resposta != 1){
+            throw new Error('O produto não pode ser alterado!');
+        }
+        else {
+            resp.status(204).send()
+        }
+
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
 
 
   export default server;

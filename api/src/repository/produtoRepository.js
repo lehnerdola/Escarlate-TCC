@@ -32,4 +32,19 @@ export async function inserirImagemProduto(imagem, id){
   return resp.affectedRows;
 }
 
-    
+export async function alterarProduto(id, produto){
+    const comando = 
+    `
+    update tb_produto
+   set id_artista     = ?,
+       nm_produto     = ?,
+       ds_tam         = ?, 
+       bt_disponivel  = ?,
+       vl_preco       = ?,
+       qtd_produto    = ?
+ where id_produto     = ?; 
+    `
+    const [resp] = await con.query(comando, [produto.idArtista, produto.nome, produto.tamanho, produto.disponivel, produto.preco, produto.quantidade, id]);
+
+    return resp.affectedRows;
+}
