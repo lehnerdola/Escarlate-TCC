@@ -2,7 +2,7 @@ import { Router } from "express";
 import multer from 'multer';
 import { buscarArtistaPorId } from "../repository/artistasRepository.js";
 
-import { salvarProduto, salvarProdutoCategoria, inserirImagemProduto, alterarProduto } from "../repository/produtoRepository.js";
+import { salvarProduto, salvarProdutoCategoria, inserirImagemProduto, alterarProduto, consultarTodosProdutos, consultarProdutosPorId } from "../repository/produtoRepository.js";
 import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
 import { validarProduto } from "../service/produtoValidacao.js";
 
@@ -75,6 +75,29 @@ server.put('/alterar/:id' , async (req, resp) => {
     }
 })
 
+server.get('/produto', async (req, resp) => {
+    try {
+        const resposta = await consultarTodosProdutos();
+        resp.send(resposta);
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+} )
+
+server.get('/produto/:id', async (req, resp) => {
+    try {
+        const id = Number(req.params.id);
+
+        const resposta = await consultarProdutosPorId(id);
+        resp.send(resposta);
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }    
+})
 
 
   export default server;

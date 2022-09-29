@@ -4,11 +4,12 @@ import './index.scss';
 import addimgft from '../../../../assets/images/Group 61.png';
 import BotaoADM from '../../../Components/Adm/Button/' 
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { cadastrarProduto, enviarImagem } from '../../../../api/adminAPI.js';
 import { useEffect } from 'react';
-import { listarCategorias, listarArtistas, enviarImagemProduto, buscarImagem } from '../../../../api/adminAPI.js';
+import { listarCategorias, listarArtistas, enviarImagemProduto, buscarImagem, AlterarProjeto, buscarPorId } from '../../../../api/adminAPI.js';
 import storage from 'local-storage'
-
+import { AlterarProduto } from '../../../../api/adminAPI.js';
 export default function CadProdutos()
 {
     const [idArtista, setIdArtista] = useState();   
@@ -23,17 +24,52 @@ export default function CadProdutos()
     const [tamanho, setTamanho] = useState('');
     const [disponivel, setDisponivel] = useState(false);
     const [preco, setPreco] = useState('');
+    const [id, setId] = useState(0);
+    
+    const { idParam } = useParams();
+
+    useEffect(() => {
+        if(idParam){
+            CarregarProduto();
+        }
+    }, [])
+
+    async function CarregarProduto(){
+        const resposta = await buscarPorId(idParam);
+        setNome(resposta[0].nome);
+        setTamanho(resposta[0].tamanho);
+        setDisponivel(resposta[0].disponivel);
+        setPreco(resposta[0].preco);
+        setQuantidade(resposta[0].quantidade);
+        setCategorias(resposta[0].categorias);
+        setId(resposta.id);
+        setImagem(resposta[0].imagem);
+    }
 
     const [imagem, setImagem] = useState();
     const [quantidade, setQuantidade] = useState('');
 
     async function salvar() {
         try {
-              
+            
+            if(id===0)
+            {
+
             const r =  await cadastrarProduto(idArtista,nome, tamanho, disponivel, preco, quantidade, catSelecionadas);
             await enviarImagemProduto(imagem, r.id)
             alert('produto cadastrado')
+
+            setId(r.id);
+             }
+
+             else{
+                await AlterarProduto(id, idArtista,nome, tamanho, disponivel, preco, quantidade, catSelecionadas)
+              if(typeof(imagem) == 'object'){
+              await enviarImagemProduto(id, imagem);
+             }
+             alert('projeto alterado')
         }
+    }
         catch (err) {
             alert(err.response.data.erro);
         }
@@ -52,14 +88,14 @@ function mostrarImagem(){
     }
 }
 
-function salvarClick() {
-    setIdCategoria(0);
+function novoClick() {
+    setId(0);
     setCategorias('');
-    setCatSelecionadas('');
     setNome('');
     setTamanho('');
     setDisponivel('');
     setPreco('');
+    setImagem();
 }
 
     function buscarNomeCategoria(id) {
@@ -97,15 +133,15 @@ function salvarClick() {
 
               <div className='content-nav-cad-prod'>
 
-                <div onClick={escolherImagem}>
                     <input type='file' id='img' onChange={e => setImagem(e.target.files[0])} className='form_input'/>
                    
                     {imagem &&
-                    <img className='imagem-cadastro-produto' src={mostrarImagem()}/> 
+                    <img src={mostrarImagem()}/> 
                     }
 
+                <div onClick={escolherImagem}>
                     {!imagem &&
-                    <img src={addimgft} width={250}/>
+                    <img src={addimgft} width={250} className='imagem-cadastro-produto' />
                     }
                 </div>
 
@@ -147,6 +183,7 @@ function salvarClick() {
                     </select>
 
                     <button  onClick={salvar} className='botao-adm-2'>Salvar</button>
+                    <button onClick={novoClick}>Novo</button>
 
                 </aside>
               </div>

@@ -1,5 +1,6 @@
 import './index.scss'
 import BotaoADM from '../Button'
+import { Link } from 'react-router-dom'
 
 export default function CardPAH(props){
     return(
@@ -13,8 +14,10 @@ export default function CardPAH(props){
         <p className='txt-conf-cardpah'>{props.txt5}</p>
         </div>
         <div className='bt-card-pah'>
-        <BotaoADM nome={props.btnome}/>
+        <BotaoADM nome={props.btnome} />
+        <Link to = '/CadProdutos'>        
         <BotaoADM nome={props.btnome2}/>
+        </Link>
         </div>
     </div>
     )

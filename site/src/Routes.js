@@ -23,6 +23,7 @@ export default function Index(){
     <Route exact path='/TelaInicial' element={<TelaInicial/>}/>
     <Route exact path='/Produtos' element={<Produtos/>}/>  
     <Route exact path='/CadProdutos' element={<CadProdutos/>}/>    
+    <Route path='/alterar/:idParam' element={<CadProdutos/>} />
   </Routes>
   </BrowserRouter>
   </React.StrictMode>

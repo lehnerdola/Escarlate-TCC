@@ -1,14 +1,14 @@
 .produtos-adm{
     display: flex;
     flex-direction: row;
-    background-color: #1f1f1f;
+    background-color: #1f1f1f;  
 
     .content-produtos-adm{
         display: flex;
         flex-direction: column;
-        margin-left: 3em;
-        justify-content: space-around;
-        align-items: flex-start;
+        justify-content: space-evenly;
+        margin-left: 6em;
+        min-height: 180vh;
     }
 
 
@@ -23,4 +23,43 @@
         flex-direction: column;
        
     }
+
+    .cardpah{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid rgb(241, 75, 75);
+    align-items: center;
+    width: 70vw;
+    height: 30vh;
+    
+   
+
+    .txt-cardpah{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .txt-conf-cardpah{
+        color: #fff;
+        font-family: 'Poppins-Regular';
+        line-height: 35px;
+        text-transform: none;
+    }
+
+    .txt-conf-cardpah-underline{
+        color: #fff;
+        font-family: 'Poppins-Regular';
+        text-decoration: underline;
+        text-transform: none;
+    }
+
+    .bt-card-pah{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        height: 15vh;
+    }
+}
 }

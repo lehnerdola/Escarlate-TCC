@@ -12,7 +12,15 @@ export async function Logar(cpf,senha){
 }
 
 export async function cadastrarProduto( idArtista, nome, tamanho, disponivel, preco, quantidade ,categorias) {
-	const r = await api.post('/admin/produto', { idArtista, nome, tamanho, disponivel, preco, quantidade, categorias});
+	const r = await api.post('/admin/produto', 
+    { idArtista, 
+      nome, 
+      tamanho, 
+      disponivel, 
+      preco, 
+      quantidade, 
+      categorias
+    });
 	return r.data;
 }
 
@@ -53,4 +61,29 @@ export async function enviarImagemProduto(imagem, id){
         },
     });
     return resposta.status;
+}
+
+export async function todosProdutos(){
+    const resposta = await api.get('/produto');
+    return resposta.data;
+}
+
+export async function buscarPorId(id){
+    const resposta =  await api.get(`/produto/${id}`);
+    return resposta.data 
+}
+
+export async function AlterarProduto(idArtista, nome, tamanho, disponivel, preco, quantidade ,categorias, id){
+    const resposta = await api.put(`/alterar/${id}`, 
+    {
+        idArtista, 
+        nome, 
+        tamanho, 
+        disponivel, 
+        preco, 
+        quantidade, 
+        categorias
+    })
+    return resposta.data;
+
 }
