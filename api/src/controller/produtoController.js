@@ -2,7 +2,7 @@ import { Router } from "express";
 import multer from 'multer';
 import { buscarArtistaPorId } from "../repository/artistasRepository.js";
 
-import { salvarProduto, salvarProdutoCategoria, inserirImagemProduto, alterarProduto, consultarTodosProdutos, consultarProdutosPorId } from "../repository/produtoRepository.js";
+import { salvarProduto, salvarProdutoCategoria, inserirImagemProduto, alterarProduto, excluirProduto, consultarTodosProdutos, consultarProdutosPorId } from "../repository/produtoRepository.js";
 import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
 import { validarProduto } from "../service/produtoValidacao.js";
 
@@ -99,5 +99,20 @@ server.get('/produto/:id', async (req, resp) => {
     }    
 })
 
+server.delete('/produto/:id', async (req,resp) => {
+    try {
+        const {id} = req.params;
+        const resposta = await excluirProduto(id);
+
+        if(resposta != 1){
+            throw new Error('Não foi possivel deletar o produto') 
+        }
+         resp.status(204).send()
+    } catch(err){
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
 
   export default server;

@@ -86,3 +86,13 @@ export async function consultarProdutosPorId(id){
     const [linhas] = await con.query(comando, [id]);
     return linhas;
 }
+export async function excluirProduto(id){
+    const comando = 
+    `
+    delete from tb_produto
+    where id_produto = ?
+    `
+    const [resposta] = await con.query  (comando, [id])
+
+    return resposta.affectedRows;
+}
