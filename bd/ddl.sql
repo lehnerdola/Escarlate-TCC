@@ -1,3 +1,5 @@
+drop database Escarlate;
+
 create database Escarlate;
 use Escarlate;
 
@@ -22,7 +24,6 @@ create table tb_categoria_musical (
 id_artista_categoria_musical int primary key auto_increment,
 ds_categoria varchar(150) not null
 );
-
 
 create table tb_artista_categoria(
 id_artista_categoria int primary key auto_increment,
@@ -66,7 +67,6 @@ id_categoria int,
 foreign key (id_produto) references tb_produto(id_produto),
 foreign key (id_categoria) references tb_categoria(id_categoria)
 ); 
-
 
 create table tb_usuario(
 id_usuario int primary key auto_increment,

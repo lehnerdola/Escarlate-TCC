@@ -1,7 +1,6 @@
 import '../../../../Common.scss';
 import MenuADM from '../../../Components/Adm/menu/'
 import './index.scss';
-import addimgft from '../../../../assets/images/Group 61.png';
 import BotaoADM from '../../../Components/Adm/Button/' 
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -111,7 +110,7 @@ function novoClick() {
 
                 <div onClick={escolherImagem}>
                     {!imagem &&
-                    <img src={addimgft} width={250} className='imagem-cadastro-produto' />
+                    <img src={'../../../../assets/images/Group 61.png'} width={250} className='imagem-cadastro-produto' />
                     }
                 </div>
 

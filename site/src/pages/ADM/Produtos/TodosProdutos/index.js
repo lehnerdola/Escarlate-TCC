@@ -1,7 +1,6 @@
 import BotaoADM from "../../../Components/Adm/Button";
 import CardPAH from "../../../Components/Adm/Card"
 import MenuADM from "../../../Components/Adm/menu";
-import queencamiseta from '../../../../assets/images/queen camiseta 1.png';
 import { Navigate, useNavigate } from "react-router-dom";
 import { todosProdutos, removerProduto } from "../../../../api/adminAPI.js";
 import { Link } from "react-router-dom";
