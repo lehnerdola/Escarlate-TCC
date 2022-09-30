@@ -1,6 +1,4 @@
 import './index.scss'
-import logo from '../../../../assets/images/Captura de Tela (2).png'
-import sair from '../../../../assets/images/Vector.png';
 import {Link} from 'react-router-dom';
 import { useState } from 'react';
 
@@ -15,7 +13,7 @@ export default function MenuADM(props){
     return(
         <div className='menu'>
             <div className='menu-adm'>
-            <img className='logo-cad-prod' src={logo} width={155}/>
+            <img className='logo-cad-prod' src={'../../../../assets/images/Captura de Tela (2).png'} width={155}/>
 
             <div className='menu-itens'>
             <img/>
@@ -35,7 +33,7 @@ export default function MenuADM(props){
             <p className='txt-menu-adm'>Produtos</p>
             </Link>
             </div>
-            <img src={sair} width={20} className='exit-icon'/>
+            <img src={'../../../../assets/images/Vector.png'} width={20} className='exit-icon'/>
             </div>
         </div>
     )

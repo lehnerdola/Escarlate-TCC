@@ -3,7 +3,6 @@ import {createGlobalStyle} from 'styled-components';
 const Common = createGlobalStyle 
 `
 
-
 @font-face {
     font-family:'Cinzel-Regular';
     src: url(./assets/fonts/Cinzel-Regular.otf);
