@@ -87,3 +87,8 @@ export async function AlterarProduto(idArtista, nome, tamanho, disponivel, preco
     return resposta.data;
 
 }
+
+export async function removerProduto(id) {
+	const resposta = await api.delete(`/produto/${id}`);
+	return resposta.status;
+}

@@ -3,6 +3,7 @@
     flex-direction: row;
     background-color: #1f1f1f;
     align-items: center;
+    justify-content: center;
 
     .nav-cad-prod{
         display: flex;
@@ -16,12 +17,10 @@
         justify-content:space-around;
         align-items: center;
         width: 70vw;
-        height: 50vh;
+        height: 75.2vh;
         margin-top: 8rem;
         padding-left: 5em;
     }
-
-    
 
     .input-cad-prod{
         width: 15rem;

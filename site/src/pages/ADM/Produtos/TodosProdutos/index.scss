@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     background-color: #1f1f1f;  
+    justify-content: center;
 
     .content-produtos-adm{
         display: flex;
@@ -9,8 +10,15 @@
         justify-content: space-evenly;
         margin-left: 6em;
         min-height: 180vh;
+        
     }
 
+    .nav-cad-prod{
+        display: flex;
+        justify-content: center;
+        padding-left: 5em;
+        width: 20vw;
+    }
 
     .tit-produtos{
         font-family: 'Poppins-Regular';

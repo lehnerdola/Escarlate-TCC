@@ -3,10 +3,12 @@ import CardPAH from "../../../Components/Adm/Card"
 import MenuADM from "../../../Components/Adm/menu";
 import queencamiseta from '../../../../assets/images/queen camiseta 1.png';
 import { Navigate, useNavigate } from "react-router-dom";
-import { todosProdutos } from "../../../../api/adminAPI.js";
+import { todosProdutos, removerProduto } from "../../../../api/adminAPI.js";
 import { Link } from "react-router-dom";
 import './index.scss'
 import { useState, useEffect } from "react";
+import {confirmAlert} from 'react-confirm-alert';
+import {toast} from 'react-toastify';
 
 export default function Produtos(){
     const [produtos, setProdutos]= useState([]);
@@ -23,20 +25,24 @@ export default function Produtos(){
         })
     }, []);
 
-    const navigate = useNavigate();
+    async function deletarProduto(id, nome) {
+		
+						const resposta = await removerProduto(id, nome);
+						carregarTodosProdutos();
+						toast.success("🔥 Produto " + nome + " removido!");
+			
+	}
 
-
-    function navegar(){
-
-        navigate('/Cad')
-    }
 
     return(
+        <div>
+        <MenuADM/>
+
         <div className='produtos-adm'>
             
-            <MenuADM/>
 
             <div className='content-produtos-adm'>
+
                 <div className="align-itens-produtos">
                 <h1 className='tit-produtos'>Todos os Produtos</h1>
                 <Link to='/CadProdutos'>
@@ -55,18 +61,20 @@ export default function Produtos(){
                 <p className='txt-conf-cardpah-underline'>{item.tamanho}</p>
                 </div>
                 <div className='bt-card-pah'>
-                <BotaoADM  nome='EXCLUIR PRODUTO'/>
+                <button onClick={() => deletarProduto(item.id, item.nome)}>EXCLUIR PRODUTO</button>
                 <Link to = '/CadProdutos'>        
                 <BotaoADM nome='EDITAR PRODUTO'/>
                 </Link>
                 </div>
-            </div>
+
+                </div>
             </div>
                 
                 )}
 
 
             </div>
+        </div>
         </div>
     )
 }

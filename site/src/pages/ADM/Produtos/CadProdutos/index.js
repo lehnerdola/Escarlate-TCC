@@ -5,11 +5,9 @@ import addimgft from '../../../../assets/images/Group 61.png';
 import BotaoADM from '../../../Components/Adm/Button/' 
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { cadastrarProduto, enviarImagem } from '../../../../api/adminAPI.js';
 import { useEffect } from 'react';
-import { listarCategorias, listarArtistas, enviarImagemProduto, buscarImagem, AlterarProjeto, buscarPorId } from '../../../../api/adminAPI.js';
+import { listarCategorias, listarArtistas, enviarImagemProduto, buscarImagem, AlterarProduto, buscarPorId,cadastrarProduto } from '../../../../api/adminAPI.js';
 import storage from 'local-storage'
-import { AlterarProduto } from '../../../../api/adminAPI.js';
 export default function CadProdutos()
 {
     const [idArtista, setIdArtista] = useState();   
@@ -28,25 +26,8 @@ export default function CadProdutos()
     
     const { idParam } = useParams();
 
-    useEffect(() => {
-        if(idParam){
-            CarregarProduto();
-        }
-    }, [])
-
-    async function CarregarProduto(){
-        const resposta = await buscarPorId(idParam);
-        setNome(resposta[0].nome);
-        setTamanho(resposta[0].tamanho);
-        setDisponivel(resposta[0].disponivel);
-        setPreco(resposta[0].preco);
-        setQuantidade(resposta[0].quantidade);
-        setCategorias(resposta[0].categorias);
-        setId(resposta.id);
-        setImagem(resposta[0].imagem);
-    }
-
-    const [imagem, setImagem] = useState();
+   
+      const [imagem, setImagem] = useState();
     const [quantidade, setQuantidade] = useState('');
 
     async function salvar() {
@@ -64,12 +45,10 @@ export default function CadProdutos()
 
              else{
                 await AlterarProduto(id, idArtista,nome, tamanho, disponivel, preco, quantidade, catSelecionadas)
-              if(typeof(imagem) == 'object'){
-              await enviarImagemProduto(id, imagem);
+                await enviarImagemProduto(id, imagem);
              }
              alert('projeto alterado')
         }
-    }
         catch (err) {
             alert(err.response.data.erro);
         }
@@ -90,11 +69,10 @@ function mostrarImagem(){
 
 function novoClick() {
     setId(0);
-    setCategorias('');
     setNome('');
     setTamanho('');
     setDisponivel('');
-    setPreco('');
+    setPreco('');   
     setImagem();
 }
 
@@ -125,8 +103,10 @@ function novoClick() {
     }, [])
 
     return(
+        <div>
+                        <MenuADM/>
+
         <div className='cad-prod'>
-            <MenuADM/>
 
             <nav className='nav-cad-prod'>
             <h1 className='tit-cad-prod'>Cadastre seu produto</h1>
@@ -189,6 +169,7 @@ function novoClick() {
               </div>
 
             </nav>
+        </div>
         </div>
     )
 }
