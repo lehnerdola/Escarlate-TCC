@@ -33,21 +33,11 @@ export default function CadProdutos()
     async function salvar() {
         try {
             
-            if(id===0)
-            {
-
             const r =  await cadastrarProduto(idArtista,nome, tamanho, disponivel, preco, quantidade, catSelecionadas);
             await enviarImagemProduto(imagem, r.id)
             alert('produto cadastrado')
 
             setId(r.id);
-             }
-
-             else{
-                await AlterarProduto(id, idArtista,nome, tamanho, disponivel, preco, quantidade, catSelecionadas)
-                await enviarImagemProduto(id, imagem);
-             }
-             alert('projeto alterado')
         }
         catch (err) {
             alert(err.response.data.erro);
@@ -116,7 +106,7 @@ function novoClick() {
                     <input type='file' id='img' onChange={e => setImagem(e.target.files[0])} className='form_input'/>
                    
                     {imagem &&
-                    <img src={mostrarImagem()}/> 
+                    <img width={250} src={mostrarImagem()}/> 
                     }
 
                 <div onClick={escolherImagem}>
@@ -138,6 +128,7 @@ function novoClick() {
                     <input className='input-cad-prod' value={quantidade} onChange={e => setQuantidade(e.target.value)}/>
                     <p>Categoria do produto:</p>
                     <select className='input-cad-prod' value={idCategoria} onChange={(e) => setIdCategoria(e.target.value)}>
+                    <option selected disabled hidden>Selecione</option>
                         
 
                     {categorias.map(item =>
@@ -155,16 +146,16 @@ function novoClick() {
 
                     <p>Artista:</p>
                     <select className='input-cad-prod' value={idArtista} onChange={(e) => setIdArtista(e.target.value)}>
-
+                    <option selected disabled hidden>Selecione</option>
                     {artistas.map(item =>
                     <option value={item.id}>{item.artista}</option>
                     )};
 
                     </select>
-
+                <div>
                     <button  onClick={salvar} className='botao-adm-2'>Salvar</button>
-                    <button onClick={novoClick}>Novo</button>
-
+                    <button className='botao-adm-2' onClick={novoClick}>Novo</button>
+            </div>
                 </aside>
               </div>
 

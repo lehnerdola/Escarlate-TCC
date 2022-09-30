@@ -27,9 +27,9 @@ export default function Produtos(){
 
     async function deletarProduto(id, nome) {
 		
-						const resposta = await removerProduto(id, nome);
-						carregarTodosProdutos();
-						toast.success("🔥 Produto " + nome + " removido!");
+		const resposta = await removerProduto(id, nome);
+			carregarTodosProdutos();
+			toast.success("🔥 Produto " + nome + " removido!");
 			
 	}
 
@@ -61,7 +61,9 @@ export default function Produtos(){
                 <p className='txt-conf-cardpah-underline'>{item.tamanho}</p>
                 </div>
                 <div className='bt-card-pah'>
-                <button onClick={() => deletarProduto(item.id, item.nome)}>EXCLUIR PRODUTO</button>
+                    <div onClick={() => deletarProduto(item.id, item.nome)} >
+                    <BotaoADM nome='EXCLUIR PRODUTO'/>
+                </div>
                 <Link to = '/CadProdutos'>        
                 <BotaoADM nome='EDITAR PRODUTO'/>
                 </Link>

@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
 
+
     .nav-cad-prod{
         display: flex;
         flex-direction: column;
@@ -17,13 +18,14 @@
         justify-content:space-around;
         align-items: center;
         width: 70vw;
-        height: 75.2vh;
+        height: 47.1rem;
         margin-top: 8rem;
         padding-left: 5em;
     }
 
     .input-cad-prod{
-        width: 15rem;
+        width: 100%;
+        max-width: 15rem;
         height: 3.5vh;
         margin-bottom: 10px;
         margin-top: 5px;
@@ -84,7 +86,9 @@
         font-family: 'Poppins-Regular';
         color: #fff;
         cursor: pointer;
+        margin-left: 1rem;
     }
+    
     .imagem-cadastro-produto{
         margin-bottom: 5em;
     }

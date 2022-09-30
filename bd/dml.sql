@@ -95,16 +95,16 @@ update tb_usuario_endereco
 select * from tb_usuario;
 
 -- cadastrar novo artista
-insert into tb_artista
-        values(1, 'Metallica', 'Metallica é uma banda norte-americana de heavy metal. O seu repertório inclui instrumentos e musicalidade agressiva. O Metallica formou-se em 1981.', 'https://www.metalremains.com/images/grupo.jpg');        
+insert into tb_artista (nm_artista, ds_artista, img_artista)
+        values('metalico', 'Metallica é uma banda norte-americana de heavy metal. O seu repertório inclui instrumentos e musicalidade agressiva. O Metallica formou-se em 1981.', 'https://www.metalremains.com/images/grupo.jpg');        
                 
 -- cadrastar nova categoria de artista
-insert into tb_artista_categoria 
-	    values (1, 1, 1, 'Hits do momento');
+insert into tb_artista_categoria (id_artista, id_artista_categoria_musical)
+	    values (2, 1);
         
 -- cadrastar nova categoria musical
-insert into tb_artista_categoria 
-	    values (1, 1, 'Heavy metal');
+insert into tb_categoria_musical(ds_categoria)
+	    values ('Heavy metal');
         
 -- alterar dados do artista 
 update tb_artista
@@ -135,9 +135,12 @@ select *
 insert into tb_produto 
         values (1, 1, 'Metallica poster Master of Puppets', '20cm x 29,7cm', true, '0,00', 1, 'https://www.europosters.pt/posters/metallica-master-of-puppets-v20848');
 
+insert into tb_categoria(nm_categoria)
+values ('Canucas Babidi');
+
 -- cadastrar nova categoria de prod
-insert into tb_produto_categoria
-        values (1, 1, 'Posters');
+insert into tb_produto_categoria (id_produto, id_categoria)
+        values (2, 1);
 
 -- consultar todos prod
 select * from tb_produto;
@@ -248,3 +251,13 @@ update tb_pag_cartao
        cvv_cartao      = ?,
        dt_vencimento   = ?
  where id_pag_cartao   = ?;
+ 
+delete from tb_categoria
+where id_categoria = 1;
+
+show tables;
+
+select * from tb_produto;
+select * from tb_categoria;
+select * from tb_artista;
+
