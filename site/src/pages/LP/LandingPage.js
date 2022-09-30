@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
 import { motion } from 'framer-motion';
 
-import guitarra from '../../assets/images/zyro-image.png';
-import logo from '../../assets/images/Group 1.png';
-import '../../Common.scss'
-import './lp.scss'
+import '../../Common.scss';
+import './lp.scss';
 
 export default function LandingPage() {
 
@@ -12,8 +10,8 @@ export default function LandingPage() {
       <section className="section-mae">
          <header className="cabeçalho-lp"> 
 
-         <motion.img src={logo} width={200} height={60}
-            whileHover={{ scale: 1.3 }}
+         <motion.img src={'../../assets/images/Group 1.png'} width={200} height={60}
+            whileHover={{ scale: 1.2 }}
             onHoverStart={e => {}}
             onHoverEnd={e => {}}/>
 
@@ -54,7 +52,7 @@ export default function LandingPage() {
          </p>
          </div>
 
-         <motion.img src={guitarra} width={500}
+         <motion.img src={'../../assets/images/zyro-image.png'} width={500}
          animate={{rotate:360}}
          transition={{ease:"linear", delay:0, duration:2, type:"spring"}}
          />
@@ -65,7 +63,7 @@ export default function LandingPage() {
 <div className="sub-div-2-lp">
 
    <div className="texto-f2-lp">
-   <motion.img src="./images/IDOLS-removebg-preview (1) 1.png" width={250}/>
+   <motion.img src="../../assets/images/IDOLS-removebg-preview (1) 1.png" width={250}/>
       <div className="texto-1-f2-lp">
       <h2  className="titulo-3-lp"> O que é uma pessoa se não as <span className="cor-txt">marcas</span> que deixa para trás? </h2>
       <p className="txt-f2-lp">Porquê a felicidade é breve, mas a história é duradoura e, no fim, todo mundo quer ser lembrado.</p>
@@ -75,21 +73,21 @@ export default function LandingPage() {
 
    <div className="desc-lp">
       <div className="desc">
-         <img src="./images/IMG_2_LP-removebg-preview 1 (1).png" width={200}/>
+         <img src="../../assets/images/IMG_2_LP-removebg-preview 1 (1).png" width={250}/>
          <p className="txt-desc">
          Descubra os hits dos seus artistas favoritos
          </p>
       </div>
 
       <div className="desc">
-         <img src="./images/LANDINPAGE_IMG1-removebg-preview 1 (1).png" width={200}/>
+         <img src="../../assets/images/LANDINPAGE_IMG1-removebg-preview 1 (1).png" width={250}/>
          <p className="txt-desc">
          Maior acessibilidade a produtos originais do seu ídolo do rock
          </p>
       </div>
 
       <div className="desc">
-         <img src="./images/LP_2-removebg-preview 1 (1).png" width={200}/>
+         <img src="../../assets/images/LP_2-removebg-preview 1 (1).png" width={250}/>
          <p className="txt-desc">
          Todos os lançamentos e pré-vendas exclusivas aqui!
          </p>

@@ -7,11 +7,6 @@ import { Logar } from "../../../api/adminAPI.js";
 import LoadingBar from 'react-top-loading-bar';
 import {motion} from 'framer-motion';
 
-import Imgvisbile from '../../../assets/images/icons8-visível-30.png';
-import Imgoff from '../../../assets/images/icons8-ocultar-30.png';
-import abelha from '../../../assets/images/belha sem fundo 1.png';
-import logo from '../../../assets/images/Captura de Tela (2).png'
-
 
 import storage from 'local-storage';
 
@@ -22,7 +17,7 @@ export default function LoginADM(){
     const [senha, setSenha] = useState('');
     const [erro, setErro] = useState('');
     const [carregando, setCarregando] = useState(false);
-    const [icon, setIcon] = useState(Imgoff);
+    const [icon, setIcon] = useState('/assets/images/icons8-ocultar-30.png');
     const [type, setType] = useState('password');
     const [isopen, setIsopen] = useState(false);
 
@@ -33,12 +28,12 @@ export default function LoginADM(){
 
     const handleToogle=() => {
         if(type=== "password"){
-            setIcon(Imgvisbile)
+            setIcon('/assets/images/icons8-visível-30.png')
             setType('text')
             setIsopen(true)
         }
         else{
-            setIcon(Imgoff)
+            setIcon('/assets/images/icons8-ocultar-30.png')
             setType('password')
             setIsopen(false)
         }
@@ -82,11 +77,11 @@ return(
 
         <div className="login">
 
-        <img src={abelha}width={400}/>
+        <img src='/assets/images/belha sem fundo.png' width={400}/>
 
         <div className="infos">
 
-            <img className="logo" src={logo} width={200} height={60} />
+            <img className="logo" src={'/assets/images/Captura de Tela (2).png'} width={200} height={60} />
             <div>
             <form>
             <p className="info-adm">CPF:</p>

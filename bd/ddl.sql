@@ -1,3 +1,5 @@
+drop database Escarlate;
+
 create database Escarlate;
 use Escarlate;
 
@@ -14,6 +16,12 @@ ds_artista varchar(150) ,
 img_artista varchar(700) 
 );
 
+
+create table tb_categoria_musical(
+id_artista_categoria_musical int primary key auto_increment,
+ds_categoria varchar(150) not null
+);
+
 create table tb_artista_categoria(
 id_artista_categoria int primary key auto_increment,
 id_artista int,
@@ -21,11 +29,6 @@ id_artista_categoria_musical int,
 
 foreign key (id_artista) references tb_artista(id_artista),
 foreign key (id_artista_categoria_musical) references tb_categoria_musical(id_artista_categoria_musical)
-);
-
-create table tb_categoria_musical(
-id_artista_categoria_musical int primary key auto_increment,
-ds_categoria varchar(150) not null
 );
 
 create table tb_produto(
@@ -40,7 +43,10 @@ img_produto varchar(700),
 foreign key (id_artista) references tb_artista(id_artista)
 );
 
-drop table tb_artista;
+create table tb_categoria(
+id_categoria int primary key auto_increment,
+nm_categoria varchar(150)
+);
 
 create table tb_produto_categoria(
 id_produto_categoria int primary key auto_increment,
@@ -51,12 +57,6 @@ foreign key (id_produto) references tb_produto(id_produto),
 foreign key (id_categoria) references tb_categoria(id_categoria)
 );
 
-drop database Escarlate;  
-
-create table tb_categoria(
-id_categoria int primary key auto_increment,
-nm_categoria varchar(150)
-);
 create table tb_usuario(
 id_usuario int primary key auto_increment,
 nm_usuario varchar(150) ,
