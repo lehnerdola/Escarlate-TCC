@@ -1,0 +1,107 @@
+.page-cadastro{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 6em;
+    width: 90%;
+
+    .sec-1-cad{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tit-cad{
+        width: 44%;
+    }
+
+      .txt-1-cad{
+        font-family: 'CinzelDecorative-Black';
+        font-size: 30px;
+    }
+
+    .txt-2-cad{
+        font-family: 'Poppins-Regular';
+        mix-blend-mode: darken;
+        padding-top: 10px;
+    }
+
+    .sec-2-cad{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        background-color: #1f1f1f;
+        align-items: center;
+        width: 50vw;
+        height: 75vh;
+        border-radius: 25px;
+    }
+
+   .input-cad-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 35vh;
+   }
+
+    .input-cad{
+        height: 4.5vh;
+        border-radius: 7px;
+        width: 20vw;
+        font-family: 'Poppins-Regular';
+    }
+
+    .txt-input-cad{
+        font-family: 'Poppins-Regular';
+        color: #fff;
+    }
+
+    .cor{
+        color: rgb(175, 46, 46);
+    }
+
+    .img-cobra{
+        width: 7em;
+        height: 12em;
+    }
+
+    .div-txt-cad{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-top: 1em;
+    }
+
+    .txt-cad-div{
+        color: #fff;
+        font-size: 15px;
+        font-family: 'Poppins-Regular';
+    }
+
+    .cad-cor{
+        text-decoration: underline;
+        font-size: 15px;
+        font-family: 'Poppins-Regular';
+        color: rgb(175, 46, 46);
+    }
+
+    .bt-cadastro-usuario{
+        background-color: #fff;
+        border-radius: 10px;
+        border: none;
+        padding: 0.3em;
+        height: 2.5em;
+        text-align: center;
+        align-items: center;
+    }
+
+    .txt-bt-cad-usuario{  
+        text-align: center;      
+        font-family: 'Poppins-Medium';
+        color: rgb(175, 46, 46);
+        font-size:14px;
+}
+}
+
