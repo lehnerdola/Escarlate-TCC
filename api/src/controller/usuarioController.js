@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { cadastrarUsuario } from "../repository/usuarioRepository.js";
+import { cadastrarUsuario, loginUsuario } from "../repository/usuarioRepository.js";
 
 const server = Router();
 
@@ -30,6 +30,26 @@ server.post('/usuario', async (req, resp)=> {
         });
     }
 
-})
+});
+
+server.post('/usuario/login', async (req,resp) => {
+    try {
+         const {email, senha} = req.body;
+         const resposta= await loginUsuario(email,senha);
+
+         if(!resposta) {
+            throw new Error('Credenciais inválidas')
+         } 
+                  
+         resp.send(resposta)
+
+   } 
+    catch (err) {
+         resp.status(401).send({
+             erro: err.message
+         });
+    } 
+  });
+  
 
 export default server;

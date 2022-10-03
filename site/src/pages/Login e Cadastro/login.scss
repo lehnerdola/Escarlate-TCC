@@ -1,0 +1,119 @@
+.page-login{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 6em;
+    width: 95%;
+
+    .sec-1-login{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tit-login{
+        width: 70%;
+    }
+
+      .txt-1-login{
+        font-family: 'CinzelDecorative-Black';
+        font-size: 30px;
+    }
+
+    .txt-2-login{
+        font-family: 'Poppins-Regular';
+        mix-blend-mode: darken;
+        padding-top: 10px;
+    }
+
+    .txt-align-login{
+        margin-left: 3em;
+    }
+
+    .sec-2-login{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        background-color: #1f1f1f;
+        align-items: center;
+        width: 40vw;
+        height: 75vh;
+        border-radius: 25px;
+    }
+
+   .input-login-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 25vh;
+   }
+
+    .input-login{
+        height: 4.5vh;
+        border-radius: 7px;
+        width: 20vw;
+        font-family: 'Poppins-Regular';
+    }
+
+    .txt-input-login{
+        font-family: 'Poppins-Regular';
+        color: #fff;
+    }
+
+    .cor{
+        color: rgb(175, 46, 46);
+    }
+
+    .img-cobra{
+        width: 7em;
+        height: 12em;
+    }
+
+    .div-txt-login{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-top: 1em;
+    }
+
+    .txt-login-div{
+        color: #fff;
+        font-size: 15px;
+        font-family: 'Poppins-Regular';
+    }
+
+    .login-cor{
+        text-decoration: underline;
+        font-size: 15px;
+        font-family: 'Poppins-Medium';
+        color: rgb(175, 46, 46);
+    }
+
+    .bt-login-usuario{
+        background-color: #fff;
+        border-radius: 10px;
+        border: none;
+        padding: 0.5em;
+        width: 5em;
+        height: 2.5em;
+        text-align: center;
+        align-items: center;
+    }
+
+    .txt-bt-login-usuario{  
+        text-align: center;      
+        font-family: 'Poppins-Medium';
+        color: rgb(175, 46, 46);
+        font-size:14px;
+}
+
+    .div-adm-login{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 20vh;
+    }
+}
+

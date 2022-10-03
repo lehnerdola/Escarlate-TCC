@@ -22,6 +22,8 @@ export default function Index(){
     <Route exact path='/LoginADM' element={<LoginADM/>} />
     <Route exact path='/TelaInicial' element={<TelaInicial/>}/>
     <Route exact path='/Produtos' element={<Produtos/>}/>  
+    <Route exact path='/Cadastro' element={<Cadastro/>}/> 
+    <Route exact path='/Feed' element={<Feed/>}/>  
     <Route exact path='/CadProdutos' element={<CadProdutos/>}/>    
     <Route path='/alterar/:idParam' element={<CadProdutos/>} />
   </Routes>

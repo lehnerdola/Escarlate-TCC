@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
-import './loginADM.scss'
+import './login.scss'
 import '../../../Common.scss';
 import { Logar } from "../../../api/adminAPI.js";
 import LoadingBar from 'react-top-loading-bar';
 import {motion} from 'framer-motion';
-
+import abelha from '../../../assets/images/belha sem fundo 1.png'
 
 import storage from 'local-storage';
 
@@ -77,7 +77,7 @@ return(
 
         <div className="login">
 
-        <img src='/assets/images/belha sem fundo.png' width={400}/>
+        <img src={abelha} width={400}/>
 
         <div className="infos">
 

@@ -22,64 +22,31 @@
     position: absolute;
     width: 122px;
     height: 42px;
-    left: 975px;
+    left: 988px;
     margin-top: -1.6em;
     background: #000000;
     border-radius: 200px;
-    box-shadow: -22px 20px 79px 0px rgba(0,0,0,0.83);
--webkit-box-shadow: -22px 20px 79px 0px rgba(0,0,0,0.83);
--moz-box-shadow: -22px 20px 79px 0px rgba(0,0,0,0.83);
     }
-
-      
-    .bt-login:hover{
-        position: absolute;
-        width: 127px;
-        height: 48px;
-        left: 975px;
-        margin-top: -1.7em;
-        background: #1b1b1b;
-        border-radius: 200px;
-        box-shadow: -22px 20px 79px 0px rgba(0,0,0,0.83);
-    -webkit-box-shadow: -22px 20px 79px 0px rgba(0,0,0,0.83);
-    -moz-box-shadow: -22px 20px 79px 0px rgba(0,0,0,0.83);
-        }
     
     .bt-cadastro{
     position: absolute;
-    width: 140px;
+    width: 122px;
     height: 42px;
     left: 1122px;
+    margin-top: -1.6em;
     background: #000000;
     border-radius: 200px;
-    box-shadow: -22px 20px 79px 0px rgba(0,0,0,0.83);
-    -webkit-box-shadow: -22px 20px 79px 0px rgba(0,0,0,0.83);
-    -moz-box-shadow: -22px 20px 6px 0px rgba(0,0,0,0.83);
     }
-
-    .bt-cadastro:hover{
-        position: absolute;
-        width: 142px;
-        height: 46px;
-        left: 1122px;
-        background: #1b1b1b;
-        border-radius: 200px;
-        box-shadow: -22px 20px 79px 0px rgba(0,0,0,0.83);
-        -webkit-box-shadow: -22px 20px 79px 0px rgba(0,0,0,0.83);
-        -moz-box-shadow: -22px 20px 6px 0px rgba(0,0,0,0.83);
-        }
     
     .bt-login-txt, .bt-cadastro-txt{
     font-family: 'CinzelDecorative-Black';
     font-style: normal;
     font-weight: 900;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 20px;
     text-transform: capitalize;
     color: #FFFFFF;
     }
-
-
     
     .faixa-1-lp{
     display: flex;
@@ -105,7 +72,6 @@
     -webkit-text-stroke:#000000;
     -webkit-text-stroke-width: 1.7px;
     mix-blend-mode: normal;
-    text-shadow: -2px 7px 7px rgba(0,0,0,0.64);
     }
     .titulo-2-lp{
     font-family: 'CinzelDecorative-Regular';
@@ -116,7 +82,7 @@
     color: #A83F37; 
     -webkit-text-stroke:#000000;
     -webkit-text-stroke-width: 0.6px;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.64);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
     
     .txt-1-lp{
@@ -130,19 +96,14 @@
     line-height: 30px;
     text-transform: capitalize;
     -webkit-text-stroke-width: 0px;
-    
     }
     
     .cor-txt{
         color: #A83F37;
-        -webkit-text-stroke:#000000;
-    -webkit-text-stroke-width: 0.6px;
     }
     
     .cor-letra-lp{
         color: #A83F37;
-        -webkit-text-stroke:#000000;
-    -webkit-text-stroke-width: 0.6px;
     }
     
     .faixa-2-lp{
@@ -186,8 +147,6 @@
         text-indent: 3px;
         text-transform: capitalize;
         font-feature-settings: 'kern' off;
-        -webkit-text-stroke:#000000;
-    -webkit-text-stroke-width: 0.6px;
     }
     
     .txt-f2-lp{
@@ -206,17 +165,17 @@
     
     .desc-lp{
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
         flex-direction: row;
+        padding-top: 1rem;
         padding-right: 5rem;
-        padding-top: 12rem;
-
+        padding-top: 5rem;
     }
     
     .txt-desc{
     font-family: 'Cinzel-Regular';
-    width: 250px;
-    font-size: 18px;
+    width: 200px;
+    font-size: 16px;
     line-height: 25px;
     text-align: center;
     color: #FFFFFF;

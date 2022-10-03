@@ -54,7 +54,9 @@ return(
        <div className="div-txt-cad">
         <div>        
         <p className="txt-cad-div">Já sou do rock!</p>
+        <Link to='/login'> 
         <span className="cad-cor">Login</span>
+        </Link>
         </div>
        <button className="bt-cadastro-usuario" onClick={SalvarClick}><p className="txt-bt-cad-usuario">Cadastre-se</p></button>
 
