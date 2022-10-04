@@ -1,12 +1,7 @@
 import { Link } from "react-router-dom";
 import './index.scss'
 import '../../Common.scss';
-
 import { cadastrarUsuario } from "../../api/usuarioAPI.js";
-
-import stayhome from '../../assets/images/image_processing20200408-11472-15bdle1-removebg-preview 1.png';
-import logo from '../../assets/images/Captura de Tela (2).png';
-import cobra from '../../assets/images/1659570118266 1.png'
 import { useState } from "react";
 
 export default function Cadastro(){
@@ -35,12 +30,12 @@ return(
                 você ao seu ídolo!
             </p>
         </div>
-        <img src={stayhome} width={350}/>
+        <img src={'../../assets/images/image_processing20200408-11472-15bdle1-removebg-preview 1.png'} width={350}/>
     </section>
 
     <section className="sec-2-cad">
        <div className="info-sec-2">
-       <img src={logo} width={170}/>
+       <img src={'../../assets/images/Captura de Tela (2).png'} width={170}/>
 
        <div className='input-cad-div'>
        <p className="txt-input-cad" >Nome: <span className="cor">*</span></p>
@@ -63,7 +58,7 @@ return(
        </div>
 
        </div> 
-    <img src={cobra} className='img-cobra'/>
+    <img src={'../../assets/images/1659570118266 1.png'} className='img-cobra'/>
     </section>
  </main>
 )

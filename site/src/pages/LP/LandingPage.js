@@ -1,8 +1,5 @@
 import { Link } from "react-router-dom";
 import { motion } from 'framer-motion';
-
-import guitarra from '../../assets/images/zyro-image.png';
-import logo from '../../assets/images/Group 1.png';
 import '../../Common.scss'
 import './lp.scss'
 
@@ -12,7 +9,7 @@ export default function LandingPage() {
       <section className="section-mae">
          <header className="cabeçalho-lp"> 
 
-         <motion.img src={logo} width={200} height={60}
+         <motion.img src={'../../assets/images/Group 1.png'} width={200} height={60}
             whileHover={{ scale: 1.3 }}
             onHoverStart={e => {}}
             onHoverEnd={e => {}}/>
@@ -42,7 +39,7 @@ export default function LandingPage() {
          animate={{ opacity: 1, y:[-100,0]}}
          transition={{ delay: 0, duration: 1 }}
          >
-         Bem vindos, 
+         Bem vindo,
          <p className="titulo-2-lp">AO SUBMUNDO!</p>
          </motion.h1>
 
@@ -56,7 +53,7 @@ export default function LandingPage() {
          </p>
          </div>
 
-         <motion.img src={guitarra} width={500}
+         <motion.img src={'../../assets/images/zyro-image.png'} width={500}
          animate={{rotate:360}}
          transition={{ease:"linear", delay:0, duration:2, type:"spring"}}
          />
@@ -77,21 +74,21 @@ export default function LandingPage() {
 
    <div className="desc-lp">
       <div className="desc">
-         <img src="./images/IMG_2_LP-removebg-preview 1 (1).png" width={200}/>
+         <img className="icon" src="./images/moon.png" width={250}/>
          <p className="txt-desc">
          Descubra os hits dos seus artistas favoritos
          </p>
       </div>
 
       <div className="desc">
-         <img src="./images/LANDINPAGE_IMG1-removebg-preview 1 (1).png" width={200}/>
+         <img className="icon2" src="./images/triangleicon.png" width={250}/>
          <p className="txt-desc">
          Maior acessibilidade a produtos originais do seu ídolo do rock
          </p>
       </div>
 
       <div className="desc">
-         <img src="./images/LP_2-removebg-preview 1 (1).png" width={200}/>
+         <img className="icon3" src="./images/hearticon.png" width={250}/>
          <p className="txt-desc">
          Todos os lançamentos e pré-vendas exclusivas aqui!
          </p>

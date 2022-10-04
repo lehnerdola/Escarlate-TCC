@@ -1,32 +1,43 @@
-.cabeçalho-lp{
+.cabeçalho-lp {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     position: absolute;
-    width: 1325px;
+    width: 1276.5px;
     height: 90px;
     left: -14px;
     top: 0px;
     background: #A83F37;
     }
     
-    .botao-cabeçalho-lp{
+    .botao-cabeçalho-lp {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     }
     
-    .bt-login{
+    .bt-login {
     position: absolute;
     width: 122px;
     height: 42px;
-    left: 988px;
+    left: 970px;
     margin-top: -1.6em;
     background: #000000;
     border-radius: 200px;
+    box-shadow: -13px 18px 66px 0px black;
     }
+    .bt-login:hover {
+        position: absolute;
+        width: 124px;
+        height: 45px;
+        left: 970px;
+        margin-top: -1.6em;
+        background: #111111;
+        border-radius: 200px;
+        box-shadow: -13px 19px 41px 0px black;
+        }
     
     .bt-cadastro{
     position: absolute;
@@ -36,7 +47,18 @@
     margin-top: -1.6em;
     background: #000000;
     border-radius: 200px;
+    box-shadow: -13px 18px 66px 0px #000;
     }
+    .bt-cadastro:hover{
+        position: absolute;
+        width: 124px;
+        height: 46px;
+        left: 1122px;
+        margin-top: -1.6em;
+        background: #111111;
+        border-radius: 200px;
+        box-shadow: -13px 19px 41px 0px black;
+        }
     
     .bt-login-txt, .bt-cadastro-txt{
     font-family: 'CinzelDecorative-Black';
@@ -53,7 +75,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 1311px;
+    width: 1263px;
     height: 750px;
     padding: 5em;
     background-color: #1f1f1f;
@@ -110,12 +132,12 @@
         display: flex;
         background: rgb(31,31,31);
         background: linear-gradient(180deg, rgba(31,31,31,1) 21%, rgba(168,63,55,1) 80%);
-        width: 1311px;
+        width: 1263px;
         padding-left: 6em;
         align-items: center;
     }
     
-    .texto-f2-lp{
+    .texto-f2-lp {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -186,5 +208,5 @@
     background: rgb(168,63,55);
     background: linear-gradient(90180deg, rgba(168,63,55,1) 21%, rgba(31,31,31,1) 80%);
     height: 580px;
-    width: 1311px;
+    width: 1263px;
     }

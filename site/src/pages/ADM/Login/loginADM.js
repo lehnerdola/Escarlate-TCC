@@ -6,7 +6,6 @@ import '../../../Common.scss';
 import { Logar } from "../../../api/adminAPI.js";
 import LoadingBar from 'react-top-loading-bar';
 import {motion} from 'framer-motion';
-import abelha from '../../../assets/images/belha sem fundo 1.png'
 
 import storage from 'local-storage';
 
@@ -77,7 +76,7 @@ return(
 
         <div className="login">
 
-        <img src={abelha} width={400}/>
+        <img src={'../../../assets/images/belha sem fundo 1.png'} width={400}/>
 
         <div className="infos">
 

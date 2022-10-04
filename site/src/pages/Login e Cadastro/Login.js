@@ -5,9 +5,6 @@ import {storage} from 'local-storage'
 import { loginUsuario } from "../../api/usuarioAPI.js";
 import LoadingBar from "react-top-loading-bar";
 
-import stayhome from '../../assets/images/image_processing20200408-11472-15bdle1-removebg-preview 1.png';
-import logo from '../../assets/images/Captura de Tela (2).png';
-import cobra from '../../assets/images/1659570118266 1.png';
 
 export default function Login(){
 
@@ -50,12 +47,12 @@ return(
         <div className="tit-login">
             <h1 className="txt-1-login">BEM VINDO, <span className='txt-align-login'>DE VOLTA</span></h1>
                    </div>
-        <img src={stayhome} width={350}/>
+        <img src={'../../assets/images/image_processing20200408-11472-15bdle1-removebg-preview 1.png'} width={350}/>
     </section>
 
     <section className="sec-2-login">
        <div className="info-sec-2">
-       <img src={logo} width={170}/>
+       <img src={'../../assets/images/Captura de Tela (2).png'} width={170}/>
 
        <div className='input-login-div'>
        <p className="txt-input-login">Email: <span className="cor">*</span></p>
@@ -78,7 +75,7 @@ return(
 
        </div> 
     <div className='div-adm-login'>
-    <img src={cobra} className='img-cobra'/>
+    <img src={'../../assets/images/1659570118266 1.png'} className='img-cobra'/>
     <Link to='/LoginADM'>
     <p className='txt-login-div'>Sou <span className='login-cor'>Adm</span></p>
     </Link>
