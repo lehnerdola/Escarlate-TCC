@@ -1,0 +1,42 @@
+.feed{
+    display: flex;
+    flex-direction: column;
+    background-color: #1f1f1f;
+    align-items: center;
+    justify-content: space-around;
+    height: 170vh;
+
+    .sec-top-hits{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .div-top-hits{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        width: 80vw;
+        height: 35vh;
+        border: 2px solid #A83F37;
+    }
+
+      .sub-div-top-hits{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .conf-img-feed-music{
+        width: 125px;
+    }
+
+    .tit-musica{
+        padding-top: 10px;
+        color: #fff;
+        font-size: 15px;
+        font-family: 'Cinzel-Regular';
+    }
+}

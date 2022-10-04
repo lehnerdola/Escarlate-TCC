@@ -1,0 +1,62 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    height: 10vh;
+    justify-content: space-between;
+    background-color: #A83F37;
+    align-items: center;
+
+    .sub-header-1{
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-header-conf{
+        width:10em;
+    }
+
+    .nome-page{
+        font-family: 'Poppins-Regular';
+        font-size: 17px;
+        padding-left: 2em;
+        padding-bottom: 1px;
+    }
+
+   
+
+    .sub-header-2{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 6em;
+    }
+
+    .input-busca{
+        height: 4vh;
+        width: 28vw;
+        border: 1px solid #000;
+        background: transparent;
+        text-align: center;
+        font-family: 'Poppins-Regular';
+        color: #fff;
+        outline: 0;
+    }
+
+    .lupa-conf{
+        width: 25px;
+        border: none;
+        background: transparent;
+        margin-left: -27em;
+        margin-top: 1px;
+        position: absolute;
+    }
+
+    .lupa{
+        width: 25px;
+    }
+
+    .conf-img-header{
+        width: 2.5em;
+        height: 2.5em;
+    }
+}
