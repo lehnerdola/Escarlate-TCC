@@ -24,19 +24,46 @@ export default function CadProdutos()
     const [id, setId] = useState(0);
     
     const { idParam } = useParams();
+    useEffect(() =>{
+        if(idParam){
+            carregarProduto();
+        }
+    }, [])
+
+    async function carregarProduto(){
+        const r = await buscarPorId(idParam);
+        setIdArtista(r.artista);
+        setIdCategoria(r.categoria);
+        setNome(r.nome);
+        setTamanho(r.tamanho);
+        setDisponivel(r.disponivel);
+        setPreco(r.preco);
+        setId(r.id);
+        setImagem(r.imagem);
+        setQuantidade(r.quantidade);
+    }
 
    
-      const [imagem, setImagem] = useState();
+    const [imagem, setImagem] = useState();
     const [quantidade, setQuantidade] = useState('');
 
     async function salvar() {
         try {
             
-            const r =  await cadastrarProduto(idArtista,nome, tamanho, disponivel, preco, quantidade, catSelecionadas);
+            if(id === 0){
+
+            const r =  await cadastrarProduto(idArtista, idCategoria, nome, tamanho, disponivel, preco,quantidade);
             await enviarImagemProduto(imagem, r.id)
             alert('produto cadastrado')
 
             setId(r.id);
+            }
+
+            else{
+                await AlterarProduto (idArtista, idCategoria, nome, tamanho, disponivel, preco, quantidade);
+                await enviarImagemProduto(imagem, id);
+                alert('prod. alt.')
+            }
         }
         catch (err) {
             alert(err.response.data.erro);
@@ -63,10 +90,11 @@ function novoClick() {
     setDisponivel('');
     setPreco('');   
     setImagem();
+    setCatSelecionadas('');
 }
 
     function buscarNomeCategoria(id) {
-        const cat = categorias.find(item => item.id == id);
+        const cat = categorias.find(item => item.id === id);
         return cat.categoria;
     } 
 
@@ -105,12 +133,12 @@ function novoClick() {
                     <input type='file' id='img' onChange={e => setImagem(e.target.files[0])} className='form_input'/>
                    
                     {imagem &&
-                    <img width={250} src={mostrarImagem()}/> 
+                    <img width={250} src={mostrarImagem()} alt='img'/> 
                     }
 
                 <div onClick={escolherImagem}>
                     {!imagem &&
-                    <img src={'../../../../assets/images/Group 61.png'} width={250} className='imagem-cadastro-produto' />
+                    <img src={'../../../../assets/images/Group 61.png'} width={250} className='imagem-cadastro-produto' alt='img'/>
                     }
                 </div>
 

@@ -3,23 +3,13 @@ import { con } from "./connection.js";
 export async function salvarProduto(produto){
     const comando =
     `
-    insert into tb_produto(id_artista, nm_produto, ds_tam, bt_disponivel, vl_preco, qtd_produto)
-    values(?,?,?,?,?,?)                        
+    insert into tb_produto(id_artista, id_categoria, nm_produto, ds_tam, bt_disponivel, vl_preco, qtd_produto)
+    values(?,?,?,?,?,?,?)                        
     `
-    const [resp] = await con.query(comando, [produto.idArtista, produto.nome, produto.tamanho, produto.disponivel, produto.preco, produto.quantidade]);
+    const [resp] = await con.query(comando, [produto.idArtista, produto.idCategoria, produto.nome, produto.tamanho, produto.disponivel, produto.preco, produto.quantidade]);
 
     return resp.insertId;
 };
-
-export async function salvarProdutoCategoria(idProduto, idCategoria){
-    const comando =
-    `
-    insert into tb_produto_categoria(id_produto, id_categoria)
-    values(?,?)
-    `;
-
-    const [resp] = await con.query(comando, [idProduto, idCategoria])
-}
 
 export async function inserirImagemProduto(imagem, id){
     const c = 
@@ -37,14 +27,16 @@ export async function alterarProduto(id, produto){
     `
     update tb_produto
    set id_artista     = ?,
+       id_categoria   = ?,
        nm_produto     = ?,
        ds_tam         = ?, 
        bt_disponivel  = ?,
        vl_preco       = ?,
-       qtd_produto    = ?
+       qtd_produto    = ?,
+       img_produto    = ?
  where id_produto     = ?; 
     `
-    const [resp] = await con.query(comando, [produto.idArtista, produto.nome, produto.tamanho, produto.disponivel, produto.preco, produto.quantidade, id]);
+    const [resp] = await con.query(comando, [produto.idArtista, produto.idCategoria,produto.nome, produto.tamanho, produto.disponivel, produto.preco, produto.quantidade, produto.imagem, id]);
 
     return resp.affectedRows;
 }
@@ -54,6 +46,7 @@ export async function consultarTodosProdutos(){
     `
     select 
     id_produto id,
+    nm_categoria categoria,
     nm_artista artista,
     nm_produto nome,
     ds_tam tamanho,
@@ -62,8 +55,9 @@ export async function consultarTodosProdutos(){
     qtd_produto quantidade,
     img_produto imagem
     from tb_produto
-    join tb_artista on tb_produto.id_artista = tb_artista.id_artista;
-    `
+    join tb_artista on tb_produto.id_artista = tb_artista.id_artista
+    join tb_categoria on tb_produto.id_categoria = tb_categoria.id_categoria;
+`
     const [linhas] = await con.query(comando);
     return linhas;
 }
@@ -74,6 +68,7 @@ export async function consultarProdutosPorId(id){
     SELECT 
        id_produto	    id,
        id_artista       artista,
+       id_categoria     categoria,
        nm_produto       nome,
        ds_tam           tamanho,
        bt_disponivel    disponivel,
@@ -84,7 +79,7 @@ export async function consultarProdutosPorId(id){
   WHERE id_produto = ? 
   `;
     const [linhas] = await con.query(comando, [id]);
-    return linhas;
+    return linhas[0];
 }
 export async function excluirProduto(id){
     const comando = 

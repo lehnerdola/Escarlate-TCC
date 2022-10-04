@@ -1,9 +1,7 @@
-drop database Escarlate;
 
+drop table tb_produto_categoria;
 create database Escarlate;
 use Escarlate;
-
-select * from tb_produto;
 
 create table tb_admin_login(
 id_login_admin int primary key auto_increment,
@@ -17,8 +15,6 @@ nm_artista varchar(150) not null,
 ds_artista varchar(150) not null,
 img_artista varchar(700) not null
 );
-
-
 
 create table tb_categoria_musical (
 id_artista_categoria_musical int primary key auto_increment,
@@ -34,39 +30,25 @@ foreign key (id_artista) references tb_artista (id_artista),
 foreign key (id_artista_categoria_musical) references tb_categoria_musical(id_artista_categoria_musical)
 );
 
-
-
-
+create table tb_categoria(
+id_categoria int primary key auto_increment,
+nm_categoria varchar(150)
+);
 
 create table tb_produto(
 id_produto int primary key auto_increment,
 id_artista int,
+id_categoria int,
 nm_produto varchar(150) not null,
 ds_tam varchar(20) not null,
 bt_disponivel bool not null,
 vl_preco varchar(50) not null,
 qtd_produto int not null,
 img_produto varchar(700),
-foreign key (id_artista) references tb_artista(id_artista)
-);
-
-
-
-create table tb_categoria(
-id_categoria int primary key auto_increment,
-nm_categoria varchar(150)
-);
-
-
-
-create table tb_produto_categoria(
-id_produto_categoria int primary key auto_increment,
-id_produto int,
-id_categoria int,
-
-foreign key (id_produto) references tb_produto(id_produto),
+foreign key (id_artista) references tb_artista(id_artista),
 foreign key (id_categoria) references tb_categoria(id_categoria)
-); 
+);
+
 
 create table tb_usuario(
 id_usuario int primary key auto_increment,

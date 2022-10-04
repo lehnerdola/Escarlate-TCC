@@ -11,15 +11,15 @@ export async function Logar(cpf,senha){
     return r.data;
 }
 
-export async function cadastrarProduto( idArtista, nome, tamanho, disponivel, preco, quantidade ,categorias) {
+export async function cadastrarProduto( idArtista, idCategoria, nome, tamanho, disponivel, preco, quantidade ) {
 	const r = await api.post('/admin/produto', 
     { idArtista, 
+      idCategoria,
       nome, 
       tamanho, 
       disponivel, 
       preco, 
-      quantidade, 
-      categorias
+      quantidade
     });
 	return r.data;
 }
@@ -73,16 +73,17 @@ export async function buscarPorId(id){
     return resposta.data 
 }
 
-export async function AlterarProduto(idArtista, nome, tamanho, disponivel, preco, quantidade ,categorias, id){
+export async function AlterarProduto(idArtista, idCategoria, nome, disponivel, tamanho, preco, quantidade, id){
     const resposta = await api.put(`/alterar/${id}`, 
     {
-        idArtista, 
+        idArtista,
+        idCategoria,
         nome, 
-        tamanho, 
         disponivel, 
+        tamanho, 
         preco, 
-        quantidade, 
-        categorias
+        quantidade,
+        id
     })
     return resposta.data;
 

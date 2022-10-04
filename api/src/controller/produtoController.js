@@ -2,7 +2,7 @@ import { Router } from "express";
 import multer from 'multer';
 import { buscarArtistaPorId } from "../repository/artistasRepository.js";
 
-import { salvarProduto, salvarProdutoCategoria, inserirImagemProduto, alterarProduto, excluirProduto, consultarTodosProdutos, consultarProdutosPorId } from "../repository/produtoRepository.js";
+import { salvarProduto, inserirImagemProduto, alterarProduto, excluirProduto, consultarTodosProdutos, consultarProdutosPorId } from "../repository/produtoRepository.js";
 import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
 import { validarProduto } from "../service/produtoValidacao.js";
 
@@ -17,14 +17,6 @@ server.post('/admin/produto', async (req,resp) => {
          await validarProduto(produto);
 
          const idProduto = await salvarProduto(produto);
-
-        for(const idCateg of produto.categorias){
-            const cat = await buscarCategoriaPorId(idCateg);
-
-            if(cat != undefined){
-                await salvarProdutoCategoria(idProduto, idCateg)
-            }
-        }
                   
          resp.send({
             id: idProduto
