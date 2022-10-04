@@ -11,6 +11,7 @@ import Produtos from './pages/ADM/Produtos/TodosProdutos';
 import LoginADM from './pages/ADM/Login/loginADM';
 import TelaInicial from './pages/ADM/TelaInicial/index';
 import CadProdutos from './pages/ADM/Produtos/CadProdutos';
+import TodosProdutos from './pages/TodosProdutos/index'
 
 export default function Index(){
     return(
@@ -23,7 +24,8 @@ export default function Index(){
     <Route exact path='/TelaInicial' element={<TelaInicial/>}/>
     <Route exact path='/Produtos' element={<Produtos/>}/>  
     <Route exact path='/Cadastro' element={<Cadastro/>}/> 
-    <Route exact path='/Feed' element={<Feed/>}/>  
+    <Route exact path='/Feed' element={<Feed/>}/> 
+    <Route exact path='/TodosProdutos' element={<TodosProdutos/>}/>
     <Route exact path='/CadProdutos' element={<CadProdutos/>}/>    
     <Route path='/alterar/:idParam' element={<CadProdutos/>} />
   </Routes>
