@@ -44,6 +44,7 @@ export default function CadProdutos()
     }
 
    
+   
     const [imagem, setImagem] = useState();
     const [quantidade, setQuantidade] = useState('');
 
@@ -52,7 +53,7 @@ export default function CadProdutos()
             
             if(id === 0){
 
-            const r =  await cadastrarProduto(idArtista, idCategoria, nome, tamanho, disponivel, preco,quantidade);
+            const r =  await cadastrarProduto(idArtista, idCategoria, preco, nome, tamanho, disponivel,quantidade);
             await enviarImagemProduto(imagem, r.id)
             alert('produto cadastrado')
 
@@ -60,7 +61,7 @@ export default function CadProdutos()
             }
 
             else{
-                await AlterarProduto (idArtista, idCategoria, nome, tamanho, disponivel, preco, quantidade);
+                await AlterarProduto (id, idArtista, idCategoria, nome, tamanho, disponivel, preco, quantidade);
                 await enviarImagemProduto(imagem, id);
                 alert('prod. alt.')
             }
@@ -98,11 +99,6 @@ function novoClick() {
         return cat.categoria;
     } 
 
-    function adicionarCategoria() {
-        const categorias = [...catSelecionadas, idCategoria];
-        setCatSelecionadas(categorias);
-    }
-
     async function carregarCategorias() {
         const r = await listarCategorias();
         setCategorias(r);
@@ -121,7 +117,7 @@ function novoClick() {
 
     return(
         <div>
-                        <MenuADM/>
+        <MenuADM/>
 
         <div className='cad-prod'>
 
@@ -145,14 +141,19 @@ function novoClick() {
                 <aside className='aside-cad-prod'>
                     <p>Nome do produto:</p>
                     <input className='input-cad-prod' value={nome} onChange={e => setNome(e.target.value)}/>
+
                     <p>Preço do produto:</p>
                     <input className='input-cad-prod' value={preco} onChange={e => setPreco(e.target.value)}/>
+
                     <p>Disponível?</p>
                     <input className='input-cad-prod' type='checkbox' checked={disponivel} onChange={e => setDisponivel(e.target.checked)}/>
+
                     <p>Tamanhos disponíveis:</p>
                     <input  className='input-cad-prod' value={tamanho} onChange={e => setTamanho(e.target.value)}/>
+
                     <p>Quantidade:</p>
                     <input className='input-cad-prod' value={quantidade} onChange={e => setQuantidade(e.target.value)}/>
+
                     <p>Categoria do produto:</p>
                     <select className='input-cad-prod' value={idCategoria} onChange={(e) => setIdCategoria(e.target.value)}>
                     <option selected disabled hidden>Selecione</option>
@@ -162,14 +163,7 @@ function novoClick() {
                     <option value={item.id}>{item.categoria}</option>
                     )};
                     </select>
-                    <div className='cat-conteiner'>
-                            {catSelecionadas.map(id =>
-                            <div className='cat-selecionada'>
-                                {buscarNomeCategoria(id)}
-                            </div>
-                        )}
-                    </div>
-                    <button  onClick={adicionarCategoria} className='botao-adm-1'>+</button> 
+                    
 
                     <p>Artista:</p>
                     <select className='input-cad-prod' value={idArtista} onChange={(e) => setIdArtista(e.target.value)}>

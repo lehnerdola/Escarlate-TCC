@@ -32,12 +32,10 @@ export async function alterarProduto(id, produto){
        ds_tam         = ?, 
        bt_disponivel  = ?,
        vl_preco       = ?,
-       qtd_produto    = ?,
-       img_produto    = ?
- where id_produto     = ?; 
+       qtd_produto    = ?
+ where id_produto     = ?;
     `
-    const [resp] = await con.query(comando, [produto.idArtista, produto.idCategoria,produto.nome, produto.tamanho, produto.disponivel, produto.preco, produto.quantidade, produto.imagem, id]);
-
+    const [resp] = await con.query(comando, [produto.idArtista, produto.idCategoria,produto.nome, produto.tamanho, produto.disponivel, produto.preco, produto.quantidade, id]);
     return resp.affectedRows;
 }
 

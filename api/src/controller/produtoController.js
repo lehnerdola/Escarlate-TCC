@@ -51,6 +51,7 @@ server.put('/alterar/:id' , async (req, resp) => {
     try {
         const {id} = req.params;
         const produto = req.body;
+        console.log(produto);
         await validarProduto(produto);
 
         const resposta = await alterarProduto(id,produto);

@@ -78,12 +78,11 @@ export async function AlterarProduto(idArtista, idCategoria, nome, disponivel, t
     {
         idArtista,
         idCategoria,
-        nome, 
-        disponivel, 
-        tamanho, 
         preco, 
+        nome, 
+        tamanho, 
+        disponivel, 
         quantidade,
-        id
     })
     return resposta.data;
 
