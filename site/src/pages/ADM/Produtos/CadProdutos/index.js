@@ -57,7 +57,7 @@ export default function CadProdutos()
             
             if(id === 0){
 
-            const r =  await cadastrarProduto(idArtista, idCategoria, nome, tamanho, disponivel,quantidade,preco);
+            const r =  await cadastrarProduto(idArtista, idCategoria, nome, tamanho, disponivel,preco,quantidade);
             await enviarImagemProduto(imagem, r.id)
             alert('produto cadastrado')
 
@@ -65,7 +65,7 @@ export default function CadProdutos()
             }
 
             else{
-                await AlterarProduto (idParam, idArtista, idCategoria, nome, tamanho, disponivel,quantidade,preco);
+                await AlterarProduto (idArtista, idCategoria, nome, tamanho, disponivel,preco,quantidade, idParam);
                 if(typeof(imagem)== 'object'){
                     await enviarImagemProduto(idParam, imagem)
                 } 
@@ -95,9 +95,9 @@ function novoClick() {
     setNome('');
     setTamanho('');
     setDisponivel('');
+    setQuantidade('');
     setPreco('');   
     setImagem();
-    setCatSelecionadas('');
 }
 
     async function carregarCategorias() {

@@ -6,11 +6,22 @@ export default function Feed(){
 
 return(
 <main> 
-<Header nome='Início'/>
- <div className="feed">
+<header className='header'>
+             <div className='sub-header-1'>
+             <img src={'../../../../assets/images/Group 1.png'} className='logo-header-conf'/>
+             <h2 className='nome-page'>Início</h2>
+             </div>   
+             <div>
+            
+             </div>
+             <div className='sub-header-2'>
+                <img src={'../../../../assets/images/user.png'} className='conf-img-header'/>
+                <img src={'../../../../assets/images/cart.png'} className='conf-img-header'/>
+             </div>
+        </header> <div className="feed">
 
     <section className="sec-top-hits">
-    <h1>TOP HITS</h1>    
+    <h1 className="tit">TOP HITS</h1>    
     <div className="div-top-hits">
         <div className="sub-div-top-hits">
             <img src={'../../assets/images/Screenshot_20220806-195359-947 3.png'} className='conf-img-feed-music'/>
@@ -32,7 +43,7 @@ return(
     </section>
      
     <section className="sec-top-hits">
-    <h1>NOSSOS ARTISTAS</h1>    
+    <h1 className="tit">NOSSOS ARTISTAS</h1>    
     <div className="div-top-hits">
        <img src={'../../assets/images/Ellipse 4.png'} className='conf-img-feed-music'/> 
        <img src={'../../assets/images/Ellipse 5.png'} className='conf-img-feed-music'/> 
@@ -41,13 +52,13 @@ return(
     </section>
 
     <section className="sec-top-hits">
-    <Link to='/TodosProdutos'>  
+    <Link to='/TodosProdutos' className="tit">  
     <h1>NOSSOS PRODUTOS</h1>   
     </Link>   
     <div className="div-top-hits">
-       <img src={'../../assets/images/CANECA-removebg-preview 1.png'} className='conf-img-feed-music'/> 
-       <img src={'../../assets/images/BLUSA-removebg-preview 1.png'} className='conf-img-feed-music'/> 
-       <img src={'../../assets/images/POSTER 1.png'} className='conf-img-feed-music'/> 
+       <img src={'../../assets/images/CANECA-removebg-preview 1.png'} className='conf-img-feed-produto'/> 
+       <img src={'../../assets/images/BLUSA-removebg-preview 1.png'} className='conf-img-feed-produto'/> 
+       <img src={'../../assets/images/metalica poster.png'} className='conf-img-feed-produto'/> 
     </div>
     </section>
  </div>

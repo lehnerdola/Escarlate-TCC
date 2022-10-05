@@ -78,7 +78,7 @@ export async function buscarPorId(id){
     return resposta.data 
 }
 
-export async function AlterarProduto(idArtista, idCategoria, nome, disponivel, tamanho, preco, quantidade, id){
+export async function AlterarProduto(idArtista, idCategoria, nome, tamanho, disponivel, preco, quantidade, id){
     const resposta = await api.put(`/alterar/${id}`, 
     {
         idArtista,

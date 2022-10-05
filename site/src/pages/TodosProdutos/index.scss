@@ -24,4 +24,23 @@
         flex-direction: column;
         align-items: center;
     }
+
+    .titulo-todosprodutos{
+        font-family: 'CinzelDecorative-Regular';
+        text-transform: capitalize;
+        color: #ffff;
+        font-weight: 100;
+        font-size: 3rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .nome-prod{
+        font-family: 'Cinzel-Regular';
+        color: #ffff;
+        margin-top: 0.5rem;
+        width: 180px;
+        text-align: center;
+        
+    }
 }

@@ -10,21 +10,25 @@ export default function LandingPage() {
          <header className="cabeçalho-lp"> 
 
          <motion.img src={'../../assets/images/Group 1.png'} width={200} height={60}
-            whileHover={{ scale: 1.3 }}
+            whileHover={{ scale: 1.1 }}
             onHoverStart={e => {}}
             onHoverEnd={e => {}}/>
 
             <div className="botao-cabeçalho-lp">
            < Link to = '/login' >
-            <button className="bt-login">
+            <motion.button className="bt-login" whileHover={{ scale: 1.1 }}
+            onHoverStart={e => {}}
+            onHoverEnd={e => {}}>
             <p className="bt-login-txt"> Login </p> 
-            </button>
+            </motion.button>
             </Link>
             
             <Link to='/Cadastro'>
-            <button className="bt-cadastro">
+            <motion.button className="bt-cadastro" whileHover={{ scale: 1.1 }}
+            onHoverStart={e => {}}
+            onHoverEnd={e => {}} >
             <p className="bt-cadastro-txt">Cadastre-se</p>
-            </button>
+            </motion.button>
             </Link>
             </div>
 

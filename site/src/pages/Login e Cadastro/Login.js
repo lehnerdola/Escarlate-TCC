@@ -38,6 +38,13 @@ export default function Login(){
   }
   }
 
+  document.addEventListener("keypress", function  (e) {
+    if(e.key === "Enter"){
+        const btn = document.querySelector("#send");
+        btn.click();
+    }
+})
+
 return(
  <div>
  <LoadingBar color="#b22222" ref={ref}/>
@@ -68,7 +75,7 @@ return(
         <span className="login-cor">Cadastre-se</span>
         </Link>
         </div>
-       <button className="bt-login-usuario" ><p className="txt-bt-login-usuario" onClick={entrarClick}>Login</p></button>
+       <button className="bt-login-usuario" ><p className="txt-bt-login-usuario" onClick={entrarClick} id='send'>Login</p></button>
 
        </div>
        <p>{erro}</p>

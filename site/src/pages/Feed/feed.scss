@@ -31,6 +31,13 @@
 
     .conf-img-feed-music{
         width: 125px;
+
+    }
+
+    .conf-img-feed-produto{
+        width: 150px;
+        height: 150px;
+        object-fit: cover ;
     }
 
     .tit-musica{
@@ -38,5 +45,12 @@
         color: #fff;
         font-size: 15px;
         font-family: 'Cinzel-Regular';
+    }
+
+    .tit{
+        padding-bottom: 10px;
+        color: #fff;
+        font-family: 'Cinzel-Regular';
+        text-decoration: none;
     }
 }
