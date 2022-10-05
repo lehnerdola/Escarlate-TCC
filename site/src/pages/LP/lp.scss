@@ -203,10 +203,24 @@
     color: #FFFFFF;
     font-weight: 100px;
     }
+
+    .icon, .icon2, .icon3 {
+        display: flex;
+        justify-content: space-around; 
+        padding: 1em 1em;
+
+        position: relative;
+        right: 2em;
+    }
     
     .faixa-3{
     background: rgb(168,63,55);
     background: linear-gradient(90180deg, rgba(168,63,55,1) 21%, rgba(31,31,31,1) 80%);
     height: 580px;
     width: 1263px;
+    }
+
+    .img-f3 {
+        display: flex;
+        align-items: center;
     }
