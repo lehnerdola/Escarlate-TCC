@@ -1,9 +1,6 @@
 import { Router } from "express";
 import multer from 'multer';
-import { buscarArtistaPorId } from "../repository/artistasRepository.js";
-
-import { salvarProduto, inserirImagemProduto, alterarProduto, excluirProduto, consultarTodosProdutos, consultarProdutosPorId } from "../repository/produtoRepository.js";
-import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
+import { salvarProduto, inserirImagemProduto, alterarProduto, excluirProduto, consultarTodosProdutos, consultarProdutosPorId, buscarProdutoPorNome } from "../repository/produtoRepository.js";
 import { validarProduto } from "../service/produtoValidacao.js";
 
 const server = Router();
@@ -52,7 +49,6 @@ server.put('/alterar/:id' , async (req, resp) => {
         const {id} = req.params;
         const produto = req.body;
         console.log(produto);
-        await validarProduto(produto);
 
         const resposta = await alterarProduto(id,produto);
         if(resposta != 1){
@@ -80,6 +76,23 @@ server.get('/produto', async (req, resp) => {
     }
 } )
 
+server.get('/produto/buscar', async (req,resp) => {
+    try {
+        const {nome} = req.query;
+
+        const resposta = await buscarProdutoPorNome(nome);
+        if(resposta.length == 0)
+        resp.status(404).send([])
+        else
+        resp.send(resposta)
+        
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
 server.get('/produto/:id', async (req, resp) => {
     try {
         const id = Number(req.params.id);
@@ -92,6 +105,8 @@ server.get('/produto/:id', async (req, resp) => {
         })
     }    
 })
+
+
 
 server.delete('/produto/:id', async (req,resp) => {
     try {

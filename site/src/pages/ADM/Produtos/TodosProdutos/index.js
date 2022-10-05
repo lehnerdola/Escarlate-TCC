@@ -10,11 +10,13 @@ import {confirmAlert} from 'react-confirm-alert';
 import {toast} from 'react-toastify';
 
 export default function Produtos(){
+
+    const navigate = useNavigate();
+
     const [produtos, setProdutos]= useState([]);
 
     async function carregarTodosProdutos() {
         const resp = await todosProdutos();
-        console.log(resp);
         setProdutos(resp);
     }
 
@@ -23,6 +25,10 @@ export default function Produtos(){
             carregarTodosProdutos();
         })
     }, []);
+
+    async function editarProduto(id){
+        navigate(`/alterar/${id}`)
+    }
 
     async function deletarProduto(id, nome) {
 		
@@ -63,9 +69,9 @@ export default function Produtos(){
                     <div onClick={() => deletarProduto(item.id, item.nome)} >
                     <BotaoADM nome='EXCLUIR PRODUTO'/>
                 </div>
-                <Link to = '/CadProdutos'>        
+                <div onClick={() => editarProduto(item.id)}>      
                 <BotaoADM nome='EDITAR PRODUTO'/>
-                </Link>
+                </div> 
                 </div>
 
                 </div>

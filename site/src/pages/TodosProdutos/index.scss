@@ -1,9 +1,25 @@
 .todos-prod{
     display: flex;
     flex-direction: column;
-    background-color: #1f1f1f;
+    background-color: hsl(0, 0%, 12%);
+    align-items: center;
+    height: 100vh;
     
     .faixa-1-todos-prod{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 70vh;
+    }
+
+    .produtos{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 30vw;
+    }
+
+    .align-prod{
         display: flex;
         flex-direction: column;
         align-items: center;

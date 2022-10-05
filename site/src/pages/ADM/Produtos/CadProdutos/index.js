@@ -1,59 +1,63 @@
 import '../../../../Common.scss';
 import MenuADM from '../../../Components/Adm/menu/'
 import './index.scss';
-import BotaoADM from '../../../Components/Adm/Button/' 
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { listarCategorias, listarArtistas, enviarImagemProduto, buscarImagem, AlterarProduto, buscarPorId,cadastrarProduto } from '../../../../api/adminAPI.js';
-import storage from 'local-storage'
-export default function CadProdutos()
-{
-    const [idArtista, setIdArtista] = useState();   
-    const [artistas, setArtistas] = useState([]);
 
+export default function CadProdutos()
+{   
     const [idCategoria, setIdCategoria] = useState();   
     const [categorias, setCategorias] = useState([]);
 
-    const [catSelecionadas, setCatSelecionadas] = useState([]);
-
+    const [idArtista, setIdArtista] = useState();   
+    const [artistas, setArtistas] = useState([]);
+    
     const [nome, setNome] = useState('');
     const [tamanho, setTamanho] = useState('');
     const [disponivel, setDisponivel] = useState(false);
     const [preco, setPreco] = useState('');
-    const [id, setId] = useState(0);
+    const [imagem, setImagem] = useState();
+    const [quantidade, setQuantidade] = useState('');
     
+    const [id, setId] = useState(0);
+
+    const [catSelecionadas, setCatSelecionadas] = useState([]);
+       
     const { idParam } = useParams();
+
     useEffect(() =>{
         if(idParam){
             carregarProduto();
         }
+            carregarCategorias();
+            carregarArtistas();
     }, [])
 
     async function carregarProduto(){
         const r = await buscarPorId(idParam);
         setIdArtista(r.artista);
         setIdCategoria(r.categoria);
+        
         setNome(r.nome);
         setTamanho(r.tamanho);
         setDisponivel(r.disponivel);
         setPreco(r.preco);
-        setId(r.id);
         setImagem(r.imagem);
         setQuantidade(r.quantidade);
+
+        setId(r.id);
     }
 
    
-   
-    const [imagem, setImagem] = useState();
-    const [quantidade, setQuantidade] = useState('');
 
     async function salvar() {
         try {
             
             if(id === 0){
 
-            const r =  await cadastrarProduto(idArtista, idCategoria, preco, nome, tamanho, disponivel,quantidade);
+            const r =  await cadastrarProduto(idArtista, idCategoria, nome, tamanho, disponivel,quantidade,preco);
             await enviarImagemProduto(imagem, r.id)
             alert('produto cadastrado')
 
@@ -61,8 +65,10 @@ export default function CadProdutos()
             }
 
             else{
-                await AlterarProduto (id, idArtista, idCategoria, nome, tamanho, disponivel, preco, quantidade);
-                await enviarImagemProduto(imagem, id);
+                await AlterarProduto (idParam, idArtista, idCategoria, nome, tamanho, disponivel,quantidade,preco);
+                if(typeof(imagem)== 'object'){
+                    await enviarImagemProduto(idParam, imagem)
+                } 
                 alert('prod. alt.')
             }
         }
@@ -94,11 +100,6 @@ function novoClick() {
     setCatSelecionadas('');
 }
 
-    function buscarNomeCategoria(id) {
-        const cat = categorias.find(item => item.id === id);
-        return cat.categoria;
-    } 
-
     async function carregarCategorias() {
         const r = await listarCategorias();
         setCategorias(r);
@@ -122,9 +123,10 @@ function novoClick() {
         <div className='cad-prod'>
 
             <nav className='nav-cad-prod'>
-            <h1 className='tit-cad-prod'>Cadastre seu produto</h1>
+            <h1 className='tit-cad-prod' >{id === 0 ? 'Cadastre' : 'Altere'} seu produto</h1>
 
               <div className='content-nav-cad-prod'>
+              <div onClick={escolherImagem}>
 
                     <input type='file' id='img' onChange={e => setImagem(e.target.files[0])} className='form_input'/>
                    
@@ -132,7 +134,6 @@ function novoClick() {
                     <img width={250} src={mostrarImagem()} alt='img'/> 
                     }
 
-                <div onClick={escolherImagem}>
                     {!imagem &&
                     <img src={'../../../../assets/images/Group 61.png'} width={250} className='imagem-cadastro-produto' alt='img'/>
                     }

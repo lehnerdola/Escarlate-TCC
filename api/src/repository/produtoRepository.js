@@ -35,7 +35,7 @@ export async function alterarProduto(id, produto){
        qtd_produto    = ?
  where id_produto     = ?;
     `
-    const [resp] = await con.query(comando, [produto.idArtista, produto.idCategoria,produto.nome, produto.tamanho, produto.disponivel, produto.preco, produto.quantidade, id]);
+    const [resp] = await con.query(comando, [produto.idArtista, produto.idCategoria,produto.nome, produto.tamanho, produto.disponivel,  produto.preco, produto.quantidade, id]);
     return resp.affectedRows;
 }
 
@@ -88,4 +88,28 @@ export async function excluirProduto(id){
     const [resposta] = await con.query  (comando, [id])
 
     return resposta.affectedRows;
+}
+
+
+export async function buscarProdutoPorNome(nome){
+    const c =
+    `
+    select 
+    id_produto id,
+    nm_categoria categoria,
+    nm_artista artista,
+    nm_produto nome,
+    ds_tam tamanho,
+    bt_disponivel disponivel,
+    vl_preco preco,
+    qtd_produto quantidade,
+    img_produto imagem
+    from tb_produto
+    join tb_artista on tb_produto.id_artista = tb_artista.id_artista
+    join tb_categoria on tb_produto.id_categoria = tb_categoria.id_categoria
+    where nm_produto like ?;
+
+    `;
+    const [resp] = await con.query(c, [`%${nome}%`]);
+    return resp;
 }

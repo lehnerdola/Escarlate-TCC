@@ -19,7 +19,7 @@ export async function cadastrarProduto( idArtista, idCategoria, nome, tamanho, d
       tamanho, 
       disponivel, 
       preco, 
-      quantidade
+      quantidade,
     });
 	return r.data;
 }
@@ -65,6 +65,11 @@ export async function enviarImagemProduto(imagem, id){
 
 export async function todosProdutos(){
     const resposta = await api.get('/produto');
+    return resposta.data;
+}
+
+export async function buscarProdutoPorNome(nome){
+    const resposta = await api.get(`/produto/buscar?nome=${nome}`);
     return resposta.data;
 }
 

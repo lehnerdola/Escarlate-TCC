@@ -1,6 +1,16 @@
 import './index.scss'
+import { useState } from 'react';
+import { buscarProdutoPorNome } from '../../../../api/adminAPI.js';
 
 export default function Header(props){
+    const [produtos, setProdutos]= useState([]);
+    const [filtro, setFiltro] = useState('');
+
+       async function Filtrar(){
+        const resp = await buscarProdutoPorNome(filtro);
+        return setProdutos(resp);
+    }
+
     return(
         <header className='header'>
              <div className='sub-header-1'>
@@ -8,8 +18,8 @@ export default function Header(props){
              <h2 className='nome-page'>{props.nome}</h2>
              </div>   
              <div>
-             <input type='text' className='input-busca'/>
-             <button className='lupa-conf'><img src={'../../../../assets/images/search.png'} className='lupa' /></button>
+             <input type='text' className='input-busca' value={filtro} onChange={(e) => setFiltro(e.target.value)} />
+             <button className='lupa-conf' onClick={Filtrar}><img src={'../../../../assets/images/search.png'} className='lupa' /></button>
              </div>
              <div className='sub-header-2'>
                 <img src={'../../../../assets/images/user.png'} className='conf-img-header'/>
