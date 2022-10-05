@@ -10,7 +10,7 @@ export default function LandingPage() {
          <header className="cabeçalho-lp"> 
 
          <motion.img src={'../../assets/images/Group 1.png'} width={200} height={60}
-            whileHover={{ scale: 1.3 }}
+            whileHover={{ scale: 1.09 }}
             onHoverStart={e => {}}
             onHoverEnd={e => {}}/>
 
@@ -36,8 +36,8 @@ export default function LandingPage() {
          <motion.h1
          className="titulo-1-lp"
          initial={{ opacity: 0 }}
-         animate={{ opacity: 1, y:[-100,0]}}
-         transition={{ delay: 0, duration: 1 }}
+         animate={{ opacity: 2, y:[-50,0]}}
+         transition={{ delay: 0.32, duration: 1 }}
          >
          Bem vindo,
          <p className="titulo-2-lp">AO SUBMUNDO!</p>
@@ -55,7 +55,7 @@ export default function LandingPage() {
 
          <motion.img src={'../../assets/images/zyro-image.png'} width={500}
          animate={{rotate:360}}
-         transition={{ease:"linear", delay:0, duration:2, type:"spring"}}
+         transition={{ease:"linear", delay:0.34, duration:6, type:"spring"}}
          />
          </nav>
 

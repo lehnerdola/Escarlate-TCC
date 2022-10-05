@@ -33,7 +33,7 @@
         width: 124px;
         height: 45px;
         left: 970px;
-        margin-top: -1.6em;
+        margin-top: -1.8em;
         background: #111111;
         border-radius: 200px;
         box-shadow: -13px 19px 41px 0px black;
@@ -54,7 +54,7 @@
         width: 124px;
         height: 46px;
         left: 1122px;
-        margin-top: -1.6em;
+        margin-top: -1.8em;
         background: #111111;
         border-radius: 200px;
         box-shadow: -13px 19px 41px 0px black;
@@ -118,14 +118,20 @@
     line-height: 30px;
     text-transform: capitalize;
     -webkit-text-stroke-width: 0px;
+    -webkit-text-stroke:#000000;
+
     }
     
     .cor-txt{
         color: #A83F37;
+        -webkit-text-stroke:#000000;
+        -webkit-text-stroke-width: 0.5px;
     }
     
     .cor-letra-lp{
         color: #A83F37;
+        -webkit-text-stroke:#000000;
+        -webkit-text-stroke-width: 0.5px;
     }
     
     .faixa-2-lp{
@@ -149,7 +155,7 @@
     .texto-1-f2-lp{
      display: flex;
      flex-direction: column;
-     width: 900px;
+     width: 750px;
      font-size: 25px;
      padding-left: 7em;
      font-family: 'CinzelDecorative-Black';
@@ -169,6 +175,8 @@
         text-indent: 3px;
         text-transform: capitalize;
         font-feature-settings: 'kern' off;
+        -webkit-text-stroke:#000000;
+        -webkit-text-stroke-width: 0.25px;
     }
     
     .txt-f2-lp{
@@ -180,37 +188,45 @@
         font-size: 26px;
         color: #FFFFFF; 
         -webkit-text-stroke:#000000;
-        -webkit-text-stroke-width: 0.2px;
+        -webkit-text-stroke-width: 0.4px;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);   
         width: 580px;
     }
     
     .desc-lp{
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-around;
         flex-direction: row;
         padding-top: 1rem;
-        padding-right: 5rem;
+        padding-right: 10rem;
         padding-top: 5rem;
+        margin-left: 9em;
+        
     }
     
     .txt-desc{
     font-family: 'Cinzel-Regular';
-    width: 200px;
+    width: 240px;
     font-size: 16px;
     line-height: 25px;
     text-align: center;
+    display: flex;
+    justify-content: space-around;
     color: #FFFFFF;
     font-weight: 100px;
+    -webkit-text-stroke:#000000;
+    -webkit-text-stroke-width: 0.25px;
     }
 
     .icon, .icon2, .icon3 {
         display: flex;
         justify-content: space-around; 
         padding: 1em 1em;
-
+        margin-right: 2em;
+        padding-right: 0.3em;
         position: relative;
-        right: 2em;
+        right: 1em;
+      
     }
     
     .faixa-3{
@@ -223,4 +239,9 @@
     .img-f3 {
         display: flex;
         align-items: center;
+    }
+
+    .faixa-4 {
+        background: #1F1F1F;
+        width: 1263px;
     }
