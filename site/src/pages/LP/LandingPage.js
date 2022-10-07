@@ -138,7 +138,10 @@ export default function LandingPage() {
 
    <div className="artistas-f4">
       <div>
-
+         <img className='img-f4' src={'../../assets/images/ramones.png'} />
+         <img className='img1-f4' src={'../../assets/images/bowie.png'} />
+         <img className='img2-f4' src={'../../assets/images/pinkfloyd.png'} />
+         <img className='img3-f4' src={'../../assets/images/kiss.pngp'} />
       </div>
 
    </div>
@@ -182,7 +185,7 @@ export default function LandingPage() {
 </section>
 
 <section className="faixa-8">
-   <div>
+   <div className="div-f8">
       <p className="txt-f8">
       O objetivo é proporcionar ao fã sempre uma experiência musical memorável, montando uma integração com as bandas com agendamento de shows e incluindo espaços novos no cenário paulistano, auxiliando na programação, produção e divulgação. Nosso lema é  “Não deixar o Rock morrer nunca.”
       </p>
