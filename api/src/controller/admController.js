@@ -4,7 +4,7 @@ import { Router } from "express";
 const server = Router();
 
 import multer from 'multer';
-import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
+import { buscarProdCategoriaPorId } from "../repository/categoriaRepository.js";
 const upload = multer({ dest: 'storage/produtos' })
 
 server.post('/admin/login', async (req,resp) => {

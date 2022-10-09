@@ -13,7 +13,29 @@ export async function listarCategoriasProduto() {
     return linhas;
 }
 
-export async function buscarCategoriaPorId(id) {
+export async function listarCategoriasMusicais(){
+    const c = `
+    select 
+    id_artista_categoria_musical   as id,
+    ds_categoria_musical         as categoria
+    from tb_artista_categoria_musical;
+    `
+    const [linhas] = await con.query(c);
+    return linhas;
+}
+
+export async function listarArtistasCategorias(){
+    const c = `
+    select 
+    id_artista_categoria   as id,
+    ds_categoria         as categoria
+    from tb_artista_categoria;
+    `
+    const [linhas] = await con.query(c);
+    return linhas;
+}
+
+export async function buscarProdCategoriaPorId(id) {
     const comando = `
         select id_categoria         as id,
                nm_categoria         as categoria

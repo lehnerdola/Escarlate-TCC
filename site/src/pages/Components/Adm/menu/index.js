@@ -21,7 +21,7 @@ export default function MenuADM(props){
             <p className='txt-menu-adm'>Home</p>  
             </Link> 
             <img/>
-            <p className='txt-menu-adm'>Artistas</p>
+            <Link to='/TodosArtistas' className='link-config-txt' onClick={ () => selecionarMenu('artistas')}> <p className='txt-menu-adm'>Artistas</p> </Link>
             <img/>
             <p className='txt-menu-adm'>Músicas</p>
             <img/>

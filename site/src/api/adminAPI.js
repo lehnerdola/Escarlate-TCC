@@ -24,7 +24,30 @@ export async function cadastrarProduto( idArtista, idCategoria, nome, tamanho, d
 	return r.data;
 }
 
-export async function enviarImagem(id,imagem){
+export async function cadastrarArtista (idCategoriaMusical, idCategoria, nome, descricao){
+    const resposta = await api.post('admin/artista',
+    {
+        idCategoriaMusical, 
+        idCategoria,
+        nome,
+        descricao         
+    })
+    return resposta.data;
+}
+
+export async function enviarImagemArtista(id, imagem){
+    const formData = new FormData();
+    formData.append('imagem', imagem);
+
+    const resposta = await api.put(`/artista/${id}/imagem`, formData, {
+        headers : {
+            "Content-Type": "multipart/form-data" 
+        },
+    });
+    return resposta.status;
+}
+
+export async function enviarImagemProduto(id,imagem){
     const formData = new FormData();
     formData.append('img', imagem);
 
@@ -33,7 +56,7 @@ export async function enviarImagem(id,imagem){
             "Content-Type": "multipart/form-data" 
         },
     });
-    return resposta.status;
+    return resposta.data;
 }
 
 
@@ -47,20 +70,22 @@ export async function listarArtistas() {
     return r.data;
 }
 
-export function buscarImagem(imagem){
+export function buscarImagemProduto(imagem){
     return `${api.getUri()}/${imagem}`
 }   
 
-export async function enviarImagemProduto(imagem, id){
-    const formData = new FormData();
-    formData.append('imagem', imagem);
+export function buscarImagemArtista(imagem){
+    return `${api.getUri()}/${imagem}`
+}  
 
-    const resposta = await api.put(`/produto/${id}/imagem`, formData, {
-        headers: {
-            "Content-Type": "multipart/form-data"
-        },
-    });
-    return resposta.status;
+export async function listarCategoriasMusicais(){
+    const r = await api.get('/artista/categoriamusical');
+    return r.data;
+}
+
+export async function listarArtistasCategorias(){
+    const resposta = await api.get('/artista/categoria');
+    return resposta.data;
 }
 
 export async function todosProdutos(){
@@ -73,7 +98,7 @@ export async function buscarProdutoPorNome(nome){
     return resposta.data;
 }
 
-export async function buscarPorId(id){
+export async function buscarProdutoPorId(id){
     const resposta =  await api.get(`/produto/${id}`);
     return resposta.data 
 }

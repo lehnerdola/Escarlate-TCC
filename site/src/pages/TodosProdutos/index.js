@@ -3,6 +3,7 @@ import {motion} from 'framer-motion'
 import Header from '../Components/Usuario/header/index.js';
 import { todosProdutos, buscarProdutoPorNome } from '../../api/adminAPI.js';
 import { useEffect,useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function TodosProdutos(){
 
@@ -36,7 +37,7 @@ export default function TodosProdutos(){
         <main>
       <header className='header'>
              <div className='sub-header-1'>
-             <img src={'../../../../assets/images/Group 1.png'} className='logo-header-conf'/>
+             <Link to='/Feed' className="tit"> <img src={'../../../../assets/images/Group 1.png'} className='logo-header-conf' alt='img'/> </Link>
              </div>   
              <div>
              <input type='text' className='input-busca' value={filtro} onChange={(e) => setFiltro(e.target.value)} />

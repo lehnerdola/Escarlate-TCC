@@ -43,13 +43,13 @@ export default function Produtos(){
         <div>
         <MenuADM/>
 
-        <div className='produtos-adm'>
+        <div className='comeco-adm'>
             
 
-            <div className='content-produtos-adm'>
+            <div className='content-adm'>
 
-                <div className="align-itens-produtos">
-                <h1 className='tit-produtos'>Todos os Produtos</h1>
+                <div className="align-itens">
+                <h1 className='titulo'>Todos os Produtos</h1>
                 <Link to='/CadProdutos'>
                 <BotaoADM nome='Adicionar Novo Produto'/>
                 </Link>

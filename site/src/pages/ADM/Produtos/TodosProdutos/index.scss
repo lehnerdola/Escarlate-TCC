@@ -1,10 +1,10 @@
-.produtos-adm{
+.comeco-adm{
     display: flex;
     flex-direction: row;
     background-color: #1f1f1f;  
     justify-content: center;
     height: 57.3rem;
-    .content-produtos-adm{
+    .content-adm{
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -19,13 +19,13 @@
         width: 20vw;
     }
 
-    .tit-produtos{
+    .titulo{
         font-family: 'Poppins-Regular';
         color:#fff;
         padding-bottom: 0.8em;
     }
 
-    .align-itens-produtos{
+    .align-itens{
         display: flex;
         flex-direction: column;
        

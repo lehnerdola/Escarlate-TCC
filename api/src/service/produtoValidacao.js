@@ -1,5 +1,5 @@
 import { buscarArtistaPorId } from "../repository/artistasRepository.js";
-import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
+import { buscarProdCategoriaPorId } from "../repository/categoriaRepository.js";
 
 export async function validarProduto(produto){
 
@@ -21,7 +21,7 @@ export async function validarProduto(produto){
         throw new Error('Artista inválido');
     }
 
-    const categoria = await buscarCategoriaPorId(produto.idCategoria);
+    const categoria = await buscarProdCategoriaPorId(produto.idCategoria);
     if(categoria == undefined){
         throw new Error('categoria inválida');
     }

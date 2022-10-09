@@ -4,7 +4,7 @@ import './index.scss';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { listarCategorias, listarArtistas, enviarImagemProduto, buscarImagem, AlterarProduto, buscarPorId,cadastrarProduto } from '../../../../api/adminAPI.js';
+import { listarCategorias, listarArtistas, enviarImagemProduto, buscarImagemProduto, AlterarProduto, buscarProdutoPorId,cadastrarProduto } from '../../../../api/adminAPI.js';
 
 export default function CadProdutos()
 {   
@@ -36,7 +36,7 @@ export default function CadProdutos()
     }, [])
 
     async function carregarProduto(){
-        const r = await buscarPorId(idParam);
+        const r = await buscarProdutoPorId(idParam);
         setIdArtista(r.artista);
         setIdCategoria(r.categoria);
         
@@ -86,7 +86,7 @@ function mostrarImagem(){
         return URL.createObjectURL(imagem);
     }
     else{
-        return buscarImagem(imagem)
+        return buscarImagemProduto(imagem)
     }
 }
 
@@ -120,12 +120,12 @@ function novoClick() {
         <div>
         <MenuADM/>
 
-        <div className='cad-prod'>
+        <div className='cadastrar'>
 
-            <nav className='nav-cad-prod'>
-            <h1 className='tit-cad-prod' >{id === 0 ? 'Cadastre' : 'Altere'} seu produto</h1>
+            <nav className='nav-cadastrar'>
+            <h1 className='tit-cadastrar' >{id === 0 ? 'Cadastre' : 'Altere'} seu produto</h1>
 
-              <div className='content-nav-cad-prod'>
+              <div className='content-nav-cadastrar'>
               <div onClick={escolherImagem}>
 
                     <input type='file' id='img' onChange={e => setImagem(e.target.files[0])} className='form_input'/>
@@ -135,22 +135,22 @@ function novoClick() {
                     }
 
                     {!imagem &&
-                    <img src={'../../../../assets/images/Group 61.png'} width={250} className='imagem-cadastro-produto' alt='img'/>
+                    <img src={'../../../../assets/images/Group 61.png'} width={250} className='imagem-cadastro' alt='img'/>
                     }
                 </div>
 
-                <aside className='aside-cad-prod'>
+                <aside className='aside-cadastrar'>
                     <p>Nome do produto:</p>
-                    <input className='input-cad-prod' value={nome} onChange={e => setNome(e.target.value)}/>
+                    <input className='input-cadastrar' value={nome} onChange={e => setNome(e.target.value)}/>
 
                     <p>Preço do produto:</p>
-                    <input className='input-cad-prod' value={preco} onChange={e => setPreco(e.target.value)}/>
+                    <input className='input-cadastrar' value={preco} onChange={e => setPreco(e.target.value)}/>
 
                     <p>Disponível?</p>
-                    <input className='input-cad-prod' type='checkbox' checked={disponivel} onChange={e => setDisponivel(e.target.checked)}/>
+                    <input className='input-cadastrar' type='checkbox' checked={disponivel} onChange={e => setDisponivel(e.target.checked)}/>
 
                     <p>Tamanhos disponíveis:</p>
-                    <input  className='input-cad-prod' value={tamanho} onChange={e => setTamanho(e.target.value)}/>
+                    <input  className='input-cadastrar' value={tamanho} onChange={e => setTamanho(e.target.value)}/>
 
                     <p>Quantidade:</p>
                     <input className='input-cad-prod' value={quantidade} onChange={e => setQuantidade(e.target.value)}/>
