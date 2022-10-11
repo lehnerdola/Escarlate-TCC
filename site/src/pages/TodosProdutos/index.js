@@ -11,23 +11,10 @@ export default function TodosProdutos(){
     const [produtos, setProdutos]= useState([]);
     const [produto, setProduto] = useState({});
     const [filtro, setFiltro] = useState('');
+
     const [modal, setModal] = useState(false);
     const { idParam } = useParams();
-
     const navigate= useNavigate();
-
-    useEffect(() => {
-        carregarProdutoId();
-    }, [])
-
-    async function carregarProdutoId(){
-        const resp = await buscarPorId(idParam);
-        setProduto(resp);
-    }
-
-    function abrirInfo(id){
-        navigate(`/detalhe/${id}`)
-    }
 
     const toggleModal = () => {
         setModal(!modal);
@@ -39,12 +26,22 @@ export default function TodosProdutos(){
         document.body.classList.remove('active-modal')
     }
 
+
+    async function carregarProdutoId(){
+        const resp = await buscarPorId(idParam);
+        setProduto(resp);
+    }
+
+    function abrirInfo(id){
+        navigate(`/TodosProdutos/${id}`)
+    }
+
+    
     async function carregarTodosProdutos() {
         const resp = await todosProdutos();
         setProdutos(resp);
     }
-    
-    
+        
     async function Filtrar(){
         const resp = await buscarProdutoPorNome(filtro);
         return setProdutos(resp);
@@ -56,9 +53,15 @@ export default function TodosProdutos(){
         })
     }, []);
 
+
     useEffect(() => {
         Filtrar();
     },[produtos])
+
+
+    useEffect(() => {
+        carregarProdutoId();
+    }, [])
 
     document.addEventListener("keypress", function  (e) {
         if(e.key === "Enter"){
@@ -84,9 +87,9 @@ export default function TodosProdutos(){
              </div>
         </header>
   
-      
-
-        <div className='todos-prod'>
+  
+     
+       <div className='todos-prod'>
             <h1 className='titulo-todosprodutos' >Conheça nossos <span style={{color:"#A83F37"}}> produtos</span></h1>
             <h2 style={{fontFamily:"Cinzel-Regular", color:"#A83F37", fontWeight:'100' }}>Mais vendidos,   canecas,   camisetas,   posters ...</h2>
             <div className='faixa-1-todos-prod'>
@@ -95,32 +98,37 @@ export default function TodosProdutos(){
             //abre popup
             <section className='produtos' >
 
-                <div className='align-prod' onClick={toggleModal}  >
+                <motion.div className='align-prod' onClick={toggleModal}>
                 <motion.img 
+
                 whileHover={{ scale: 1.1, border:'red 1PX'}}
                 onHoverStart={e => {}}
                 onHoverEnd={e => {}}
-                src={`http://localhost:5000/${item.imagem}`} width={170} className="btn-modal" onClick={() => abrirInfo(item.id)}/>
+                src={`http://localhost:5000/${item.imagem}`} 
+                width={170} className="btn-modal"
+                onClick={() => abrirInfo(item.id) }/>
+
                 <p className='nome-prod'>{item.nome}</p>
-                </div>
-                {modal && (
-        
-            <div className="modal">
-            <div onClick={toggleModal} className="overlay"></div>
-            <div className="modal-content">
-                <PopUp produto={produto}/>
-                <button className="close-modal" onClick={toggleModal}>
-                fechar
-                </button>
-            </div>
-            </div>
-        )}
 
+                </motion.div>
+              
             </section>
-            
-             )}
+            )}
 
-
+                {modal && (
+                <div className="modal">
+                <div onClick={toggleModal} className="overlay">
+                <motion.div
+                animate={{opacity:[0,1], }}
+                transition={{delay:0.5, type:'spring'}}
+                >
+                <div className="modal-content">
+                    <PopUp produto={produto}/>
+                </div>
+                </motion.div>    
+                </div>
+                </div>
+                )}
     
             </div>
         </div>

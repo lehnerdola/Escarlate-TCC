@@ -1,16 +1,55 @@
 .pop-up{
-position: fixed;
-width: 100vw;
-justify-content: center;
+display:flex;
+flex-direction: row;
+justify-content: space-around;
 align-items: center;
-height: 100vh;
-opacity: 0;
-visibility: hidden;
-inset: 0;
-z-index: 1;    
-background: rgba(0,0,0,0.5);
+width: 50vw;
+color: #fff;
+
+.align-itens-popup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 65vh;
 }
 
-.show-main{
+.align-itens-2-popup{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 30vw;
+}
+.borda{
+    border: 1px solid #A83F37;
+    width: 25vw;
+    margin-left: 2em;
+}
+
+.align-itens-3-popup{
+    display: flex;
+    flex-direction: column;
+}
+
+.align-itens-4-pop-up{
+    display: flex;
+    align-items: flex-start;
+    width: 21vw;
+}
+
+.align-itens-5-popup{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 28vw;
+}
+
+
+.nome-prod-popup{
+    font-family: 'Poppins-Regular';
+    font-weight: 200;
+}
 
 }
