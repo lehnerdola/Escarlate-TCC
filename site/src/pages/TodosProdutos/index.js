@@ -1,10 +1,10 @@
 import './index.scss'
 import {motion, AnimatePresence} from 'framer-motion'
-import Header from '../Components/Usuario/header/index.js';
 import { todosProdutos, buscarProdutoPorNome, buscarPorId } from '../../api/adminAPI.js';
 import { useEffect,useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import PopUp from '../Components/Usuario/popup';
+
 
 export default function TodosProdutos(){
 
@@ -75,7 +75,13 @@ export default function TodosProdutos(){
          
       <header className='header'>
              <div className='sub-header-1'>
-             <img src={'../../../../assets/images/Group 1.png'} className='logo-header-conf'/>
+                <Link to='/Feed'>
+                <motion.img src={'../../../../assets/images/Group 1.png'} className='logo-header-conf'
+                whileHover={{ scale: 1.1}}
+                onHoverStart={e => {}}
+                onHoverEnd={e => {}}
+                />
+                </Link>
              </div>   
              <div>
              <input type='text' className='input-busca' value={filtro} onChange={(e) => setFiltro(e.target.value)} />

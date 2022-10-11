@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Header from "../Components/Usuario/header/index.js";
 import './feed.scss';
 
 export default function Feed(){

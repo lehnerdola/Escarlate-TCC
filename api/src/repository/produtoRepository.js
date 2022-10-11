@@ -65,7 +65,7 @@ export async function consultarProdutosPorId(id){
     `
     SELECT 
        id_produto	    id,
-       id_artista       artista,
+       nm_artista       artista,
        id_categoria     categoria,
        nm_produto       nome,
        ds_tam           tamanho,
@@ -74,6 +74,7 @@ export async function consultarProdutosPorId(id){
        qtd_produto      quantidade,
        img_produto      imagem
   FROM tb_produto
+  join tb_artista on tb_produto.id_artista = tb_artista.id_artista
   WHERE id_produto = ? 
   `;
     const [linhas] = await con.query(comando, [id]);
