@@ -236,17 +236,11 @@
     }
 
     .img-f3 {
-        position: relative;
-        top: 4.5em;
-        left: 32.5em;
+        display: flex;
+        align-items: center;
     }
 
     .faixa-4 {
-        display: flex;
-        background: rgb(31,31,31);
-        background: linear-gradient(180deg, rgba(31,31,31,1) 21%, rgba(168,63,55,1) 80%);
+        background: #1F1F1F;
         width: 1263px;
-        height: 70vh;
-        padding-left: 6em;
-        align-items: center;
     }

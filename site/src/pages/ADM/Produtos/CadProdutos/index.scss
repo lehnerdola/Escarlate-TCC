@@ -1,4 +1,4 @@
-.cadastrar{
+.cad-prod{
     display: flex;
     flex-direction: row;
     background-color: #1f1f1f;
@@ -6,13 +6,13 @@
     justify-content: center;
 
 
-    .nav-cadastrar{
+    .nav-cad-prod{
         display: flex;
         flex-direction: column;
         
     }
 
-    .content-nav-cadastrar{
+    .content-nav-cad-prod{
         display: flex;
         flex-direction: row;
         justify-content:space-around;
@@ -23,7 +23,7 @@
         padding-left: 5em;
     }
 
-    .input-cadastrar{
+    .input-cad-prod{
         width: 100%;
         max-width: 15rem;
         height: 3.5vh;
@@ -32,7 +32,7 @@
         font-family: 'Poppins-Regular';
     }
    
-    .aside-cadastrar{
+    .aside-cad-prod{
         display: flex;
         flex-direction: column;
         font-family: 'Poppins-Regular';
@@ -42,7 +42,7 @@
 
     }
 
-    .tit-cadastrar{
+    .tit-cad-prod{
         font-family: 'Poppins-Regular';
         color: #fff;
         margin-left: 2em;
@@ -89,7 +89,7 @@
         margin-left: 1rem;
     }
     
-    .imagem-cadastro{
+    .imagem-cadastro-produto{
         margin-bottom: 5em;
     }
 

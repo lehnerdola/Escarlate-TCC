@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { motion } from 'framer-motion';
 import '../../Common.scss'
 import './lp.scss'
-import Rodape from '../Components/Usuario/Rodape';
 
 export default function LandingPage() {
 
@@ -11,21 +10,25 @@ export default function LandingPage() {
          <header className="cabeçalho-lp"> 
 
          <motion.img src={'../../assets/images/Group 1.png'} width={200} height={60}
-            whileHover={{ scale: 1.3 }}
+            whileHover={{ scale: 1.1 }}
             onHoverStart={e => {}}
             onHoverEnd={e => {}}/>
 
             <div className="botao-cabeçalho-lp">
            < Link to = '/login' >
-            <button className="bt-login">
+            <motion.button className="bt-login" whileHover={{ scale: 1.1 }}
+            onHoverStart={e => {}}
+            onHoverEnd={e => {}}>
             <p className="bt-login-txt"> Login </p> 
-            </button>
+            </motion.button>
             </Link>
             
             <Link to='/Cadastro'>
-            <button className="bt-cadastro">
+            <motion.button className="bt-cadastro" whileHover={{ scale: 1.1 }}
+            onHoverStart={e => {}}
+            onHoverEnd={e => {}} >
             <p className="bt-cadastro-txt">Cadastre-se</p>
-            </button>
+            </motion.button>
             </Link>
             </div>
 
@@ -37,8 +40,8 @@ export default function LandingPage() {
          <motion.h1
          className="titulo-1-lp"
          initial={{ opacity: 0 }}
-         animate={{ opacity: 1, y:[-100,0]}}
-         transition={{ delay: 0, duration: 1 }}
+         animate={{ opacity: 2, y:[-50,0]}}
+         transition={{ delay: 0.32, duration: 1 }}
          >
          Bem vindo,
          <p className="titulo-2-lp">AO SUBMUNDO!</p>
@@ -56,7 +59,7 @@ export default function LandingPage() {
 
          <motion.img src={'../../assets/images/zyro-image.png'} width={500}
          animate={{rotate:360}}
-         transition={{ease:"linear", delay:0, duration:2, type:"spring"}}
+         transition={{ease:"linear", delay:0.34, duration:6, type:"spring"}}
          />
          </nav>
 
@@ -103,10 +106,10 @@ export default function LandingPage() {
 </nav>
 
 <section className="faixa-3">
-   <div className="div-f3">
+   <div className="">
       <img className="img-f3" src={'../../assets/images/kingofrock.png'} width={420}/>
       <h3 className="txt-f3"> 
-      Escarlate é uma produtora musical especializada no Rock e na realização de sonhos  
+      Escarlate é uma produtora usical especializada no Rock e na realização de sonhos  
       </h3>
       <h3 className="txt1-f3"> 
       Dos nossos marujos em busca de uma voz para serem encantados 
@@ -119,83 +122,31 @@ export default function LandingPage() {
 </section>
 
 <nav className="faixa-4">
-<div className="sub-div-4">
-   <div className="txt-1-f4">
-      <h1 className="titulo-f4">
+<div className="sub-div-3">
+   <div className="txt-1-f3">
+      <h1 className="titulo-f3">
       SOBRE NOSSOS ARTISTAS
       </h1>
 
-      <h2 className="subtitulo-f4">
+      <h2 className="subtitulo-f3">
       Todos os hits do momento você encontra aqui
       </h2>
-      <p className="txt-f4">
+      <p className="txt-f3">
          As maiores estrelas do rock voce encontra aqui
       </p>
-      <p className="txt2-f4"> 
+      <p className="txt2-f3"> 
          Conheça nossos artistas
       </p>
    </div>
 
-   <div className="artistas-f4">
+   <div className="artistas-f3">
       <div>
-         <img className='img-f4' src={'../../assets/images/ramones.png'} />
-         <img className='img1-f4' src={'../../assets/images/bowie.png'} />
-         <img className='img2-f4' src={'../../assets/images/pinkfloyd.png'} />
-         <img className='img3-f4' src={'../../assets/images/kiss.pngp'} />
+
       </div>
 
    </div>
 </div>
 </nav>
-
-<section className="faixa-5">
-   <div>
-      <img className="img-f5" src={'../../assets/images/knife.png'} />
-      <h1 className="tit-f5"> Sobre nós: </h1>
-      <p className="txt-f5"> 
-      Fundada em 2022, a Escarlate nasceu de uma conversa entre amigos que que queriam resgatar os bons tempos do Rock N' Roll. A Escarlate é uma produtora musical especializada no rock e suas vertentes, que organiza shows e turnês por todo o Brasil, com foco no estado de São Paulo e redondezas
-      </p>
-   </div>
-</section>
-
-<section className="faixa-6">
-   <div>
-      <img className="img-f6" src={'../../assets/images/faquinha.png'} />
-      <img className="img2-f6" src={'../../assets/images/ampulheta.png'} />
-      <img className="img3-f6" src={'../../assets/images/rosa.png'} />
-      <img className="img4-f6" src={'../../assets/images/rosa.png'} />
-      <img className="img5-f6" src={'../../assets/images/rosa.png'} />
-      <img className="img6-f6" src={'../../assets/images/rosa.png'} />
-      <p className="txt-f6">
-      Reconhecida como umas das principais produtoras do Brasil, nossa prioridade é oferecer o máximo em qualidade ao público e aos profissionais envolvidos.
-      </p>
-   </div>
-</section>
-
-<section className="faixa-7">
-   <div>
-      <img className="img-f7" src={'../../assets/images/stayhm.png'} />
-      <p className="txt-f7">
-      Sabemos da velocidade da informação hoje em dia e do quão rápido a música está mudando, por isso contamos com uma equipe de produtores musicais, engenheiros e assistentes totalmente qualificados, atualizados e prontos pra qualquer tipo de projeto que envolva uma coisa em especial: música boa. 
-      </p>
-      <p className="txt1-f7">
-      A Escarlate já realizou inúmeros shows em vários lugares do Brasil, promovendo intercâmbio cultural e oferecendo aos amantes da música a possibilidade de ver, ao vivo, espetáculos com artistas de diversas nacionalidades e diferente estilos do Rock.
-      </p>
-   </div>
-</section>
-
-<section className="faixa-8">
-   <div className="div-f8">
-      <p className="txt-f8">
-      O objetivo é proporcionar ao fã sempre uma experiência musical memorável, montando uma integração com as bandas com agendamento de shows e incluindo espaços novos no cenário paulistano, auxiliando na programação, produção e divulgação. Nosso lema é  “Não deixar o Rock morrer nunca.”
-      </p>
-   </div>
-</section>
-
-<footer>
-   <Rodape />
-</footer>
-
       </section>
    )
 }

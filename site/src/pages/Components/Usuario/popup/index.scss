@@ -1,0 +1,16 @@
+.pop-up{
+position: fixed;
+width: 100vw;
+justify-content: center;
+align-items: center;
+height: 100vh;
+opacity: 0;
+visibility: hidden;
+inset: 0;
+z-index: 1;    
+background: rgba(0,0,0,0.5);
+}
+
+.show-main{
+
+}
