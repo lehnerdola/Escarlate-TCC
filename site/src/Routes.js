@@ -33,7 +33,8 @@ export default function Index(){
     <Route exact path='/TodosProdutos/:idParam' element={<TodosProdutos/>}/>
     <Route exact path='/CadProdutos' element={<CadProdutos/>}/>  
     <Route exact path='/CadArtistas' element={<CadArtistas/>}/>    
-     <Route path='/alterar/:idParam' element={<CadProdutos/>} />
+    <Route path='/alterar/:idParam' element={<CadProdutos/>} />
+    <Route exact path='/Carrinho' element={<Carrinho/>}/> 
   </Routes>
   </BrowserRouter>
   </React.StrictMode>
