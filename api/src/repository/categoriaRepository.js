@@ -28,7 +28,7 @@ export async function listarArtistasCategorias(){
     const c = `
     select 
     id_artista_categoria   as id,
-    ds_categoria         as categoria
+    ds_categoria         as categoriaartista
     from tb_artista_categoria;
     `
     const [linhas] = await con.query(c);

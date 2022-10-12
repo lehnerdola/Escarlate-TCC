@@ -24,14 +24,8 @@ export async function cadastrarProduto( idArtista, idCategoria, nome, tamanho, d
 	return r.data;
 }
 
-
 export async function listarCategorias() {
     const r = await api.get('/produto/categoria');
-    return r.data;
-}
-
-export async function listarArtistas() {
-    const r = await api.get('/artistas');
     return r.data;
 }
 
@@ -84,4 +78,52 @@ export async function AlterarProduto(idArtista, idCategoria, nome, tamanho, disp
 export async function removerProduto(id) {
 	const resposta = await api.delete(`/produto/${id}`);
 	return resposta.status;
+}
+
+export async function salvarArtista(idCategoriaMusical, idCategoriaArtista, nome, descricao){
+    const r = await api.post('/admin/artista' , {
+        idCategoriaMusical, 
+        idCategoriaArtista, 
+        nome, 
+        descricao
+    });
+    return r.data;
+}
+
+export async function AlterarArtista(idCategoriaMusical, idCategoria, nome, descricao, id){
+    const resposta = await api.put(`/admin/artista/${id}`, 
+    {
+        idCategoriaMusical, 
+        idCategoria, 
+        nome, 
+        descricao
+    });
+    return resposta.data;
+}
+
+export async function enviarImagemArtista(imagem,id){
+    const formData = new FormData();
+    formData.append('imagem', imagem);
+
+    const resposta = await api.put(`/artista/${id}/imagem`, formData, {
+        headers: {
+            "Content-Type": "multipart/form-data"
+        },
+    });
+    return resposta.status;
+}
+
+export async function listarArtistas() {
+    const r = await api.get('/artistas');
+    return r.data;
+}
+
+export async function listarCategoriasArtistas() {
+    const r = await api.get('/artista/categoria');
+    return r.data;
+}
+
+export async function listarCategoriasMusicais() {
+    const r = await api.get('/artista/categoriamusical');
+    return r.data;
 }

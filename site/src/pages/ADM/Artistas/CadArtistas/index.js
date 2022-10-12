@@ -1,137 +1,144 @@
 import BotaoADM from "../../../Components/Adm/Button";
 import CardPAH from "../../../Components/Adm/Card"
 import MenuADM from "../../../Components/Adm/menu";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import '../../Produtos/CadProdutos/index.scss' 
-import {cadastrarArtista, enviarImagemArtista, buscarImagemArtista, listarArtistasCategorias, listarCategoriasMusicais} from '../../../../api/adminAPI.js'
+import {cadastrarArtista, enviarImagemArtista, buscarImagem, listarCategoriasArtistas, listarCategoriasMusicais, salvarArtista, AlterarArtista} from '../../../../api/adminAPI.js'
 import { useState, useEffect } from "react";
 import {confirmAlert} from 'react-confirm-alert';
 import {toast} from 'react-toastify';
 
 export default function CadArtistas (){
+    const [idCategoriaMusical, setIdCategoriaMusical] = useState();
+    const [categoriaMusical, setCategoriaMusical] = useState([]);
 
-    const [idCategoriaMusical, setidCategoriaMusical] = useState();
-    const [categoriasmusicais, setCategoriasmusicais] = useState([]);
-    const [idCategoria, setIdCategoria] = useState();
-    const [categorias, setCategorias] = useState([]);
+    const [idCategoriaArtista, setIdCategoriaArtista] = useState();
+    const [categoriaArtista, setCategoriaArtista] = useState([]);
+
+    const [id, setId] = useState(0);
+    const { idParam } = useParams();
+
     const [nome, setNome] = useState('');
     const [descricao, setDescricao] = useState('');
     const [imagem, setImagem] = useState();
-    const [id, setId] = useState(0);
-    
 
+    async function salvarArtistaClick(){
 
-    async function salvar (){
         try {
-            if (id === 0 ) {
-                const resposta = await cadastrarArtista(idCategoriaMusical, idCategoria, nome, descricao);
-                await enviarImagemArtista(imagem, resposta.id)
-                alert('artista cadastrado')
+            if(id === 0)
+            {
+            const novoArtista = await salvarArtista(idCategoriaMusical, idCategoriaArtista, nome, descricao);
+            await enviarImagemArtista(imagem, novoArtista.id);
+        
+            alert('artista cadastrado')  
+            setId(novoArtista.id)
             }
-
-            else{
-                alert('o artista não pode ser alterado pq a função ainda não existe')
-            }
-
-        } catch (err) {
-            alert(Response.status);
+            else
+            {
+            await AlterarArtista(idCategoriaMusical, idCategoriaArtista, nome, descricao);
+        
+            if(typeof(imagem)== 'object')
+            {
+            await enviarImagemArtista(imagem, idParam)
+            } 
+            alert('artista alterado')
+          }
+        } 
+        catch (err) {
+         alert(err.response.data.erro);
         }
-}
+        
+    }
 
-function escolherImagem(){
-    document.getElementById('img').click();
-}
+    function escolherImagem(){
+        document.getElementById('img').click();
+    }    
+    
+    function mostrarImagem(){
+        if( typeof (imagem) == 'object'){
+            return URL.createObjectURL(imagem);
+        }
+        else{
+            return buscarImagem(imagem)
+        }
+    }
 
-function mostrarImagem(){
-if( typeof (imagem) == 'object'){
-    return URL.createObjectURL(imagem);
-}
-else{
-    return buscarImagemArtista(imagem)
-}
-}
-
-function novoClick() {
-    setId(0);
-    setNome('');
-    setDescricao('');   
-    setImagem();
-}
-
-    async function carregarCategorias() {
-        const r = await listarArtistasCategorias();
-        setCategorias(r);
+    async function carregarCategoriasArtistas() {
+        const r = await listarCategoriasArtistas();
+        setCategoriaArtista(r);
     } 
 
     async function carregarCategoriasMusicais() {
         const r = await listarCategoriasMusicais();
-        setCategoriasmusicais(r);
+        setCategoriaMusical(r);
     }
-
-
-    useEffect(() => {
-        carregarCategorias();
-        carregarCategoriasMusicais();
+    
+    useEffect(() =>{
+      carregarCategoriasArtistas();
+      carregarCategoriasMusicais();
     }, [])
+
     
 
     return(
         <div>
          <MenuADM/>
-             <div className='cadastrar'>
 
-                 <nav className='nav-cadastrar'>
-                    <h1 className='tit-cadastrar'> {id === 0 ? 'Cadastre' : 'Altere'} Artistas </h1>
+    <div className='cad-prod'>
 
-                    <div className='content-nav-cadastrar'>
-                        <div onClick={escolherImagem}>
-                        <input type='file' id='img' onChange={e => setImagem(e.target.files[0])} className='form_input'/>
-                   
-                        {imagem &&
-                        <img width={250} src={mostrarImagem()} alt='img'/> 
-                        }
+    <nav className='nav-cad-prod'>
+    <h1 className='tit-cad-prod' > Cadastre seu artista</h1>
 
-                        {!imagem &&
-                        <img src={'../../../../assets/images/Group 61.png'} width={250} className='imagem-cadastro' alt='img'/>
-                        }
+      <div className='content-nav-cad-prod'>
+
+      <div onClick={escolherImagem}>
+
+            <input type='file' id='img' onChange={e => setImagem(e.target.files[0])} className='form_input'/>
+
+            {imagem &&
+            <img width={250} src={mostrarImagem()} alt='img'/> 
+            }
+
+            {!imagem &&
+            <img src={'../../../../assets/images/Group 61.png'} width={250} className='imagem-cadastro-produto' alt='img'/>
+            }
+            </div>
+
+        <aside className='aside-cad-prod'>
+            <p>Nome do artista:</p>
+            <input className='input-cad-prod' value={nome} onChange={e => setNome(e.target.value)}/>
+
+            <p>Descrição do artista:</p>
+            <input className='input-cad-prod' value={descricao} onChange={e => setDescricao(e.target.value)}/>
+            
+            <p>Categoria do artista:</p>
+            <select className='input-cad-prod'  value={idCategoriaArtista} onChange={(e) => setIdCategoriaArtista(e.target.value)}>
+            <option selected disabled hidden>Selecione</option>
+                
+            {categoriaArtista.map(item =>
+             <option value={item.id}>{item.categoriaartista}</option>
+            )};
+            </select>
+            
+
+            <p>Categoria musical:</p>
+            <select className='input-cad-prod'  value={idCategoriaMusical} onChange={(e) => setIdCategoriaMusical(e.target.value)}>
+            <option selected disabled hidden>Selecione</option>
+            
+            {categoriaMusical.map(item =>
+             <option value={item.id}>{item.categoria}</option>
+            )};
+
+            </select>
+            <div>
+            <button  className='botao-adm-2' onClick={salvarArtistaClick}>Salvar</button>
+            <button className='botao-adm-2' >Novo</button>
                     </div>
-
-                        <aside className='aside-cadastrar'>
-                            <p>Nome do artista: </p>
-                            <input className='input-cadastrar' value={nome} onChange={e => setNome(e.target.value)} />
-
-                            <p>Descrição do artista: </p>
-                            <input className='input-cadastrar' value={descricao} onChange={e => setDescricao(e.target.value)}/>
-
-                            <p>Categoria musical:</p>
-                            <select className='input-cad-prod' value={idCategoriaMusical} onChange={(e) => setidCategoriaMusical(e.target.value)}>
-                            <option selected disabled hidden>Selecione</option>
-
-                            {categoriasmusicais.map(item =>
-                            <option value={item.id}>{item.categoria}</option>
-                            )};
-                            </select>
-
-                            <p>Categoria do artista:</p>
-                            <select className='input-cad-prod' value={idCategoria} onChange={(e) => setIdCategoria(e.target.value)}>
-                            <option selected disabled hidden>Selecione</option>
-
-                            {categorias.map(item =>
-                            <option value={item.id}>{item.categoria}</option>
-                            )};
-                            </select>
-
-                            
-                            <div>
-                                    <button className='botao-adm-2' onClick={salvar}>Salvar</button>
-                                    <button className='botao-adm-2' onClick={novoClick}>Novo</button>
-                            </div>
-                        </aside>
-                    </div>
-
-                </nav>
-             </div>
+                 </aside>
+                </div>
+            </nav>
+         </div>
         </div>
     )
 }

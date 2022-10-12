@@ -1,0 +1,96 @@
+.cad-prod{
+    display: flex;
+    flex-direction: row;
+    background-color: #1f1f1f;
+    align-items: center;
+    justify-content: center;
+
+
+    .nav-cad-prod{
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .content-nav-cad-prod{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-around;
+        align-items: center;
+        width: 70vw;
+        height: 47.1rem;
+        margin-top: 8rem;
+        padding-left: 5em;
+    }
+
+    .input-cad-prod{
+        width: 100%;
+        max-width: 15rem;
+        height: 3.5vh;
+        margin-bottom: 10px;
+        margin-top: 5px;
+        font-family: 'Poppins-Regular';
+    }
+   
+    .aside-cad-prod{
+        display: flex;
+        flex-direction: column;
+        font-family: 'Poppins-Regular';
+        color: #fff;
+        padding-left: 20rem;
+        margin-top: -5em;
+
+    }
+
+    .tit-cad-prod{
+        font-family: 'Poppins-Regular';
+        color: #fff;
+        margin-left: 2em;
+    }
+    .cat-selecionada {
+        font-size: .7em;
+        background-color: #672dc3;
+        padding: .5em 1em;
+        margin: .5em 5px;
+        color: #fff;
+        border-radius: 1em;
+    }
+
+    .form_input{
+        position: relative;
+        visibility: hidden;
+    }
+
+    .botao-adm-1{
+        border: 1px solid rgb(232, 68, 68);
+        border-radius: 20px;
+        padding: 6px;
+        width: 2vw;
+        height: 5vh;
+        margin-left: 16em;
+        align-items: center;
+        background-color: #1f1f1f;
+        font-family: 'Poppins-Regular';
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .botao-adm-2{
+        border: 1px solid rgb(232, 68, 68);
+        border-radius: 20px;
+        padding: 6px;
+        width: 8vw;
+        height: 5vh;
+        align-items: center;
+        background-color: #1f1f1f;
+        font-family: 'Poppins-Regular';
+        color: #fff;
+        cursor: pointer;
+        margin-left: 1rem;
+    }
+    
+    .imagem-cadastro-produto{
+        margin-bottom: 5em;
+    }
+
+}

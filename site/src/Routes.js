@@ -12,6 +12,8 @@ import LoginADM from './pages/ADM/Login/loginADM';
 import TelaInicial from './pages/ADM/TelaInicial/index';
 import CadProdutos from './pages/ADM/Produtos/CadProdutos';
 import TodosProdutos from './pages/TodosProdutos/index';
+import Artistas from './pages/ADM/Artistas/TodosArtistas';
+import CadArtistas from './pages/ADM/Artistas/CadArtistas';
 import PopUp from './pages/Components/Usuario/popup';
 
 export default function Index(){
@@ -27,9 +29,11 @@ export default function Index(){
     <Route exact path='/Cadastro' element={<Cadastro/>}/> 
     <Route exact path='/Feed' element={<Feed/>}/> 
     <Route exact path='/TodosProdutos' element={<TodosProdutos/>}/>
+    <Route exact path='/TodosArtistas' element={<Artistas/>}/>
     <Route exact path='/TodosProdutos/:idParam' element={<TodosProdutos/>}/>
-    <Route exact path='/CadProdutos' element={<CadProdutos/>}/>    
-    <Route path='/alterar/:idParam' element={<CadProdutos/>} />
+    <Route exact path='/CadProdutos' element={<CadProdutos/>}/>  
+    <Route exact path='/CadArtistas' element={<CadArtistas/>}/>    
+     <Route path='/alterar/:idParam' element={<CadProdutos/>} />
   </Routes>
   </BrowserRouter>
   </React.StrictMode>

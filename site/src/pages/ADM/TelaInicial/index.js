@@ -44,8 +44,9 @@ export default function TelaInicial(){
                 <h1 className='tit-tela-inicial-adm'>Seja bem-vindo! </h1>
             
             <div className='cards-adm'>
-                
+                <Link to='/TodosArtistas'>
                 <CardHome img={'../../../assets/images/Queen.jpg'} nome='Visualizar Artistas' />
+                </Link>
                 <CardHome img={'../../../assets/images/Screenshot_20220806-195359-947 3.png'} nome='Visualizar Músicas' />
                 <CardHome img={'../../../assets/images/1659575103611 1.png'} nome='Visualizar Clientes'/>
                 <CardHome nome='Visualizar Pedidos'/>
