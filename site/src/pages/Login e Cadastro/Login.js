@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import './login.scss';
 import { useRef, useState, useEffect } from "react";
-import {storage} from 'local-storage'
+import Storage from 'local-storage'
 import { loginUsuario } from "../../api/usuarioAPI.js";
 import LoadingBar from "react-top-loading-bar";
 
@@ -21,6 +21,7 @@ export default function Login(){
       ref.current.continuousStart();
 		setCarregando(true);
     const r = await loginUsuario(email,senha);
+    Storage('cliente-logado', r)
 
       setTimeout(() => {
 				ref.current.complete();

@@ -11,6 +11,17 @@ export async function cadastrarUsuario(usuario){
     return resp.insertId;
 }
 
+export async function verificarEmail(email){
+    const c =
+    `
+    select ds_email email
+    from tb_usuario
+    where ds_email = ? 
+    `;
+    const [resp] = await con.query(c, [email]);
+    return resp[0];
+}
+
 export async function loginUsuario(email, senha) {
     const c =
     `

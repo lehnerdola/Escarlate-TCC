@@ -1,22 +1,26 @@
 import { Router } from "express";
-import { cadastrarUsuario, loginUsuario } from "../repository/usuarioRepository.js";
+import { cadastrarUsuario, loginUsuario, verificarEmail } from "../repository/usuarioRepository.js";
 
 const server = Router();
 
 server.post('/usuario', async (req, resp)=> {
     try {
-        const cadastro = req.body;
-
-        const fazerCad = await cadastrarUsuario(cadastro);
-
-        if(!cadastro.nome)
-            throw new Error('Nome é obrigatório!')
-        if(!cadastro.email)
-            throw new Error('Email é obrigatório!')
-        if(!cadastro.senha)
-            throw new Error('Senha é obrigatória!')        
+        const usuario = req.body;
         
+        const buscar = await verificarEmail(usuario.email);
+         if(buscar){
+         throw new Error('email em uso')
+        }
+        const fazerCad = await cadastrarUsuario(usuario);
 
+        if(!usuario.nome)
+            throw new Error('Nome é obrigatório!')
+        if(!usuario.email)
+            throw new Error('Email é obrigatório!')
+        if(!usuario.senha)
+            throw new Error('Senha é obrigatória!')   
+
+        
         resp.send(String(fazerCad));
 
         if (!fazerCad) {
@@ -37,6 +41,7 @@ server.post('/usuario/login', async (req,resp) => {
          const {email, senha} = req.body;
          const resposta= await loginUsuario(email,senha);
 
+         
          if(!resposta) {
             throw new Error('Credenciais inválidas')
          } 
