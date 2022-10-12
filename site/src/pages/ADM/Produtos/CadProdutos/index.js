@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { listarCategorias, listarArtistas, enviarImagemProduto, buscarImagem, AlterarProduto, buscarPorId,cadastrarProduto } from '../../../../api/adminAPI.js';
+import {toast, ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function CadProdutos()
 {   
@@ -59,7 +61,7 @@ export default function CadProdutos()
 
             const r =  await cadastrarProduto(idArtista, idCategoria, nome, tamanho, disponivel,preco,quantidade);
             await enviarImagemProduto(imagem, r.id)
-            alert('produto cadastrado')
+            toast.dark('produto cadastrado')
 
             setId(r.id);
             }
@@ -69,11 +71,11 @@ export default function CadProdutos()
                 if(typeof(imagem)== 'object'){
                     await enviarImagemProduto(imagem, idParam)
                 } 
-                alert('prod. alt.')
+                toast.dark('prod. alt.')
             }
         }
         catch (err) {
-            alert(err.response.data.erro);
+            toast.error(err.response.data.erro);
         }
     }
 
@@ -121,6 +123,8 @@ function novoClick() {
         <MenuADM/>
 
         <div className='cad-prod'>
+        <ToastContainer/>
+
 
             <nav className='nav-cad-prod'>
             <h1 className='tit-cad-prod' >{id === 0 ? 'Cadastre' : 'Altere'} seu produto</h1>

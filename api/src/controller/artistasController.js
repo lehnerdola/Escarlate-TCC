@@ -25,6 +25,8 @@ server.post('/admin/artista', async (req, resp) =>{
         const artista = req.body;
         const idArtista = salvarArtista(artista);
 
+        await validarArtista(artista)
+
         console.log(artista)
 
         resp.send({
@@ -63,14 +65,13 @@ server.put('/artista/:id/imagem', upload.single ('imagem'), async (req, resp) =>
     try {
         const { id } = req.params;
         const imagem = req.file.path;
+
+        const resposta = await salvarImagemArtista(imagem, id);
         
         if (resposta != 1) {
             throw new Error('imagem não pode ser inserida, tente novamente')
         }
         
-        const resposta = await salvarImagemArtista(imagem, id);
-        console.log(salvarImagemArtista)
-
         
         resp.status(204).send()
 

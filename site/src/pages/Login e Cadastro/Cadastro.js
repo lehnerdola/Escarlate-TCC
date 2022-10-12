@@ -3,6 +3,8 @@ import './index.scss'
 import '../../Common.scss';
 import { cadastrarUsuario } from "../../api/usuarioAPI.js";
 import { useState } from "react";
+import {toast, ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Cadastro(){
 
@@ -13,14 +15,15 @@ export default function Cadastro(){
     async function SalvarClick(){
         try {
             const r = await cadastrarUsuario(nome,email,senha);
-            alert('cadastro efetuado com sucesso')
+            toast.dark('cadastro efetuado com sucesso')
         } catch (err) {
-            alert(err.response.data.erro);
+            toast.error(err.response.data.erro);
         }
     }
 
 return(
  <main className="page-cadastro">
+    <ToastContainer/>
     <section className="sec-1-cad">
         <div className="tit-cad">
             <h1 className="txt-1-cad">BEM VINDO</h1>
