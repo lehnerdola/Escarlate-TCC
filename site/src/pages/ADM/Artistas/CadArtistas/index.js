@@ -7,7 +7,7 @@ import '../../Produtos/CadProdutos/index.scss'
 import {cadastrarArtista, enviarImagemArtista, buscarImagem, listarCategoriasArtistas, listarCategoriasMusicais, salvarArtista, AlterarArtista} from '../../../../api/adminAPI.js'
 import { useState, useEffect } from "react";
 import {confirmAlert} from 'react-confirm-alert';
-import {toast} from 'react-toastify';
+import {toast, ToastContainer} from 'react-toastify';
 
 export default function CadArtistas (){
     const [idCategoriaMusical, setIdCategoriaMusical] = useState();
@@ -31,7 +31,7 @@ export default function CadArtistas (){
             const novoArtista = await salvarArtista(idCategoriaMusical, idCategoriaArtista, nome, descricao);
             await enviarImagemArtista(imagem, novoArtista.id);
         
-            alert('artista cadastrado')  
+            toast.dark('artista cadastrado')  
             setId(novoArtista.id)
             }
             else
@@ -42,11 +42,11 @@ export default function CadArtistas (){
             {
             await enviarImagemArtista(imagem, idParam)
             } 
-            alert('artista alterado')
+            toast.dark('artista alterado')
           }
         } 
         catch (err) {
-         alert(err.response.data.erro);
+         toast.error(err.response.data.erro);
         }
         
     }
@@ -86,6 +86,7 @@ export default function CadArtistas (){
          <MenuADM/>
 
     <div className='cad-prod'>
+        <ToastContainer/>
 
     <nav className='nav-cad-prod'>
     <h1 className='tit-cad-prod' > Cadastre seu artista</h1>

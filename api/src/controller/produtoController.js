@@ -98,7 +98,9 @@ server.get('/produto/:id', async (req, resp) => {
         const id = Number(req.params.id);
 
         const resposta = await consultarProdutosPorId(id);
-        resp.send(resposta);
+        resp.send({
+            info:resposta 
+        });
     } catch (err) {
         resp.status(404).send({
             erro: err.message

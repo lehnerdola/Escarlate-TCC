@@ -4,7 +4,7 @@ import { todosProdutos, buscarProdutoPorNome, buscarPorId } from '../../api/admi
 import { useEffect,useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import PopUp from '../Components/Usuario/popup';
-
+import Storage from 'local-storage'
 
 export default function TodosProdutos(){
 
@@ -27,13 +27,8 @@ export default function TodosProdutos(){
     }
 
 
-    async function carregarProdutoId(){
-        const resp = await buscarPorId(idParam);
-        setProduto(resp);
-    }
-
     function abrirInfo(id){
-        navigate(`/TodosProdutos/${id}`)
+        navigate('/TodosProdutos/' + id)
     }
 
     
@@ -47,6 +42,10 @@ export default function TodosProdutos(){
         return setProdutos(resp);
     }
 
+   function recarregarPag(){
+    window.location.reload()
+   }
+
     useEffect(() => {
         setTimeout(() => {
             carregarTodosProdutos();
@@ -59,10 +58,7 @@ export default function TodosProdutos(){
     },[produtos])
 
 
-    useEffect(() => {
-        carregarProdutoId();
-    }, [])
-
+    
     document.addEventListener("keypress", function  (e) {
         if(e.key === "Enter"){
             const btn = document.querySelector("#send");
@@ -123,13 +119,16 @@ export default function TodosProdutos(){
 
                 {modal && (
                 <div className="modal">
-                <div onClick={toggleModal} className="overlay">
+                <div className="overlay">
                 <motion.div
                 animate={{opacity:[0,1], }}
                 transition={{delay:0.5, type:'spring'}}
                 >
                 <div className="modal-content">
                     <PopUp produto={produto}/>
+                    <Link to ='/TodosProdutos'>
+                    <button onClick={toggleModal}> voltar</button>
+                    </Link>
                 </div>
                 </motion.div>    
                 </div>
