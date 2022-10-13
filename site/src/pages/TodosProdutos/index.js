@@ -85,7 +85,9 @@ export default function TodosProdutos(){
              </div>
              <div className='sub-header-2'>
                 <img src={'../../../../assets/images/user.png'} className='conf-img-header'/>
+                <Link to ='/Carrinho'>
                 <img src={'../../../../assets/images/cart.png'} className='conf-img-header'/>
+                </Link>
              </div>
         </header>
   

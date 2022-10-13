@@ -1,10 +1,54 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import '../../Common.scss' 
 import './carrinho.scss'
+import Storage from 'local-storage'
+import { buscarPorId } from "../../api/adminAPI";
+import CarrinhoItem from "../Components/Usuario/carrinhoitem/carrinhoitem";
 export default function Carrinho(){
 
+  const [itens, setItens] = useState([]);
+
+  async function carregarCarrinho(){
+    let carrinho = Storage('carrinho');
+    if(carrinho) {
+
+      let temp = [];
+
+      for(let produto of carrinho){
+        let p = await buscarPorId(produto.id);
+
+        temp.push( {
+          produto: p,
+          quantidade: produto.quantidade
+        })
+      }
+      setItens(temp);
+    }
+  }
+
+  function removerItem(id){
+    let carrinho = Storage('carrinho');
+    carrinho = carrinho.filter(item => item.id != id);
+
+    Storage('carrinho', carrinho);
+    carregarCarrinho();
+  }
+
+  function carregarValorTotal(){
+    let total = 0;
+    for (let item of itens){
+      total = total + item.produto.info.preco * item.quantidade;    
+    }
+    return total;
+  }
+
+  useEffect(() => {
+      carregarCarrinho();
+  }, [])
+
 return(
- <main>
+ <main className="corzinha-cart">
     <header className="header">
     <div className='sub-header-1'>
         <Link to='/feed'>
@@ -19,34 +63,31 @@ return(
                 <img src={'../../../../assets/images/user.png'} className='conf-img-header' alt="img"/>
              </div>
     </header>
-    
-    <nav className="carrinho">
-    <div className="prod-caixa">
-        <div className="itens">
-            <div className="div-prod1">
-            <img src={'../../../../assets/images/CANECA-removebg-preview 1.png'} className='conf-img-header' alt="img" width={150}/>
-            <p className="nome">Caneca Metallica 450ml cor branca</p>
-            </div>
+    <div className="main-cart">
 
-            <div className="infos-prod">
-                <div className="info">
-                <p className="nome">Valor</p>
-                <p className="nome">R$ 0,00</p>
-                </div>
-                <div className="info">
-                <p className="nome">Quantidade</p>
-                <p className="nome">1</p>
-                </div>
-                <div className="info">
-                <p className="nome">Apagar</p>
-                <img src={'../../../../assets/images/trash.png'} className='conf-img-header' width={100} alt="img"/>
-                </div >
-            </div>
-        </div>
-       
+    {itens.map(item => 
+      
+      <CarrinhoItem item={item} removerItem={removerItem} carregarCarrinho={carregarCarrinho}/>
+  )}
+
+    <section className="align-itens-row-total-itens">
+
+    <div className="align-itens-column-total-itens">
+    <h1>Total de itens</h1>
+    <p>{itens.length} itens</p>
     </div>
-    </nav>
-         
+
+    <div className="align-itens-column-total-itens">
+    <h1>Valor total:</h1>
+    <p>R${carregarValorTotal()}</p>
+    </div>
+
+    <button>Continuar Pedido</button>
+
+    </section>
+    </div>
+
+    
  </main>
 )
 }
