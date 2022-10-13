@@ -15,6 +15,7 @@ import TodosProdutos from './pages/TodosProdutos/index';
 import Artistas from './pages/ADM/Artistas/TodosArtistas';
 import CadArtistas from './pages/ADM/Artistas/CadArtistas';
 import PopUp from './pages/Components/Usuario/popup';
+import NossosArtistas from './pages/NossosArtistas/nossosartistas.js'
 
 export default function Index(){
     return(
@@ -35,7 +36,7 @@ export default function Index(){
     <Route exact path='/CadArtistas' element={<CadArtistas/>}/>    
     <Route path='/alterar/:idParam' element={<CadProdutos/>} />
     <Route exact path='/Carrinho' element={<Carrinho/>}/> 
-
+    <Route exact path='/NossosArtistas' element={<NossosArtistas/>}/> 
   </Routes>
   </BrowserRouter>
   </React.StrictMode>

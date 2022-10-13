@@ -1,0 +1,128 @@
+.nossosartistas{
+    display: flex;
+    flex-direction: column;
+    background-color: hsl(0, 0%, 12%);
+    align-items: center;
+    height: 400vh;
+
+    .header {
+        display: flex;
+        flex-direction: row;
+        height: 10vh;
+        justify-content: space-around;
+        background-color: #A83F37;
+        align-items: center;
+    }
+
+    .faixa1{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 70vh;
+        margin-right: 10em;
+
+    }
+    .artistaimg{
+        margin-left: 10em;
+        border-radius: 60em;
+        -webkit-box-shadow:  -38px 42px 78px  8px #000000; 
+    box-shadow: -38px 42px 78px  8px #000000;
+    }
+    .artistaimg:hover{
+        margin-left: 10em;
+        border-radius: 60em;
+        width: 15em;
+        -webkit-box-shadow:  -40px 44px 80px  8px #000000; 
+    box-shadow: -38px 42px 78px  8px #000000;
+    }
+
+
+    .img{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .artistas{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 30vw;
+        border-radius: 60px;
+    }
+
+    .align-prod{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1{
+        font-family: 'CinzelDecorative-Regular';
+        text-transform: capitalize;
+        color: #ffff;
+        letter-spacing: 3px;
+        font-weight: 100;
+        font-size: 3rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    span{
+        font-family: 'CinzelDecorative-Regular';
+        text-transform: capitalize;
+        color: rgb(168, 63, 55);
+        font-weight: 100;
+        font-size: 3rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+
+}
+
+
+body.active-modal {
+    overflow-y: hidden;
+}
+
+.btn-modal {
+    padding: 10px 20px;
+    display: block;
+    margin: 100px auto 0;
+    font-size: 18px;
+}
+
+.categorias{
+    font-family: 'Cinzel-Regular';
+    color: rgb(168, 63, 55);
+    font-weight: 100;
+    display: flex; 
+    flex-direction: row;
+    font-size: 1.5em;
+
+}
+
+h3{
+    padding-left: 0.98em;
+}
+
+.overlay {
+    background: rgba(49,49,49,0.8);
+}
+
+.lupa{
+    display: flex;
+    margin-bottom: 9em;
+    margin-right: 90em;
+}
+
+
+.lupa-conf {
+    width: 25px;
+    border: none;
+    background: transparent;
+    margin-left: -28em;
+    margin-top: 1px;
+    position: absolute;
+}
