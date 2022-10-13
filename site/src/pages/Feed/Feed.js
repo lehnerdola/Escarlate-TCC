@@ -1,13 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './feed.scss';
+import Storage from 'local-storage'
 
 export default function Feed(){
+
+    const navigate  = useNavigate();
+
+    function sairClick(){
+        Storage.remove('cliente-logado');
+        navigate('/login')
+    }
 
 return(
 <main> 
 <header className='header'>
              <div className='sub-header-1'>
-             <img src={'../../../../assets/images/Group 1.png'} className='logo-header-conf'/>
+             <img src={'../../../../assets/images/Group 1.png'} className='logo-header-conf' onClick={sairClick}/>
              <h2 className='nome-page'>Início</h2>
              </div>   
              <div>
@@ -15,7 +23,9 @@ return(
              </div>
              <div className='sub-header-2'>
                 <img src={'../../../../assets/images/user.png'} className='conf-img-header'/>
+                <Link to='/Carrinho'>
                 <img src={'../../../../assets/images/cart.png'} className='conf-img-header'/>
+                </Link>
              </div>
         </header> <div className="feed">
 
