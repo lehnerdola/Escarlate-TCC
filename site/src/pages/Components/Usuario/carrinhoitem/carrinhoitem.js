@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Storage from 'local-storage'
-
+import BotaoADM from '../../../Components/Adm/Button/index'
 
 export default function CarrinhoItem({item: {produto: {info},quantidade } , removerItem, carregarCarrinho}){
     const [qtdProduto, setQtdProduto]= useState(quantidade);
@@ -11,8 +11,9 @@ export default function CarrinhoItem({item: {produto: {info},quantidade } , remo
 
     function calcularTotal(){
         const subtotal = qtdProduto * info.preco;
-        return console.log(subtotal);
+        return subtotal;
     }
+    
 
     function alterarQuantidade(novaQtd){
         setQtdProduto(novaQtd);
@@ -32,17 +33,17 @@ export default function CarrinhoItem({item: {produto: {info},quantidade } , remo
       <div className="align-itens-row">
         <div className="align-produto-nome">
         <img src={`http://localhost:5000/${info.imagem}`} width={140}/>
-        <p>{info.nome}</p>
+        <p style={{fontFamily:'Arya-Regular', color:"#ffff", fontWeight:"100"}}>{info.nome}</p>
       </div>
 
       <div className="align-itens-valor-qtd-apagar">
       <div className="align-itens-column-valor-qtd-apagar">
-      <p>Total</p>
-      <p>R${info.preco}</p>
+      <p style={{fontFamily:'Arya-Regular', color:"#ffff", fontWeight:"100"}}>Total</p>
+      <p style={{fontFamily:'Arya-Regular', color:"#ffff", fontWeight:"100"}}>R${calcularTotal()}</p>
       </div>  
 
       <div className="align-itens-column-valor-qtd-apagar">
-      <p>Quantidade</p>
+      <p style={{fontFamily:'Arya-Regular', color:"#ffff", fontWeight:"100"}}>Quantidade</p>
       <select onChange={e => alterarQuantidade(e.target.value)} value={qtdProduto}>
             <option >1</option>
             <option >2</option>
@@ -58,14 +59,13 @@ export default function CarrinhoItem({item: {produto: {info},quantidade } , remo
      </div>     
 
      <div className="align-itens-column-valor-qtd-apagar" style={{paddingTop:7}}>
-      <p >Apagar</p>
+      <p style={{fontFamily:'Arya-Regular', color:"#ffff", fontWeight:"100"}}>Apagar</p>
       <img src={'../assets/images/trash.png'} width={30} onClick={Remover}/>
      </div> 
       </div>  
       </div>  
-
-      <button>Continuar</button>
-      
+      <BotaoADM nome='Continuar'/>  
+     
     </section>
     
     </main>

@@ -5,6 +5,8 @@ import './carrinho.scss'
 import Storage from 'local-storage'
 import { buscarPorId } from "../../api/adminAPI";
 import CarrinhoItem from "../Components/Usuario/carrinhoitem/carrinhoitem";
+import BotaoADM from '../Components/Adm/Button/index'
+
 export default function Carrinho(){
 
   const [itens, setItens] = useState([]);
@@ -73,17 +75,16 @@ return(
     <section className="align-itens-row-total-itens">
 
     <div className="align-itens-column-total-itens">
-    <h1>Total de itens</h1>
-    <p>{itens.length} itens</p>
+    <h1 style={{fontFamily:'Arya-Regular', color:"#ffff", fontWeight:"100"}}>Total de itens</h1>
+    <p style={{fontFamily:'Arya-Regular', color:"#ffff", fontWeight:"100"}}>{itens.length} itens</p>
     </div>
 
     <div className="align-itens-column-total-itens">
-    <h1>Valor total:</h1>
-    <p>R${carregarValorTotal()}</p>
+    <h1 style={{fontFamily:'Arya-Regular', color:"#ffff", fontWeight:"100"}}>Valor total:</h1>
+    <p style={{fontFamily:'Arya-Regular', color:"#ffff", fontWeight:"100"}}>R${carregarValorTotal()}</p>
     </div>
 
-    <button>Continuar Pedido</button>
-
+    <BotaoADM nome='Continuar Pedido'/>  
     </section>
     </div>
 

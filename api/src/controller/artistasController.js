@@ -23,15 +23,11 @@ server.get('/artistas', async (req, resp) => {
 server.post('/admin/artista', async (req, resp) =>{ 
     try {
         const artista = req.body;
-        const idArtista = salvarArtista(artista);
+
 
         await validarArtista(artista)
-
-        console.log(artista)
-
-        resp.send({
-            id: idArtista
-        });
+        const idArtista = await salvarArtista(artista);
+       resp.send(idArtista)
     } catch (err) {
         return  resp.status(400).send({
             erro: err.message
@@ -82,5 +78,8 @@ server.put('/artista/:id/imagem', upload.single ('imagem'), async (req, resp) =>
         )
     } 
 })
+
+
+
 
 export default server;

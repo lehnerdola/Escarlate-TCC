@@ -2,7 +2,7 @@ import './index.scss'
 import {motion, AnimatePresence} from 'framer-motion'
 import { useEffect,useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { listarArtistas, listarCategoriasArtistas } from '../../api/adminAPI.js'
+import { listarArtistas, listarCategoriasArtistas, buscarImagem } from '../../api/adminAPI.js'
 
 
 export default function TodosProdutos(){
@@ -14,6 +14,19 @@ export default function TodosProdutos(){
         const resp = await listarArtistas(filtro);
         return setArtistas(resp);
     }
+
+
+    async function carregarTodosArtistas(){
+        const r = await listarArtistas();
+        setArtistas(r);
+    }
+
+    useEffect(() => {
+        setTimeout(() => {
+            carregarTodosArtistas();
+        }, 2000)
+    }, []);
+
 
     return(
         <main>
@@ -41,40 +54,23 @@ export default function TodosProdutos(){
 
 
        <div className='nossosartistas'>
-            <h1 >Conheça nossos <span> artistas</span></h1>
+        <div >
+            <h1 className='h1-nossosartistas' style={{textAlign:"center"}}>Conheça nossos <span style={{fontFamily:"CinzelDecorative-Regular", color:"#A83F37"}}> artistas</span></h1>
             <div className='categorias'>
-            <h3>Hits do momento</h3><h3>Duo do rock</h3><h3>Solistas</h3><h3>Bandas</h3><h3>...</h3>
+            <h3 >Hits do momento</h3>
             </div>
-         <div>
+            
              <div className='faixa1'>
-             <img src={'../../../../assets/images/bandgroup1.png'} className='artistaimg'/>
-             <img src={'../../../../assets/images/bandgroup2.png'} className='artistaimg'/>
-             <img src={'../../../../assets/images/bandgroup3.png'} className='artistaimg'/>
-             </div>
-             <div className='faixa1'>
-             <img src={'../../../../assets/images/bandgroup4.png'} className='artistaimg'/>
-             <img src={'../../../../assets/images/bandgroup5.png'} className='artistaimg'/>
-             <img src={'../../../../assets/images/bandgroup6.png'} className='artistaimg'/>
-             </div>
-             <div className='faixa1'>
-             <img src={'../../../../assets/images/bandgroup7.png'} className='artistaimg'/>
-             <img src={'../../../../assets/images/bandgroup8.png'} className='artistaimg'/>
-             <img src={'../../../../assets/images/bandgroup9.png'} className='artistaimg'/>
-             </div>
-             <div className='faixa1'>
-             <img src={'../../../../assets/images/bandgroup10.png'} className='artistaimg'/>
-             <img src={'../../../../assets/images/bandgroup11.png'} className='artistaimg'/>
-             <img src={'../../../../assets/images/bandgroup12.png'} className='artistaimg'/>
-             </div>
-             <div className='faixa1'>
-             <img src={'../../../../assets/images/bandgroup13.png'} className='artistaimg'/>
-             <img src={'../../../../assets/images/bandgroup14.png'} className='artistaimg' height='210em'/>
-             <img src={'../../../../assets/images/bandgroup15.png'} className='artistaimg'/>
-             </div>
+             {artistas.map ( item => 
+             <motion.img src={buscarImagem(item.imagem)} className='artistaimg'
+                whileHover={{ scale: 1.1}}
+                onHoverStart={e => {}}
+                onHoverEnd={e => {}}/>
+             )}
 
-         </div>
-
-              </div>
+            </div>
+        </div>
+        </div>
         </main>
     )
 }

@@ -22,7 +22,8 @@ export async function salvarArtista(artista){
     values(?, ?, ?, ?)`
     const [resposta] = await con.query(cad, [artista.idCategoriaMusical, artista.idCategoriaArtista, artista.nome, artista.descricao]);
 
-    return resposta.insertId;
+    artista.id = resposta.insertId;
+    return artista;
 }
 
 export async function alterarArtista(id, artista){
@@ -61,6 +62,17 @@ export async function buscarArtistaPorId(id) {
 
     const [linhas] = await con.query(c, [id]);
     return linhas[0];
+}
+
+export async function removerArtista(id){
+    const c = 
+    `
+    delete from tb_artista
+    where id_artista = ?
+    `
+
+    const [resposta] = await con.query (c, [id])
+    return resposta.affectedRows;
 }
 
 

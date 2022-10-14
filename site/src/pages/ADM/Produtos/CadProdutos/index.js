@@ -41,17 +41,17 @@ export default function CadProdutos()
 
     async function carregarProduto(){
         const r = await buscarPorId(idParam);
-        setIdArtista(r.artista);
-        setIdCategoria(r.categoria);
+        setIdArtista(r.info.artista);
+        setIdCategoria(r.info.categoria);
         
-        setNome(r.nome);
-        setTamanho(r.tamanho);
-        setDisponivel(r.disponivel);
-        setPreco(r.preco);
-        setImagem(r.imagem);
-        setQuantidade(r.quantidade);
+        setNome(r.info.nome);
+        setTamanho(r.info.tamanho);
+        setDisponivel(r.info.disponivel);
+        setPreco(r.info.preco);
+        setImagem(r.info.imagem);
+        setQuantidade(r.info.quantidade);
 
-        setId(r.id);
+        setId(r.info.id);
     }
 
    
@@ -108,7 +108,7 @@ function novoClick() {
 
     async function carregarCategorias() {
         const r = await listarCategorias();
-        setCategorias(r);
+        setCategorias(r)
     } 
 
     async function carregarArtistas() {

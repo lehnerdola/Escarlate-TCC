@@ -65,7 +65,8 @@ export async function consultarProdutosPorId(id){
     `
     SELECT 
        id_produto	    id,
-       nm_artista       artista,
+       tb_produto.id_artista       artista,
+       nm_artista       nomeartista,
        id_categoria     categoria,
        nm_produto       nome,
        ds_tam           tamanho,

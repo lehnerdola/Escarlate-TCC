@@ -3,7 +3,7 @@
     flex-direction: column;
     background-color: hsl(0, 0%, 12%);
     align-items: center;
-    height: 400vh;
+    height: 90vh;
 
     .header {
         display: flex;
@@ -19,25 +19,21 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        height: 70vh;
+        height: 100%;
         margin-right: 10em;
 
     }
     .artistaimg{
         margin-left: 10em;
-        border-radius: 60em;
-        -webkit-box-shadow:  -38px 42px 78px  8px #000000; 
-    box-shadow: -38px 42px 78px  8px #000000;
-    }
-    .artistaimg:hover{
-        margin-left: 10em;
-        border-radius: 60em;
-        width: 15em;
-        -webkit-box-shadow:  -40px 44px 80px  8px #000000; 
-    box-shadow: -38px 42px 78px  8px #000000;
-    }
+        border-radius: 100px;
+        min-width: 200px;
+        height: 200px;
+        max-width: 210px;
+        width: 100%;
 
-
+        object-fit: cover;
+    }
+    
     .img{
         display: flex;
         flex-direction: row;
@@ -57,21 +53,11 @@
         align-items: center;
     }
 
-    h1{
+    .h1-nossosartistas{
         font-family: 'CinzelDecorative-Regular';
         text-transform: capitalize;
         color: #ffff;
         letter-spacing: 3px;
-        font-weight: 100;
-        font-size: 3rem;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-    }
-
-    span{
-        font-family: 'CinzelDecorative-Regular';
-        text-transform: capitalize;
-        color: rgb(168, 63, 55);
         font-weight: 100;
         font-size: 3rem;
         margin-top: 2rem;
@@ -99,13 +85,12 @@ body.active-modal {
     font-weight: 100;
     display: flex; 
     flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
     font-size: 1.5em;
-
 }
 
-h3{
-    padding-left: 0.98em;
-}
+
 
 .overlay {
     background: rgba(49,49,49,0.8);

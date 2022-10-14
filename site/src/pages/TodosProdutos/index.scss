@@ -43,6 +43,17 @@
         text-align: center;
         
     }
+
+    .botao-voltar{
+        border: 1px solid rgb(232, 68, 68);
+        border-radius: 20px;
+        padding: 6px;
+        width: 5rem;
+        background-color: #1f1f1f;
+        font-family: 'Poppins-Regular';
+        color: #fff;
+        cursor: pointer;
+    }
 }
 
 body.active-modal {

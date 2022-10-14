@@ -4,7 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import Storage from 'local-storage'
 import './index.scss'
 import { buscarPorId } from "../../../../api/adminAPI";
-
+import BotaoADM from "../../Adm/Button";
+import {toast, ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 export default function PopUp(props){
 
     const [produto, setProduto] = useState({info: {}})
@@ -22,9 +24,11 @@ export default function PopUp(props){
   
     function adicionarAoCarrinho(){
         let carrinho = [];
+        console.log(carrinho)
         if(Storage('carrinho')){
             carrinho = Storage('carrinho')
         }
+        console.log(carrinho)
         
 
         if(!carrinho.find(item => item.id === id)){
@@ -33,15 +37,19 @@ export default function PopUp(props){
                 quantidade: 1
 
             })
+            
           
             Storage('carrinho', carrinho);
+            toast.success('🛒 Item adicionado ao carrinho')
+            
         }
     }
     
     
     return(
         <main className='pop-up' >
-            <img src={`http://localhost:5000/${produto.info.imagem}`}/>
+            <ToastContainer/>
+            <img src={`http://localhost:5000/${produto.info.imagem}`} className='img-popup'/>
             <div className="align-itens-popup">
 
             <h1 className="nome-prod-popup">{produto.info.nome}</h1>
@@ -56,11 +64,15 @@ export default function PopUp(props){
             <div>
             <h3 className="align-itens-4-pop-up">Descrição do produto:</h3>
             <p>Tamanho(s): {produto.info.tamanho}</p>
-            <p>Artista: {produto.info.artista}</p>
+            <p>Artista: {produto.info.nomeartista}</p>
             </div>
             <div className="align-itens-5-popup">
-            <button onClick={adicionarAoCarrinho}>Adicionar ao carrinho</button>
-            <button>Comprar</button>
+            <div onClick={adicionarAoCarrinho}>
+            <BotaoADM nome='Adicionar ao carrinho'/>
+          </div>
+            <div>
+            <BotaoADM nome='Comprar'/>
+            </div>
             </div>
             </div>
 

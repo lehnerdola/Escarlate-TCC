@@ -1,6 +1,6 @@
 import BotaoADM from "../../../Components/Adm/Button";
 import MenuADM from "../../../Components/Adm/menu";
-import { listarArtistas } from "../../../../api/adminAPI";
+import { listarArtistas, buscarImagem } from "../../../../api/adminAPI";
 import { Link } from "react-router-dom";
 import '../../Produtos/TodosProdutos/index.scss' 
 import { useState, useEffect } from "react";
@@ -40,9 +40,9 @@ export default function Artistas(){
                 {artistas.map( item =>
                 <div className="conf-card">
                 <div className='cardpah'>
-                <img src=""/>
+                <img width={240} height={200} src={buscarImagem(item.imagem)}/>
                 <div className='txt-cardpah'>
-                <p className='txt-conf-cardpah'>{item.nome}</p>
+                <p className='txt-conf-cardpah'>{item.artista}</p>
                
                 <p className='txt-conf-cardpah'>{item.descricao}</p>
                 <p className='txt-conf-cardpah'></p>

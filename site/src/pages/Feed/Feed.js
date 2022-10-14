@@ -52,7 +52,9 @@ return(
     </section>
      
     <section className="sec-top-hits">
-    <h1 className="tit">NOSSOS ARTISTAS</h1>    
+    <Link to='/NossosArtistas'>
+    <h1 className="tit">NOSSOS ARTISTAS</h1>   
+    </Link>     
     <div className="div-top-hits">
        <img src={'../../assets/images/Ellipse 4.png'} className='conf-img-feed-music'/> 
        <img src={'../../assets/images/Ellipse 5.png'} className='conf-img-feed-music'/> 
