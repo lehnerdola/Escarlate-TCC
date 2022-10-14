@@ -89,7 +89,7 @@ export default function CadArtistas (){
         <ToastContainer/>
 
     <nav className='nav-cad-prod'>
-    <h1 className='tit-cad-prod' > Cadastre seu artista</h1>
+    <h1 className='tit-cad-prod' style={{marginTop:"1em", marginLeft:"2em"}}> {id === 0 ? 'Cadastre' : 'Altere'} seu artista</h1>
 
       <div className='content-nav-cad-prod'>
 
@@ -132,10 +132,10 @@ export default function CadArtistas (){
             )};
 
             </select>
-            <div>
+            <div className='align-bt-cadprod'>
             <button  className='botao-adm-2' onClick={salvarArtistaClick}>Salvar</button>
             <button className='botao-adm-2' >Novo</button>
-                    </div>
+            </div>
                  </aside>
                 </div>
             </nav>

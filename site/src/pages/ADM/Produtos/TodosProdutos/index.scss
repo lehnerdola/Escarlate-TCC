@@ -1,16 +1,16 @@
 .produtos-adm{
     display: flex;
-    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 9em;
+    min-height: 100vh;
     background-color: #1f1f1f;  
-    justify-content: center;
-    height: 57.3rem;
     .content-produtos-adm{
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         margin-left: 6em;
-        
-    }
+        height: 100%;
+}
 
     .nav-cad-prod{
         display: flex;
@@ -22,7 +22,7 @@
     .tit-produtos{
         font-family: 'Poppins-Regular';
         color:#fff;
-        padding-bottom: 0.8em;
+       padding-top: 13px
     }
 
     .align-itens-produtos{
@@ -31,17 +31,26 @@
        
     }
 
-    .cardpah{
+    .conf-card{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
-    border: 1px solid rgb(241, 75, 75);
     align-items: center;
     width: 70vw;
-    height: 30vh;
+    height: 50vh;
+
+    .cardpah{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        border: 1px solid rgb(241, 75, 75);
+        align-items: center;
+        width: 70vw;
+        height: 30vh;
+    }    
+    
     
    
-
     .txt-cardpah{
         display: flex;
         flex-direction: column;

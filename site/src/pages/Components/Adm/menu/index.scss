@@ -30,18 +30,26 @@
         text-align: center;
     }
 
+    .align-itens-menu{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 8rem;
+        align-items: center;
+    }
+
     .link-config-txt{
         color: #fff;
         text-decoration: none;
     }
     
-    .txt-menu-adm:hover{
+    .align-itens-menu:hover{
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
     text-transform: none;
     background-color: rgb(203, 59, 59);
-    width: 6rem;
+    width: 8rem;
     }
 
     .exit-icon{

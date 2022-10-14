@@ -1,45 +1,55 @@
 import BotaoADM from "../../../Components/Adm/Button";
-import CardPAH from "../../../Components/Adm/Card"
 import MenuADM from "../../../Components/Adm/menu";
-import { Navigate, useNavigate } from "react-router-dom";
+import { listarArtistas } from "../../../../api/adminAPI";
 import { Link } from "react-router-dom";
 import '../../Produtos/TodosProdutos/index.scss' 
 import { useState, useEffect } from "react";
-import {confirmAlert} from 'react-confirm-alert';
-import {toast} from 'react-toastify';
+import {toast, ToastContainer} from 'react-toastify';
 
 export default function Artistas(){
 
-    
+    const [artistas, setArtistas] = useState([]);
+ 
+    async function carregarTodosArtistas(){
+        const r = await listarArtistas();
+        setArtistas(r);
+    }
+
+    useEffect(() => {
+        setTimeout(() => {
+            carregarTodosArtistas();
+        })
+    }, []);
 
     return(
         <div>
         <MenuADM/>
+        <ToastContainer/>
 
-        <div className='comeco-adm'>
+        <div className='produtos-adm'>
             
 
-            <div className='content-adm'>
+            <div className='content-produtos-adm'>
 
-                <div className="align-itens">
-                <h1 className='titulo'>Todos os Artistas</h1>
-                <Link to='/CadProdutos'>
+                <div className="align-itens-produtos">
+                <h1 className='tit-produtos'>Todos os Artistas</h1>
+                <Link to='/CadArtistas' >
                 <BotaoADM nome='Adicionar Novo Artista'/>
                 </Link>
                 </div>
-                
-            
+                {artistas.map( item =>
                 <div className="conf-card">
                 <div className='cardpah'>
-                <img />
+                <img src=""/>
                 <div className='txt-cardpah'>
-                <p className='txt-conf-cardpah'></p>
-                <p className='txt-conf-cardpah'></p>
+                <p className='txt-conf-cardpah'>{item.nome}</p>
+               
+                <p className='txt-conf-cardpah'>{item.descricao}</p>
                 <p className='txt-conf-cardpah'></p>
                 <p className='txt-conf-cardpah-underline'></p>
                 </div>
                 <div className='bt-card-pah'>
-                    <div>
+                    <div  >
                     <BotaoADM nome='EXCLUIR ARTISTA'/>
                 </div>
                 <div>      
@@ -49,6 +59,7 @@ export default function Artistas(){
 
                 </div>
             </div>
+                )}
 
 
             </div>

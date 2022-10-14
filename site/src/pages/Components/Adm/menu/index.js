@@ -13,28 +13,42 @@ export default function MenuADM(props){
     return(
         <div className='menu'>
             <div className='menu-adm'>
-            <img className='logo-cad-prod' src={'../../../../assets/images/Captura de Tela (2).png'} width={155}/>
+            <img className='logo-cad-prod' alt='' src={'../../../../assets/images/Captura de Tela (2).png'} width={155}/>
 
             <div className='menu-itens'>
-            <img/>
+            <div className='align-itens-menu'>  
+            <img alt='' src={'../assets/images/🦆 icon _home_.png'} width={18} height={18}/>
             <Link to='/TelaInicial' className='link-config-txt' onClick={ () => selecionarMenu('home')}>
-            <p className='txt-menu-adm'>Home</p>  
+            <p className='txt-menu-adm' style={{marginRight:"0.5em"}}>Home</p>  
             </Link> 
-            <img/>
-            <p className='txt-menu-adm'>Artistas</p>
-            <img/>
-            <p className='txt-menu-adm'>Músicas</p>
-            <img/>
-            <p className='txt-menu-adm'>Clientes</p>
-            <img/>
-            <p className='txt-menu-adm'>Pedidos</p>
-            <img/>
+            </div>
+            <div className='align-itens-menu'>
+            <img alt=''src={'../assets/images/🦆 icon _box seam_ (1).png'} width={18} height={18} style={{marginLeft:"0.5em"}}/>
             <Link to='/Produtos' className='link-config-txt' onClick={ () => selecionarMenu('produtos')}>
-            <p className='txt-menu-adm'>Produtos</p>
+            <p className='txt-menu-adm' style={{marginLeft:"0.1em"}}>Produtos</p>
+            </Link>  
+            </div>
+            <Link to='/TodosArtistas' className='link-config-txt'>
+            <div className='align-itens-menu'>
+            <img alt='' src={'../assets/images/🦆 icon _music artist_.png'} width={18} height={18}  style={{marginLeft:"0.2em"}}/>
+            <p className='txt-menu-adm'>Artistas</p>
+            </div>
             </Link>
+            <div className='align-itens-menu'>
+            <img alt='' src={'../assets/images/🦆 icon _headphone music alt_.png'} width={18} height={18}  style={{marginLeft:"0.2em"}}/>
+            <p className='txt-menu-adm'>Músicas</p>
+            </div>
+            <div className='align-itens-menu' >
+            <img alt='' src={'../assets/images/🦆 icon _people_.png'} width={18} height={14}  style={{marginLeft:"0.2em"}}/>
+            <p className='txt-menu-adm'>Clientes</p>
+            </div>
+            <div className='align-itens-menu' >
+            <img alt='' src={'../assets/images/Carrinho.png'} width={18} height={18}  style={{marginLeft:"0.2em"}}/>
+            <p className='txt-menu-adm'>Pedidos</p>
+            </div> 
             </div>
             <Link to ='/LoginADM'>
-            <img src={'../../../../assets/images/Vector.png'} width={20} className='exit-icon'/>
+            <img src={'../../../../assets/images/Vector.png'} width={20} className='exit-icon' alt=''/>
             </Link>
             </div>
         </div>

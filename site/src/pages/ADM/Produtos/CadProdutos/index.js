@@ -2,7 +2,7 @@ import '../../../../Common.scss';
 import MenuADM from '../../../Components/Adm/menu/'
 import './index.scss';
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { listarCategorias, listarArtistas, enviarImagemProduto, buscarImagem, AlterarProduto, buscarPorId,cadastrarProduto } from '../../../../api/adminAPI.js';
 import {toast, ToastContainer} from 'react-toastify'
@@ -25,9 +25,11 @@ export default function CadProdutos()
     
     const [id, setId] = useState(0);
 
-    const [catSelecionadas, setCatSelecionadas] = useState([]);
        
     const { idParam } = useParams();
+
+    const navigate = useNavigate();
+
 
     useEffect(() =>{
         if(idParam){
@@ -62,6 +64,8 @@ export default function CadProdutos()
             const r =  await cadastrarProduto(idArtista, idCategoria, nome, tamanho, disponivel,preco,quantidade);
             await enviarImagemProduto(imagem, r.id)
             toast.dark('produto cadastrado')
+
+            navigate('/Produtos')
 
             setId(r.id);
             }
@@ -127,7 +131,7 @@ function novoClick() {
 
 
             <nav className='nav-cad-prod'>
-            <h1 className='tit-cad-prod' >{id === 0 ? 'Cadastre' : 'Altere'} seu produto</h1>
+            <h1 className='tit-cad-prod' style={{marginTop:"1em", marginLeft:"2em"}}>{id === 0 ? 'Cadastre' : 'Altere'} seu produto</h1>
 
               <div className='content-nav-cad-prod'>
               <div onClick={escolherImagem}>
@@ -178,7 +182,7 @@ function novoClick() {
                     )};
 
                     </select>
-                <div>
+                <div className='align-bt-cadprod'>
                     <button  onClick={salvar} className='botao-adm-2'>Salvar</button>
                     <button className='botao-adm-2' onClick={novoClick}>Novo</button>
             </div>

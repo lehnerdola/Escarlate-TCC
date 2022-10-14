@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 import './index.scss'
 import { useState, useEffect } from "react";
 import {confirmAlert} from 'react-confirm-alert';
-import {toast} from 'react-toastify';
+import {toast, ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Produtos(){
 
@@ -35,13 +36,13 @@ export default function Produtos(){
 		const resposta = await removerProduto(id, nome);
 			carregarTodosProdutos();
 			toast.success("🔥 Produto " + nome + " removido!");
-			
-	}
+}
 
 
     return(
         <div>
         <MenuADM/>
+        <ToastContainer/>
 
         <div className='produtos-adm'>
             
@@ -50,8 +51,8 @@ export default function Produtos(){
 
                 <div className="align-itens-produtos">
                 <h1 className='tit-produtos'>Todos os Produtos</h1>
-                <Link to='/CadProdutos'>
-                <BotaoADM nome='Adicionar Novo Produto'/>
+                <Link to='/CadProdutos' >
+                <BotaoADM nome='Adicionar Novo Produto' />
                 </Link>
                 </div>
                 
