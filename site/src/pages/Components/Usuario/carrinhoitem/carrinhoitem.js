@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Storage from 'local-storage'
-import BotaoADM from '../../../Components/Adm/Button/index'
+import BotaoADM from '../../../Components/Adm/Button/index';
+import './index.scss'
 
 export default function CarrinhoItem({item: {produto: {info},quantidade } , removerItem, carregarCarrinho}){
     const [qtdProduto, setQtdProduto]= useState(quantidade);
@@ -64,8 +65,9 @@ export default function CarrinhoItem({item: {produto: {info},quantidade } , remo
      </div> 
       </div>  
       </div>  
-      <BotaoADM nome='Continuar'/>  
-     
+
+      <button className="botao-carrinho">Continuar</button>
+
     </section>
     
     </main>

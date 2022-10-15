@@ -18,6 +18,10 @@ export default function Artistas(){
         setArtistas(r);
     }
 
+    function editarArtista(){
+        
+    }
+
     async function removerArtista(id, artista){
 
         const deletar = await deletarArtista(id, artista);

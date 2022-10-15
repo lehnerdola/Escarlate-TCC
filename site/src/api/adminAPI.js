@@ -90,7 +90,7 @@ export async function salvarArtista(idCategoriaMusical, idCategoriaArtista, nome
     return r.data;
 }
 
-export async function AlterarArtista(idCategoriaMusical, idCategoria, nome, descricao, id){
+export async function AlterarArtista(id,idCategoriaMusical, idCategoria, nome, descricao){
     const resposta = await api.put(`/admin/artista/${id}`, 
     {
         idCategoriaMusical, 

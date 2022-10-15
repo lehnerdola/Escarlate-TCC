@@ -57,10 +57,11 @@ export default function CadProdutos()
    
     async function salvar() {
         try {
+            const precoProduto = Number(preco.replace(',','.'))
             
             if(id === 0){
 
-            const r =  await cadastrarProduto(idArtista, idCategoria, nome, tamanho, disponivel,preco,quantidade);
+            const r =  await cadastrarProduto(idArtista, idCategoria, nome, tamanho, disponivel,precoProduto,quantidade);
             await enviarImagemProduto(imagem, r.id)
             toast.dark('produto cadastrado')
 

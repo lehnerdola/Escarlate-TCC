@@ -31,19 +31,17 @@ export default function CadArtistas (){
             const novoArtista = await salvarArtista(idCategoriaMusical, idCategoriaArtista, nome, descricao);
             console.log(novoArtista)
             await enviarImagemArtista(imagem, novoArtista.id);
-            toast.dark('artista cadastrado')  
             setId(novoArtista.id)
+            toast.dark('artista cadastrado')  
             }
             else
             {
-            await AlterarArtista(idCategoriaMusical, idCategoriaArtista, nome, descricao);
-        
-            if(typeof(imagem)== 'object')
-            {
-            await enviarImagemArtista(imagem, idParam)
-            } 
-            toast.dark('artista alterado')
+            await AlterarArtista(idCategoriaMusical, idCategoriaArtista, nome, descricao, id);
+            if(typeof(imagem)== 'object'){
+            await enviarImagemArtista(imagem, id)
+            }
           }
+
         } 
         catch (err) {
          toast.error(err.response.data.erro);
@@ -79,7 +77,14 @@ export default function CadArtistas (){
         carregarCategoriasMusicais();
     })
 
-      
+     function novoClick(){
+        setId(0)
+        setNome('')
+        setDescricao('')
+        setIdCategoriaArtista(0)
+        setIdCategoriaMusical(0)
+     }   
+    
     return(
         <div>
          <MenuADM/>
@@ -133,7 +138,7 @@ export default function CadArtistas (){
             </select>
             <div className='align-bt-cadprod'>
             <button  className='botao-adm-2' onClick={salvarArtistaClick}>Salvar</button>
-            <button className='botao-adm-2' >Novo</button>
+            <button className='botao-adm-2' onClick={novoClick}>Novo</button>
             </div>
                  </aside>
                 </div>
