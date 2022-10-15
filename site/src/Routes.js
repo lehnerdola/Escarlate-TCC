@@ -33,7 +33,8 @@ export default function Index(){
     <Route exact path='/TodosArtistas' element={<Artistas/>}/>
     <Route exact path='/TodosProdutos/:id' element={<TodosProdutos/>}/>
     <Route exact path='/CadProdutos' element={<CadProdutos/>}/>  
-    <Route exact path='/CadArtistas' element={<CadArtistas/>}/>    
+    <Route exact path='/CadArtistas' element={<CadArtistas/>}/> 
+    <Route exact path='/alterarartista/:idParam' element={<CadArtistas/>}/>      
     <Route path='/alterar/:idParam' element={<CadProdutos/>} />
     <Route exact path='/Carrinho' element={<Carrinho/>}/> 
     <Route exact path='/NossosArtistas' element={<NossosArtistas/>}/> 

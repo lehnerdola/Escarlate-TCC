@@ -1,7 +1,7 @@
 import BotaoADM from "../../../Components/Adm/Button";
 import MenuADM from "../../../Components/Adm/menu";
-import { listarArtistas, buscarImagem } from "../../../../api/adminAPI";
-import { Link } from "react-router-dom";
+import { listarArtistas, buscarImagem, deletarArtista } from "../../../../api/adminAPI";
+import { Link, useNavigate } from "react-router-dom";
 import '../../Produtos/TodosProdutos/index.scss' 
 import { useState, useEffect } from "react";
 import {toast, ToastContainer} from 'react-toastify';
@@ -9,11 +9,23 @@ import {toast, ToastContainer} from 'react-toastify';
 export default function Artistas(){
 
     const [artistas, setArtistas] = useState([]);
+    const [mostrarDesc, setMostrarDesc] = useState(false);
+
+    const navigate = useNavigate();
  
     async function carregarTodosArtistas(){
         const r = await listarArtistas();
         setArtistas(r);
     }
+
+    async function removerArtista(id, artista){
+
+        const deletar = await deletarArtista(id, artista);
+        carregarTodosArtistas();
+        toast.success("🔥 Artista " + artista + " removido!");
+    }
+
+  
 
     useEffect(() => {
         setTimeout(() => {
@@ -40,21 +52,27 @@ export default function Artistas(){
                 {artistas.map( item =>
                 <div className="conf-card">
                 <div className='cardpah'>
-                <img width={240} height={200} src={buscarImagem(item.imagem)}/>
+                <img  style={{width:"150px", height:"150px", objectFit:"cover"}} src={buscarImagem(item.imagem)}/>
                 <div className='txt-cardpah'>
                 <p className='txt-conf-cardpah'>{item.artista}</p>
-               
+                <p onClick={() => setMostrarDesc(!mostrarDesc)} className='txt-conf-cardpah' style={{textDecoration:"underline", textDecorationColor:"#A83F37"}}>Ver Descrição</p>
+                {mostrarDesc === true &&
+                <div>
                 <p className='txt-conf-cardpah'>{item.descricao}</p>
+                </div>
+                }    
                 <p className='txt-conf-cardpah'></p>
                 <p className='txt-conf-cardpah-underline'></p>
                 </div>
                 <div className='bt-card-pah'>
-                    <div  >
+                 <div onClick={() => removerArtista(item.id, item.artista)}>
                     <BotaoADM nome='EXCLUIR ARTISTA'/>
                 </div>
-                <div>      
+                <div>
+                <div >        
                 <BotaoADM nome='EDITAR ARTISTA'/>
                 </div> 
+                </div>
                 </div>
 
                 </div>

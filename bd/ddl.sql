@@ -45,10 +45,9 @@ bt_disponivel bool ,
 vl_preco varchar(50) ,
 qtd_produto int,
 img_produto varchar(700),
-foreign key (id_artista) references tb_artista(id_artista),
+foreign key (id_artista) references tb_artista(id_artista) ON DELETE CASCADE,
 foreign key (id_categoria) references tb_categoria(id_categoria)
 );
-
 
 create table tb_usuario(
 id_usuario int primary key auto_increment,
@@ -92,6 +91,8 @@ id_produto int,
 foreign key (id_pedido) references tb_pedido(id_pedido),
 foreign key (id_produto) references tb_produto(id_produto)
 );
+
+DROP TABLE tb_produto;
 
 create table tb_pag_cartao(
 id_pag_cartao int primary key auto_increment,

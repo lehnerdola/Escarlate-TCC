@@ -5,8 +5,7 @@ export async function listarArtistas() {
     const c =
      `
         select id_artista     as id,
-        id_artista_categoria_musical 
-        as categoriamusical,
+        id_artista_categoria_musical as categoriamusical,
         id_artista_categoria as categoria,
         nm_artista           as artista,
         ds_artista           as descricao,
@@ -54,8 +53,12 @@ export async function salvarImagemArtista (imagem, id){
 
 export async function buscarArtistaPorId(id) {
     const c = `
-        select id_artista              as id,
-               nm_artista              as artista
+        select id_artista                   as id,
+               id_artista_categoria_musical as categoriamusical,
+               id_artista_categoria         as categoria,
+               nm_artista                   as artista,
+               ds_artista                   as descricao 
+
           from tb_artista
          where id_artista = ?
     `

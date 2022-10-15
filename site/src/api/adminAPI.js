@@ -118,6 +118,11 @@ export async function listarArtistas() {
     return r.data;
 }
 
+export async function listarArtistasPorId(id){
+    const r = api.get(`/artistas/${id}`);
+    return r.data;
+}
+
 export async function listarCategoriasArtistas() {
     const r = await api.get('/artista/categoria');
     return r.data;
@@ -126,4 +131,9 @@ export async function listarCategoriasArtistas() {
 export async function listarCategoriasMusicais() {
     const r = await api.get('/artista/categoriamusical');
     return r.data;
+}
+
+export async function deletarArtista(id){
+    const r = await api.delete(`/artista/${id}`)
+    return r.status
 }

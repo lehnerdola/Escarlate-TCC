@@ -4,7 +4,7 @@ import MenuADM from "../../../Components/Adm/menu";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import '../../Produtos/CadProdutos/index.scss' 
-import {cadastrarArtista, enviarImagemArtista, buscarImagem, listarCategoriasArtistas, listarCategoriasMusicais, salvarArtista, AlterarArtista} from '../../../../api/adminAPI.js'
+import {cadastrarArtista, enviarImagemArtista, buscarImagem, listarCategoriasArtistas, listarCategoriasMusicais, salvarArtista, AlterarArtista, listarArtistasPorId} from '../../../../api/adminAPI.js'
 import { useState, useEffect } from "react";
 import {confirmAlert} from 'react-confirm-alert';
 import {toast, ToastContainer} from 'react-toastify';
@@ -73,14 +73,8 @@ export default function CadArtistas (){
         const r = await listarCategoriasMusicais();
         setCategoriaMusical(r);
     }
-    
-    useEffect(() =>{
-      carregarCategoriasArtistas();
-      carregarCategoriasMusicais();
-    }, [])
 
-    
-
+      
     return(
         <div>
          <MenuADM/>
@@ -95,10 +89,10 @@ export default function CadArtistas (){
 
       <div onClick={escolherImagem}>
 
-            <input type='file' id='img' onChange={e => setImagem(e.target.files[0])} className='form_input'/>
+            <input type='file' id='img'  onChange={e => setImagem(e.target.files[0])} className='form_input'/>
 
             {imagem &&
-            <img width={250} src={mostrarImagem()} alt='img'/> 
+            <img src={mostrarImagem()} alt='img' style={{width:"200px", height:"200px", objectFit:"cover"}}/> 
             }
 
             {!imagem &&

@@ -1,5 +1,5 @@
 
-import { alterarArtista, listarArtistas, salvarArtista, salvarImagemArtista } from "../repository/artistasRepository.js";
+import { alterarArtista, buscarArtistaPorId, listarArtistas, removerArtista, salvarArtista, salvarImagemArtista } from "../repository/artistasRepository.js";
 import {validarArtista} from '../service/validarArtista.js'
 
 import { Router } from "express";
@@ -14,6 +14,19 @@ server.get('/artistas', async (req, resp) => {
         resp.send(l);
     }
     catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/artistas/:id' , async (req,resp) => {
+    try {
+        const {id} = (req.params);
+        const artista = await buscarArtistaPorId(id)
+    
+        resp.send(artista);
+    } catch (err) {
         resp.status(400).send({
             erro: err.message
         })
@@ -79,7 +92,18 @@ server.put('/artista/:id/imagem', upload.single ('imagem'), async (req, resp) =>
     } 
 })
 
+server.delete('/artista/:id' , async (req,resp) =>{
+   try {
+    const { id } = req.params;
+    const resposta = removerArtista(id)
 
-
+  
+     resp.status(204).send()
+   } catch (err) {
+         return resp.status(400).send({
+        erro: err.message
+    });
+   }
+})
 
 export default server;
