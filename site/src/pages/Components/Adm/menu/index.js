@@ -34,10 +34,12 @@ export default function MenuADM(props){
             <p className='txt-menu-adm'>Artistas</p>
             </div>
             </Link>
+            <Link to='/HitsDoMomento' className='link-config-txt'>
             <div className='align-itens-menu'>
             <img alt='' src={'../assets/images/🦆 icon _headphone music alt_.png'} width={18} height={18}  style={{marginLeft:"0.2em"}}/>
             <p className='txt-menu-adm'>Músicas</p>
             </div>
+            </Link>
             <div className='align-itens-menu' >
             <img alt='' src={'../assets/images/🦆 icon _people_.png'} width={18} height={14}  style={{marginLeft:"0.2em"}}/>
             <p className='txt-menu-adm'>Clientes</p>

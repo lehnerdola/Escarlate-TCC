@@ -74,6 +74,11 @@ export default function CadArtistas (){
         setCategoriaMusical(r);
     }
 
+    useEffect(() => {
+        carregarCategoriasArtistas();
+        carregarCategoriasMusicais();
+    })
+
       
     return(
         <div>

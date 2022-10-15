@@ -24,10 +24,18 @@ id_artista_categoria_musical int,
 id_artista_categoria int,
 nm_artista varchar(150) ,
 ds_artista varchar(150) ,
-img_artista varchar(700),
+img_artista varchar(700)
+);
 
-foreign key (id_artista_categoria_musical) references tb_artista_categoria_musical(id_artista_categoria_musical),
-foreign key (id_artista_categoria) references tb_artista_categoria(id_artista_categoria)
+
+
+create table tb_musica(
+id_musica int primary key auto_increment,
+id_artista int,
+nm_musica varchar(250),
+li_musica varchar(1000),
+img_musica varchar(700),
+foreign key (id_artista) references tb_artista(id_artista) ON DELETE CASCADE
 );
 
 create table tb_categoria(

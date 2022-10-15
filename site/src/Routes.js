@@ -16,6 +16,8 @@ import Artistas from './pages/ADM/Artistas/TodosArtistas';
 import CadArtistas from './pages/ADM/Artistas/CadArtistas';
 import PopUp from './pages/Components/Usuario/popup';
 import NossosArtistas from './pages/NossosArtistas/nossosartistas.js'
+import HitsDoMomento from './pages/ADM/Hits do Momento/index';
+import CadHit from './pages/ADM/Hits do Momento/CadHit/index';
 
 export default function Index(){
     return(
@@ -37,7 +39,10 @@ export default function Index(){
     <Route exact path='/alterarartista/:idParam' element={<CadArtistas/>}/>      
     <Route path='/alterar/:idParam' element={<CadProdutos/>} />
     <Route exact path='/Carrinho' element={<Carrinho/>}/> 
-    <Route exact path='/NossosArtistas' element={<NossosArtistas/>}/> 
+    <Route exact path='/NossosArtistas' element={<NossosArtistas/>}/>
+    <Route exact path='/HitsDoMomento' element={<HitsDoMomento/>}/>
+    <Route exact path='/CadHit' element={<CadHit/>}/>
+    <Route exact path='/alterarmusica/:idParam' element={<CadHit/>}/>
   </Routes>
   </BrowserRouter>
   </React.StrictMode>

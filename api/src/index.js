@@ -6,7 +6,8 @@ import admController from './controller/admController.js';
 import categoriaController from './controller/categoriaController.js';
 import artistasController from './controller/artistasController.js';
 import produtosController from './controller/produtoController.js';
-import usuarioController from './controller/usuarioController.js'
+import usuarioController from './controller/usuarioController.js';
+import musicaController from './controller/musicaController.js';
 
 const router = express();
 router.use(cors());
@@ -16,9 +17,10 @@ router.use(categoriaController);
 router.use(artistasController);
 router.use(produtosController);
 router.use(usuarioController);
+router.use(musicaController)
 
-router.use('/storage/produtos', express.static('storage/produtos'))
-
-router.use('/storage/artista', express.static('storage/artista'))
+router.use('/storage/produtos', express.static('storage/produtos'));
+router.use('/storage/artista', express.static('storage/artista'));
+router.use('/storage/musica', express.static('storage/musica'));
 
 router.listen(process.env.PORT, () => console.log(`Server online na porta: ${process.env.PORT}`))

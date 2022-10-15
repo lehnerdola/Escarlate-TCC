@@ -32,7 +32,6 @@ export default function Produtos(){
     }
 
     async function deletarProduto(id, nome) {
-		
 		const resposta = await removerProduto(id, nome);
 			carregarTodosProdutos();
 			toast.success("🔥 Produto " + nome + " removido!");
