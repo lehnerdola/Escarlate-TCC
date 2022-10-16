@@ -24,10 +24,18 @@ id_artista_categoria_musical int,
 id_artista_categoria int,
 nm_artista varchar(150) ,
 ds_artista varchar(150) ,
-img_artista varchar(700),
+img_artista varchar(700)
+);
 
-foreign key (id_artista_categoria_musical) references tb_artista_categoria_musical(id_artista_categoria_musical),
-foreign key (id_artista_categoria) references tb_artista_categoria(id_artista_categoria)
+
+
+create table tb_musica(
+id_musica int primary key auto_increment,
+id_artista int,
+nm_musica varchar(250),
+li_musica varchar(1000),
+img_musica varchar(700),
+foreign key (id_artista) references tb_artista(id_artista) ON DELETE CASCADE
 );
 
 create table tb_categoria(
@@ -42,7 +50,7 @@ id_categoria int,
 nm_produto varchar(150) ,
 ds_tam varchar(20) ,
 bt_disponivel bool ,
-vl_preco varchar(50) ,
+vl_preco decimal(10,2) ,
 qtd_produto int,
 img_produto varchar(700),
 foreign key (id_artista) references tb_artista(id_artista) ON DELETE CASCADE,
@@ -61,13 +69,24 @@ ds_telefone varchar(50)
 create table tb_usuario_endereco(
 id_usuario_end int primary key auto_increment,
 id_usuario int,
+nm_remetente varchar(250),
+ds_estado varchar(250),
+ds_cidade varchar(250),
+ds_bairro varchar(250),
+ds_blocoapt varchar(250),
 ds_logradouro varchar(150),
 ds_complemento varchar(150),
-nr_endereco int ,
-nr_cep int ,
+nr_endereco varchar(50),
+nr_cep varchar(60) ,
 
 foreign key (id_usuario) references tb_usuario(id_usuario)
 );
+
+select * from tb_usuario_endereco;
+
+insert into tb_usuario_endereco(id_usuario, nm_remetente, ds_estado,ds_cidade,ds_bairro, ds_blocoapt, ds_logradouro, ds_complemento, nr_endereco, nr_cep)
+values(1,'Leticia', 'São Paulo', 'São Paulo','Grajaú',  '','', '','150','0480555');
+
 
 create table tb_pedido(
 id_pedido int primary key auto_increment,

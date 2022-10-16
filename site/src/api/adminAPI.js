@@ -90,7 +90,7 @@ export async function salvarArtista(idCategoriaMusical, idCategoriaArtista, nome
     return r.data;
 }
 
-export async function AlterarArtista(idCategoriaMusical, idCategoria, nome, descricao, id){
+export async function AlterarArtista(id,idCategoriaMusical, idCategoria, nome, descricao){
     const resposta = await api.put(`/admin/artista/${id}`, 
     {
         idCategoriaMusical, 
@@ -136,4 +136,51 @@ export async function listarCategoriasMusicais() {
 export async function deletarArtista(id){
     const r = await api.delete(`/artista/${id}`)
     return r.status
+}
+
+export async function cadastrarMusica(idArtista,nomeMusica,link){
+    const r = await api.post('/musica',
+     {
+        idArtista,
+        nomeMusica,
+        link
+    });
+    return r.data;
+}
+
+export async function alterarMusica(id,idArtista,nomeMusica,link){
+    const r = await api.put(`/musica/${id}`,
+    {
+       idArtista,
+       nomeMusica,
+       link
+   });
+   return r.data;
+}
+
+export async function enviarImagemMusica(imagem,id){
+    const formData = new FormData();
+    formData.append('imagem', imagem);
+
+    const resposta = await api.put(`/musica/imagem/${id}`, formData, {
+        headers: {
+            "Content-Type": "multipart/form-data"
+        },
+    });
+    return resposta.status;
+}
+
+export async function listarTodasMusicas(){
+    const r = await api.get('/musica')
+    return r.data;
+}
+
+export async function apagarMusica(id){
+    const r = await api.delete(`/musica/${id}`)
+    return r.status
+}
+
+export async function buscarMusicaPorId(id){
+    const r = await api.get(`/musica/${id}`);
+    return r.data;
 }

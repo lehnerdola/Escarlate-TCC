@@ -48,9 +48,9 @@ server.put('/alterar/:id' , async (req, resp) => {
     try {
         const {id} = req.params;
         const produto = req.body;
-        console.log(produto);
 
         const resposta = await alterarProduto(id,produto);
+        console.log(resposta)
         if(resposta != 1){
             throw new Error('O produto não pode ser alterado!');
         }

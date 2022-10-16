@@ -84,7 +84,11 @@ return(
     <p style={{fontFamily:'Arya-Regular', color:"#ffff", fontWeight:"100"}}>R${carregarValorTotal()}</p>
     </div>
 
+    <Link to='/Endereco'>  
+    <div>
     <BotaoADM nome='Continuar Pedido'/>  
+    </div>
+    </Link>
     </section>
     </div>
 

@@ -18,10 +18,12 @@ export default function Login(){
 
   async function entrarClick() {
     try{
-      ref.current.continuousStart();
-		setCarregando(true);
+    
     const r = await loginUsuario(email,senha);
     Storage('cliente-logado', r)
+    
+    ref.current.continuousStart();
+		setCarregando(true);
 
       setTimeout(() => {
 				ref.current.complete();

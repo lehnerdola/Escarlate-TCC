@@ -41,6 +41,8 @@ server.post('/admin/artista', async (req, resp) =>{
         await validarArtista(artista)
         const idArtista = await salvarArtista(artista);
        resp.send(idArtista)
+
+
     } catch (err) {
         return  resp.status(400).send({
             erro: err.message
@@ -77,6 +79,7 @@ server.put('/artista/:id/imagem', upload.single ('imagem'), async (req, resp) =>
 
         const resposta = await salvarImagemArtista(imagem, id);
         
+
         if (resposta != 1) {
             throw new Error('imagem não pode ser inserida, tente novamente')
         }

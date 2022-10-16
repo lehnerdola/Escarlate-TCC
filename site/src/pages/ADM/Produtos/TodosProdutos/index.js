@@ -32,7 +32,6 @@ export default function Produtos(){
     }
 
     async function deletarProduto(id, nome) {
-		
 		const resposta = await removerProduto(id, nome);
 			carregarTodosProdutos();
 			toast.success("🔥 Produto " + nome + " removido!");
@@ -62,7 +61,7 @@ export default function Produtos(){
                 <img src={`http://localhost:5000/${item.imagem}`} width={170}/>
                 <div className='txt-cardpah'>
                 <p className='txt-conf-cardpah'>{item.nome}</p>
-                <p className='txt-conf-cardpah'>{item.preco}</p>
+                <p className='txt-conf-cardpah'>R${item.preco}</p>
                 <p className='txt-conf-cardpah'>{item.disponivel ? 'Disponivel!': 'Esgotado'}</p>
                 <p className='txt-conf-cardpah-underline'>{item.tamanho}</p>
                 </div>
