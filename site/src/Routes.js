@@ -18,6 +18,7 @@ import PopUp from './pages/Components/Usuario/popup';
 import NossosArtistas from './pages/NossosArtistas/nossosartistas.js'
 import HitsDoMomento from './pages/ADM/Hits do Momento/index';
 import CadHit from './pages/ADM/Hits do Momento/CadHit/index';
+import Endereco from './pages/Pedido/Endereço/index';
 
 export default function Index(){
     return(
@@ -27,22 +28,23 @@ export default function Index(){
     <Route exact path='/' element={<LandingPage/>} />
     <Route exact path='/login' element={<Login/>} />
     <Route exact path='/LoginADM' element={<LoginADM/>} />
-    <Route exact path='/TelaInicial' element={<TelaInicial/>}/>
-    <Route exact path='/Produtos' element={<Produtos/>}/>  
-    <Route exact path='/Cadastro' element={<Cadastro/>}/> 
-    <Route exact path='/Feed' element={<Feed/>}/> 
-    <Route exact path='/TodosProdutos' element={<TodosProdutos/>}/>
     <Route exact path='/TodosArtistas' element={<Artistas/>}/>
     <Route exact path='/TodosProdutos/:id' element={<TodosProdutos/>}/>
+    <Route exact path='/Produtos' element={<Produtos/>}/>  
     <Route exact path='/CadProdutos' element={<CadProdutos/>}/>  
     <Route exact path='/CadArtistas' element={<CadArtistas/>}/> 
-    <Route exact path='/alterarartista/:idParam' element={<CadArtistas/>}/>      
+    <Route exact path='/alterarartista/:idParam' element={<CadArtistas/>}/>
     <Route path='/alterar/:idParam' element={<CadProdutos/>} />
-    <Route exact path='/Carrinho' element={<Carrinho/>}/> 
-    <Route exact path='/NossosArtistas' element={<NossosArtistas/>}/>
     <Route exact path='/HitsDoMomento' element={<HitsDoMomento/>}/>
     <Route exact path='/CadHit' element={<CadHit/>}/>
     <Route exact path='/alterarmusica/:idParam' element={<CadHit/>}/>
+    <Route exact path='/TelaInicial' element={<TelaInicial/>}/>
+    <Route exact path='/Cadastro' element={<Cadastro/>}/> 
+    <Route exact path='/Feed' element={<Feed/>}/> 
+    <Route exact path='/TodosProdutos' element={<TodosProdutos/>}/>         
+    <Route exact path='/Carrinho' element={<Carrinho/>}/> 
+    <Route exact path='/NossosArtistas' element={<NossosArtistas/>}/>
+    <Route exact path='/Endereco' element={<Endereco/>}/>
   </Routes>
   </BrowserRouter>
   </React.StrictMode>

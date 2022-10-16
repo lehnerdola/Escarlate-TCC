@@ -8,6 +8,7 @@ import artistasController from './controller/artistasController.js';
 import produtosController from './controller/produtoController.js';
 import usuarioController from './controller/usuarioController.js';
 import musicaController from './controller/musicaController.js';
+import enderecoController from './controller/enderecoController.js'
 
 const router = express();
 router.use(cors());
@@ -17,7 +18,8 @@ router.use(categoriaController);
 router.use(artistasController);
 router.use(produtosController);
 router.use(usuarioController);
-router.use(musicaController)
+router.use(musicaController);
+router.use(enderecoController);
 
 router.use('/storage/produtos', express.static('storage/produtos'));
 router.use('/storage/artista', express.static('storage/artista'));
