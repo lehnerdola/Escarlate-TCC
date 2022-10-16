@@ -22,9 +22,7 @@ export default function TodosProdutos(){
     }
 
     useEffect(() => {
-        setTimeout(() => {
-            carregarTodosArtistas();
-        }, 2000)
+       carregarTodosArtistas()
     }, []);
 
 
@@ -66,6 +64,7 @@ export default function TodosProdutos(){
                 whileHover={{ scale: 1.1}}
                 onHoverStart={e => {}}
                 onHoverEnd={e => {}}/>
+                
              )}
 
             </div>

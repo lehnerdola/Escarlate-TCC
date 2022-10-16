@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { cadastrarUsuario, loginUsuario, verificarEmail } from "../repository/usuarioRepository.js";
+import { cadastrarUsuario, loginUsuario, verificarEmail, verPerfil } from "../repository/usuarioRepository.js";
 
 const server = Router();
 
@@ -36,6 +36,21 @@ server.post('/usuario', async (req, resp)=> {
 
 });
 
+
+server.get('/usuario/:id' , async (req, resp) => {
+    try{
+        const id = req.params.id;
+        const resposta = await verPerfil(id);
+        resp.send(resposta)
+
+    }
+    catch(err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+}) 
+
 server.post('/usuario/login', async (req,resp) => {
     try {
          const {email, senha} = req.body;
@@ -56,5 +71,6 @@ server.post('/usuario/login', async (req,resp) => {
     } 
   });
   
+
 
 export default server;

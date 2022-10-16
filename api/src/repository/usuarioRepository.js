@@ -34,5 +34,23 @@ export async function loginUsuario(email, senha) {
     return resp[0];
 }
 
+export async function verPerfil (id){
+    const resposta =
+    `
+    select 
+    id_usuario  		 as id,
+    nm_usuario         	 as nome,
+    ds_email			 as email,
+    ds_senha			 as senha,
+    ds_cpf_usuario		as cpf,
+    ds_telefone			as telefone
+    from tb_usuario
+    where id_usuario = ?    
+    `;
+    const [c] = await con.query (resposta, [id])
+    return c;
+}
+
+
    
 

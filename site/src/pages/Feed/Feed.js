@@ -22,7 +22,10 @@ return(
             
              </div>
              <div className='sub-header-2'>
+                <Link to='/MinhaConta'>
                 <img src={'../../../../assets/images/user.png'} className='conf-img-header'/>
+                </Link>
+                
                 <Link to='/Carrinho'>
                 <img src={'../../../../assets/images/cart.png'} className='conf-img-header'/>
                 </Link>
