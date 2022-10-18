@@ -78,4 +78,45 @@ export async function removerArtista(id){
     return resposta.affectedRows;
 }
 
+export async function listarTodosProdutosArtista(){
+    const c = 
+    `
+    SELECT 
+    id_produto	                id,
+    tb_produto.id_artista       artista,
+    nm_artista       nomeartista,
+    id_categoria     categoria,
+    nm_produto       nome,
+    ds_tam           tamanho,
+    bt_disponivel    disponivel,
+    vl_preco         preco,
+    qtd_produto      quantidade,
+    img_artista      imagem
+    FROM tb_produto
+    join tb_artista on tb_produto.id_artista = tb_artista.id_artista;
+    `
+    const [resposta] = await con.query (c)
+    return resposta;
+}
 
+export async function listarProdutosArtista(id){
+    const c = 
+    `
+    SELECT 
+    id_produto	                id,
+    tb_artista.id_artista       artista,
+    nm_artista       nomeartista,
+    id_categoria     categoria,
+    nm_produto       nome,
+    ds_tam           tamanho,
+    bt_disponivel    disponivel,
+    vl_preco         preco,
+    qtd_produto      quantidade,
+    img_produto      imagem
+    FROM tb_produto
+    join tb_artista on tb_produto.id_artista = tb_artista.id_artista
+    WHERE tb_artista.id_artista = ? ;
+    `
+    const [resposta] = await con.query (c, [id])
+    return resposta;
+}

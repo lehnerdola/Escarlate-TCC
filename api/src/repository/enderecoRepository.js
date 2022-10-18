@@ -5,7 +5,7 @@ export async function listarEnderecos(idUsuario){
     `
     select
     id_usuario_end id,
-    id_usuario_end idUser,
+    id_usuario idUser,
     nm_remetente nomeRemetente,
     ds_estado estado,
     ds_cidade cidade,

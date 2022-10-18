@@ -21,6 +21,7 @@ import HitsDoMomento from './pages/ADM/Hits do Momento/index';
 import CadHit from './pages/ADM/Hits do Momento/CadHit/index';
 import Endereco from './pages/Pedido/Endereço/index';
 import Clientes from './pages/ADM/Cliente/index';
+import ArtistaProd from './pages/ArtistaProd/index';
 
 export default function Index(){
     return(
@@ -49,7 +50,8 @@ export default function Index(){
     <Route exact path='/MinhaConta' element={<MinhaConta/>}/> 
     <Route exact path='/Endereco' element={<Endereco/>}/>
     <Route exact path='/Clientes' element={<Clientes/>}/>
-
+    <Route exact path='/ArtistaProd' element={<ArtistaProd/>}/>
+    <Route exact path='/ArtistaProd/:idParam' element={<ArtistaProd/>}/>
   </Routes>
   </BrowserRouter>
   </React.StrictMode>

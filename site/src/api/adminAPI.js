@@ -123,6 +123,16 @@ export async function listarArtistasPorId(id){
     return r.data;
 }
 
+export async function listarTodosProdutosArtista() {
+    const r = await api.get('/artista/produto');
+    return r.data;
+}
+
+export async function listarProdutosArtistas(id){
+    const r = api.get(`/artista/${id}/produto`);
+    return r.data;
+}
+
 export async function listarCategoriasArtistas() {
     const r = await api.get('/artista/categoria');
     return r.data;

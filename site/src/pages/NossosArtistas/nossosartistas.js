@@ -2,13 +2,16 @@ import './index.scss'
 import {motion, AnimatePresence} from 'framer-motion'
 import { useEffect,useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { listarArtistas, listarCategoriasArtistas, buscarImagem } from '../../api/adminAPI.js'
+import { listarArtistas,listarTodosProdutosArtista, buscarImagem } from '../../api/adminAPI.js'
 
 
 export default function TodosProdutos(){
 
     const [filtro, setFiltro] = useState('');
     const [artistas, setArtistas]= useState([]);
+    const [produtos, setProdutos]= useState([]);
+
+    const navigate = useNavigate()
 
     async function Filtrar(){
         const resp = await listarArtistas(filtro);
@@ -17,8 +20,12 @@ export default function TodosProdutos(){
 
 
     async function carregarTodosArtistas(){
-        const r = await listarArtistas();
+        const r = await listarTodosProdutosArtista();
         setArtistas(r);
+    }
+
+    function abrirInfo(artista){
+        navigate('/ArtistaProd/' +artista)
     }
 
     useEffect(() => {
@@ -60,11 +67,11 @@ export default function TodosProdutos(){
             
              <div className='faixa1'>
              {artistas.map ( item => 
-             <motion.img src={buscarImagem(item.imagem)} className='artistaimg'
+             <motion.img src={buscarImagem(item.imagem)} className='artistaimg' 
                 whileHover={{ scale: 1.1}}
                 onHoverStart={e => {}}
-                onHoverEnd={e => {}}/>
-                
+                onHoverEnd={e => {}}
+               />
              )}
 
             </div>

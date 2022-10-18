@@ -1,5 +1,5 @@
 
-import { alterarArtista, buscarArtistaPorId, listarArtistas, removerArtista, salvarArtista, salvarImagemArtista } from "../repository/artistasRepository.js";
+import { alterarArtista, buscarArtistaPorId, listarArtistas, listarProdutosArtista, listarTodosProdutosArtista, removerArtista, salvarArtista, salvarImagemArtista } from "../repository/artistasRepository.js";
 import {validarArtista} from '../service/validarArtista.js'
 
 import { Router } from "express";
@@ -32,6 +32,35 @@ server.get('/artistas/:id' , async (req,resp) => {
         })
     }
 })
+
+server.get('/artista/produto', async (req, resp) => {
+    try {
+        const l = await listarTodosProdutosArtista();
+        resp.send(l);
+    }
+    catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/artista/:id/produto', async (req,resp) => {
+    try 
+    {
+        const id = req.params.id;
+
+        const r = await listarProdutosArtista(id);
+
+        resp.send(r)
+
+    } catch (err) {
+     resp.status(404).send({
+        erro: err.message
+     })   
+    }
+})
+  
 
 server.post('/admin/artista', async (req, resp) =>{ 
     try {

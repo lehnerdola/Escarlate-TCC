@@ -1,0 +1,79 @@
+.artistaprod{
+    background-color: #1f1f1f;
+
+.faixa-1-artistaprod{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 50px;
+    height: 100%;
+
+    .section-1-artista-prod{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 70vw;
+        justify-content: space-between;
+    }
+
+    .img-artista{
+        width: 230px;
+        height: 230px;
+        object-fit: cover;
+        border-radius: 150px;
+    }
+
+    .txt-artistaprod{
+        text-align: center;
+        width: 27vw;
+    }
+
+    .tit-artistaprod{
+        font-family: 'CinzelDecorative-Black';
+        font-style: normal;
+        font-weight: 100;
+        font-size: 50px;
+        line-height: 94px;
+        text-transform: capitalize;
+        color: #FFFFFF;
+        -webkit-text-stroke:#000000;
+        -webkit-text-stroke-width: 1.7px;
+        mix-blend-mode: normal;
+    }
+
+    .desc-artista{
+        font-family: 'Arya-Regular';
+        font-weight: 100;
+        color: #FFFFFF;
+        font-size: 20px;
+        text-align:start;
+        width: 30vw;
+    }
+
+    .sec-artista-prod{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-around;
+        margin-top: 5em;
+        height: 140vh;
+    }
+
+    .div-artista-prod{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        width: 70vw;
+        height: 35vh;
+        border: 2px solid #A83F37;
+    }
+
+    .conf-img-feed-produto{
+        width: 150px;
+        height: 150px;
+        object-fit: cover ;
+    }
+}
+}
