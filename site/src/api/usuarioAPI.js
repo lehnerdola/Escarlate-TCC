@@ -47,3 +47,8 @@ export async function listarEnderecos(idUsuario){
     const r = await api.get('/usuario/' + idUsuario + '/endereco');
     return r.data
 }
+
+export async function removerEndereco(id) {
+	const resposta = await api.delete(`/endereco/${id}`);
+	return resposta.status;
+}

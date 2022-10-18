@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { listarEnderecos, salvarEndereco } from "../repository/enderecoRepository.js";
+import { listarEnderecos, salvarEndereco, removerEndereco } from "../repository/enderecoRepository.js";
 
 const server = Router();
 
@@ -34,6 +34,24 @@ server.post('/usuario/:id/endereco', async (req,resp) => {
      resp.status(404).send({
         erro: err.message
      })   
+    }
+});
+
+
+server.delete('/endereco/:id', async (req,resp) => {
+    try {
+        const {id} = req.params;
+        const resposta = await removerEndereco(id);
+
+        if(resposta != 1){
+            throw new Error('Não foi possivel deletar o endereço!') 
+        }
+
+         resp.status(204).send()
+    } catch(err){
+        resp.status(404).send({
+            erro: err.message
+        })
     }
 })
   

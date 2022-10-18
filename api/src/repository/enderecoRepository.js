@@ -5,6 +5,7 @@ export async function listarEnderecos(idUsuario){
     `
     select
     id_usuario_end id,
+    id_usuario_end idUser,
     nm_remetente nomeRemetente,
     ds_estado estado,
     ds_cidade cidade,
@@ -33,4 +34,15 @@ export async function salvarEndereco(idUsuario, endereco){
     const [info] = await con.query(c, [idUsuario,endereco.nomeRemetente, endereco.estado, endereco.cidade, endereco.bairro, endereco.blocoapt, endereco.logradouro,endereco.complemento,endereco.numeroEndereco,endereco.numeroCep]);
 
     return info.insertId;
+}
+
+export async function removerEndereco(id){
+    const c = 
+    `
+    delete from tb_usuario_endereco
+    where id_usuario_end = ?;
+    `
+    const [resposta] = await con.query  (c, [id])
+
+    return resposta.affectedRows;
 }

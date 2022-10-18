@@ -27,7 +27,7 @@ export default function Endereco(){
 
   async function salvarEnderecoUsuario(){
     try {
-    const id = Storage('cliente-logado').id;
+    const id = Storage('cliente-logado').id_usuario;
     const r = await salvarEndereco(id, nomeRemetente, estado, cidade, bairro, blocoapt, logradouro,complemento,numeroEndereco,numeroCep);
     toast.dark('endereco cadastrado')
     } catch (err) {
@@ -38,7 +38,7 @@ export default function Endereco(){
 
 
   async function carregarEnderecos(){
-    const id =Storage('cliente-logado').id;
+    const id =Storage('cliente-logado').id_usuario;
     const r = await listarEnderecos(id);
     setEnderecos(r)
   }
@@ -46,24 +46,6 @@ export default function Endereco(){
   useEffect(() => {
     carregarEnderecos();
   },[])
-
-  const onSubmit = (e) => {
-    console.log(e);
-  }
-
-  const checkCEP = (e) => {
-    const cep = e.target.value.replace(/\D/g, '');
-    console.log(cep);
-    fetch(`https://viacep.com.br/ws/${cep}/json/`).then(res => res.json()).then(data => {
-      console.log(data);
-      // register({ name: 'address', value: data.logradouro });
-      setValue('address', data.logradouro);
-      setValue('neighborhood', data.bairro);
-      setValue('city', data.localidade);
-      setValue('uf', data.uf);
-      setFocus('addressNumber');
-    });
-  }
 
     return(
         <main className='endereço'>
@@ -85,7 +67,7 @@ export default function Endereco(){
         </header>
         <section className='align-row-endereco'>
         <main className='align-center-input'>
-        <form className='inputs-sec' onSubmit={handleSubmit(onSubmit)}>
+        <form className='inputs-sec' >
         <label>
         <p>Nome Remetente</p>
         <input value={nomeRemetente} onChange={e => setNomeRemetente(e.target.value)}/>
@@ -97,31 +79,31 @@ export default function Endereco(){
         </label>
         <label>
         <p>CEP</p>
-        <input type='text' {...register("cep")} onBlur={checkCEP} value={numeroCep} onChange={e => setNumeroCep(e.target.value)}/>
+        <input type='text'value={numeroCep} onChange={e => setNumeroCep(e.target.value)}/>
         </label>
         </label> 
         <label className='align-inputs-row'>
         <label>    
         <p>Estado</p>
-        <input  {...register("uf")} value={estado} onChange={e => setEstado(e.target.value)}/>
+        <input  value={estado} onChange={e => setEstado(e.target.value)}/>
         </label>
         <label>
         <p >Cidade</p>
-        <input {...register("city")} value={cidade} onChange={e => setCidade(e.target.value)}/>
+        <input  onChange={e => setCidade(e.target.value)}/>
         </label>
         <label>
         <p>Bairro</p>
-        <input {...register("neighborhood")} value={bairro} onChange={e => setBairro(e.target.value)}/>
+        <input value={bairro} onChange={e => setBairro(e.target.value)}/>
         </label>
         </label> 
         <label>
         <p>Rua</p>
-        <input {...register("address")} value={logradouro} onChange={e => setLogradouro(e.target.value)}/>
+        <input  value={logradouro} onChange={e => setLogradouro(e.target.value)}/>
         </label>
         <label className='align-inputs-row-cpf'>
         <label>    
         <p>N Residencial:</p>
-        <input {...register("addressNumber")} value={numeroEndereco} onChange={e => setNumeroEndereco(e.target.value)}/>
+        <input value={numeroEndereco} onChange={e => setNumeroEndereco(e.target.value)}/>
         </label>
         <label>
         <p>Complemento</p>
@@ -148,9 +130,11 @@ export default function Endereco(){
         </form>
         <button onClick={salvarEnderecoUsuario}>Continuar</button>
         </main>
+        <div className='align-meus-enderecos'>
         {enderecos.map(item => 
         <CardEndereco item={item}/>
         )}
+        </div>
         </section>
         </main>
     )
