@@ -1,5 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import './feed.scss';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+
 import Storage from 'local-storage'
 
 export default function Feed(){
@@ -70,6 +73,7 @@ return(
     <h1>NOSSOS PRODUTOS</h1>   
     </Link>   
     <div className="div-top-hits">
+       
        <img src={'../../assets/images/CANECA-removebg-preview 1.png'} className='conf-img-feed-produto'/> 
        <img src={'../../assets/images/BLUSA-removebg-preview 1.png'} className='conf-img-feed-produto'/> 
        <img src={'../../assets/images/metalica poster.png'} className='conf-img-feed-produto'/> 

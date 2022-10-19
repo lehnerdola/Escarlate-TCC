@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { listarProdutosArtistas, buscarProdutoPorNome } from "../../api/adminAPI.js";
+import {buscarProdutoPorNome, listarArtistasPorId } from "../../api/adminAPI.js";
 import { motion } from "framer-motion";
 import './index.scss'
 
 export default function ArtistaProd(){
-    const [artista, setArtista]= useState([]);
+    const [artista, setArtista]= useState({});
     const [produtos, setProdutos]= useState([]);
     const [filtro, setFiltro] = useState('');
 
     const {idParam} = useParams();
 
     async function carregarPagina(){
-        const r = await listarProdutosArtistas(idParam) 
+        const r = await listarArtistasPorId(idParam) 
         setArtista(r)
     }
 
@@ -54,7 +54,7 @@ export default function ArtistaProd(){
         <section className="section-1-artista-prod">
         <img src={'../../../../assets/images/cbe32534b5d42220e47b16a1a9c9c0dd.png'} className='img-artista'/> 
         <div className="txt-artistaprod">
-        <h1 className="tit-artistaprod"> Metallica </h1>
+        <h1 className="tit-artistaprod"> Metallica</h1>
         <p className="desc-artista">Metallica é uma banda norte-americana de heavy metal. O seu repertório inclui instrumentais e musicalidade agressiva. O Metallica se formou em 1981.</p>
         </div>   
         </section>

@@ -19,14 +19,16 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.37.0",
     "react-intersection-observer": "^9.4.0",
+    "react-multi-carousel": "^2.8.2",
     "react-qr-code": "^2.0.8",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
     "react-toastify": "^9.0.8",
     "react-top-loading-bar": "^2.3.1",
     "router-dom": "^2.2.9",
     "saas": "^1.0.0",
-    "styled-components": "^5.3.5",
+    "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

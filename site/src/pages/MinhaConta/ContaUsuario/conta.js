@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import storage from 'local-storage'
 export default function MinhaConta(){
 
-    const id = storage('cliente-logado').id
+    const id = storage('cliente-logado').id_usuario
     const [usuario, setUsuario] = useState([]);
     const navigate = useNavigate();
 

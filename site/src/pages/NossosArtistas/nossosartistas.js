@@ -9,7 +9,7 @@ export default function TodosProdutos(){
 
     const [filtro, setFiltro] = useState('');
     const [artistas, setArtistas]= useState([]);
-    const [produtos, setProdutos]= useState([]);
+    const [produtos, setProdutos] = useState([]);
 
     const navigate = useNavigate()
 
@@ -20,12 +20,13 @@ export default function TodosProdutos(){
 
 
     async function carregarTodosArtistas(){
-        const r = await listarTodosProdutosArtista();
+        const r = await listarArtistas();
         setArtistas(r);
     }
 
-    function abrirInfo(artista){
-        navigate('/ArtistaProd/' +artista)
+    
+    function abrirInfo(id){
+        navigate('/ArtistaProd/' + id)
     }
 
     useEffect(() => {
@@ -73,6 +74,7 @@ export default function TodosProdutos(){
                 onHoverEnd={e => {}}
                />
              )}
+        
 
             </div>
         </div>

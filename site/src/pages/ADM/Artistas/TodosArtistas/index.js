@@ -3,6 +3,7 @@ import MenuADM from "../../../Components/Adm/menu";
 import { listarArtistas, buscarImagem, deletarArtista } from "../../../../api/adminAPI";
 import { Link, useNavigate } from "react-router-dom";
 import '../../Produtos/TodosProdutos/index.scss' 
+import './index.scss'
 import { useState, useEffect } from "react";
 import {toast, ToastContainer} from 'react-toastify';
 
@@ -62,7 +63,7 @@ export default function Artistas(){
                 <p onClick={() => setMostrarDesc(!mostrarDesc)} className='txt-conf-cardpah' style={{textDecoration:"underline", textDecorationColor:"#A83F37"}}>Ver Descrição</p>
                 {mostrarDesc === true &&
                 <div>
-                <p className='txt-conf-cardpah'>{item.descricao}</p>
+                <p className='txt-conf-desc'>{item.descricao}</p>
                 </div>
                 }    
                 <p className='txt-conf-cardpah'></p>
