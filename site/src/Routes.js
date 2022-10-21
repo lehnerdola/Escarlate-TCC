@@ -22,6 +22,7 @@ import CadHit from './pages/ADM/Hits do Momento/CadHit/index';
 import Endereco from './pages/Pedido/Endereço/index';
 import Clientes from './pages/ADM/Cliente/index';
 import ArtistaProd from './pages/ArtistaProd/index';
+import EditarConta from './pages/MinhaConta/EditarConta/index.js'
 
 export default function Index(){
     return(
@@ -52,6 +53,7 @@ export default function Index(){
     <Route exact path='/Pagamento' element={< Pagamento/>}/>
     <Route exact path='/Clientes' element={<Clientes/>}/>
     <Route exact path='/ArtistaProd' element={<ArtistaProd/>}/>
+    <Route exact path='/EditarConta' element={<EditarConta/>}/>
     <Route exact path='/ArtistaProd/:idParam' element={<ArtistaProd/>}/>
   </Routes>
   </BrowserRouter>

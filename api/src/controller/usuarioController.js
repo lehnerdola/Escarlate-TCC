@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { alterarImagemUsuario, cadastrarUsuario, loginUsuario, verificarEmail, verPerfil } from "../repository/usuarioRepository.js";
+import { alterarImagemUsuario, cadastrarUsuario, loginUsuario, verificarEmail, verPerfil,  } from "../repository/usuarioRepository.js";
 import multer from "multer";
 
 const upload = multer({ dest: 'storage/usuario' })

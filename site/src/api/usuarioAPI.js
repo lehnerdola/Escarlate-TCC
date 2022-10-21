@@ -27,7 +27,7 @@ export async function verPerfil(id) {
     return resposta.data; 
 }
 
-export function buscarImagem(imagem){
+export function buscarImagemUsuario(imagem){
     return `${api.getUri()}/${imagem}`
 }
 

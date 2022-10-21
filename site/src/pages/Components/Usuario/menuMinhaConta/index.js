@@ -1,10 +1,15 @@
 import './index.scss'
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { useState } from 'react';
 
 export default function Menu(props){
 
-    const [menuselecionado, setMenuselecionado] = useState('home');   
+    const [menuselecionado, setMenuselecionado] = useState('home');  
+    const navigate = useNavigate();
+
+    async function editarConta(id){
+        navigate(`/alterarConta/${id}`)
+    }
 
     function selecionarMenu(menu){
         setMenuselecionado(menu);
@@ -12,10 +17,12 @@ export default function Menu(props){
 
     return(
         <div className='menu'>
-            <div className='align-itens-menu'> 
-            <div className='menu-itens'>
-            <p className='txt-menu-adm' style={{marginRight:"0.5em"}}>Editar perfil</p>  
-            </div>
+            <div onClick={editarConta} className='align-itens-menu'>
+                <Link to='/EditarConta'>
+                <div className='menu-itens'>
+                <p className='txt-menu-adm' style={{marginRight:"0.5em"}}>Editar perfil</p>  
+                </div>
+                </Link> 
             </div>
             <div className='align-itens-menu'> 
             <div className='menu-itens'>

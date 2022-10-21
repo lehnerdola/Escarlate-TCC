@@ -1,29 +1,41 @@
-import './conta.scss'
+
 import { Link, useNavigate } from 'react-router-dom'
 import Menu from '../../Components/Usuario/menuMinhaConta/index.js'
 import { verPerfil } from '../../../api/usuarioAPI'
 import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
+
 import storage from 'local-storage'
 
-
-export default function MinhaConta(){
-
-    const id = storage('cliente-logado').id_usuario
+export default function EditarConta(){
+   // const id = storage('cliente-logado').id_usuario
     const [usuario, setUsuario] = useState([]);
     const navigate = useNavigate();
+
+    const [nome, setNome] = useState('');
+    const [cpf, seCpf] = useState('');
+    const [telefone, setTelefone] = useState('');
+    const [email, seEmail] = useState('');
+    const [imagem, setImagem] = useState('');
+    const [id, setId] = useState();
+
+    const { idParam } = useParams();
 
     async function carregarPerfilUsuario() {
         const resp = await verPerfil(id);
         setUsuario(resp) 
     }
 
+    useEffect(() => {
+        if(idParam){
+            carregarPerfilUsuario();
+        }
+    }, [])
+
     useEffect(()=>{
             carregarPerfilUsuario();
     }, [])
 
-   
-
-    
     return(
         <main className='div-conta'>
             <header className='header'>
