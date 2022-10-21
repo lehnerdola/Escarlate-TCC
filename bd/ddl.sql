@@ -75,10 +75,12 @@ id_pedido int primary key auto_increment,
 id_usuario int,
 id_usuario_end int,
 tp_pagamento varchar(150),
-dt_pedido date,
+tp_frete varchar(150),
+vl_frete decimal(15,2),
+cod_notafiscal varchar(200),
+dt_pedido datetime,
 ds_status varchar(30),
-qtd_produto int,
-vl_total decimal(15,2),
+
 
 foreign key (id_usuario) references tb_usuario(id_usuario),
 foreign key (id_usuario_end) references tb_usuario_endereco(id_usuario_end)
@@ -88,6 +90,8 @@ create table tb_pedido_item(
 id_pedido_item int primary key auto_increment,
 id_pedido int,
 id_produto int,
+qtd_produto int,
+vl_produto decimal(15,2),
 
 foreign key (id_pedido) references tb_pedido(id_pedido),
 foreign key (id_produto) references tb_produto(id_produto)
@@ -100,16 +104,9 @@ id_pedido int,
 nm_cartao varchar(150) ,
 nr_cartao int ,
 cvv_cartao int ,
-dt_vencimento date,
-
-foreign key (id_pedido) references tb_pedido(id_pedido)
-);
-
-create table tb_pag_boleto(
-id_pag_boleto int primary key auto_increment,
-id_pedido int,
-cod_boleto int,
-img_boleto varchar(700),
+dt_vencimento varchar(250),
+nr_parcelas int,
+ds_forma_pagamento varchar(250),
 
 foreign key (id_pedido) references tb_pedido(id_pedido)
 );

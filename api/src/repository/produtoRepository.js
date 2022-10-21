@@ -114,4 +114,64 @@ export async function buscarProdutoPorNome(nome){
     `;
     const [resp] = await con.query(c, [`%${nome}%`]);
     return resp;
+};
+
+export async function inserirPedido(novoPedido){
+    const c = 
+    `
+    insert into tb_pedido
+    (
+        id_usuario,
+        id_usuario_end,
+        tp_pagamento,
+        tp_frete,
+        vl_frete,
+        cod_notafiscal,
+        dt_pedido,
+        ds_status
+    )
+    values(?,?,?,?,?,?,?,?)
+    `
+
+    const [info] = await con.query(c, [novoPedido.idUsuario, novoPedido.idEndereco, novoPedido.tipoPagamento, novoPedido.tipoFrete, novoPedido.valorFrete, novoPedido.notaFiscal ,novoPedido.data, novoPedido.status]);
+    return info.insertId;
+}
+
+export async function inserirPagamento(novoPagamento){
+    const c = 
+    `
+    insert into tb_pag_cartao
+    (
+        id_pedido,
+        nm_cartao,
+        nr_cartao,
+        cvv_cartao,
+        dt_vencimento,
+        nr_parcelas,
+        ds_forma_pagamento
+        
+    )
+    values(?,?,?,?,?,?,?)
+    `
+
+    const [info] = await con.query(c, [novoPagamento.idPedido, novoPagamento.nomeCartao, novoPagamento.numeroCartao, novoPagamento.codSeguranca,novoPagamento.vencimento, novoPagamento.parcelas, novoPagamento.formaPagamento]);
+
+    return info.affectedRows;
+}
+
+export async function inserirPedidoItem(idPedido,idProduto, quantidade, preco){
+    const c = 
+    `
+    insert into tb_pedido_item
+    (
+      id_pedido,
+      id_produto,
+      qtd_produto,
+      vl_produto  
+    )
+    values(?,?,?,?)
+    `
+    const [info] = await con.query(c, [idPedido, idProduto, quantidade, preco]);
+
+    return info.affectedRows;
 }

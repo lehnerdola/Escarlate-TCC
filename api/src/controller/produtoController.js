@@ -1,7 +1,8 @@
 import { Router } from "express";
 import multer from 'multer';
-import { salvarProduto, inserirImagemProduto, alterarProduto, excluirProduto, consultarTodosProdutos, consultarProdutosPorId, buscarProdutoPorNome } from "../repository/produtoRepository.js";
-import { validarProduto } from "../service/produtoValidacao.js";
+import randomString from 'randomstring'
+import { salvarProduto, inserirImagemProduto, alterarProduto, excluirProduto, consultarTodosProdutos, consultarProdutosPorId, buscarProdutoPorNome, inserirPedido, inserirPagamento, inserirPedidoItem } from "../repository/produtoRepository.js";
+import { criarNovoPedido, gerarNotaFiscal, validarProduto } from "../service/produtoValidacao.js";
 
 const server = Router();
 const upload = multer({ dest: 'storage/produtos' })
@@ -126,4 +127,28 @@ server.delete('/produto/:id', async (req,resp) => {
     }
 })
 
-  export default server;
+server.post('/pedido/:idUsuario/', async (req,resp) => {
+    try
+    {
+        const {idUsuario} = req.params;
+        const info = req.body;
+        const novoPedido = criarNovoPedido(idUsuario,info);
+
+        const idPedidoCriado = await inserirPedido(novoPedido);
+        await inserirPagamento(idPedidoCriado, info.cartao);
+
+        for(let item of info.produtos){
+            const prod = await consultarProdutosPorId(item.id);
+            await inserirPedidoItem(idPedidoCriado, prod.id, item.quantidade, prod.preco)
+        }
+
+        resp.status(204).send();
+    } 
+    catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
+export default server;
