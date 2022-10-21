@@ -3,9 +3,9 @@ import { listarEnderecos, removerEndereco } from "../../../../api/usuarioAPI";
 import {toast, ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function CardEndereco({ item:{id,nomeRemetente, estado, cidade, bairro, blocoapt, logradouro,complemento,numeroEndereco,numeroCep} }){
+export default function CardEndereco({ item:{id,nomeRemetente, estado, cidade, bairro, blocoapt, logradouro,complemento,numeroEndereco,numeroCep},  selecionar, selecionado}){
     
-    const [enderecos, setEnderecos] = useState([]);
+    const [enderecos, setEnderecos] = useState([]); 
 
     async function deletarEndereco(id) {
 	const resposta = await removerEndereco(id);
@@ -25,9 +25,9 @@ export default function CardEndereco({ item:{id,nomeRemetente, estado, cidade, b
     },[])
 
     return(
-        <div>
+        <div onClick={() => selecionar(id)} className='meus-enderecos' style={{borderColor: selecionado ? '#ff8279' :'#A83F37' }} >
         <ToastContainer/>
-        <div className='meus-enderecos'>
+        <div  >
         <div onClick={() => deletarEndereco(id)}> 
         <img src={'../assets/images/trash.png'} width={30} />
         <p></p>    

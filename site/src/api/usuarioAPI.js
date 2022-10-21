@@ -56,3 +56,8 @@ export async function removerEndereco(id) {
 	const resposta = await api.delete(`/endereco/${id}`);
 	return resposta.status;
 }
+
+export async function salvarNovoPedido(idUsuario, novoPedido){
+    const r = await api.post('/pedido/' + idUsuario, novoPedido);
+    return r.data;
+}

@@ -11,8 +11,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function Endereco(){
 
-  const {register, handleSubmit, setValue, setFocus} = useForm();
-
   const [enderecos, setEnderecos] = useState([]);
   const [nomeRemetente, setNomeRemetente] =  useState('');
   const [estado, setEstado] =  useState('');
@@ -130,12 +128,7 @@ export default function Endereco(){
         </form>
         <button onClick={salvarEnderecoUsuario}>Continuar</button>
         </main>
-        <div className='align-meus-enderecos'>
-        {enderecos.map(item => 
-        <CardEndereco item={item}/>
-        )}
-        </div>
-        </section>
+             </section>
         </main>
     )
 }

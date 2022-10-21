@@ -6,7 +6,7 @@ import Login from './pages/Login e Cadastro/Login';
 import Cadastro from './pages/Login e Cadastro/Cadastro';
 import Feed from './pages/Feed/Feed';
 import Carrinho from './pages/Carrinho/Carrinho';
-import Pagamento from './pages/Pagamento/Pagamento';
+import Pagamento from './pages/Pagamento/index';
 import Produtos from './pages/ADM/Produtos/TodosProdutos';
 import LoginADM from './pages/ADM/Login/loginADM';
 import TelaInicial from './pages/ADM/TelaInicial/index';
@@ -49,6 +49,7 @@ export default function Index(){
     <Route exact path='/NossosArtistas' element={<NossosArtistas/>}/> 
     <Route exact path='/MinhaConta' element={<MinhaConta/>}/> 
     <Route exact path='/Endereco' element={<Endereco/>}/>
+    <Route exact path='/Pagamento' element={< Pagamento/>}/>
     <Route exact path='/Clientes' element={<Clientes/>}/>
     <Route exact path='/ArtistaProd' element={<ArtistaProd/>}/>
     <Route exact path='/ArtistaProd/:idParam' element={<ArtistaProd/>}/>
