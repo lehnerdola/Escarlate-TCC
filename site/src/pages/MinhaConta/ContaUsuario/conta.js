@@ -1,9 +1,10 @@
 import './conta.scss'
 import { Link, useNavigate } from 'react-router-dom'
 import Menu from '../../Components/Usuario/menuMinhaConta/index.js'
-import { verPerfil } from '../../../api/usuarioAPI'
+import { verPerfil, buscarImagem } from '../../../api/usuarioAPI'
 import { useEffect, useState } from 'react'
 import storage from 'local-storage'
+
 export default function MinhaConta(){
 
     const id = storage('cliente-logado').id_usuario
@@ -13,17 +14,17 @@ export default function MinhaConta(){
     async function carregarPerfilUsuario() {
         const resp = await verPerfil(id);
         setUsuario(resp)
+        
     }
 
     useEffect(()=>{
-        setTimeout(() => {
             carregarPerfilUsuario();
-        }, 9000000)
     }, [])
-    
 
+
+    
     return(
-        <main>
+        <main className='div-conta'>
             <header className='header'>
              <div className='sub-header-1'>
              <img src={'../../../../assets/images/Group 1.png'} className='logo-header-conf'/>
@@ -40,10 +41,17 @@ export default function MinhaConta(){
         </header>
 
         <nav>
-            <Menu/>
-            <div >
+            <Menu/>          
+            <div className='infos-usuario'>
             {usuario.map(item =>
-                    <h1>{item.nome}</h1>
+            <div>
+                <img src={buscarImagem(item.imagem)} />   
+                <h1 className='usuario'>nome: {item.nome}</h1>
+                <h1 className='usuario'>email: {item.email}</h1>
+                <h1 className='usuario'>CPF: {item.cpf}</h1>
+                <h1 className='usuario'> telefone: {item.telefone}</h1>
+            </div>
+                    
                 )}
             </div>
         </nav>

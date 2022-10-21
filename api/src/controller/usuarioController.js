@@ -1,6 +1,8 @@
 import { Router } from "express";
-import { cadastrarUsuario, loginUsuario, verificarEmail, verPerfil } from "../repository/usuarioRepository.js";
+import { alterarImagemUsuario, cadastrarUsuario, loginUsuario, verificarEmail, verPerfil } from "../repository/usuarioRepository.js";
+import multer from "multer";
 
+const upload = multer({ dest: 'storage/usuario' })
 const server = Router();
 
 server.post('/usuario', async (req, resp)=> {
@@ -35,6 +37,29 @@ server.post('/usuario', async (req, resp)=> {
     }
 
 });
+
+server.put('/usuario/imagem/:id', upload.single ('imagem') , async (req,resp) => {
+    try {
+        const { id } = req.params;
+        const imagem = req.file.path;
+
+        const enviarImagem = await alterarImagemUsuario(imagem, id);
+        
+        if (enviarImagem != 1) {
+            throw new Error('imagem não pode ser inserida, tente novamente')
+        }
+        
+        resp.status(204).send()
+
+    } 
+    catch (err)
+    {
+        return  resp.status(400).send
+        ({
+        erro: err.message
+        });       
+    }
+})
 
 
 server.get('/usuario/:id' , async (req, resp) => {

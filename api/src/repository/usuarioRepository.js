@@ -34,6 +34,17 @@ export async function loginUsuario(email, senha) {
     return resp[0];
 }
 
+export async function alterarImagemUsuario(imagem,id){
+    const c =
+    `
+    update tb_usuario
+    set img_usuario  = ?
+    where id_usuario = ?
+    `;
+    const [resposta] = await con.query(c, [imagem,id]);
+    return resposta.affectedRows;
+}
+
 export async function verPerfil (id){
     const resposta =
     `
@@ -43,7 +54,8 @@ export async function verPerfil (id){
     ds_email			 as email,
     ds_senha			 as senha,
     ds_cpf_usuario		as cpf,
-    ds_telefone			as telefone
+    ds_telefone			as telefone,
+    img_usuario			as imagem
     from tb_usuario
     where id_usuario = ?    
     `;

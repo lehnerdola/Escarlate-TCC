@@ -1,3 +1,18 @@
-.txt-perfil{
-color: black;
+.div-conta{
+    background-color: #1f1f1f;
+    height: 170vh;
+
+    .infos-usuario{
+        display: flex;
+        justify-content: center;
+        margin-top: 12rem;
+        
+    }
+
+    .usuario{
+        color: white;
+        font-family: 'Poppins-Regular';
+        font-weight: 100;
+    }
 }
+    
