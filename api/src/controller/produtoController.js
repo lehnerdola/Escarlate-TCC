@@ -55,6 +55,9 @@ server.put('/alterar/:id' , async (req, resp) => {
         if(resposta != 1){
             throw new Error('O produto não pode ser alterado!');
         }
+        if(produto.artista === null){
+            throw new Error('nenhum artista')
+        }
         else {
             resp.status(204).send()
         }

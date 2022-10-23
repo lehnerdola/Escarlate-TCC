@@ -45,7 +45,6 @@ export async function consultarTodosProdutos(){
     select 
     id_produto id,
     nm_categoria categoria,
-    nm_artista artista,
     nm_produto nome,
     ds_tam tamanho,
     bt_disponivel disponivel,
@@ -53,7 +52,6 @@ export async function consultarTodosProdutos(){
     qtd_produto quantidade,
     img_produto imagem
     from tb_produto
-    join tb_artista on tb_produto.id_artista = tb_artista.id_artista
     join tb_categoria on tb_produto.id_categoria = tb_categoria.id_categoria;
 `
     const [linhas] = await con.query(comando);
@@ -65,8 +63,6 @@ export async function consultarProdutosPorId(id){
     `
     SELECT 
        id_produto	    id,
-       tb_produto.id_artista       artista,
-       nm_artista       nomeartista,
        id_categoria     categoria,
        nm_produto       nome,
        ds_tam           tamanho,
@@ -75,7 +71,6 @@ export async function consultarProdutosPorId(id){
        qtd_produto      quantidade,
        img_produto      imagem
   FROM tb_produto
-  join tb_artista on tb_produto.id_artista = tb_artista.id_artista
   WHERE id_produto = ? 
   `;
     const [linhas] = await con.query(comando, [id]);

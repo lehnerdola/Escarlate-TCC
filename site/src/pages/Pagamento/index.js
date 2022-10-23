@@ -49,9 +49,7 @@ export default function Pagamento(){
                    parcelas:parcelas,
                    formaPagamento:tipo,
                 },
-                 produtos :[ 
-                  
-                ]
+                 produtos : produtos
               }  
               const r = await salvarNovoPedido(id, pedido)
               toast.success('pedido realizado')

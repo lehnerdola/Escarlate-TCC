@@ -17,11 +17,6 @@ export async function validarProduto(produto){
         throw new Error('Disponibilidade é obrigatória!');
     }
 
-    const artista = await buscarArtistaPorId(produto.idArtista);
-    if (artista == undefined) {
-        throw new Error('Artista inválido');
-    }
-
     const categoria = await buscarProdCategoriaPorId(produto.idCategoria);
     if(categoria == undefined){
         throw new Error('categoria inválida');
