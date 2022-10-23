@@ -36,10 +36,12 @@ export default function CadArtistas (){
             }
             else
             {
-            await AlterarArtista(idCategoriaMusical, idCategoriaArtista, nome, descricao, id);
+            await AlterarArtista(idParam,idCategoriaMusical, idCategoriaArtista, nome, descricao);
             if(typeof(imagem)== 'object'){
-            await enviarImagemArtista(imagem, id)
+            await enviarImagemArtista(imagem, idParam)
             }
+            toast.dark('artista alterado')  
+
           }
 
         } 
@@ -73,9 +75,12 @@ export default function CadArtistas (){
     }
 
     useEffect(() => {
+        if(idParam){
+            carregarArtista();
+        }
         carregarCategoriasArtistas();
         carregarCategoriasMusicais();
-    })
+    },[])
 
      function novoClick(){
         setId(0)
@@ -84,6 +89,18 @@ export default function CadArtistas (){
         setIdCategoriaArtista(0)
         setIdCategoriaMusical(0)
      }   
+
+     async function carregarArtista(){
+        const r = await listarArtistasPorId(idParam);
+        setNome(r.nome)
+        setDescricao(r.descricao)
+        setIdCategoriaArtista(r.categoria)
+        setIdCategoriaMusical(r.categoriamusical)
+        setImagem(r.imagem)
+
+        setId(r.id);
+    }
+
     
     return(
         <div>

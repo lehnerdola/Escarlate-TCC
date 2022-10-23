@@ -1,7 +1,8 @@
 import storage from 'local-storage';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import {Link, useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom';
+
 
 import './index.scss';
 import '../../../Common.scss';

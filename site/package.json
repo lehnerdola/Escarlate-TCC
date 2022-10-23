@@ -18,6 +18,7 @@
     "react": "^18.2.0",
     "react-confirm-alert": "^3.0.6",
     "react-dom": "^18.2.0",
+    "react-elastic-carousel": "^0.11.5",
     "react-hook-form": "^7.38.0",
     "react-intersection-observer": "^9.4.0",
     "react-multi-carousel": "^2.8.2",
@@ -25,11 +26,14 @@
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.29.0",
+    "react-slick-carousel": "^0.14.9",
     "react-toastify": "^9.0.8",
     "react-top-loading-bar": "^2.3.1",
     "router-dom": "^2.2.9",
     "saas": "^1.0.0",
     "styled-components": "^5.3.6",
+    "swiper": "^8.4.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

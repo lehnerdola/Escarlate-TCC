@@ -19,8 +19,8 @@ export default function Artistas(){
         setArtistas(r);
     }
 
-    function editarArtista(){
-        
+    function editarArtista(id){
+        navigate('/alterarartista/' + id)
     }
 
     async function removerArtista(id, artista){
@@ -74,7 +74,7 @@ export default function Artistas(){
                     <BotaoADM nome='EXCLUIR ARTISTA'/>
                 </div>
                 <div>
-                <div >        
+                <div onClick={() => editarArtista(item.id)}>        
                 <BotaoADM nome='EDITAR ARTISTA'/>
                 </div> 
                 </div>

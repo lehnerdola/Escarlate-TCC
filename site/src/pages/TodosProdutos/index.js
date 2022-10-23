@@ -53,13 +53,17 @@ export default function TodosProdutos(){
         })
     }, []);
 
+    useEffect(() => {
+        if (!Storage('cliente-logado')) {
+            navigate('/login')
+        }
+    }, [])
 
     useEffect(() => {
         Filtrar();
     },[produtos])
 
-
-    
+  
     document.addEventListener("keypress", function  (e) {
         if(e.key === "Enter"){
             const btn = document.querySelector("#send");

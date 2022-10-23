@@ -119,7 +119,7 @@ export async function listarArtistas() {
 }
 
 export async function listarArtistasPorId(id){
-    const r = api.get(`/artistas/${id}`);
+    const r = await api.get(`/artistas/${id}`);
     return r.data;
 }
 

@@ -56,8 +56,9 @@ export async function buscarArtistaPorId(id) {
         select id_artista                   as id,
                id_artista_categoria_musical as categoriamusical,
                id_artista_categoria         as categoria,
-               nm_artista                   as artista,
-               ds_artista                   as descricao 
+               nm_artista                   as nome,
+               ds_artista                   as descricao, 
+               img_artista                  as imagem    
 
           from tb_artista
          where id_artista = ?
