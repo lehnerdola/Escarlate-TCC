@@ -49,6 +49,6 @@ return{
     valorFrete: valorFrete, 
     notaFiscal: notaFiscal,
     data: dataAtual,
-    status:'Confirmando Pagamento'
+    status:'pedido sendo preparado!'
 }
 }

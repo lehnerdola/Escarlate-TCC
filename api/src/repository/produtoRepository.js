@@ -1,8 +1,8 @@
 import { con } from "./connection.js";
 
-export async function salvarProduto(produto){
+export async function salvarProduto(produto) {
     const comando =
-    `
+        `
     insert into tb_produto(id_artista, id_categoria, nm_produto, ds_tam, bt_disponivel, vl_preco, qtd_produto)
     values(?,?,?,?,?,?,?)                        
     `
@@ -11,20 +11,20 @@ export async function salvarProduto(produto){
     return resp.insertId;
 };
 
-export async function inserirImagemProduto(imagem, id){
-    const c = 
-    `
+export async function inserirImagemProduto(imagem, id) {
+    const c =
+        `
     UPDATE tb_produto
     SET img_produto      = ?
     WHERE id_produto     = ?
     `;
-  const [resp] = await con.query(c, [imagem, id]);
-  return resp.affectedRows;
+    const [resp] = await con.query(c, [imagem, id]);
+    return resp.affectedRows;
 }
 
-export async function alterarProduto(id, produto){
-    const comando = 
-    `
+export async function alterarProduto(id, produto) {
+    const comando =
+        `
     update tb_produto
    set id_artista     = ?,
        id_categoria   = ?,
@@ -35,13 +35,13 @@ export async function alterarProduto(id, produto){
        qtd_produto    = ?
  where id_produto     = ?;
     `
-    const [resp] = await con.query(comando, [produto.idArtista, produto.idCategoria,produto.nome, produto.tamanho, produto.disponivel,  produto.preco, produto.quantidade, id]);
+    const [resp] = await con.query(comando, [produto.idArtista, produto.idCategoria, produto.nome, produto.tamanho, produto.disponivel, produto.preco, produto.quantidade, id]);
     return resp.affectedRows;
 }
 
-export async function consultarTodosProdutos(){
-    const comando = 
-    `
+export async function consultarTodosProdutos() {
+    const comando =
+        `
     select 
     id_produto id,
     nm_categoria categoria,
@@ -58,9 +58,9 @@ export async function consultarTodosProdutos(){
     return linhas;
 }
 
-export async function consultarProdutosPorId(id){
-    const comando = 
-    `
+export async function consultarProdutosPorId(id) {
+    const comando =
+        `
     SELECT 
        id_produto	    id,
        id_categoria     categoria,
@@ -76,21 +76,21 @@ export async function consultarProdutosPorId(id){
     const [linhas] = await con.query(comando, [id]);
     return linhas[0];
 }
-export async function excluirProduto(id){
-    const comando = 
-    `
+export async function excluirProduto(id) {
+    const comando =
+        `
     delete from tb_produto
     where id_produto = ?
     `
-    const [resposta] = await con.query  (comando, [id])
+    const [resposta] = await con.query(comando, [id])
 
     return resposta.affectedRows;
 }
 
 
-export async function buscarProdutoPorNome(nome){
+export async function buscarProdutoPorNome(nome) {
     const c =
-    `
+        `
     select 
     id_produto id,
     nm_categoria categoria,
@@ -111,9 +111,9 @@ export async function buscarProdutoPorNome(nome){
     return resp;
 };
 
-export async function inserirPedido(novoPedido){
-    const c = 
-    `
+export async function inserirPedido(novoPedido) {
+    const c =
+        `
     insert into tb_pedido
     (
         id_usuario,
@@ -128,13 +128,13 @@ export async function inserirPedido(novoPedido){
     values(?,?,?,?,?,?,?,?)
     `
 
-    const [info] = await con.query(c, [novoPedido.idUsuario, novoPedido.idEndereco, novoPedido.tipoPagamento, novoPedido.tipoFrete, novoPedido.valorFrete, novoPedido.notaFiscal ,novoPedido.data, novoPedido.status]);
+    const [info] = await con.query(c, [novoPedido.idUsuario, novoPedido.idEndereco, novoPedido.tipoPagamento, novoPedido.tipoFrete, novoPedido.valorFrete, novoPedido.notaFiscal, novoPedido.data, novoPedido.status]);
     return info.insertId;
 }
 
-export async function inserirPagamento(novoPagamento){
-    const c = 
-    `
+export async function inserirPagamento(novoPagamento) {
+    const c =
+        `
     insert into tb_pag_cartao
     (
         id_pedido,
@@ -149,14 +149,38 @@ export async function inserirPagamento(novoPagamento){
     values(?,?,?,?,?,?,?)
     `
 
-    const [info] = await con.query(c, [novoPagamento.idPedido, novoPagamento.nomeCartao, novoPagamento.numeroCartao, novoPagamento.codSeguranca,novoPagamento.vencimento, novoPagamento.parcelas, novoPagamento.formaPagamento]);
+    const [info] = await con.query(c, [novoPagamento.idPedido, novoPagamento.nomeCartao, novoPagamento.numeroCartao, novoPagamento.codSeguranca, novoPagamento.vencimento, novoPagamento.parcelas, novoPagamento.formaPagamento]);
 
     return info.affectedRows;
 }
 
-export async function inserirPedidoItem(idPedido,idProduto, quantidade, preco){
-    const c = 
-    `
+export async function pedidoEnviado(id) {
+    const c =
+        `
+    update tb_pedido
+    set ds_status = 'Pedido enviado com sucesso!'
+    where id_pedido = ? 
+    `;
+
+    const [resposta] = await con.query(c, [id])
+    return resposta.affectedRows;
+}
+
+export async function pedidoCancelado(id) {
+    const c =
+        `
+    update tb_pedido
+    set ds_status = 'Pedido cancelado!'
+    where id_pedido = ? 
+    `;
+
+    const [resposta] = await con.query(c, [id])
+    return resposta.affectedRows;
+}
+
+export async function inserirPedidoItem(idPedido, idProduto, quantidade, preco) {
+    const c =
+        `
     insert into tb_pedido_item
     (
       id_pedido,
@@ -169,4 +193,33 @@ export async function inserirPedidoItem(idPedido,idProduto, quantidade, preco){
     const [info] = await con.query(c, [idPedido, idProduto, quantidade, preco]);
 
     return info.affectedRows;
+}
+
+export async function consultarTodosPedidos() {
+    const c =
+        `
+    select 
+    id_pedido_item                      idPedidoItem,
+    tb_pedido_item.id_pedido            idPedido,
+    tb_pedido.id_usuario_end            idEndereco,
+    tb_pedido_item.id_produto           idProduto,
+    nm_produto                          nomeProduto,
+    tb_pedido_item.qtd_produto          quantidade,
+    vl_produto                          valorProduto,
+    tp_pagamento                        tipoPagamento,
+    ds_logradouro                       rua,
+    nr_endereco                         numero,
+    tp_frete                            tipoFrete,
+    vl_frete                            valorFrete,
+    cod_notafiscal                      notaFiscal,
+    dt_pedido                           dataPedido,
+    ds_status                           statusPedido
+    from tb_pedido_item
+    join tb_pedido on tb_pedido_item.id_pedido = tb_pedido.id_pedido 
+    join tb_usuario_endereco on tb_pedido.id_usuario_end = tb_usuario_endereco.id_usuario_end
+    join tb_produto on tb_pedido_item.id_produto = tb_produto.id_produto;
+    `
+
+    const [linhas] = await con.query(c);
+    return linhas;
 }
