@@ -1,0 +1,185 @@
+.pedidos {
+    display: flex;
+    padding-left: 15em;
+    justify-content: start;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1f1f1f;
+    width: 100%;
+    min-height: 100vh;
+
+    p{
+        font-size: 15px;
+    }
+
+    .sec-1-pedidos {
+        display: flex;
+        align-items: flex-start;
+        width: 80vw;
+        flex-direction: column;
+
+        h1,p{
+            font-family: 'Poppins-Regular';
+            font-weight: 100;
+            color: #fff;
+        }
+        
+    }
+
+    .align-txt-sec-1 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        width: 40vw;
+
+    }
+
+    .sec-2-pedidos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 90vh;
+        justify-content: space-around;
+    }
+
+    .card-pedidos {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 70vw;
+        height: 35vh;
+        border: 2px solid #A83F37;
+        
+        .img-card-pedido{
+            width: 150x;
+            height: 150px;
+            object-fit: cover;
+        }
+    }
+
+    .div-column-1-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 40vh;
+        justify-content: space-around;
+    }
+
+    .div-id {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 7vw;
+
+        p {
+            font-family: 'Poppins-Regular';
+            font-weight: 100;
+            color: #fff;
+        }
+
+        span {
+            color: #A83F37;
+        }
+    }
+
+    .align-cartao-cliente {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+
+        .div-cliente{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            width: 10vw;
+            padding-top: 20px;
+            padding-left: 8px;
+
+            span {
+                font-family: 'Poppins-Regular';
+                font-size: 17px;
+                font-weight: 100;
+                color: #A83F37;
+                text-align: center;
+            }
+
+        }
+
+        .div-cartao-cliente {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            width: 10vw;
+
+            span {
+                font-family: 'Poppins-Regular';
+                font-size: 17px;
+                font-weight: 100;
+                color: #A83F37;
+                text-align: center;
+            }             
+        }
+
+    }
+
+    .div-column-2-card{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 35vh;
+
+        h2{
+            font-family: 'Poppins-Regular';
+            font-weight: 100;
+            color: #fff;
+        }
+
+        .align-qtd-data{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            p{
+                font-family: 'Poppins-Regular';
+                font-weight: 100;
+                color: #fff;
+            }
+        }
+
+        .align-localizacao{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+
+            p{
+                font-family: 'Poppins-Regular';
+                font-weight: 100;
+                color: #A83F37;
+            }
+        }
+    }
+
+    .botao-pedido{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 20vh;
+        align-items: center;
+
+        div{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            width: 15vw;
+        }
+    }
+
+}
