@@ -85,12 +85,12 @@ server.get('/usuario/:id' , async (req, resp) => {
     }
 }) 
 
-server.put('/usuario/:id/image', upload.single('image') , async (req, resp) => {
+server.put('/usuario/:id/image', upload.single('image') , (req, resp) => {
     try {
         const { id } = req.params;
         const imagem = req.file.path;
 
-        const resposta = await AdicionarImagem(imagem, id);
+        const resposta = AdicionarImagem(imagem, id);
         if (resposta != 1) {
             throw new Error('tem alguma coisa errada ai amigão')
         }

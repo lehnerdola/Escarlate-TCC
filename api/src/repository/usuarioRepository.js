@@ -84,14 +84,14 @@ const [linhas] = await con.query(comando);
 return linhas;
  }
 
-export async function AdicionarImagem(imagem, id) {
+export function AdicionarImagem(imagem, id) {
     const comando = 
     `
     UPDATE tb_usuario 
     SET img_usuario      =  ?
     WHERE id_usuario     = ?
     `;
-    const [resposta] = await con.query(comando, [imagem, id]);
+    const [resposta] = con.query(comando, [imagem, id]);
     return resposta.affectedRows;
 }
    
