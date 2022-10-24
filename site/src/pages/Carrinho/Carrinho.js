@@ -61,9 +61,12 @@ return(
              <div>
             
              </div>
+             <Link to='/MinhaConta'>
              <div className='sub-header-2'>
                 <img src={'../../../../assets/images/user.png'} className='conf-img-header' alt="img"/>
              </div>
+             </Link>
+             
     </header>
     <div className="main-cart">
 

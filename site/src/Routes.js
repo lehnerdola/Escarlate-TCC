@@ -23,6 +23,8 @@ import Endereco from './pages/Pedido/Endereço/index';
 import Clientes from './pages/ADM/Cliente/index';
 import ArtistaProd from './pages/ArtistaProd/index';
 import EditarConta from './pages/MinhaConta/EditarConta/index.js'
+import MeusCartoes from './pages/MinhaConta/MeusCartoes/cartoes.js'
+import Senha from './pages/MinhaConta/EditarSenha/senha';
 
 export default function Index(){
     return(
@@ -54,6 +56,8 @@ export default function Index(){
     <Route exact path='/Clientes' element={<Clientes/>}/>
     <Route exact path='/ArtistaProd' element={<ArtistaProd/>}/>
     <Route exact path='/EditarConta' element={<EditarConta/>}/>
+    <Route exact path='/MeusCartoes' element={<MeusCartoes/>}/>
+    <Route exact path='/AlterarSenha' element={<Senha/>}/>
     <Route exact path='/ArtistaProd/:idParam' element={<ArtistaProd/>}/>
   </Routes>
   </BrowserRouter>

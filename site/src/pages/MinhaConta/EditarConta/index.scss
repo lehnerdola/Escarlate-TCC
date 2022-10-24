@@ -1,0 +1,37 @@
+.div-conta{
+    background-color: #1f1f1f;
+    height: 100vh;
+
+
+    .infos-usuario{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .usuario{
+        color: white;
+        font-family: 'Poppins-Regular';
+        font-weight: 100;
+        width: 20rem;
+    }
+
+    .input{
+        border: 1px solid #A83F37;
+        border-radius: 5px;
+        height: 1.7rem;
+        background-color: #1f1f1f;
+        font-family: 'Poppins-Regular';
+        color: #ffff;
+        font-weight: 100;
+    }
+    .alig-itens-usuario{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .botao{
+        margin-top: 2rem;
+    }
+}

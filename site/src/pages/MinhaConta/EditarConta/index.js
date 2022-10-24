@@ -1,40 +1,16 @@
-
+import './index.scss'
 import { Link, useNavigate } from 'react-router-dom'
 import Menu from '../../Components/Usuario/menuMinhaConta/index.js'
 import { verPerfil } from '../../../api/usuarioAPI'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
+import BotaoADM from '../../Components/Adm/Button/index.js'
 
 import storage from 'local-storage'
 
 export default function EditarConta(){
-   // const id = storage('cliente-logado').id_usuario
+    const id = storage('cliente-logado').id_usuario
     const [usuario, setUsuario] = useState([]);
-    const navigate = useNavigate();
-
-    const [nome, setNome] = useState('');
-    const [cpf, seCpf] = useState('');
-    const [telefone, setTelefone] = useState('');
-    const [email, seEmail] = useState('');
-    const [imagem, setImagem] = useState('');
-    const [id, setId] = useState();
-
-    const { idParam } = useParams();
-
-    async function carregarPerfilUsuario() {
-        const resp = await verPerfil(id);
-        setUsuario(resp) 
-    }
-
-    useEffect(() => {
-        if(idParam){
-            carregarPerfilUsuario();
-        }
-    }, [])
-
-    useEffect(()=>{
-            carregarPerfilUsuario();
-    }, [])
 
     return(
         <main className='div-conta'>
@@ -53,19 +29,25 @@ export default function EditarConta(){
              </div>
         </header>
 
-        <nav>
+        <nav className='div-conta' >
             <Menu/>          
             <div className='infos-usuario'>
-            {usuario.map(item =>
-            <div>
-                <h1 className='usuario'>nome: {item.nome}</h1>
-                <h1 className='usuario'>email: {item.email}</h1>
-                <h1 className='usuario'>CPF: {item.cpf}</h1>
-                <h1 className='usuario'>telefone: {item.telefone}</h1>
+                <div className='alig-itens-usuario'>
+                <p className='usuario'>Nome completo:<span style={{color:'#A83F37'}}>*</span></p>
+                <input  className='input' type='text'/>
+                <p className='usuario'>Email:<span style={{color:'#A83F37'}}>*</span></p>
+                <input  className='input' type='text'/>
+                <p className='usuario'>CPF:<span style={{color:'#A83F37'}}>*</span></p>
+                <input  className='input' type='text'/>
+                <p className='usuario'>Número de telefone:<span style={{color:'#A83F37'}}>*</span></p>
+                <input className='input' type='text'/>
+                </div>
+                <div className='botao'>
+                <BotaoADM nome='Salvar alterações'/>
+                </div>
+                
             </div>
-                    
-                )}
-            </div>
+
         </nav>
         </main>
     )

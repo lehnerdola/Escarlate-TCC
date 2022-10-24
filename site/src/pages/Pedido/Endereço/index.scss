@@ -62,4 +62,24 @@
         align-items: center;
         height: 120vh;
     }
+
+        .input-M{
+            border-radius: 5px;
+            width: 30rem;
+            height: 1.4rem;
+            border: 2px #1f1f1f;
+        }
+
+        .input{
+            border-radius: 5px;
+            height: 1.4rem;
+            width: 13rem;
+            border: 2px #1f1f1f;
+        }
+
+        .nome-input{
+            font-family: 'Poppins-Regular';
+            font-weight: 100;
+            
+        }
 }

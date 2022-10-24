@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { alterarImagemUsuario, cadastrarUsuario, loginUsuario, verificarEmail, verPerfil,  } from "../repository/usuarioRepository.js";
+import { AdicionarImagem, alterarUsuario, cadastrarUsuario, loginUsuario, TodosUsuarios, verificarEmail, verPerfil,  } from "../repository/usuarioRepository.js";
 import multer from "multer";
 
 const upload = multer({ dest: 'storage/usuario' })
@@ -38,43 +38,6 @@ server.post('/usuario', async (req, resp)=> {
 
 });
 
-server.put('/usuario/imagem/:id', upload.single ('imagem') , async (req,resp) => {
-    try {
-        const { id } = req.params;
-        const imagem = req.file.path;
-
-        const enviarImagem = await alterarImagemUsuario(imagem, id);
-        
-        if (enviarImagem != 1) {
-            throw new Error('imagem não pode ser inserida, tente novamente')
-        }
-        
-        resp.status(204).send()
-
-    } 
-    catch (err)
-    {
-        return  resp.status(400).send
-        ({
-        erro: err.message
-        });       
-    }
-})
-
-
-server.get('/usuario/:id' , async (req, resp) => {
-    try{
-        const id = req.params.id;
-        const resposta = await verPerfil(id);
-        resp.send(resposta)
-
-    }
-    catch(err) {
-        resp.status(404).send({
-            erro: err.message
-        })
-    }
-}) 
 
 server.post('/usuario/login', async (req,resp) => {
     try {
@@ -95,7 +58,72 @@ server.post('/usuario/login', async (req,resp) => {
          });
     } 
   });
-  
+
+
+server.get('/usuarios', async (req, resp) => {
+    try {
+        const resposta = await TodosUsuarios();
+        resp.send(resposta);
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }    
+})
+
+server.get('/usuario/:id' , async (req, resp) => {
+    try{
+        const id = req.params.id;
+        const resposta = await verPerfil(id);
+        resp.send(resposta)
+
+    }
+    catch(err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+}) 
+
+server.put('/usuario/:id/image', upload.single('image') , async (req, resp) => {
+    try {
+        const { id } = req.params;
+        const imagem = req.file.path;
+
+        const resposta = await AdicionarImagem(imagem, id);
+        if (resposta != 1) {
+            throw new Error('tem alguma coisa errada ai amigão')
+        }
+
+        resp.status(204).send();
+    } catch (err) {
+        resp.status(400).send({
+            erro:err.message
+        })
+    }
+})
+
+server.put('/alterarusuario/:id', async (req, resp) => {
+    try {
+        const { id } = req.params;
+        const usuario = req.body;
+
+        const resposta = await alterarUsuario(id, usuario);
+        console.log(resposta)
+        if (resposta != 1) {
+            throw new Error('O usuario não pode ser alterado!');
+        }
+
+        else {
+            resp.status(204).send()
+        }
+
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
 
 
 export default server;

@@ -102,6 +102,7 @@ export default function TodosProdutos(){
             <h1 className='titulo-todosprodutos' >Conheça nossos <span style={{color:"#A83F37"}}> produtos</span></h1>
             <h2 style={{fontFamily:"Cinzel-Regular", color:"#A83F37", fontWeight:'100' }}>Mais vendidos,   canecas,   camisetas,   posters ...</h2>
             <div className='faixa-1-todos-prod'>
+
            
             {produtos.map (item =>
             //abre popup

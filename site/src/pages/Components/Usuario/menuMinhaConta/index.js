@@ -8,7 +8,7 @@ export default function Menu(props){
     const navigate = useNavigate();
 
     async function editarConta(id){
-        navigate(`/alterarConta/${id}`)
+        navigate(`/EditarConta`)
     }
 
     function selecionarMenu(menu){
@@ -17,6 +17,13 @@ export default function Menu(props){
 
     return(
         <div className='menu'>
+            <Link to ='/MinhaConta'>
+                <div className='align-itens-menu'> 
+                <div className='menu-itens'>
+                <p className='txt-menu-adm' style={{marginRight:"0.5em"}}>Minha conta</p>  
+                </div>
+                </div>
+            </Link>
             <div onClick={editarConta} className='align-itens-menu'>
                 <Link to='/EditarConta'>
                 <div className='menu-itens'>
@@ -24,16 +31,21 @@ export default function Menu(props){
                 </div>
                 </Link> 
             </div>
-            <div className='align-itens-menu'> 
-            <div className='menu-itens'>
-            <p className='txt-menu-adm' style={{marginRight:"0.5em"}}>Alterar senha</p>  
-            </div>
-            </div>
-            <div className='align-itens-menu'> 
-            <div className='menu-itens'>
-            <p className='txt-menu-adm' style={{marginRight:"0.5em"}}>Meus cartões</p>  
-            </div>
-            </div>
+            <Link to='/AlterarSenha'>
+                <div className='align-itens-menu'> 
+                <div className='menu-itens'>
+                <p className='txt-menu-adm' style={{marginRight:"0.5em"}}>Alterar senha</p>  
+                </div>
+                </div>
+            </Link>
+            <Link to='/MeusCartoes'>
+                <div className='align-itens-menu'> 
+                <div className='menu-itens'>
+                <p className='txt-menu-adm' style={{marginRight:"0.5em"}}>Meus cartões</p>  
+                </div>
+                </div>
+            </Link>
+            
             <div className='align-itens-menu'> 
             <div className='menu-itens'>
             <p className='txt-menu-adm' style={{marginRight:"0.5em"}}>Meus pedidos</p>  
@@ -44,7 +56,7 @@ export default function Menu(props){
             <p className='txt-menu-adm' style={{marginRight:"0.5em"}}>Compras feitas</p>  
             </div>
             </div>
-            <Link to ='/MinhaConta'>
+            <Link to ='/Feed'>
             <img src={'../../../../assets/images/Vector.png'} width={20} className='exit-icon' alt=''/>
             </Link>
             </div>

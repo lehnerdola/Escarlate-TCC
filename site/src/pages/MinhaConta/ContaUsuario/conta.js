@@ -9,6 +9,7 @@ import storage from 'local-storage'
 export default function MinhaConta(){
 
     const id = storage('cliente-logado').id_usuario
+
     const [usuario, setUsuario] = useState([]);
     const navigate = useNavigate();
 
@@ -20,8 +21,6 @@ export default function MinhaConta(){
     useEffect(()=>{
             carregarPerfilUsuario();
     }, [])
-
-   
 
     
     return(
@@ -46,6 +45,7 @@ export default function MinhaConta(){
             <div className='infos-usuario'>
             {usuario.map(item =>
             <div>
+                <img  src={`http://localhost:5000/${item.imagem_usuario}`} alt='imagem que não vaii'/>
                 <h1 className='usuario'>nome: {item.nome}</h1>
                 <h1 className='usuario'>email: {item.email}</h1>
                 <h1 className='usuario'>CPF: {item.cpf}</h1>

@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { listarEnderecos, salvarEndereco, removerEndereco } from "../repository/enderecoRepository.js";
+import { ValidarEndereco } from "../service/enderecovalidacao.js";
 
 const server = Router();
 
@@ -25,6 +26,8 @@ server.post('/usuario/:id/endereco', async (req,resp) => {
         const id = req.params.id;
 
         const endereco = req.body;
+
+        await ValidarEndereco(endereco);
 
         const r = await salvarEndereco(id,endereco)
 

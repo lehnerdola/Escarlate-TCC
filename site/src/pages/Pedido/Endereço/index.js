@@ -3,6 +3,7 @@ import {Link}from 'react-router-dom';
 import {useForm} from 'react-hook-form'
 import CardEndereco from '../../Components/Usuario/cardEndereço/cardendereco.js';
 import { listarEnderecos, salvarEndereco } from '../../../api/usuarioAPI.js'
+import BotaoADM from '../../Components/Adm/Button/index.js'
 import Storage from 'local-storage'
 import './index.scss'
 import { useEffect, useState } from 'react';
@@ -61,72 +62,76 @@ export default function Endereco(){
              <div>
            
              </div>
-            <p>Efetuando pagamento (1/2)</p>
+            <p style={{width: 200, fontSize: 20}}>Efetuando pagamento (1/2)</p>
         </header>
         <section className='align-row-endereco'>
         <main className='align-center-input'>
         <form className='inputs-sec' >
         <label>
-        <p>Nome Remetente</p>
-        <input value={nomeRemetente} onChange={e => setNomeRemetente(e.target.value)}/>
+        <p className='nome-input'>Nome Remetente: <span style={{color: 'red'}}>*</span></p>
+        <input className='input-M' value={nomeRemetente} onChange={e => setNomeRemetente(e.target.value)}/>
         </label>    
         <label className='align-inputs-row-cpf'>
         <label>    
-        <p>CPF ou CNPJ</p>
-        <input/>
+        <p className='nome-input' >CPF ou CNPJ: <span style={{color: 'red'}}>*</span></p>
+        <input className='input'/>
         </label>
         <label>
-        <p>CEP</p>
-        <input type='text'value={numeroCep} onChange={e => setNumeroCep(e.target.value)}/>
+        <p className='nome-input'>CEP: <span style={{color: 'red'}}>*</span></p>
+        <input className='input' type='text'value={numeroCep} onChange={e => setNumeroCep(e.target.value)}/>
         </label>
         </label> 
         <label className='align-inputs-row'>
         <label>    
-        <p>Estado</p>
-        <input  value={estado} onChange={e => setEstado(e.target.value)}/>
+        <p className='nome-input'>Estado:</p>
+        <input  className='input' value={estado} onChange={e => setEstado(e.target.value)}/>
         </label>
         <label>
-        <p >Cidade</p>
-        <input  onChange={e => setCidade(e.target.value)}/>
+        <p className='nome-input'>Cidade:</p>
+        <input className='input' onChange={e => setCidade(e.target.value)}/>
         </label>
         <label>
-        <p>Bairro</p>
-        <input value={bairro} onChange={e => setBairro(e.target.value)}/>
+        <p className='nome-input'>Bairro:</p>
+        <input  className='input'value={bairro} onChange={e => setBairro(e.target.value)}/>
         </label>
         </label> 
         <label>
-        <p>Rua</p>
-        <input  value={logradouro} onChange={e => setLogradouro(e.target.value)}/>
+        <p className='nome-input'>Rua:</p>
+        <input className='input-M' value={logradouro} onChange={e => setLogradouro(e.target.value)}/>
         </label>
         <label className='align-inputs-row-cpf'>
         <label>    
-        <p>N Residencial:</p>
-        <input value={numeroEndereco} onChange={e => setNumeroEndereco(e.target.value)}/>
+        <p className='nome-input'>N° Residencial: <span style={{color: 'red'}}>*</span></p>
+        <input className='input' value={numeroEndereco} onChange={e => setNumeroEndereco(e.target.value)}/>
         </label>
         <label>
-        <p>Complemento</p>
-        <input/>
+        <p className='nome-input'>Complemento:</p>
+        <input className='input'/>
         </label>
         </label> 
         <label className='align-inputs-row-cpf' value={complemento} onChange={e => setComplemento(e.target.value)}>
         <label>    
-        <p>Bloco do apartamento</p>
-        <input value={blocoapt} onChange={e => setBlocoapt(e.target.value)}/>
+        <p className='nome-input'>Bloco do apartamento:</p>
+        <input className='input' value={blocoapt} onChange={e => setBlocoapt(e.target.value)}/>
         </label>
         <label>
-        <p>Telefone para contato:</p>
-        <input/>
+        <p className='nome-input'>Telefone para contato: <span style={{color: 'red'}}>*</span></p>
+        <input className='input'/>
         </label>
         </label>
         <label>
-        <p>Forma de pagamento:</p>
-        <select>
+        <p className='nome-input'>Forma de pagamento: <span style={{color: 'red'}}>*</span></p>
+        <select className='input'>
+        <option selected disabled hidden>Selecione</option>
         <option>Cartão de crédito</option>
         <option>Cartão de débito</option>
         </select>
         </label>
         </form>
-        <button onClick={salvarEnderecoUsuario}>Continuar</button>
+        <div onClick={salvarEnderecoUsuario}>
+        <BotaoADM nome='Continuar pagamento'/>
+        </div>
+        
         </main>
              </section>
         </main>

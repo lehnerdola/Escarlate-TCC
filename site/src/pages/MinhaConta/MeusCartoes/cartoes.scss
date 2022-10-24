@@ -1,0 +1,28 @@
+.div-conta{
+    background-color: #1f1f1f;
+
+    .align-itens-cartao{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+    }
+
+    .ifos-cartao{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column
+    }
+
+    .retangulo-infos{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        border: 1px solid rgb(241, 75, 75);
+        align-items: center;
+        width: 80vw;
+        height: 30vh;
+    }
+}
