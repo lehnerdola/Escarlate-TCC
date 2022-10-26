@@ -1,0 +1,30 @@
+.div-cartao{
+    display: flex;
+    justify-content: center;
+    height: 30vh;
+
+
+    .ifos-cartao{
+        display: flex;
+        height: 20vh;
+        width: 30vw;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        border: 2px #A83F37 solid;
+    }
+
+    .align-itens-cartao p{
+        font-family: 'Arya-Regular';
+        color: #ffff;
+        font-weight: 100;
+    }
+
+    .txt-conf-cardcart{
+        border: #A83F37 1px solid;
+        width: 3.5rem;
+        text-align: center;
+        
+    }
+}
+

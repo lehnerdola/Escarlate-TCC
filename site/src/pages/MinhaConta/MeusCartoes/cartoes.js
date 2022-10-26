@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 import Menu from '../../Components/Usuario/menuMinhaConta/index.js'
+import 'react-credit-cards/lib/styles.scss'
 import CardPAH from '../../Components/Adm/Card/index.js'
+
+import './cartoes.scss'
+import CartaoCard from "../../Components/Usuario/cartaoUser/index.js";
 export default function MeusCartoes(){
     return(
         
-        <main>
+        <main className="cartao">
+
             <header className='header'>
              <div className='sub-header-1'>
              <img src={'../../../../assets/images/Group 1.png'} className='logo-header-conf'/>
@@ -18,27 +23,15 @@ export default function MeusCartoes(){
              <img src={'../../../../assets/images/cart.png'} className='conf-img-header'/>
              </Link>
              </div>
-        </header>
 
-        <nav className="div-conta">
+        </header>
         <Menu/>
-        <div className="ifos-cartao">
-        <div className="align-itens-cartao">
-        <div className='cardpah'>
-        <div className='txt-cardpah'>
-        <p className='txt-conf-cardpah'>cartão de crédito com final:</p>
-        <p className='txt-conf-cardpah'>9090</p>
-        <p className='txt-conf-cardpah'>valid.</p>
-        <p className='txt-conf-cardpah-underline'>09090</p>
+        <div className="align-cartao-card">
+            <CartaoCard/>
         </div>
-        <div className='bt-card-pah'>
-        </div>
-        </div>
-        </div>
-        </div>
+
         
-        <button>Adicionar Novo Cartão</button>
-        </nav>
+
         </main>
         
     )

@@ -1,6 +1,7 @@
 import './conta.scss'
 import { Link, useNavigate } from 'react-router-dom'
 import Menu from '../../Components/Usuario/menuMinhaConta/index.js'
+
 import { verPerfil } from '../../../api/usuarioAPI'
 import { useEffect, useState } from 'react'
 import storage from 'local-storage'
