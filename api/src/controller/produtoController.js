@@ -152,7 +152,7 @@ server.post('/pedido/:idUsuario/', async (req, resp) => {
     }
 })
 
-server.put('/alterarPedido/:id', async (req, resp) => {
+server.put('/enviarPedido/:id', async (req, resp) => {
     try {
         const { id } = req.params;
 

@@ -46,6 +46,7 @@ export default function Index(){
     <Route exact path='/HitsDoMomento' element={<HitsDoMomento/>}/>
     <Route exact path='/CadHit' element={<CadHit/>}/>
     <Route exact path='/alterarmusica/:idParam' element={<CadHit/>}/>
+    <Route exact path='/pedidoEnviado/:idParam' element={<Pedidos/>}/>
     <Route exact path='/TelaInicial' element={<TelaInicial/>}/>
     <Route exact path='/Cadastro' element={<Cadastro/>}/> 
     <Route exact path='/Feed' element={<Feed/>}/> 

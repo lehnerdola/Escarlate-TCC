@@ -194,3 +194,13 @@ export async function buscarMusicaPorId(id){
     const r = await api.get(`/musica/${id}`);
     return r.data;
 }
+
+export async function listarPedidos() {
+    const r = await api.get('/pedidos');
+    return r.data;
+}
+
+export async function enviarPedido(id){
+    const r = api.put('/enviarPedido/' + id)
+    return r.data;
+}

@@ -6,7 +6,7 @@
     align-items: center;
     background-color: #1f1f1f;
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
 
     p{
         font-size: 15px;
@@ -39,7 +39,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 90vh;
+        height: 190vh;
         justify-content: space-around;
     }
 
@@ -72,7 +72,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        width: 7vw;
+        min-width: 4.5vw;
 
         p {
             font-family: 'Poppins-Regular';
@@ -132,6 +132,7 @@
     .div-column-2-card{
         display: flex;
         flex-direction: column;
+        align-items: center;
         justify-content: space-around;
         height: 35vh;
 
@@ -144,7 +145,8 @@
         .align-qtd-data{
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
+            width: 15vw;
+            justify-content: space-around;
 
             p{
                 font-family: 'Poppins-Regular';
@@ -157,8 +159,10 @@
             display: flex;
             flex-direction: row;
             justify-content: space-around;
+            min-width: 12vw;
+            max-width: 50vw;
 
-            p{
+          p{
                 font-family: 'Poppins-Regular';
                 font-weight: 100;
                 color: #A83F37;
@@ -181,5 +185,36 @@
             width: 15vw;
         }
     }
+   
+}
 
+body.active-modal {
+    overflow-y: hidden;
+}
+
+
+.modal-enviar-pedido, .overlay-enviar-pedido {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+
+.modal-content-enviar-pedido {
+    margin-top: 4em;
+    line-height: 1.4;
+    margin-left: 80em;
+    background: #ffffff;
+    padding: 70px 200px;
+    border-radius: 15px;
+}
+
+.close-modal {
+    top: 10px;
+    right: 10px;
+    padding: 5px 7px;
 }

@@ -73,7 +73,7 @@ server.get('/usuarios', async (req, resp) => {
 
 server.get('/usuario/:id' , async (req, resp) => {
     try{
-        const id = req.params.id;
+        const id = Number(req.params.id);
         const resposta = await verPerfil(id);
         resp.send(resposta)
 
@@ -85,12 +85,12 @@ server.get('/usuario/:id' , async (req, resp) => {
     }
 }) 
 
-server.put('/usuario/:id/image', upload.single('image') , (req, resp) => {
+server.put('/usuario/:id/image', upload.single('image') , async (req, resp) => {
     try {
         const { id } = req.params;
         const imagem = req.file.path;
 
-        const resposta = AdicionarImagem(imagem, id);
+        const resposta = await AdicionarImagem(imagem, id);
         if (resposta != 1) {
             throw new Error('tem alguma coisa errada ai amigão')
         }

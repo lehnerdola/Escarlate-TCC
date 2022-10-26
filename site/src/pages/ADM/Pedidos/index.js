@@ -1,8 +1,39 @@
 import './index.scss'
+import { useState, useEffect } from 'react';
+import PopUpEnviarPedido from '../../Components/Adm/popupEnviarPedido/index';
+import {toast, ToastContainer} from 'react-toastify';
+import PopUpCancelarPedido from '../../Components/popupCancelarPedido';
 import MenuADM from '../../Components/Adm/menu';
+import { motion } from 'framer-motion';
 import BotaoADM from '../../Components/Adm/Button'
+import { listarPedidos,buscarImagem, enviarPedido } from '../../../api/adminAPI.js';
 
 export default function Pedidos() {
+    const [pedidos, setPedidos] = useState([]);
+    const [modalEnviar, setModalEnviar] = useState(false);
+    const [modalCancelar, setModalCancelar] = useState(false);
+
+        async function enviarPedidoClick(id){
+        const pedido = await enviarPedido(id);
+        carregarTodosPedidos();
+        }
+
+    const toggleModal = () => {
+        setModalEnviar(!modalEnviar);
+    };
+
+    const toggleModalCancelar = () => {
+        setModalCancelar(!modalCancelar);
+    };
+
+    async function carregarTodosPedidos(){
+        const r = await listarPedidos();
+        setPedidos(r);
+    }
+
+    useEffect(() =>{
+        carregarTodosPedidos();
+    },[])
     return (
         <div>
             <MenuADM />
@@ -18,32 +49,74 @@ export default function Pedidos() {
                 </section>
 
                 <section className='sec-2-pedidos'>
+                {pedidos.map (item =>
 
                 <article className='card-pedidos'>
 
                  <div className='div-column-1-card'>
-                   <div className='div-id'><img src={'../../assets/images/🦆 icon _tag_.png'}/><p>ID: <span>4948</span></p></div>
+                   <div className='div-id'><img src={'../../assets/images/🦆 icon _tag_.png'}/><p>ID: <span>{item.idPedido}</span></p></div>
                   
                    <div className='align-cartao-cliente'>
-                   <div className='div-cartao-cliente'><img src={'../../assets/images/🦆 icon _Payment_.png'}/> <span>Cartão</span></div> 
-                   <div className='div-cliente'><img src={'../../assets/images/🦆 icon _people_ (1).png'}/><span className='align-nmcliente'>Ana Júlia</span></div> 
+                   <div className='div-cartao-cliente'><img src={'../../assets/images/🦆 icon _Payment_.png'}/> <span>
+                    {item.tipoPagamento}</span></div> 
+                   <div className='div-cliente'><img src={'../../assets/images/🦆 icon _people_ (1).png'}/><span className='align-nmcliente'>{item.nomeRemetente}</span></div> 
                    </div>
                  </div>
 
                  <div className='div-column-2-card'>
-                       <h2>Poster Metallica</h2>
-                      <div className='align-qtd-data'><p>Qtd: 1</p> <p>24/08/2022</p></div>  
-                      <div className='align-localizacao'><img  src={'../../assets/images/🦆 icon _address_.png'}/> <p>Av.Paulista,1550</p></div>
+                       <h2>{item.nomeProduto}</h2>
+                      <div className='align-qtd-data'><p>Qtd: {item.quantidade}</p> <p>Data: {item.dataPedido.substr(0,10)}</p></div>  
+                      <div className='align-localizacao'><img  src={'../../assets/images/🦆 icon _address_.png'}/> <p>{item.rua}, {item.numero}</p></div>
                  </div>
 
-                 <img src={'../../assets/images/POSTER 1.png'} className='img-card-pedido'/>
+                 <img src={buscarImagem(item.imagem)} className='img-card-pedido'/>
 
                  <div className='botao-pedido'>
-                    <div className='enviar-pedido'><img src={'../../assets/images/🦆 icon _truck check outline_.png'}/> <BotaoADM nome='Enviar Pedido'/></div>
-                    <div className='cancelar-pedido'><img src={'../../assets/images/Group 68.png'}/> <BotaoADM nome='Cancelar Pedido'/></div>
+                 <div className='enviar-pedido' onClick={toggleModal}>
+                 <img src={'../../assets/images/🦆 icon _truck check outline_.png'}/>
+                 <div onClick={() =>enviarPedidoClick(item.idPedido)}> 
+                 <BotaoADM nome='Enviar Pedido'/>
+                 </div>
+                 {modalEnviar && (
+                <div className="modal-enviar-pedido">
+                <div className="overlay-enviar-pedido">
+                <motion.div
+                animate={{opacity:[0,1], }}
+                transition={{delay:0.5, type:'spring'}}
+                >
+                <div className="modal-content-enviar-pedido">
+                    <PopUpEnviarPedido item={item}/>
+                    <button onClick={toggleModal} className='botao-voltar'> voltar</button>
+                </div>
+                </motion.div>    
+                </div>
+                </div>
+                )}
+    
+                 </div>
+                  <div className='cancelar-pedido'  onClick={toggleModalCancelar}>
+                   <img src={'../../assets/images/Group 68.png'}/>
+                  <BotaoADM nome='Cancelar Pedido'/>
+                  {modalCancelar && (
+                    <div className="modal-enviar-pedido">
+                    <div className="overlay-enviar-pedido">
+                    <motion.div
+                    animate={{opacity:[0,1], }}
+                    transition={{delay:0.5, type:'spring'}}
+                    >
+                    <div className="modal-content-enviar-pedido">
+                        <PopUpCancelarPedido/>
+                    </div>
+                    </motion.div>    
+                    </div> 
+                    </div>
+                   )}
+
+                  </div>
                  </div>
 
                 </article>
+                    )}
 
                 </section>
 

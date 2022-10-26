@@ -14,7 +14,6 @@ export default function TodosProdutos(){
     const [filtro, setFiltro] = useState('');
 
     const [modal, setModal] = useState(false);
-    const { idParam } = useParams();
     const navigate= useNavigate();
 
     const toggleModal = () => {
@@ -23,7 +22,8 @@ export default function TodosProdutos(){
 
     if(modal) {
         document.body.classList.add('active-modal')
-    } else {
+    }
+     else {
         document.body.classList.remove('active-modal')
     }
 
