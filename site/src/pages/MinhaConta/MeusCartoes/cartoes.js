@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Menu from '../../Components/Usuario/menuMinhaConta/index.js'
-import 'react-credit-cards/lib/styles.scss'
+
 import CardPAH from '../../Components/Adm/Card/index.js'
 
 import './cartoes.scss'
@@ -27,6 +27,7 @@ export default function MeusCartoes(){
         </header>
         <Menu/>
         <div className="align-cartao-card">
+           
             <CartaoCard/>
         </div>
 

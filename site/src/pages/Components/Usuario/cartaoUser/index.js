@@ -1,11 +1,11 @@
 import './index.scss'
 
+
 export default function CartaoCard(){
     return(
         
         <nav className="div-cartao">
-        
-        <div className="ifos-cartao">
+       <div className="ifos-cartao">
         <div className='img-cartao'>
         <p>aq</p>
         </div>
@@ -22,7 +22,6 @@ export default function CartaoCard(){
         </div>
         </div>
         </div>
-
         </nav>
 
     )

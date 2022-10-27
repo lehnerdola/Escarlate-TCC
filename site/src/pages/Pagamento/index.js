@@ -3,7 +3,9 @@ import  './pagamento.scss';
 import { motion } from "framer-motion";
 import CardEndereco from '../Components/Usuario/cardEndereço/cardendereco.js';
 import { listarEnderecos, salvarNovoPedido} from '../../api/usuarioAPI.js'
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import Cards from 'react-credit-cards'
+import 'react-credit-cards/lib/styles.scss'
 import Storage from 'local-storage';
 import {toast, ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,10 +14,12 @@ export default function Pagamento(){
     const [enderecos, setEnderecos] =useState([]);
     const [frete, setFrete] = useState('');
 
+    const [focus, setFocus] = useState('')
+
     const [idEndereco, setIdEndereco] =useState();
     const [nomeCartao, setNomeCartao] = useState('');
     const [numeroCartao, setNumeroCartao] = useState('');
-    const [codSeguranca, setCodSeguranca] = useState();
+    const [codSeguranca, setCodSeguranca] = useState('');
     const [vencimento, setVencimento] = useState('');
     const [parcelas, setParcelas] = useState();
     const [tipo, setTipo] = useState('');
@@ -25,10 +29,17 @@ export default function Pagamento(){
         const r = await listarEnderecos(id);
         setEnderecos(r)
       }
-    
+
+
       useEffect(() => {
         carregarEnderecos();
       },[])
+
+      useEffect(() => {
+        ref.current.focus();
+      },[])
+
+      const ref = useRef(null);
 
     async function salvarPedido(){  
         try 
@@ -83,15 +94,16 @@ export default function Pagamento(){
             <section className="inputs-pagamento">
             <div>
                 <p>Número do cartão:</p>
-                <input value={numeroCartao} onChange={e => setNumeroCartao(e.target.value)}/>
+                <input name="numero" value={numeroCartao} onChange={e => setNumeroCartao(Number(e.target.value))}  onFocus={e => setFocus(e.target.name)} ref={ref}/>
+              
                 <p>Nome registrado no cartão:</p>
-                <input value={nomeCartao} onChange={e => setNomeCartao(e.target.value)}/>
+                <input name="nome" value={nomeCartao} onChange={e => setNomeCartao(e.target.value)} onFocus={e => setFocus(e.target.name)} />
             </div>
             <div>
                 <p>CVV:</p>
-                <input value={codSeguranca} onChange={e => setCodSeguranca(e.target.value)}/>
+                <input name="cvc" value={codSeguranca} onChange={e => setCodSeguranca((e.target.value))}  onFocus={(e) => setFocus(e.target.name)} />
                 <p>Validade:</p>
-                <input value={vencimento} onChange={e => setVencimento(e.target.value)}/>
+                <input name="validade" value={vencimento} onChange={e => setVencimento(e.target.value)}  onFocus={(e) => setFocus(e.target.name)}/>
             </div>
             <div>
                 <p>Tipo Pagamento:</p>
@@ -108,8 +120,16 @@ export default function Pagamento(){
                 </select>
             </div>
             </section>
+            <Cards
+                number={numeroCartao}
+                name={nomeCartao}
+                cvc={codSeguranca}
+                expiry={vencimento}
+                focused={focus}
+                /> 
             <button onClick={salvarPedido}>Finalizar Pagamento</button>
             <div className='meus-enderecos'>
+    
                 
             {enderecos.map(item => 
             <CardEndereco item={item} selecionar={setIdEndereco} selecionado={item.id === idEndereco}/>
