@@ -17,7 +17,7 @@ export default function Menu(props){
 
     return(
         <div className='menu'>
-            <Link to ='/MinhaConta'>
+            <Link to ='/MinhaConta' className='link-config-txt'>
                 <div className='align-itens-menu'> 
                 <div className='menu-itens'>
                 <p className='txt-menu-adm' style={{marginRight:"0.5em"}}>Minha conta</p>  
@@ -25,27 +25,27 @@ export default function Menu(props){
                 </div>
             </Link>
             <div onClick={editarConta} className='align-itens-menu'>
-                <Link to='/EditarConta'>
+                <Link to='/EditarConta' className='link-config-txt'>
                 <div className='menu-itens'>
                 <p className='txt-menu-adm' style={{marginRight:"0.5em"}}>Editar perfil</p>  
                 </div>
                 </Link> 
             </div>
-            <Link to='/AlterarSenha'>
+            <Link to='/AlterarSenha' className='link-config-txt'>
                 <div className='align-itens-menu'> 
                 <div className='menu-itens'>
                 <p className='txt-menu-adm' style={{marginRight:"0.5em"}}>Alterar senha</p>  
                 </div>
                 </div>
             </Link>
-            <Link to='/MeusCartoes'>
+            <Link to='/MeusCartoes' className='link-config-txt'>
                 <div className='align-itens-menu'> 
                 <div className='menu-itens'>
                 <p className='txt-menu-adm' style={{marginRight:"0.5em"}}>Meus cartões</p>  
                 </div>
                 </div>
             </Link>
-            <Link to = '/MeusPedidos'>
+            <Link to = '/MeusPedidos' className='link-config-txt'>
             <div className='align-itens-menu'> 
             <div className='menu-itens'>
             <p className='txt-menu-adm' style={{marginRight:"0.5em"}}>Meus pedidos</p>  
