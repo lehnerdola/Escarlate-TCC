@@ -45,12 +45,13 @@ export default function Menu(props){
                 </div>
                 </div>
             </Link>
-            
+            <Link to = '/MeusPedidos'>
             <div className='align-itens-menu'> 
             <div className='menu-itens'>
             <p className='txt-menu-adm' style={{marginRight:"0.5em"}}>Meus pedidos</p>  
             </div>
             </div>
+            </Link>
             <div className='align-itens-menu'> 
             <div className='menu-itens'>
             <p className='txt-menu-adm' style={{marginRight:"0.5em"}}>Compras feitas</p>  

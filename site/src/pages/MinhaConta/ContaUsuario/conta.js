@@ -42,19 +42,23 @@ export default function MinhaConta(){
         </header>
 
         <nav>
-            <Menu/>          
-            <div className='infos-usuario'>
+        <Menu/>         
+
             {usuario.map(item =>
-            <div>
-                <img  style={{width:'150px'}}  src={`http://localhost:5000/${item.imagem_usuario}`} alt=''/>
-                <h1 className='usuario'>nome: {item.nome}</h1>
-                <h1 className='usuario'>email: {item.email}</h1>
+ 
+            <div className='informacao-usuario'>
+            <img  src={`http://localhost:5000/${item.imagem_usuario}`} alt='' className='img-user'/>
+
+            <div className='div-informacoes'>
+                <h1 className='usuario'>Nome: {item.nome}</h1>
+                <h1 className='usuario'>Email: {item.email}</h1>
                 <h1 className='usuario'>CPF: {item.cpf}</h1>
-                <h1 className='usuario'>telefone: {item.telefone}</h1>
+                <h1 className='usuario'>Telefone: {item.telefone}</h1>
             </div>
                     
-                )}
             </div>
+            )}
+
         </nav>
         </main>
     )

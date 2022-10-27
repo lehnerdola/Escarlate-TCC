@@ -29,9 +29,9 @@ export default function EditarConta(){
              </div>
         </header>
 
-        <nav className='div-conta' >
+        <nav className='div-editar-conta' >
             <Menu/>          
-            <div className='infos-usuario'>
+            <div className='informacao-usuario-editar-conta'>
                 <div className='alig-itens-usuario'>
                 <p className='usuario'>Nome completo:<span style={{color:'#A83F37'}}>*</span></p>
                 <input  className='input' type='text'/>

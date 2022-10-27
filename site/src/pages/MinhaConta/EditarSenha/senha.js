@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import BotaoADM from '../../Components/Adm/Button/index.js'
 import Menu from "../../Components/Usuario/menuMinhaConta/index.js"
+import './senha.scss'
 
 export default function Senha(){
     return(
@@ -20,9 +21,9 @@ export default function Senha(){
          </div>
     </header>
 
-    <nav className='div-conta' >
+    <nav className='div-editar-conta' >
         <Menu/>          
-        <div className='infos-usuario'>
+        <div className='informacao-usuario-editar-senha'>
             <div className='alig-itens-usuario'>
             <p className='usuario'>Senha atual:<span style={{color:'#A83F37'}}>*</span></p>
             <input  className='input' type='text'/>

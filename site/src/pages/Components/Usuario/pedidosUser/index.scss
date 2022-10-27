@@ -1,0 +1,76 @@
+.nav-pedidos-itens{
+    display: flex;
+    align-items:center ;
+    justify-content: center;
+    height: 60vh;
+    
+    .info-pedido{
+        display: flex;
+        height: 45vh;
+        width: 50vw;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        border: 2px #A83F37 solid;
+    }
+
+    .align-img-pedido{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 40vh;
+        justify-content: space-around;
+    }
+
+    .img-pedido{
+        display: flex;
+        height: 30vh;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .img-pedido p{
+        font-family: 'Arya-Regular';
+        color: #ffff;
+    }
+
+    .align-img-pedido img{
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+    }
+
+    .align-itens-pedidos-user{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 10vw;
+        align-items: center;
+    }
+
+       .align-itens-pedidos-user p{
+        font-family: 'Arya-Regular';
+        width: 12rem;
+        font-size: 15px;
+        color: #ffff;
+        font-weight: 100;
+    }
+
+    .txt-conf-pedidos{
+        border: #A83F37 1px solid;
+        width: 5rem;
+        text-align: center;
+        
+    }
+
+    .bt-cancelar-compra{
+        border: 1px solid rgb(232, 68, 68);
+        margin-top: 2em;
+        border-radius: 20px;
+        padding: 6px;
+        background-color: rgba(14, 13, 13, 0.218);
+        font-family: 'Poppins-Regular';
+        color: #fff;
+        cursor: pointer;
+    }
+}

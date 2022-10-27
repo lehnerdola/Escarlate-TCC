@@ -1,13 +1,16 @@
-.div-conta{
+.div-editar-conta{
     background-color: #1f1f1f;
-    height: 100vh;
+    height: 90vh;
 
 
-    .infos-usuario{
+    .informacao-usuario-editar-conta{
         display: flex;
-        justify-content: center;
+        width: 100%;
+        height: 90vh;
         align-items: center;
-        flex-direction: column;
+        flex-direction:column;
+        justify-content: center;
+
     }
     .usuario{
         color: white;
@@ -34,4 +37,5 @@
     .botao{
         margin-top: 2rem;
     }
+
 }
