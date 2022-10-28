@@ -71,3 +71,8 @@ export async function salvarNovoPedido(idUsuario, novoPedido){
     const r = await api.post('/pedido/' + idUsuario, novoPedido);
     return r.data;
 }
+
+export async function listarArtistasHome(){
+    const r = await api.get('/artistas');
+    return r.data;
+}
