@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "dotenv": "^16.0.3",
     "react-slick-carousel": "^0.14.9"
   }
 }

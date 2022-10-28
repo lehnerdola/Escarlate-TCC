@@ -27,6 +27,8 @@ import MeusCartoes from './pages/MinhaConta/MeusCartoes/cartoes.js'
 import Senha from './pages/MinhaConta/EditarSenha/senha';
 import Pedidos from './pages/ADM/Pedidos';
 import MeusPedidos from './pages/MinhaConta/MeusPedidos';
+import FinalizarPedido from './pages/FinalPedido/pedidofinal.js';
+
 
 export default function Index(){
     return(
@@ -64,6 +66,7 @@ export default function Index(){
     <Route exact path='/MeusCartoes' element={<MeusCartoes/>}/>
     <Route exact path='/AlterarSenha' element={<Senha/>}/>
     <Route exact path='/ArtistaProd/:idParam' element={<ArtistaProd/>}/>
+    <Route exact path='/finalizado' element={<FinalizarPedido/>}/>
   </Routes>
   </BrowserRouter>
   </React.StrictMode>
