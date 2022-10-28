@@ -50,7 +50,6 @@ export default function Pagamento(){
             let pedido = 
             {  
                  frete:frete,
-                 idEndereco:idEndereco,
                  tipoPagamento:'Cartão',
                  cartao : {
                    nomeCartao:nomeCartao,
@@ -89,53 +88,59 @@ export default function Pagamento(){
              </div>
             <p>Efetuando pagamento (2/2)</p>
         </header>
-
-        <article className="align-itens-input-pag">
-            <section className="inputs-pagamento">
-            <div>
-                <p>Número do cartão:</p>
-                <input name="numero" value={numeroCartao} onChange={e => setNumeroCartao(Number(e.target.value))}  onFocus={e => setFocus(e.target.name)} ref={ref}/>
-              
-                <p>Nome registrado no cartão:</p>
-                <input name="nome" value={nomeCartao} onChange={e => setNomeCartao(e.target.value)} onFocus={e => setFocus(e.target.name)} />
-            </div>
-            <div>
-                <p>CVV:</p>
-                <input name="cvc" value={codSeguranca} onChange={e => setCodSeguranca((e.target.value))}  onFocus={(e) => setFocus(e.target.name)} />
-                <p>Validade:</p>
-                <input name="validade" value={vencimento} onChange={e => setVencimento(e.target.value)}  onFocus={(e) => setFocus(e.target.name)}/>
-            </div>
-            <div>
-                <p>Tipo Pagamento:</p>
-                <select value={tipo} onChange={e => setTipo(e.target.value)}>
-                    <option>Débito</option>
-                    <option>Crédito</option>
-                </select>
-            </div>
-            <div>
-                <p>Frete:</p>
-                <select value={frete} onChange={e => setFrete(e.target.value)}>
-                    <option value={"Sedex"}>Sedex(25,00)</option>
-                    <option value={"Normal"}>Normal(15,00)</option>
-                </select>
-            </div>
-            </section>
-            <Cards
+        <nav className="content-pagamento">
+            
+        <Cards
                 number={numeroCartao}
                 name={nomeCartao}
                 cvc={codSeguranca}
                 expiry={vencimento}
                 focused={focus}
                 /> 
-            <button onClick={salvarPedido}>Finalizar Pagamento</button>
-            <div className='meus-enderecos'>
-    
-                
+        <article className="align-itens-input-pag">
+            <section className="inputs-pagamento">
+            <div className="align-inputs-pagamento"> 
+            <div>
+                <p>Número do cartão:</p>
+                <input name="numero" value={numeroCartao} onChange={e => setNumeroCartao(Number(e.target.value))}  onFocus={e => setFocus(e.target.name)} ref={ref} className='input-pag'/>
+              
+                <p>Nome registrado no cartão:</p>
+                <input name="nome" value={nomeCartao} onChange={e => setNomeCartao(e.target.value)} onFocus={e => setFocus(e.target.name)} className='input-pag'/>
+                </div>
+                <div>
+                <p>CVV:</p>
+                <input name="cvc" value={codSeguranca} onChange={e => setCodSeguranca((e.target.value))}  onFocus={(e) => setFocus(e.target.name)}  className='input-pag'/>
+                <p>Validade:</p>
+                <input name="validade" value={vencimento} onChange={e => setVencimento(e.target.value)}  onFocus={(e) => setFocus(e.target.name)} className='input-pag'/>
+                </div>
+                </div>
+
+            <div className="frete-pagamento">
+                <div>
+                <p>Tipo Pagamento:</p>
+                <select value={tipo} onChange={e => setTipo(e.target.value)}>
+                    <option>Débito</option>
+                    <option>Crédito</option>
+                </select>
+                </div>
+                <div>
+                <p>Frete:</p>
+                <select value={frete} onChange={e => setFrete(e.target.value)}>
+                    <option value={"Sedex"}>Sedex(25,00)</option>
+                    <option value={"Normal"}>Normal(15,00)</option>
+                </select>
+                </div>
+            </div>
+            </section>
+            <button onClick={salvarPedido} className='bt-pagamento'>Finalizar Pagamento</button>
+            </article>
+            <div>
             {enderecos.map(item => 
             <CardEndereco item={item} selecionar={setIdEndereco} selecionado={item.id === idEndereco}/>
             )}
-        </div>
-        </article>
+            </div>
+        </nav>
+       
  </main>
    )
 }

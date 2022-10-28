@@ -1,37 +1,83 @@
 .pagamento{
-        display: flex;
-        flex-direction: column;
+    background-color: #1f1f1f;
+    height: 100vh;
 
-
-    .align-itens-input-pag {
-        display:flex;
-        flex-direction: column;
-        align-items:center; 
-        
-        height: 90vh;
-        background: #1f1f1f;
-        color:#ffff;
-       
-    }
-    .inputs-pagamento{
+     .content-pagamento{
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        height: 90vh;
         align-items: center;
-        width: 80vw;
-    }
-    .meus-enderecos{
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-        color: #fff;
-        font-family: 'Poppins-Regular';
-        font-weight: 100;
-        border: 2px solid #A83F37;
-        cursor: pointer;
-       width: 30vw;
-        height: 25vh;
+        justify-content: space-around;
     }
 
+    .align-itens-input-pag{
+        display: flex;
+        flex-direction: column;
+        height: 20vh;
+        align-items: center;
     }
+
+    .inputs-pagamento{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 50vw;
+        height: 30vh;
+        flex-direction: column;
+    }
+
+    .input-pag{
+        border-radius: 5px;
+        height: 1.4rem;
+        width: 13rem;
+        border: 2px #1f1f1f;
+    }
+    
+    .inputs-pagamento p{
+        font-family: 'Arya-Regular';
+        color: #fff;
+    }
+
+    .frete-pagamento{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        align-items: center;
+        padding-top: 20px;
+        justify-content: space-around;
+        width: 30vw;
+
+        select{
+        text-align: center;
+        border-radius: 5px;
+        height: 1.4rem;
+        width: 7rem;
+        border: 2px #1f1f1f;
+        }
+    }
+
+    .align-inputs-pagamento{
+        display: flex;
+        flex-direction: row;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 50vw;
+    }
+
+    .rccs__card {
+        width: 250px;
+    }
+    .bt-pagamento{
+        margin-top: 2em;
+        border: 1px solid rgb(232, 68, 68);
+        width: 13vw;
+        border-radius: 20px;
+        padding: 6px;
+        background-color: #1f1f1f;
+        font-family: 'Poppins-Regular';
+        font-size: 13px;
+        color: #fff;
+        cursor: pointer;
+    }
+}

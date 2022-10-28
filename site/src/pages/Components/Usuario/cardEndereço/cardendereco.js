@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { listarEnderecos, removerEndereco } from "../../../../api/usuarioAPI";
+import './index.scss';
 import {toast, ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 

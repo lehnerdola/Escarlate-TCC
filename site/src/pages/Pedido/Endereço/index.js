@@ -120,16 +120,17 @@ export default function Endereco(){
         </label>
         </label>
         <label>
-        <p className='nome-input'>Forma de pagamento: <span style={{color: 'red'}}>*</span></p>
-        <select className='input'>
-        <option selected disabled hidden>Selecione</option>
-        <option>Cartão de crédito</option>
-        <option>Cartão de débito</option>
-        </select>
         </label>
         </form>
+        <div className='bt-endereço'>
         <div onClick={salvarEnderecoUsuario}>
-        <BotaoADM nome='Continuar pagamento'/>
+        <BotaoADM nome='Salvar endereço'/>
+        </div>
+        <div>
+        <Link to='/Pagamento'>
+        <BotaoADM nome='Continuar Pagamento'/>
+        </Link>  
+        </div>
         </div>
         
         </main>
