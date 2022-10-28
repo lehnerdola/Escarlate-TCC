@@ -1,0 +1,31 @@
+.tit, .tit1, .tit2, p, link{
+    color: white;
+}
+
+.nav-rdp{
+    display: flex;
+    flex-direction: column;
+}
+
+.link, p{
+    color: white;
+    text-decoration: none;
+    font-family: 'Poppins-Regular';
+    .link:link{
+        color: #A83F37;
+        text-decoration: none;
+        font-family: 'Poppins-Regular';
+    }
+}
+
+.rdp{
+    display: flex;
+    flex-direction: row;
+}
+
+.linha{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+

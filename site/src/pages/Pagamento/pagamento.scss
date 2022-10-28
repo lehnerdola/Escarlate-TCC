@@ -74,10 +74,22 @@
         width: 13vw;
         border-radius: 20px;
         padding: 6px;
-        background-color: #1f1f1f;
+        background-color: #000000;
         font-family: 'Poppins-Regular';
         font-size: 13px;
         color: #fff;
+        cursor: pointer;
+    }
+    .bt-pagamento:hover{
+        margin-top: 2em;
+        border: 2px solid rgb(0, 0, 0);
+        width: 13vw;
+        border-radius: 20px;
+        padding: 6px;
+        background-color: #5e0000;
+        font-family: 'Poppins-Regular';
+        font-size: 13px;
+        color: rgb(255, 255, 255);
         cursor: pointer;
     }
 }

@@ -132,12 +132,15 @@ export default function Pagamento(){
                 </div>
             </div>
             </section>
-            <button onClick={salvarPedido} className='bt-pagamento'>Finalizar Pagamento</button>
+            
             </article>
             <div>
             {enderecos.map(item => 
             <CardEndereco item={item} selecionar={setIdEndereco} selecionado={item.id === idEndereco}/>
             )}
+            </div>
+            <div>
+            <button onClick={salvarPedido} className='bt-pagamento' link ='./finalizado'>Finalizar Pagamento</button>
             </div>
         </nav>
        
