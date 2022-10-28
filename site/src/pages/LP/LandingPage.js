@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from 'framer-motion';
 import { listarArtistasHome } from '../../api/usuarioAPI.js';
-import { useState, usEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../../Common.scss';
 import './lp.scss';
 import CardArtista from '../Components/Usuario/cardArtista';

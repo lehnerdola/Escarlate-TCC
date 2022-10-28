@@ -71,11 +71,11 @@ export default function Pedidos() {
 
                  <img src={buscarImagem(item.imagem)} className='img-card-pedido'/>
 
-                 <div className='botao-pedido'>
+                 <div className='botao-pedido-adm'>
                  <div className='enviar-pedido' onClick={toggleModal}>
                  <img src={'../../assets/images/🦆 icon _truck check outline_.png'}/>
                  <div onClick={() =>enviarPedidoClick(item.idPedido)}> 
-                 <BotaoADM nome='Enviar Pedido'/>
+                 <button className='bt-pedido-enviar'>Enviar Pedido</button>
                  </div>
                  {modalEnviar && (
                 <div className="modal-enviar-pedido">
@@ -86,7 +86,7 @@ export default function Pedidos() {
                 >
                 <div className="modal-content-enviar-pedido">
                     <PopUpEnviarPedido item={item}/>
-                    <button onClick={toggleModal} className='botao-voltar'> voltar</button>
+                    <button onClick={toggleModal} className='botao-voltar'> </button>
                 </div>
                 </motion.div>    
                 </div>

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { AdicionarImagem, alterarUsuario, cadastrarUsuario, loginUsuario, TodosUsuarios, verificarEmail, verPerfil,  } from "../repository/usuarioRepository.js";
+import { AdicionarImagem, alterarSenha, alterarUsuario, cadastrarUsuario, loginUsuario, TodosUsuarios, verificarEmail, verificarSenha, verPerfil,  } from "../repository/usuarioRepository.js";
 import multer from "multer";
 
 const upload = multer({ dest: 'storage/usuario' })
@@ -109,6 +109,34 @@ server.put('/alterarusuario/:id', async (req, resp) => {
         const usuario = req.body;
 
         const resposta = await alterarUsuario(id, usuario);
+        console.log(resposta)
+        if (resposta != 1) {
+            throw new Error('O usuario não pode ser alterado!');
+        }
+
+        else {
+            resp.status(204).send()
+        }
+
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
+server.put('/alterarsenha/:id', async (req, resp) => {
+    try {
+        const { id } = req.params;
+        const usuario = req.body;
+
+         
+        const buscar = await verificarSenha(usuario.senha);
+         if(!buscar){
+         throw new Error('senha invalida')
+        }
+
+        const resposta = await alterarSenha(id, usuario);
         console.log(resposta)
         if (resposta != 1) {
             throw new Error('O usuario não pode ser alterado!');

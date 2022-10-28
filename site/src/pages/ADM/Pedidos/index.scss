@@ -1,215 +1,221 @@
 .pedidos {
     display: flex;
-    padding-left: 15em;
-    justify-content: start;
     flex-direction: column;
     align-items: center;
     background-color: #1f1f1f;
-    width: 100%;
-    height: 100%;
+    min-height: 100vh;
 
-    p{
-        font-size: 15px;
-    }
-
-    .sec-1-pedidos {
-        display: flex;
-        align-items: flex-start;
-        width: 80vw;
-        flex-direction: column;
-
-        h1,p{
-            font-family: 'Poppins-Regular';
-            font-weight: 100;
-            color: #fff;
-        }
-        
-    }
-
-    .align-txt-sec-1 {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-around;
-        width: 40vw;
-
-    }
-
-    .sec-2-pedidos {
+    .sec-1-pedidos{
         display: flex;
         flex-direction: column;
-        align-items: center;
-        height: 190vh;
-        justify-content: space-around;
-    }
-
-    .card-pedidos {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        width: 70vw;
-        height: 35vh;
-        border: 2px solid #A83F37;
-        
-        .img-card-pedido{
-            width: 150x;
-            height: 150px;
-            object-fit: cover;
-        }
-    }
-
-    .div-column-1-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 40vh;
-        justify-content: space-around;
-    }
-
-    .div-id {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        min-width: 4.5vw;
-
-        p {
-            font-family: 'Poppins-Regular';
-            font-weight: 100;
-            color: #fff;
-        }
-
-        span {
-            color: #A83F37;
-        }
-    }
-
-    .align-cartao-cliente {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-
-
-        .div-cliente{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-around;
-            width: 10vw;
-            padding-top: 20px;
-            padding-left: 8px;
-
-            span {
-                font-family: 'Poppins-Regular';
-                font-size: 17px;
-                font-weight: 100;
-                color: #A83F37;
-                text-align: center;
-            }
-
-        }
-
-        .div-cartao-cliente {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-around;
-            width: 10vw;
-
-            span {
-                font-family: 'Poppins-Regular';
-                font-size: 17px;
-                font-weight: 100;
-                color: #A83F37;
-                text-align: center;
-            }             
-        }
-
-    }
-
-    .div-column-2-card{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        height: 35vh;
-
-        h2{
-            font-family: 'Poppins-Regular';
-            font-weight: 100;
-            color: #fff;
-        }
-
-        .align-qtd-data{
-            display: flex;
-            flex-direction: row;
-            width: 15vw;
-            justify-content: space-around;
-
-            p{
-                font-family: 'Poppins-Regular';
-                font-weight: 100;
-                color: #fff;
-            }
-        }
-
-        .align-localizacao{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            min-width: 12vw;
-            max-width: 50vw;
-
-          p{
-                font-family: 'Poppins-Regular';
-                font-weight: 100;
-                color: #A83F37;
-            }
-        }
-    }
-
-    .botao-pedido{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        height: 20vh;
-        align-items: center;
+        width: 60vw;
+        justify-content: flex-start;
 
         div{
             display: flex;
+            justify-content: space-around;
             flex-direction: row;
+            padding-top: 10px;
+            padding-right: 50px;
+            width: 40vw;
+        }
+
+        h1{
+            font-family: 'Poppins-Regular';
+            color: #fff;
+        }
+
+        p{
+            font-weight: 100;
+            color: #fff;
+            font-family: 'Poppins-Regular';
+            font-size: 15px;
+        }
+    }
+
+    .sec-2-pedidos{
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin-top: 5em;
+
+        .card-pedidos{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
             align-items: center;
+            width: 60vw;
+            height: 30vh;
+            border: 1px solid #A83F37;
+
+        }
+
+        .div-column-1-card{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 40vh;
+            align-items: center;
+
+            .div-id{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                width: 7vw;
+                align-items: center;
+
+                p{
+                    color: #fff;
+                    font-family: 'Poppins-Regular';
+                }
+
+                span{
+                    color: #A83F37;
+                }
+            }
+            .align-cartao-cliente{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                height: 8vh;
+                align-items: center;
+
+                span{
+                    color: #A83F37;
+                    text-align: center;
+                    font-family: 'Poppins-Regular';
+                }
+
+                .div-cartao-cliente{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-around;
+                    width: 8vw;
+                
+                    img{
+                        width: 30px;
+                    }
+                }
+
+                .div-cliente{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-around;
+                    width: 7vw;
+                span{
+                        padding-left: 15px;
+                }
+                }
+            }
+        }
+
+        .div-column-2-card{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: column;
+            height: 15vh;
+
+            h2{
+                color: #fff;
+                font-family: 'Poppins-Regular';
+            }
+
+            .align-qtd-data{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                width: 20vw;
+
+                p{
+                    font-weight: 100;
+                    font-size: 15px;
+                    color: #fff;
+                    font-family: 'Poppins-Regular';
+                }
+
+            
+            }
+
+            .align-localizacao{
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                justify-content: space-around;
+                width: 10vw;
+
+                p{
+                    font-family: 'Poppins-Regular';
+                    color: #A83F37;
+                    font-size: 15px;
+                }
+            }    
+        
+        }
+    }
+    .botao-pedido-adm{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 12vh;
+        align-items: center;
+
+
+        .enviar-pedido, .cancelar-pedido{
+            display: flex;
+            flex-direction: row;
             justify-content: space-around;
             width: 15vw;
         }
-    }
-   
-}
 
+        .bt-pedido-enviar{
+            border: 1px solid rgb(232, 68, 68);
+            border-radius: 20px;
+            width: 10vw;
+            padding: 6px;
+            background-color: #1f1f1f;
+            font-family: 'Poppins-Regular';
+            color: #fff;
+            cursor: pointer;
+        }
+      }
+
+    .img-card-pedido{
+        width: 150x;
+        height: 150px;
+        object-fit: cover;
+    }
+}
 body.active-modal {
     overflow-y: hidden;
 }
-
 
 .modal-enviar-pedido, .overlay-enviar-pedido {
     width: 100vw;
     height: 100vh;
     top: 0;
-    left: 0;
+    left: 0px;
     right: 0;
     bottom: 0;
     position: fixed;
 }
 
 
+.modal-enviar-pedido {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(49,49,49,0.8);
+}
+
 .modal-content-enviar-pedido {
-    margin-top: 4em;
+    margin-top: 15em;
+    margin-left: 25em;
+    margin-right: 25em;
     line-height: 1.4;
-    margin-left: 80em;
     background: #ffffff;
-    padding: 70px 200px;
+    padding: 30px 30px;
     border-radius: 15px;
 }
 

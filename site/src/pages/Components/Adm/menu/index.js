@@ -11,7 +11,7 @@ export default function MenuADM(props){
     } 
 
     return(
-        <div className='menu'>
+        <div className='adm-menu'>
             <div className='menu-adm'>
             <img className='logo-cad-prod' alt='' src={'../../../../assets/images/Captura de Tela (2).png'} width={155}/>
 
@@ -40,16 +40,20 @@ export default function MenuADM(props){
             <p className='txt-menu-adm'>Músicas</p>
             </div>
             </Link>
+            <Link to ='/Clientes' className='link-config-txt'>
             <div className='align-itens-menu' >
             <img alt='' src={'../assets/images/🦆 icon _people_.png'} width={18} height={14}  style={{marginLeft:"0.2em"}}/>
             <p className='txt-menu-adm'>Clientes</p>
             </div>
+            </Link>
+            <Link to ='/Pedidos' className='link-config-txt'>
             <div className='align-itens-menu' >
             <img alt='' src={'../assets/images/Carrinho.png'} width={18} height={18}  style={{marginLeft:"0.2em"}}/>
             <p className='txt-menu-adm'>Pedidos</p>
             </div> 
+            </Link>
             </div>
-            <Link to ='/LoginADM'>
+            <Link to ='/LoginADM' className='link-config-txt'>
             <img src={'../../../../assets/images/Vector.png'} width={20} className='exit-icon' alt=''/>
             </Link>
             </div>

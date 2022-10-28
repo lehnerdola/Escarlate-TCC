@@ -76,3 +76,11 @@ export async function listarArtistasHome(){
     const r = await api.get('/artistas');
     return r.data;
 }
+
+export async function AltSenha(id, senha, senhaNova){
+    const r = await api.put('/alterarsenha/' + id, {
+        senha,
+        senhaNova
+    })
+    return r.data;
+}

@@ -1,18 +1,56 @@
 import { Link, useNavigate } from "react-router-dom";
 import './feed.scss';
-import CarroselProdutos from "../Components/Usuario/carouselProdutos";
-import { todosProdutos } from "../../api/adminAPI.js";
+import Carousel from 'react-elastic-carousel';
+import "react-multi-carousel/lib/styles.css";
+import { listarArtistas, todosProdutos, buscarImagem } from "../../api/adminAPI.js";
+import { API_URL } from '../../api/config';
+import Item from '../Components/carousel/item.js';
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 import Storage from 'local-storage'
+import PopUp from "../Components/Usuario/popup";
 
 export default function Feed() {
 
     const [produtos, setProdutos] = useState([]);
+    const [produto, setProduto] = useState({});
+    const [artista, setArtista] = useState([])
+
+    const [modal, setModal] = useState(false);
+
+    const toggleModal = () => {
+        setModal(!modal);
+    };
+
+    if (modal) {
+        document.body.classList.add('active-modal')
+    }
+    else {
+        document.body.classList.remove('active-modal')
+    }
+
+    function abrirInfo(id) {
+        navigate('/Feed/' + id)
+    }
+
+    const breakPoints = [
+        { width: 1, itemsToShow: 1 },
+        { width: 480, itemsToShow: 1.4 },
+        { width: 750, itemsToShow: 2.4, itemsToScroll: 2 },
+        { width: 1100, itemsToShow: 3.4, itemsToScroll: 3 },
+        { width: 1560, itemsToShow: 4.4, itemsToScroll: 4 }
+    ];
+
 
     async function carregarTodosProdutos() {
         const resp = await todosProdutos();
         setProdutos(resp);
+    }
+
+    async function carregarTodosArtistas() {
+        const resp = await listarArtistas();
+        setArtista(resp)
     }
 
     const navigate = useNavigate();
@@ -24,6 +62,7 @@ export default function Feed() {
 
     useEffect(() => {
         carregarTodosProdutos();
+        carregarTodosArtistas();
     }, []);
 
     useEffect(() => {
@@ -35,6 +74,7 @@ export default function Feed() {
     return (
         <main>
             <header className='header'>
+
                 <div className='sub-header-1'>
                     <img src={'../../../../assets/images/Group 1.png'} className='logo-header-conf' onClick={sairClick} />
                     <h2 className='nome-page'>Início</h2>
@@ -79,22 +119,66 @@ export default function Feed() {
                     <Link to='/NossosArtistas'>
                         <h1 className="tit">NOSSOS ARTISTAS</h1>
                     </Link>
-                    <div className="div-top-hits">
-                        <img src={'../../assets/images/Ellipse 4.png'} className='conf-img-feed-music' />
-                        <img src={'../../assets/images/Ellipse 5.png'} className='conf-img-feed-music' />
-                        <img src={'../../assets/images/Ellipse 6.png'} className='conf-img-feed-music' />
-                    </div>
                 </section>
+
+                <Carousel breakPoints={breakPoints}>
+
+
+{produtos.map(item =>
+    <div>
+
+        <section className='produtos'>
+
+            <motion.div className='align-prod' onClick={toggleModal}>
+                <motion.img
+
+                    whileHover={{ scale: 1.1, border: 'red 1PX' }}
+                    onHoverStart={e => { }}
+                    onHoverEnd={e => { }}
+                    src={buscarImagem(item.imagem)}
+                    width={170} className="btn-modal"
+                    onClick={() => abrirInfo(item.id)} />
+
+                <p className='nome-prod'>{item.nome}</p>
+
+            </motion.div>
+
+        </section>
+    </div>
+
+
+
+
+)}
+</Carousel>
 
                 <section className="sec-top-hits">
                     <Link to='/TodosProdutos' className="tit">
                         <h1>NOSSOS PRODUTOS</h1>
                     </Link>
-                    <div className="div-top-hits">
-                        {produtos.map(item =>
-                            <CarroselProdutos item={item} />
-                        )}
 
+
+                    <div className="div-top-hits">
+                        <div>
+                            <div>
+                 
+                            </div>
+                            {modal && (
+                                <div className="modal">
+                                    <div className="overlay">
+                                        <motion.div
+                                            animate={{ opacity: [0, 1], }}
+                                            transition={{ delay: 0.5, type: 'spring' }}
+                                        >
+                                            <div className="modal-content">
+                                                <PopUp produto={produto} />
+                                                <button onClick={toggleModal} className='botao-voltar'> voltar</button>
+                                            </div>
+                                        </motion.div>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </section>
             </div>

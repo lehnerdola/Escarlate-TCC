@@ -52,6 +52,7 @@ export default function Index(){
     <Route exact path='/TelaInicial' element={<TelaInicial/>}/>
     <Route exact path='/Cadastro' element={<Cadastro/>}/> 
     <Route exact path='/Feed' element={<Feed/>}/> 
+    <Route exact path='/Feed/:id' element={<Feed/>}/> 
     <Route exact path='/TodosProdutos' element={<TodosProdutos/>}/>         
     <Route exact path='/Carrinho' element={<Carrinho/>}/> 
     <Route exact path='/NossosArtistas' element={<NossosArtistas/>}/> 

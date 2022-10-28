@@ -84,7 +84,7 @@ return(
 
     <div className="align-itens-column-total-itens">
     <h1 style={{fontFamily:'Arya-Regular', color:"#ffff", fontWeight:"100"}}>Valor total:</h1>
-    <p style={{fontFamily:'Arya-Regular', color:"#ffff", fontWeight:"100"}}>R${carregarValorTotal()}</p>
+    <p style={{fontFamily:'Arya-Regular', color:"#ffff", fontWeight:"100"}}>R$ {carregarValorTotal()}</p>
     </div>
 
     <Link to='/Endereco'>  

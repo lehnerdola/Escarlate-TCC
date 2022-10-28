@@ -22,6 +22,29 @@ export async function verificarEmail(email){
     return resp[0];
 }
 
+export async function alterarSenha(id, usuario){
+    const comando =
+     `
+    update tb_usuario
+    set ds_senha = ?
+    where id_usuario = ? 
+    `
+    const [resposta] = await con.query (comando, [usuario.senhaNova, id]);
+    return resposta.affectedRows;
+}
+
+export async function verificarSenha(senha){
+    const c =
+    `
+    select ds_senha senha
+    from tb_usuario
+    where ds_senha = ? 
+    `;
+    const [resp] = await con.query(c, [senha]);
+    return resp[0];
+}
+
+
 export async function loginUsuario(email, senha) {
     const c =
     `
