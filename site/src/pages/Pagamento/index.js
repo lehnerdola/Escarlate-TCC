@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import  './pagamento.scss';
 import { motion } from "framer-motion";
-import CardEndereco from '../Components/Usuario/cardEndereço/cardendereco.js';
+import CardEndereco from "../Components/Usuario/popupEndereço";
 import { listarEnderecos, salvarNovoPedido} from '../../api/usuarioAPI.js'
 import { useState, useEffect, useRef } from "react";
 import Cards from 'react-credit-cards'
@@ -12,7 +12,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function Pagamento(){
     const [enderecos, setEnderecos] =useState([]);
+    const [endereco, setEndereco] = useState({});
     const [frete, setFrete] = useState('');
+    const [modal, setModal] = useState(false);
+
 
     const [focus, setFocus] = useState('')
 
@@ -24,11 +27,22 @@ export default function Pagamento(){
     const [parcelas, setParcelas] = useState();
     const [tipo, setTipo] = useState('');
 
+
     async function carregarEnderecos(){
-        const id =Storage('cliente-logado').id_usuario;
+        const id = Storage('cliente-logado').id_usuario;
         const r = await listarEnderecos(id);
         setEnderecos(r)
       }
+      const toggleModal = () => {
+        setModal(!modal);
+    };
+
+    if(modal) {
+        document.body.classList.add('active-modal')
+    }
+     else {
+        document.body.classList.remove('active-modal')
+    }
 
 
       useEffect(() => {
@@ -73,6 +87,8 @@ export default function Pagamento(){
     
     return(
         <main className="pagamento">
+                    <ToastContainer/>
+
          <header className='header'>
              <div className='sub-header-1'>
                 <Link to='/Feed'>
@@ -132,16 +148,37 @@ export default function Pagamento(){
                 </div>
             </div>
             </section>
-            
+            <div className="align-bt-pagamento">
+            <button onClick={salvarPedido} className='bt-pagamento' >Finalizar Pagamento</button>
+            <button onClick={toggleModal} className='bt-pagamento'> Selecionar Endereço</button>
+            </div>
             </article>
+
             <div>
-            {enderecos.map(item => 
-            <CardEndereco item={item} selecionar={setIdEndereco} selecionado={item.id === idEndereco}/>
-            )}
+           
             </div>
-            <div>
-            <button onClick={salvarPedido} className='bt-pagamento' link ='./finalizado'>Finalizar Pagamento</button>
-            </div>
+            {modal && (
+                <div className="modal">
+                <div className="overlay">
+                <motion.div
+                animate={{opacity:[0,1], }}
+                transition={{delay:0.5, type:'spring'}}
+                >
+
+                <div className="modal-content-pagamento">
+                {enderecos.map(item => 
+                    <div>
+                    <CardEndereco item={item} selecionar={setIdEndereco} selecionado={item.id === idEndereco} />
+                    </div>
+                    )}
+                </div>
+                <button  onClick={toggleModal}>Voltar</button>
+
+                </motion.div>    
+                </div>
+                </div>
+                )}
+          
         </nav>
        
  </main>

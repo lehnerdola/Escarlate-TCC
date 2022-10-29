@@ -61,6 +61,7 @@ export default function Index(){
     <Route exact path='/MinhaConta' element={<MinhaConta/>}/> 
     <Route exact path='/Endereco' element={<Endereco/>}/>
     <Route exact path='/Pagamento' element={< Pagamento/>}/>
+    <Route exact path='/Pagamento/:id' element={< Pagamento/>}/>
     <Route exact path='/Clientes' element={<Clientes/>}/>
     <Route exact path='/ArtistaProd' element={<ArtistaProd/>}/>
     <Route exact path='/EditarConta' element={<EditarConta/>}/>

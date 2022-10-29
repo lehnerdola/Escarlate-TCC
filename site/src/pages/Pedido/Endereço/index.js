@@ -1,7 +1,6 @@
 import {motion} from 'framer-motion';
 import {Link}from 'react-router-dom';
 import {useForm} from 'react-hook-form'
-import CardEndereco from '../../Components/Usuario/cardEndereço/cardendereco.js';
 import { listarEnderecos, salvarEndereco } from '../../../api/usuarioAPI.js'
 import BotaoADM from '../../Components/Adm/Button/index.js'
 import Storage from 'local-storage'

@@ -119,9 +119,21 @@ export default function Feed() {
                     <Link to='/NossosArtistas'>
                         <h1 className="tit">NOSSOS ARTISTAS</h1>
                     </Link>
+                    <div className="div-top-hits">
+                    <p>aaa</p>
+                    </div>
                 </section>
 
-                <Carousel breakPoints={breakPoints}>
+ 
+                <section className="sec-top-hits">
+                    <Link to='/TodosProdutos' className="tit">
+                        <h1>NOSSOS PRODUTOS</h1>
+                    </Link>
+
+
+                    <div className="div-top-hits">
+                         
+                    <Carousel breakPoints={breakPoints}>
 
 
 {produtos.map(item =>
@@ -139,9 +151,7 @@ export default function Feed() {
                     width={170} className="btn-modal"
                     onClick={() => abrirInfo(item.id)} />
 
-                <p className='nome-prod'>{item.nome}</p>
-
-            </motion.div>
+           </motion.div>
 
         </section>
     </div>
@@ -152,18 +162,8 @@ export default function Feed() {
 )}
 </Carousel>
 
-                <section className="sec-top-hits">
-                    <Link to='/TodosProdutos' className="tit">
-                        <h1>NOSSOS PRODUTOS</h1>
-                    </Link>
-
-
-                    <div className="div-top-hits">
-                        <div>
-                            <div>
-                 
-                            </div>
-                            {modal && (
+                    </div>
+                    {modal && (
                                 <div className="modal">
                                     <div className="overlay">
                                         <motion.div
@@ -178,8 +178,6 @@ export default function Feed() {
                                     </div>
                                 </div>
                             )}
-                        </div>
-                    </div>
                 </section>
             </div>
         </main>

@@ -134,6 +134,7 @@ server.post('/pedido/:idUsuario/', async (req, resp) => {
         const info = req.body;
         const novoPedido = criarNovoPedido(idUsuario, info);
 
+       
         const idPedidoCriado = await inserirPedido(novoPedido);
         await inserirPagamento(idPedidoCriado, info.cartao);
 
