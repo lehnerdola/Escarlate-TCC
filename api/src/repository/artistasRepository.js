@@ -122,3 +122,22 @@ export async function listarProdutosArtista(id){
     return resposta;
 }
 
+export async function listarArtistasHome(){
+    const c = `
+            select tb_artista.id_artista 			id,
+            nm_artista								nome,
+            ds_artista								descricao,
+            img_artista								imagem
+        from tb_artista
+        inner join tb_categoria on tb_artista.id_artista_categoria = tb_categoria.id_artista_categoria
+        left join img_artista on img_artista.id_artista = tb_artista.id_artista
+            group
+            by tb_artista.id_artista,
+            nm_artista,
+            ds_artista,
+            id_artista_categoria 
+              `
+
+    const [registros] = await con.query(c);
+    return registros;
+}

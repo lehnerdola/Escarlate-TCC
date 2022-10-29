@@ -1,6 +1,8 @@
+import { API_URL } from './config.js';
+
 import axios from 'axios';
 const api = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: API_URL
 });
 
 export async function Logar(cpf,senha){
