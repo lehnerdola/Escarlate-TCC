@@ -1,0 +1,51 @@
+.popup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+h2{
+    font-family: 'Poppins-Regular';
+    font-size: 25px;
+
+    text-align: center;
+    width: 25vw;
+
+    color: #000;
+}
+
+.btts {
+    border-radius: 20px;
+    height: 14px;
+    line-height: 14px;
+    color: #ffffff;
+    font-family: Arial;
+    width: 151px;
+    font-size: 37px;
+    font-weight: 600;
+    padding: 34px;
+    background-color: #2E3338;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+ }
+ 
+ .bttn {
+    border-radius: 20px;
+    height: 14px;
+    line-height: 14px;
+    color: #CF3846;
+    font-family: Arial;
+    width: 151px;
+    font-size: 37px;
+    font-weight: 600;
+    padding: 34px;
+    background-color: #2E3338;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+ }
+ 
+ 
