@@ -2,6 +2,16 @@
 create database Escarlate;
 use Escarlate;
 
+create table tb_musica(
+id_musica int primary key auto_increment,
+id_artista int,
+nm_musica varchar(250),
+li_musica varchar(800),
+img_musica varchar(700),
+
+foreign key (id_artista) references tb_artista(id_artista)
+);
+
 create table tb_admin_login(
 id_login_admin int primary key auto_increment,
 nr_cpf varchar(50) not null,
