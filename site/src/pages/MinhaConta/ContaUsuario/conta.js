@@ -12,6 +12,9 @@ export default function MinhaConta(){
     const id = storage('cliente-logado').id_usuario
 
     const [usuario, setUsuario] = useState([]);
+    const [ imagem, setImagem] = useState()
+    const [cpf, setCPF] = useState()
+    const [telefone, setTelefone] = useState()
     const navigate = useNavigate();
 
     async function carregarPerfilUsuario() {
@@ -47,13 +50,24 @@ export default function MinhaConta(){
             {usuario.map(item =>
  
             <div className='informacao-usuario'>
-            <img  src={`http://localhost:5000/${item.imagem_usuario}`} alt='' className='img-user'/>
-
+            {item.imagem_usuario &&
+             <img  src={`http://localhost:5000/${item.imagem_usuario}`} alt='' className='img-user'/>
+            }
             <div className='div-informacoes'>
-                <h1 className='usuario'>Nome: {item.nome}</h1>
-                <h1 className='usuario'>Email: {item.email}</h1>
-                <h1 className='usuario'>CPF: {item.cpf}</h1>
-                <h1 className='usuario'>Telefone: {item.telefone}</h1>
+                <h1 className='usuario'><span>Nome:</span>  {item.nome}</h1>
+                <h1 className='usuario'><span>Email:</span> {item.email}</h1>
+                {item.cpf &&
+                    <h1 className='usuario'><span>CPF:</span> {item.cpf}</h1>
+                }
+                {item.telefone &&
+                    <h1 className='usuario'><span>Telefone:</span> {item.telefone}</h1>
+                }
+                {(!item.imagem_usuario||!item.cpf||!item.telefone) &&
+                    <Link to='/editarperfil' >
+                        <p style={{marginTop:'3rem', textDecoration:'none'}}>Adicionar mais informações</p>
+                    </Link> 
+                }
+                
             </div>
                     
             </div>

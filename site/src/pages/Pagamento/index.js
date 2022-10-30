@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import  './pagamento.scss';
 import { motion } from "framer-motion";
 import CardEndereco from "../Components/Usuario/popupEndereço";
@@ -63,9 +63,9 @@ export default function Pagamento(){
         
             let pedido = 
             {  
-                 frete:frete,
-                 tipoPagamento:'Cartão',
-                 cartao : {
+                    frete:frete,
+                    tipoPagamento:'Cartão',
+                    cartao : {
                    nomeCartao:nomeCartao,
                    numeroCartao:numeroCartao,
                    codSeguranca:codSeguranca,
@@ -77,7 +77,9 @@ export default function Pagamento(){
               }  
               const r = await salvarNovoPedido(id, pedido)
               toast.success('pedido realizado')
-              Storage('carrinho', [])      
+              Storage('carrinho', []) 
+              
+     
         } 
         catch (err) 
         {

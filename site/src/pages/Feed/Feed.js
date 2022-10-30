@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import './feed.scss';
 import Carousel from 'react-elastic-carousel';
 import "react-multi-carousel/lib/styles.css";
-import { listarArtistas, todosProdutos, buscarImagem } from "../../api/adminAPI.js";
+import { listarArtistas, todosProdutos, buscarImagem, listarTodasMusicas } from "../../api/adminAPI.js";
 import { API_URL } from '../../api/config';
 import Item from '../Components/carousel/item.js';
 import { useState, useEffect } from "react";
@@ -16,6 +16,7 @@ export default function Feed() {
     const [produtos, setProdutos] = useState([]);
     const [produto, setProduto] = useState({});
     const [artista, setArtista] = useState([])
+    const [hits, setHits] = useState([])
 
     const [modal, setModal] = useState(false);
 
@@ -48,9 +49,18 @@ export default function Feed() {
         setProdutos(resp);
     }
 
+    async function carregarTodosHits(){
+        const resp = await listarTodasMusicas();
+        setHits(resp)
+    }
+
     async function carregarTodosArtistas() {
         const resp = await listarArtistas();
         setArtista(resp)
+    }
+
+    function abrirLink(){
+         
     }
 
     const navigate = useNavigate();
@@ -63,6 +73,7 @@ export default function Feed() {
     useEffect(() => {
         carregarTodosProdutos();
         carregarTodosArtistas();
+        carregarTodosHits();
     }, []);
 
     useEffect(() => {
@@ -95,32 +106,30 @@ export default function Feed() {
 
                 <section className="sec-top-hits">
                     <h1 className="tit">TOP HITS</h1>
-                    <div className="div-top-hits">
-                        <div className="sub-div-top-hits">
-                            <img src={'../../assets/images/Screenshot_20220806-195359-947 3.png'} className='conf-img-feed-music' />
-                            <h2 className="tit-musica">HAYLOFT II</h2>
-                            <p className="tit-musica">MOTHER MOTHER</p>
-                        </div>
-                        <div className="sub-div-top-hits">
-                            <img src={'../../assets/images/Screenshot_20220806-195839-596 1.png'} className='conf-img-feed-music' />
-                            <h2 className="tit-musica">MASTER OF PUPPETS</h2>
-                            <p className="tit-musica">METALLICA</p>
-                        </div>
-                        <div className="sub-div-top-hits">
-                            <img src={'../../assets/images/Screenshot_20220806-195653 1.png'} className='conf-img-feed-music' />
-                            <h2 className="tit-musica">MEMORIES</h2>
-                            <p className="tit-musica">YUNGBLUB, WILLOW</p>
-                        </div>
-                    </div>
-
                 </section>
+                <div className="div-top-hits">
+                <Carousel breakPoints={breakPoints}>
+                {hits.map(item =>
+                    <section className='musicas'>
+                        <a style={{textDecoration:'none'}} href={item.link}>
+                        <img src={buscarImagem(item.imagem)} alt=''/>
+
+                        <h1> {item.nomeMusica}</h1>
+                        <h1> {item.nomeArtista}</h1>
+                        </a>
+                        
+                    </section>
+                 )}
+                </Carousel>
+                </div> 
+
 
                 <section className="sec-top-hits">
                     <Link to='/NossosArtistas'>
                         <h1 className="tit">NOSSOS ARTISTAS</h1>
                     </Link>
                     <div className="div-top-hits">
-                    <p>aaa</p>
+                    <p></p>
                     </div>
                 </section>
 

@@ -4,7 +4,7 @@
     background-color: #1f1f1f;
     align-items: center;
     justify-content: space-around;
-    height: 190vh;
+    height: 200vh;
 
     .sec-top-hits{
         display: flex;
@@ -69,7 +69,8 @@
         -webkit-justify-content: center;
         -ms-flex-pack: center;
         justify-content: center;
-        margin-bottom: 5em;
+        align-items: center;
+
     }    
     
     .lguFiu {
@@ -167,5 +168,22 @@
     align-self: center;
     cursor: pointer;
     outline: none;
+}
+
+.musicas{
+    img{
+        width: 150px;
+    }
+    h1{
+        color: #fff;
+        text-align: center;
+        font-family: 'Cinzel-Regular';
+        font-size: medium;
+        font-weight: 100;
+    }
+}
+
+.produtos{
+    margin-bottom: 5rem;
 }
 }

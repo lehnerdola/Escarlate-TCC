@@ -1,15 +1,11 @@
 import './index.scss'
 import {Link, useNavigate} from 'react-router-dom';
 import { useState } from 'react';
-
+//import Storage from 'local-storage';
 export default function Menu(props){
 
     const [menuselecionado, setMenuselecionado] = useState('home');  
     const navigate = useNavigate();
-
-    async function editarConta(id){
-        navigate(`/EditarConta`)
-    }
 
     function selecionarMenu(menu){
         setMenuselecionado(menu);
@@ -24,13 +20,14 @@ export default function Menu(props){
                 </div>
                 </div>
             </Link>
-            <div onClick={editarConta} className='align-itens-menu'>
-                <Link to='/EditarConta' className='link-config-txt'>
+            <Link to='/editarperfil' className='link-config-txt'>
+            <div className='align-itens-menu'>
                 <div className='menu-itens'>
                 <p className='txt-menu-adm' style={{marginRight:"0.5em"}}>Editar perfil</p>  
                 </div>
-                </Link> 
             </div>
+            </Link>
+            
             <Link to='/AlterarSenha' className='link-config-txt'>
                 <div className='align-itens-menu'> 
                 <div className='menu-itens'>
@@ -52,11 +49,6 @@ export default function Menu(props){
             </div>
             </div>
             </Link>
-            <div className='align-itens-menu'> 
-            <div className='menu-itens'>
-            <p className='txt-menu-adm' style={{marginRight:"0.5em"}}>Compras feitas</p>  
-            </div>
-            </div>
             <Link to ='/Feed'>
             <img src={'../../../../assets/images/Vector.png'} width={20} className='exit-icon' alt=''/>
             </Link>

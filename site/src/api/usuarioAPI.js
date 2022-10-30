@@ -29,19 +29,17 @@ export async function verPerfil(id) {
     return resposta.data; 
 }
 
-export async function enviarImagemUsuario(imagem, id){
+export async function enviarImagemUsuario(id, imagem){
     const formData = new FormData();
-    formData.append('image', imagem);
+    formData.append('imagem', imagem);
 
-    const resposta = await api.put(`/usuario/${id}/image`, formData, {
+    const resposta = await api.put(`/usuario/${id}/imagem`, formData, {
         headers: {
             "Content-Type": "multipart/form-data"
         },
     });
     return resposta.status;
 }
-
-
 
 export async function salvarEndereco(idUsuario,nomeRemetente, estado, cidade, bairro, blocoapt, logradouro,complemento,numeroEndereco,numeroCep){
     const r = await api.post('/usuario/' + idUsuario +'/endereco',
@@ -86,3 +84,17 @@ export async function AltSenha(id, senha, senhaNova){
     })
     return r.data;
 }
+
+export async function AlterarUsu( id, nome, email, cpf, telefone){
+    const resp = await api.put (`/alterarperfil/${id}`, {
+        nome,
+        email, 
+        cpf, 
+        telefone
+    })
+    return resp.data
+}
+
+export function buscarImagem(imagem) {
+    return `${api.getUri()}/${imagem}`;
+}      

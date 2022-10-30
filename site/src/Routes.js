@@ -64,11 +64,12 @@ export default function Index(){
     <Route exact path='/Pagamento/:id' element={< Pagamento/>}/>
     <Route exact path='/Clientes' element={<Clientes/>}/>
     <Route exact path='/ArtistaProd' element={<ArtistaProd/>}/>
-    <Route exact path='/EditarConta' element={<EditarConta/>}/>
     <Route exact path='/MeusCartoes' element={<MeusCartoes/>}/>
     <Route exact path='/AlterarSenha' element={<Senha/>}/>
     <Route exact path='/ArtistaProd/:idParam' element={<ArtistaProd/>}/>
     <Route exact path='/finalizado' element={<FinalizarPedido/>}/>
+    <Route exact path='/editarperfil' element={<EditarConta/>}/>
+    <Route exact path='/alterarperfil/:id' element={<EditarConta/>}/>
   </Routes>
   </BrowserRouter>
   </React.StrictMode>

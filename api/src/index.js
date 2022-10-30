@@ -24,5 +24,6 @@ router.use(enderecoController);
 router.use('/storage/produtos', express.static('storage/produtos'));
 router.use('/storage/artista', express.static('storage/artista'));
 router.use('/storage/usuario', express.static('storage/usuario'));
+router.use('/storage/musica', express.static('storage/musica'));
 
 router.listen(process.env.PORT, () => console.log(`Server online na porta: ${process.env.PORT}`))

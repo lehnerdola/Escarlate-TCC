@@ -82,12 +82,11 @@ export async function alterarUsuario(id, usuario){
     update tb_usuario
     set nm_usuario         	 = ?,
         ds_email			 = ?,
-        ds_senha			 = ?,
         ds_cpf_usuario		 =?,
         ds_telefone			 =?
         where id_usuario = ?
     `;
-    const [resp] = await con.query(comando, [usuario.nome, usuario.email, usuario.senha, usuario.cpf, usuario.telefone, id]);
+    const [resp] = await con.query(comando, [usuario.nome, usuario.email, usuario.cpf, usuario.telefone, id]);
     return resp.affectedRows;
 }
 
@@ -107,14 +106,14 @@ const [linhas] = await con.query(comando);
 return linhas;
  }
 
-export async function AdicionarImagem(imagem, id) {
+export async function AdicionarImagem(id, imagem) {
     const comando = 
     `
     UPDATE tb_usuario 
     SET img_usuario      =  ?
     WHERE id_usuario     = ?
     `;
-    const [resposta] = await con.query(comando, [imagem, id]);
+    const [resposta] = await con.query(comando, [ id, imagem]);
     return resposta.affectedRows;
 }
    

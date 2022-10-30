@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
 import Menu from '../../Components/Usuario/menuMinhaConta/index.js'
-
-import CardPAH from '../../Components/Adm/Card/index.js'
-
+import 'react-credit-cards/lib/styles.scss'
+import Cards from 'react-credit-cards'
 import './cartoes.scss'
 import CartaoCard from "../../Components/Usuario/cartaoUser/index.js";
+
+
 export default function MeusCartoes(){
     return(
         
+
         <main className="cartao">
 
             <header className='header'>

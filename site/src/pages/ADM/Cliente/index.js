@@ -5,14 +5,14 @@ import { useState, useEffect } from "react";
 export default function Clientes(){
     const [ clientes, setClientes ] = useState([]);
 
-    async function carregarClientes(){
+    /*async function carregarClientes(){
         const carregarClientes = await listarTodosClientes();
         setClientes(carregarClientes);
     }
 
     useEffect(() => {
         carregarClientes();
-    }, [])
+    }, [])*/
 
     return(
         <main>

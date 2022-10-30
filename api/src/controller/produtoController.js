@@ -128,7 +128,7 @@ server.delete('/produto/:id', async (req, resp) => {
     }
 })
 
-server.post('/pedido/:idUsuario/', async (req, resp) => {
+server.post('/pedido/:idUsuario', async (req, resp) => {
     try {
         const { idUsuario } = req.params;
         const info = req.body;

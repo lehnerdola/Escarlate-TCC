@@ -1,4 +1,4 @@
-import { API_URL } from ''
+
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { verPerfil } from '../../../api/usuarioAPI';
@@ -22,11 +22,11 @@ export default function MeusPedidos(){
             carregarPerfilUsuario();
     }, [])
 
-    useEffect(()=>{
-        if(!Storage('cliente-logado')){zqaa
+    /*useEffect(()=>{
+        if(!Storage('cliente-logado')){
             navigate('/login');
         } 
-    }, [])
+    }, [])*/ 
 
     return(
         <main className="meus-pedidos">
