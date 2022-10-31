@@ -53,6 +53,11 @@ export default function MinhaConta(){
             {item.imagem_usuario &&
              <img  src={`http://localhost:5000/${item.imagem_usuario}`} alt='' className='img-user'/>
             }
+            {!item.imagem_usuario &&
+                <Link to='/editarperfil' >
+                <p style={{marginTop:'3rem', textDecoration:'none'}}>Adicionar foto de perfil</p> 
+            </Link> 
+            }
             <div className='div-informacoes'>
                 <h1 className='usuario'><span>Nome:</span>  {item.nome}</h1>
                 <h1 className='usuario'><span>Email:</span> {item.email}</h1>
@@ -62,7 +67,7 @@ export default function MinhaConta(){
                 {item.telefone &&
                     <h1 className='usuario'><span>Telefone:</span> {item.telefone}</h1>
                 }
-                {(!item.imagem_usuario||!item.cpf||!item.telefone) &&
+                {(!item.cpf||!item.telefone) &&
                     <Link to='/editarperfil' >
                         <p style={{marginTop:'3rem', textDecoration:'none'}}>Adicionar mais informações</p>
                     </Link> 

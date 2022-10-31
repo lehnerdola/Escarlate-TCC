@@ -9,6 +9,7 @@ import BotaoADM from '../../Components/Adm/Button/index.js'
 import storage from 'local-storage'
 
 export default function EditarConta(){
+
     const id = storage('cliente-logado').id_usuario
     const [nome, setNome] = useState();
     const [email, setEmail] = useState();
