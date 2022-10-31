@@ -286,3 +286,53 @@ inner join tb_categoria on tb_artista.id_artista_categoria = tb_categoria.id_art
        nm_artista,
        ds_artista,
        id_artista_categoria
+
+-- consultar pedidos entregues 
+select 
+    id_pedido_item                      idPedidoItem,
+    tb_pedido_item.id_pedido            idPedido,
+    tb_pedido.id_usuario_end            idEndereco,
+    tb_pedido_item.id_produto           idProduto,
+    nm_produto                          nomeProduto,
+    img_produto                         imagem,
+    tb_pedido_item.qtd_produto          quantidade,
+    vl_produto                          valorProduto,
+    tp_pagamento                        tipoPagamento,
+    ds_logradouro                       rua,
+    nm_remetente                        nomeRemetente,    
+    nr_endereco                         numero,
+    tp_frete                            tipoFrete,
+    vl_frete                            valorFrete,
+    cod_notafiscal                      notaFiscal,
+    dt_pedido                           dataPedido,
+    ds_status                           statusPedido
+    from tb_pedido_item
+    join tb_pedido on tb_pedido_item.id_pedido = tb_pedido.id_pedido 
+    join tb_usuario_endereco on tb_pedido.id_usuario_end = tb_usuario_endereco.id_usuario_end
+    join tb_produto on tb_pedido_item.id_produto = tb_produto.id_produto;
+    where ds_status = 'Pedido enviado com sucesso!'
+
+  -- consultar pedidos cancelados
+select 
+    id_pedido_item                      idPedidoItem,
+    tb_pedido_item.id_pedido            idPedido,
+    tb_pedido.id_usuario_end            idEndereco,
+    tb_pedido_item.id_produto           idProduto,
+    nm_produto                          nomeProduto,
+    img_produto                         imagem,
+    tb_pedido_item.qtd_produto          quantidade,
+    vl_produto                          valorProduto,
+    tp_pagamento                        tipoPagamento,
+    ds_logradouro                       rua,
+    nm_remetente                        nomeRemetente,    
+    nr_endereco                         numero,
+    tp_frete                            tipoFrete,
+    vl_frete                            valorFrete,
+    cod_notafiscal                      notaFiscal,
+    dt_pedido                           dataPedido,
+    ds_status                           statusPedido
+    from tb_pedido_item
+    join tb_pedido on tb_pedido_item.id_pedido = tb_pedido.id_pedido 
+    join tb_usuario_endereco on tb_pedido.id_usuario_end = tb_usuario_endereco.id_usuario_end
+    join tb_produto on tb_pedido_item.id_produto = tb_produto.id_produto;
+    where ds_status = 'Pedido cancelado!'

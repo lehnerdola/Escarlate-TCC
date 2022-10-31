@@ -1,7 +1,7 @@
 import { Router } from "express";
 import multer from 'multer';
 import randomString from 'randomstring'
-import { salvarProduto, inserirImagemProduto, alterarProduto, excluirProduto, consultarTodosProdutos, consultarProdutosPorId, buscarProdutoPorNome, inserirPedido, inserirPagamento, inserirPedidoItem, pedidoEnviado, pedidoCancelado, consultarTodosPedidos } from "../repository/produtoRepository.js";
+import { salvarProduto, inserirImagemProduto, alterarProduto, excluirProduto, consultarTodosProdutos, consultarProdutosPorId, buscarProdutoPorNome, inserirPedido, inserirPagamento, inserirPedidoItem, pedidoEnviado, pedidoCancelado, consultarTodosPedidos, consultarTodosPedidosEntregues, consultarTodosPedidosCancelados } from "../repository/produtoRepository.js";
 import { criarNovoPedido, gerarNotaFiscal, validarProduto } from "../service/produtoValidacao.js";
 
 const server = Router();
@@ -184,6 +184,28 @@ server.put('/cancelarPedido/:id', async (req, resp) => {
 server.get('/pedidos', async (req, resp) => {
     try {
         const resposta = await consultarTodosPedidos();
+        resp.send(resposta)
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/pedidos/entregues', async (req, resp) => {
+    try {
+        const resposta = await consultarTodosPedidosEntregues();
+        resp.send(resposta)
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/pedidos/cancelados', async (req, resp) => {
+    try {
+        const resposta = await consultarTodosPedidosCancelados();
         resp.send(resposta);
     } catch (err) {
         resp.status(404).send({
@@ -191,6 +213,7 @@ server.get('/pedidos', async (req, resp) => {
         })
     }
 })
+
 
 
 export default server;

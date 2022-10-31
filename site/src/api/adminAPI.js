@@ -202,6 +202,16 @@ export async function listarPedidos() {
     return r.data;
 }
 
+export async function listarPedidosEntregues() {
+    const r = await api.get('/pedidos/entregues');
+    return r.data;
+}
+
+export async function listarPedidosCancelados() {
+    const r = await api.get('/pedidos/cancelados');
+    return r.data;
+}
+
 export async function enviarPedido(id){
     const r = api.put('/enviarPedido/' + id)
     return r.data;
