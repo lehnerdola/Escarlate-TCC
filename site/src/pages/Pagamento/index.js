@@ -26,7 +26,7 @@ export default function Pagamento(){
     const [vencimento, setVencimento] = useState('');
     const [parcelas, setParcelas] = useState();
     const [tipo, setTipo] = useState('');
-
+    const [pedido, setPedido] = useState([])
 
     async function carregarEnderecos(){
         const id = Storage('cliente-logado').id_usuario;
@@ -36,6 +36,24 @@ export default function Pagamento(){
       const toggleModal = () => {
         setModal(!modal);
     };
+
+    function selecionarEndereco(idEndereco) {
+        const id= (
+            {'idEndereco': idEndereco}
+        )
+        Storage.remove('ender-selecionado')
+        Storage('ender-selecionado', id) 
+        const senha = document.getElementById("faq-titulo-2");
+        if(senha.checked == false) {
+            senha.checked = true;
+        }
+            else {
+            senha.checked = false
+            Storage.remove('ender-selecionado')
+            }
+ 
+
+    }
 
     if(modal) {
         document.body.classList.add('active-modal')
@@ -60,11 +78,14 @@ export default function Pagamento(){
         {
             let produtos = Storage('carrinho');  
             let id = Storage('cliente-logado').id_usuario;
+            console.log(id)
+            let idEnd = Storage('ender-selecionado').idEndereco
         
-            let pedido = 
+            setPedido(
             {  
                     frete:frete,
                     tipoPagamento:'Cartão',
+                    idEndereco:idEnd,        
                     cartao : {
                    nomeCartao:nomeCartao,
                    numeroCartao:numeroCartao,
@@ -74,7 +95,8 @@ export default function Pagamento(){
                    formaPagamento:tipo,
                 },
                  produtos : produtos
-              }  
+              }
+            )  
               const r = await salvarNovoPedido(id, pedido)
               toast.success('pedido realizado')
               Storage('carrinho', []) 
@@ -167,10 +189,11 @@ export default function Pagamento(){
                 transition={{delay:0.5, type:'spring'}}
                 >
 
-                <div className="modal-content-pagamento">
+                <div className="modal-content-pagamento" >
                 {enderecos.map(item => 
-                    <div>
+                    <div onClick={() => selecionarEndereco (item.id)}>
                     <CardEndereco item={item} selecionar={setIdEndereco} selecionado={item.id === idEndereco} />
+                    <input  class="trigger-input" id="faq-titulo-2" type="radio"/>
                     </div>
                     )}
                 </div>
