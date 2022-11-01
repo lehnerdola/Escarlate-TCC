@@ -334,5 +334,5 @@ select
     from tb_pedido_item
     join tb_pedido on tb_pedido_item.id_pedido = tb_pedido.id_pedido 
     join tb_usuario_endereco on tb_pedido.id_usuario_end = tb_usuario_endereco.id_usuario_end
-    join tb_produto on tb_pedido_item.id_produto = tb_produto.id_produto;
+    join tb_produto on tb_pedido_item.id_produto = tb_produto.id_produto
     where ds_status = 'Pedido cancelado!'

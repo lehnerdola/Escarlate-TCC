@@ -53,11 +53,11 @@ export default function LandingPage() {
          animate={{ opacity: 1, y:[-100,0]}}
          transition={{ delay: 0, duration: 1 }}
          >
-         Bem vindo,
-         <p className="titulo-2-lp">AO SUBMUNDO!</p>
+         Bem vindos,
+         <h2 className="titulo-2-lp">AO SUBMUNDO!</h2>
          </motion.h1>
-
-         <p className="txt-1-lp">apenas 
+         <div className="text-desc0">
+         <p className="txt-1-lp">Apenas 
          <span className="cor-txt"> você </span> 
          pode decidir o que te destrói, 
          então afie sua 
@@ -65,6 +65,7 @@ export default function LandingPage() {
          e proteja seu 
          <span className="cor-txt"> coração </span>
          </p>
+         </div>
          </div>
 
          <motion.img src={'../../assets/images/zyro-image.png'} width={500}
@@ -85,7 +86,7 @@ export default function LandingPage() {
       </div>
       
    </div>
-
+<div className="desc-icons">
    <div className="desc-lp">
       <div className="desc">
          <img className="icon" src={'../../assets/images/moon.png'} width={250}/>
@@ -107,7 +108,7 @@ export default function LandingPage() {
          Todos os lançamentos e pré-vendas exclusivas aqui!
          </p>
       </div>
-
+      </div>
       
    </div>
 

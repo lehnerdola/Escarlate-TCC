@@ -75,7 +75,7 @@
     align-items: center;
     justify-content: space-between;
     width: 1263px;
-    height: 750px;
+    height: 698px;
     padding: 5em;
     background-color: #1f1f1f;
     }
@@ -87,6 +87,7 @@
     font-style: normal;
     font-weight: 900;
     font-size: 66px;
+    text-shadow: -9px 6px 8px #000000;
     line-height: 94px;
     text-transform: capitalize;
     color: #FFFFFF;
@@ -97,13 +98,19 @@
     .titulo-2-lp{
     font-family: 'CinzelDecorative-Regular';
     font-style: normal;
-    font-weight: 400;
-    font-size: 50px;
+    font-weight: 450;
+    font-size: 60px;
+    margin-left: 70px;
     line-height: 54px;
     color: #A83F37; 
     -webkit-text-stroke:#000000;
     -webkit-text-stroke-width: 0.6px;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-shadow: -4px 2px 8px #000000;    }
+
+    .text-desc0{
+        display: flex;
+        margin-top: 2em;
+        text-shadow: -4px 2px 2px #000000;
     }
     
     .txt-1-lp{
@@ -114,23 +121,31 @@
     padding-top: 1rem;
     font-weight: 400;
     font-size: 20px;
+    text-shadow: -4px 2px 2px #000000;
     line-height: 30px;
+    padding-bottom: 2em;
     text-transform: capitalize;
     -webkit-text-stroke-width: 0px;
     -webkit-text-stroke:#000000;
+    text-shadow: -4px 2px 2px #000000;
+    
 
     }
     
     .cor-txt{
         color: #A83F37;
         -webkit-text-stroke:#000000;
-        -webkit-text-stroke-width: 0.5px;
+        -webkit-text-stroke-width: 0.2px;
+        text-shadow: -5px 3px 4px #000000;
+        
     }
     
     .cor-letra-lp{
         color: #A83F37;
         -webkit-text-stroke:#000000;
-        -webkit-text-stroke-width: 0.5px;
+        -webkit-text-stroke-width: 0.2px;
+        text-shadow: -5px 3px 4px #000000;
+        
     }
     
     .faixa-2-lp{
@@ -138,7 +153,7 @@
         background: rgb(31,31,31);
         background: linear-gradient(180deg, rgba(31,31,31,1) 21%, rgba(168,63,55,1) 80%);
         width: 1263px;
-        padding-left: 6em;
+        padding-left: 4em;
         align-items: center;
     }
     
@@ -146,6 +161,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    text-shadow: -4px 2px 2px #000000;
     justify-content: space-around;
     }
 
@@ -154,6 +170,7 @@
     .texto-1-f2-lp{
      display: flex;
      flex-direction: column;
+     text-shadow: -4px 2px 2px #000000;
      width: 750px;
      font-size: 25px;
      padding-left: 7em;
@@ -163,6 +180,7 @@
     .titulo-3-lp{
         width: 580px;
         height: 162px;
+        text-shadow: -4px 2px 2px #000000;
        
         color: #FFFFFF;
         font-family: 'CinzelDecorative-Regular';
@@ -183,6 +201,7 @@
         text-indent: 3px;
         font-family: 'Cinzel-Regular';
         font-style: normal;
+        
         font-weight: 50px;
         font-size: 26px;
         color: #FFFFFF; 
@@ -196,8 +215,7 @@
         display: flex;
         justify-content: space-around;
         flex-direction: row;
-        padding-top: 1rem;
-        padding-right: 10rem;
+        padding-right: 5rem;
         padding-top: 5rem;
         margin-left: 9em;
         
@@ -225,6 +243,7 @@
         padding-right: 0.3em;
         position: relative;
         right: 1em;
+        
       
     }
     
@@ -234,6 +253,7 @@
     height: 580px;
     width: 1263px;
     }
+    
 
     .img-f3 {
         display: flex;
@@ -241,6 +261,48 @@
     }
 
     .faixa-4 {
+        background: hsl(0, 0%, 12%);
+        width: 1263px;
+    }
+    .faixa-5 {
         background: #1F1F1F;
         width: 1263px;
     }
+    .faixa-6 {
+        background: #1F1F1F;
+        width: 1263px;
+    }
+    .faixa-7 {
+        background: #1F1F1F;
+        width: 1263px;
+    }
+    .faixa-8 {
+        background: #1F1F1F;
+        width: 1263px;
+    }
+    footer{
+        background: #1F1F1F;
+        width: 1263px;
+    }
+    .sub-div-4 {
+        background: #1F1F1F;
+        width: 1263px;
+    }
+
+    .desc-icons{
+        display: flex;
+        justify-content: space-between;
+        margin-left: -11em;
+
+    }
+    .desc{
+        display: flex;
+        flex-direction: column;
+        margin-left: 5.3em;
+    }
+   
+    
+
+   // *{
+   //     border: 1px solid #FF0000;     
+   //   }
