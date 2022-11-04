@@ -257,7 +257,11 @@
 
     .img-f3 {
         display: flex;
-        align-items: center;
+        justify-content: center;
+        margin-left: -4em;
+        position: relative;
+        top: -2em;
+        left: 0em;
     }
 
     .faixa-4 {
@@ -300,9 +304,106 @@
         flex-direction: column;
         margin-left: 5.3em;
     }
-   
-    
 
-   // *{
-   //     border: 1px solid #FF0000;     
-   //   }
+    .txt-f3, .txt1-f3 {
+        color: #FFFFFF;
+        font-family: 'Poppins-Regular';
+        text-align: justify;
+        padding: 10em 4em;
+        padding-top: -1rem;
+    }
+
+    .txt-f3{
+        display: flex;
+        justify-content: start;
+        word-spacing: -3px;
+        padding: 10em 4em;
+    }
+
+    
+    .txt1-f3{
+        display: flex;
+        justify-content: start;
+        word-spacing: 0px;
+        padding: 10em 5em;
+    }
+
+    .txt2-f3{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        word-spacing: 0px;
+        word-break: break-word;
+        padding: 0em 16em;
+    }
+
+   .img-text{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+   }
+
+   .txt-1-f4{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+   }
+   
+   .titulo-f4{
+    left: calc(50% - 553px/2 - 349.5px);
+    top: calc(50% - 138px/2 - 114px);
+    font-family: 'CinzelDecorative-Black';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 66px;
+    text-shadow: -9px 6px 8px #000000;
+    line-height: 94px;
+    text-transform: capitalize;
+    color: #FFFFFF;
+    -webkit-text-stroke:#000000;
+    -webkit-text-stroke-width: 1.7px;
+    mix-blend-mode: normal;
+    padding: 1em 5em;
+    padding-left: 2em;    
+   }
+
+   .subtitulo-f4{
+    color: #ffffff;
+    font-family: 'CinzelDecorative-Regular';
+    font-size: 28.3px;
+    padding-top: 1em;
+    padding-left: 2em;
+    position: relative;
+    top: -1.3em;
+    left: 2em;
+   }
+
+   .txt-f4{
+    color: red;
+    font-family: 'Gothic-Regular';
+    font-size: 25px;
+    font-weight: 100;
+    position: relative;
+    top: -1.3em;
+    left: 15.39em;
+    -webkit-text-stroke: #000000;
+    -webkit-text-stroke-width: 0.2px;
+
+   }
+    
+   .txt2-f4{
+    color: #777777;
+    font-family: 'Gothic-Regular';
+    font-size: 25px;
+    font-weight: 100;
+    -webkit-text-stroke: #000000;
+    -webkit-text-stroke-width: 0.2px;
+    position: relative;
+    top: -1em;
+    left: 24.39em;
+   }
+
+    *{
+        border: 1px solid #FF0000;     
+      }

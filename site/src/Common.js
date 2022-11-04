@@ -41,6 +41,11 @@ const Common = createGlobalStyle
     font-family:'Poppins-SemiBold' ;
     src: url(../../../assets/fonts/Poppins-SemiBold.otf);
 
+@font-face {
+    font-family:'Gothic-Regular' ;
+    src: url(../../fonts/Gothic-Regular.ttf);
+}
+    
 
 *{
  margin: 0;
