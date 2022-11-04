@@ -117,4 +117,19 @@ export async function AdicionarImagem(id, imagem) {
     return resposta.affectedRows;
 }
    
+export async function VerCartoes(idUsuario){
+    const c = 
+    `
+    select 
+    id_usuario idUsuario,
+    nr_cartao   numero,
+    nm_cartao  nomeCartao,
+    cvv_cartao cvv,
+    dt_vencimento vencimento	
+    from tb_pag_cartao
+    where id_usuario = ?
+    `;
+    const [resp] = await con.query(c,[idUsuario]);
+    return resp;
+}
 

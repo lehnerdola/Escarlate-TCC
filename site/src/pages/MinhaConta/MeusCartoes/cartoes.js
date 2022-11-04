@@ -1,12 +1,26 @@
 import { Link } from "react-router-dom";
 import Menu from '../../Components/Usuario/menuMinhaConta/index.js'
 import 'react-credit-cards/lib/styles.scss'
-import Cards from 'react-credit-cards'
 import './cartoes.scss'
+import Storage from "local-storage";
 import CartaoCard from "../../Components/Usuario/cartaoUser/index.js";
+import { useEffect, useState } from "react";
+import { listarCartoes } from "../../../api/usuarioAPI.js";
 
 
 export default function MeusCartoes(){
+    const [cartao, setCartao] = useState([])
+    const id = Storage ('cliente-logado').id_usuario
+
+    async function CarregarCartoes(){
+        const r = await listarCartoes(id);
+        setCartao(r)
+    }
+
+    useEffect(() => {
+        CarregarCartoes()
+    }, [])
+
     return(
         
 
@@ -28,8 +42,7 @@ export default function MeusCartoes(){
 
         </header>
         <Menu/>
-        <div className="align-cartao-card">
-           
+        <div className="align-cartao-card"> 
             <CartaoCard/>
         </div>
 

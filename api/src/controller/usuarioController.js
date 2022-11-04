@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { AdicionarImagem, alterarSenha, alterarUsuario, cadastrarUsuario, loginUsuario, TodosUsuarios, verificarEmail, verificarSenha, verPerfil,  } from "../repository/usuarioRepository.js";
+import { AdicionarImagem, alterarSenha, alterarUsuario, cadastrarUsuario, loginUsuario, TodosUsuarios, VerCartoes, verificarEmail, verificarSenha, verPerfil,  } from "../repository/usuarioRepository.js";
 import multer from "multer";
 
 const upload = multer({ dest: 'storage/usuario' })
@@ -109,7 +109,7 @@ server.put('/alterarperfil/:id', async (req, resp) => {
         const usuario = req.body;
 
         const resposta = await alterarUsuario(id, usuario);
-        console.log(resposta)
+
         if (resposta != 1) {
             throw new Error('O usuario não pode ser alterado!');
         }
@@ -137,7 +137,7 @@ server.put('/alterarsenha/:id', async (req, resp) => {
         }
 
         const resposta = await alterarSenha(id, usuario);
-        console.log(resposta)
+
         if (resposta != 1) {
             throw new Error('O usuario não pode ser alterado!');
         }
@@ -152,6 +152,21 @@ server.put('/alterarsenha/:id', async (req, resp) => {
         })
     }
 })
+
+server.get('/usuario/cartao/:id' , async (req, resp) => {
+    try{
+        const id = req.params.id
+        const resposta = await VerCartoes(id);
+        resp.send(resposta)
+
+    }
+    catch(err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+}) 
+
 
 
 export default server;

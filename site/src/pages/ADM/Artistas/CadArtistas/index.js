@@ -29,7 +29,6 @@ export default function CadArtistas (){
             if(id === 0)
             {
             const novoArtista = await salvarArtista(idCategoriaMusical, idCategoriaArtista, nome, descricao);
-            console.log(novoArtista)
             await enviarImagemArtista(imagem, novoArtista.id);
             setId(novoArtista.id)
             toast.dark('artista cadastrado')  

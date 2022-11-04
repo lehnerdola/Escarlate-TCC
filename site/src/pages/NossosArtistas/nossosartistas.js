@@ -68,11 +68,14 @@ export default function TodosProdutos(){
             
              <div className='faixa1'>
              {artistas.map ( item => 
-             <motion.img src={buscarImagem(item.imagem)} className='artistaimg' 
+             <Link to='/ArtistaProd'>
+                 <motion.img src={buscarImagem(item.imagem)} className='artistaimg' 
                 whileHover={{ scale: 1.1}}
                 onHoverStart={e => {}}
                 onHoverEnd={e => {}}
                />
+             </Link>
+            
              )}
         
 

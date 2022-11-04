@@ -1,28 +1,44 @@
 import './index.scss'
+import Cards from 'react-credit-cards'
+import { useEffect, useState } from 'react'
+import { listarCartoes } from '../../../../api/usuarioAPI'
+import storage from 'local-storage'
+export default function CartaoCard() {
+    const [cartao, setCartao] = useState([])
+    
+    async function VerCartoes() {
+        if (storage('cliente-logado')) {
+            const id = storage('cliente-logado').id_usuario
+            console.log(id)
+            const resposta = await listarCartoes(id)
+            setCartao(resposta)
+        }
+    }
 
-
-export default function CartaoCard(){
-    return(
-        
+    useEffect(() => {
+        VerCartoes();
+    }, [])
+    return (
+<main>
+                    {cartao.map(item =>
         <nav className="div-cartao">
-       <div className="ifos-cartao">
-        <div className='img-cartao'>
-        <p>aq</p>
-        </div>
-        <div className="align-itens-cartao">
-        <div className='txt-cardcart'>
-        <div className='cartao-num'>
-        <p className='txt-conf'>Cartão de crédito com final:</p>
-        <p className='txt-conf-cardcart'>9090</p>
-        </div>
-        <div className='cartao-num'>
-        <p className='txt-conf'>Validade:</p>
-        <p className='txt-conf-cardcart'>09090</p>
-        </div>   
-        </div>
-        </div>
-        </div>
+            <div className="ifos-cartao">
+                <div className="align-itens-cartao">
+                        <Cards
+                            number={item.numero.substr(0, 4)}
+                            name={item.nomeCartao}
+                            cvc={item.cvv}
+                            expiry={item.vencimento}
+                        />
+
+
+                </div>
+
+
+            </div>
         </nav>
+                    )}
+        </main>
 
     )
 }

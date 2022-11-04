@@ -98,3 +98,10 @@ export async function AlterarUsu( id, nome, email, cpf, telefone){
 export function buscarImagem(imagem) {
     return `${api.getUri()}/${imagem}`;
 }      
+
+
+export async function listarCartoes(id){
+    const r = await api.get(`/usuario/cartao/${id}`);
+    console.log(r)
+    return r.data
+}

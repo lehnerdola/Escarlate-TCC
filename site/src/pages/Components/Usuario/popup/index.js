@@ -24,11 +24,11 @@ export default function PopUp(props){
   
     function adicionarAoCarrinho(){
         let carrinho = [];
-        console.log(carrinho)
+
         if(Storage('carrinho')){
             carrinho = Storage('carrinho')
         }
-        console.log(carrinho)
+
         
 
         if(!carrinho.find(item => item.id === id)){

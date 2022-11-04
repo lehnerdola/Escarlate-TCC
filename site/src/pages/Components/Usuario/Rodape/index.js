@@ -8,9 +8,8 @@ export default function Rodape(){
         <footer className="rdp">
             <nav className='nav-rdp'>
                 <h1 className='tit'> Páginas </h1>
-                <Link to='/Carrinho' href='/Carrinho' className="link"> Carrinho de Compras </Link>
-                <Link to='/' href='/LandingPage' className="link"> Home </Link>
-                <Link to='/Artistas' href='/TodosArtistas' className="link"> Conheça nossos Artistas </Link>
+                <Link to='/' className="link"> Home </Link>
+                <Link to='/NossosArtistas' className="link"> Conheça nossos Artistas </Link>
             </nav>
 
             <div className='pag-rdp'>

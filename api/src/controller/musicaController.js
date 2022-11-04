@@ -30,7 +30,6 @@ server.put('/musica/:id' , async (req,resp) => {
         const musica = req.body;
 
         const idMusica = await alterarMusica(id, musica);
-        console.log(musica)
         if(idMusica!= 1){
             throw new Error('A música não pode ser alterada!');
         }
@@ -107,7 +106,6 @@ server.delete('/musica/:id', async (req,resp) => {
         const { id } = req.params;
 
         const deletarMusica = await apagarMusica(id);
-        console.log(deletarMusica)
 
         if(deletarMusica != 1){
             throw new Error('Não foi possivel deletar o produto') 

@@ -51,7 +51,7 @@ server.put('/alterar/:id', async (req, resp) => {
         const produto = req.body;
 
         const resposta = await alterarProduto(id, produto);
-        console.log(resposta)
+
         if (resposta != 1) {
             throw new Error('O produto não pode ser alterado!');
         }
@@ -134,15 +134,18 @@ server.post('/pedido/:idUsuario', async (req, resp) => {
         const info = req.body;
         const novoPedido = criarNovoPedido(idUsuario, info);
 
+        
+
        
         const idPedidoCriado = await inserirPedido(novoPedido);
         await inserirPagamento(idPedidoCriado,info.cartao);
-
+        
 
         for (let item of info.produtos) {
             const prod = await consultarProdutosPorId(item.id);
             await inserirPedidoItem(idPedidoCriado, prod.id, item.quantidade, prod.preco)
         }
+
 
         resp.status(204).send();
     }

@@ -87,7 +87,6 @@ export async function excluirProduto(id) {
     return resposta.affectedRows;
 }
 
-
 export async function buscarProdutoPorNome(nome) {
     const c =
         `
@@ -143,14 +142,13 @@ export async function inserirPagamento(id, novoPagamento) {
         nr_cartao,
         cvv_cartao,
         dt_vencimento,
-        nr_parcelas,
         ds_forma_pagamento
         
     )
-    values(?,?,?,?,?,?,?,?)
+    values(?,?,?,?,?,?,?)
     `
 
-    const [info] = await con.query(c, [id, novoPagamento.idUsuario,  novoPagamento.nomeCartao, novoPagamento.numeroCartao, novoPagamento.codSeguranca, novoPagamento.vencimento, novoPagamento.parcelas, novoPagamento.formaPagamento]);
+    const [info] = await con.query(c, [id, novoPagamento.idUsuario,  novoPagamento.nomeCartao, novoPagamento.numeroCartao, novoPagamento.codSeguranca, novoPagamento.vencimento, novoPagamento.formaPagamento]);
 
     return info.affectedRows;
 }

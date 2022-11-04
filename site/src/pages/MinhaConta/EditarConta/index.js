@@ -20,8 +20,6 @@ export default function EditarConta(){
     async function carregarPerfil() {
         const r = await verPerfil(id);
 
-        console.log(r)
-
         setNome(r[0].nome);
         setEmail(r[0].email);
         setCPF(r[0].cpf);
