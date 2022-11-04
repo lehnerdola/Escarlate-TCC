@@ -186,4 +186,16 @@
 .produtos{
     margin-bottom: 5rem;
 }
+
+.div-artistas{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2em;
+    margin: 2rem;
+    width: 80vw;
+    height: 35vh;
+    border: 2px solid #A83F37;
+}
 }

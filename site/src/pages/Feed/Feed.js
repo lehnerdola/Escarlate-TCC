@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import './feed.scss';
 import Carousel from 'react-elastic-carousel';
 import "react-multi-carousel/lib/styles.css";
@@ -15,10 +15,12 @@ export default function Feed() {
 
     const [produtos, setProdutos] = useState([]);
     const [produto, setProduto] = useState({});
-    const [artista, setArtista] = useState([])
+    const [artistas, setArtistas] = useState([])
     const [hits, setHits] = useState([])
 
     const [modal, setModal] = useState(false);
+
+    const {idParam} = useParams();
 
     const toggleModal = () => {
         setModal(!modal);
@@ -33,6 +35,10 @@ export default function Feed() {
 
     function abrirInfo(id) {
         navigate('/Feed/' + id)
+    }
+
+    function abrirInfoArtista(){
+        navigate('/ArtistaProd/' + idParam)
     }
 
     const breakPoints = [
@@ -56,7 +62,7 @@ export default function Feed() {
 
     async function carregarTodosArtistas() {
         const resp = await listarArtistas();
-        setArtista(resp)
+        setArtistas(resp)
     }
 
     function abrirLink(){
@@ -133,6 +139,20 @@ export default function Feed() {
                     </div>
                 </section>
 
+                <Carousel breakPoints={breakPoints}>
+                    {artistas.map(item =>
+                        <div className="div-artistas">
+                            <motion.img className="img-artista"
+                                onClick={() => abrirInfoArtista(item.idParam)}
+                                whileHover={{ scale: 1 }}
+                                onHoverStart={e => {}}
+                                onHoverEnd={e => {}}
+                                whileTap={{ scale: 0.8 }}
+                                src={buscarImagem(item.imagem)} 
+                                width={150}/> 
+                        </div>
+                    )}
+                </Carousel>
  
                 <section className="sec-top-hits">
                     <Link to='/TodosProdutos' className="tit">
