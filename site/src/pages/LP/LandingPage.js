@@ -118,32 +118,37 @@ export default function LandingPage() {
 
 <section className="faixa-3">
    <div className="div-f3">
-      <img className="img-f3" src={'../../assets/images/kingofrock.png'} width={420}/>
-      <h3 className="txt-f3"> 
+      
+     <div className="img-text">
+      <p className="txt-f3"> 
       Escarlate é uma produtora musical especializada no Rock e na realização de sonhos  
-      </h3>
-      <h3 className="txt1-f3"> 
-      Dos nossos marujos em busca de uma voz para serem encantados 
-      </h3>      
-      <h3 className="txt2-f3"> 
+      </p>
+      <img className="img-f3" src={'../../assets/images/kingofrock.png'} width={420}/>
+      <p className="txt1-f3"> 
+      dos nossos marujos em busca de uma voz para serem encantados 
+      </p>   
+      </div>
+      </div>
+
+      <p className="txt2-f3"> 
       Escarlate é a produtora mais desenvolvida no Brasil, e rumores dizem ser a melhor ja vista! 
       Aqui seus sonhos se tornam realidade 
-      </h3>
-   </div>
+      </p>
+   
 </section>
 
 <nav className="faixa-4">
 <div className="sub-div-4">
    <div className="txt-1-f4">
       <h1 className="titulo-f4">
-      SOBRE NOSSOS ARTISTAS
+      SOBRE NOSSOS ARTISTAS,
       </h1>
 
       <h2 className="subtitulo-f4">
-      Todos os hits do momento você encontra aqui
+      Todos os hits do momento você aqui conosco
       </h2>
       <p className="txt-f4">
-         As maiores estrelas do rock voce encontra aqui
+         As maiores estrelas do rock você já ouviu 
       </p>
       <p className="txt2-f4"> 
          Conheça nossos artistas
