@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Menu from '../../Components/Usuario/menuMinhaConta/index.js'
 import { verPerfil, AlterarUsu, enviarImagemUsuario, buscarImagem } from '../../../api/usuarioAPI'
 import { useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import BotaoADM from '../../Components/Adm/Button/index.js'
 
 import storage from 'local-storage'
@@ -17,9 +17,9 @@ export default function EditarConta(){
     const [telefone, setTelefone] = useState();
     const [imagem, setImagem] = useState();
 
+
     async function carregarPerfil() {
         const r = await verPerfil(id);
-
         setNome(r[0].nome);
         setEmail(r[0].email);
         setCPF(r[0].cpf);
@@ -63,9 +63,12 @@ export default function EditarConta(){
 
     return(
         <main className='div-conta'>
+            <ToastContainer/>
             <header className='header'>
              <div className='sub-header-1'>
-             <img src={'../../../../assets/images/Group 1.png'} className='logo-header-conf'/>
+             <Link to='/Feed'>
+                <img src={'../../../../assets/images/Group 1.png'} className='logo-header-conf'/>   
+                </Link>
              <h2 className='nome-page'>Minha Conta</h2>
              </div>   
              <div>
@@ -98,12 +101,16 @@ export default function EditarConta(){
                 <div className='alig-itens-usuario'>
                 <p className='usuario'>Nome completo:<span style={{color:'#A83F37'}}>*</span></p>
                 <input  className='input' type='text' value={nome} onChange={e => setNome(e.target.value)} />
+
                 <p className='usuario'>Email:<span style={{color:'#A83F37'}}>*</span></p>
                 <input  className='input' type='text' value={email} onChange={e => setEmail(e.target.value)} />
+
                 <p className='usuario'>CPF:<span style={{color:'#A83F37'}}>*</span></p>
                 <input  className='input' type='text' value={cpf} onChange={e => setCPF(e.target.value)}/>
+                
                 <p className='usuario'>Número de telefone:<span style={{color:'#A83F37'}}>*</span></p>
                 <input className='input' type='text' value={telefone} onChange={e => setTelefone(e.target.value)} />
+                
                 </div>
                 <div className='botao' onClick={salvarClickPerfil}>
                 <BotaoADM nome='Salvar alterações'/>

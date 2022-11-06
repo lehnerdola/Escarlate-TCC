@@ -11,7 +11,7 @@
         flex-direction: column;
         align-items: flex-start;
     }
-
+    
     .div-top-hits{
         display: flex;
         flex-direction: row;
@@ -72,7 +72,15 @@
         align-items: center;
 
     }    
-    
+    .rec.rec-arrow:disabled {
+        visibility: hidden;
+        cursor: pointer;
+    }
+    .rec-dot{
+        background-color: #1bbef000 !important;
+        box-shadow: 0 0 1px 3px #ffffff00 !important;
+    }
+
     .lguFiu {
         display: -webkit-box;
         display: -webkit-flex;
@@ -181,10 +189,16 @@
         font-size: medium;
         font-weight: 100;
     }
+    cursor: pointer;
 }
 
 .produtos{
     margin-bottom: 5rem;
+    cursor: pointer;
+}
+
+.img-artista{
+    cursor: pointer;
 }
 
 .div-artistas{
@@ -197,5 +211,6 @@
     width: 80vw;
     height: 35vh;
     border: 2px solid #A83F37;
+    cursor: pointer;
 }
 }

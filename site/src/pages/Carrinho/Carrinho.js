@@ -44,7 +44,7 @@ export default function Carrinho(){
     }
     return total;
   }
-
+ 
   useEffect(() => {
       carregarCarrinho();
   }, [])
@@ -72,7 +72,7 @@ return(
 
     {itens.map(item => 
       
-      <CarrinhoItem item={item} removerItem={removerItem} carregarCarrinho={carregarCarrinho}/>
+      <CarrinhoItem item={item} removerItem={removerItem} carregarCarrinho={carregarCarrinho()}/>
   )}
 
     <section className="align-itens-row-total-itens">

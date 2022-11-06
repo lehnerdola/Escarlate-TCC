@@ -74,7 +74,7 @@ export default function CadProdutos() {
                 if (typeof (imagem) == 'object') {
                     await enviarImagemProduto(imagem, idParam)
                 }
-                toast.dark('prod. alt.')
+                toast.dark('produto alterado!')
             }
         }
         catch (err) {

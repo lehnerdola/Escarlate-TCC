@@ -1,6 +1,7 @@
 import { Router } from "express";
-import { AdicionarImagem, alterarSenha, alterarUsuario, cadastrarUsuario, loginUsuario, TodosUsuarios, VerCartoes, verificarEmail, verificarSenha, verPerfil,  } from "../repository/usuarioRepository.js";
+import { AdicionarImagem, alterarSenha, alterarUsuario, cadastrarUsuario, ExcluirCartao, loginUsuario, TodosUsuarios, VerCartoes, verificarEmail, verificarSenha, verPerfil,  } from "../repository/usuarioRepository.js";
 import multer from "multer";
+import { validarUsuario } from "../service/usuarioValidacao.js";
 
 const upload = multer({ dest: 'storage/usuario' })
 const server = Router();
@@ -110,6 +111,8 @@ server.put('/alterarperfil/:id', async (req, resp) => {
 
         const resposta = await alterarUsuario(id, usuario);
 
+        await validarUsuario(id, usuario)
+
         if (resposta != 1) {
             throw new Error('O usuario não pode ser alterado!');
         }
@@ -167,6 +170,20 @@ server.get('/usuario/cartao/:id' , async (req, resp) => {
     }
 }) 
 
+server.delete('/usuario/cartao/:id', async (req, resp) => {
+    try {
+        const { id } = req.params;
+        const resposta = await ExcluirCartao(id);
 
+        if (resposta != 1) {
+            throw new Error('Não foi possivel deletar o cartão')
+        }
+        resp.status(204).send()
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
 
 export default server;

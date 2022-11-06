@@ -102,6 +102,10 @@ export function buscarImagem(imagem) {
 
 export async function listarCartoes(id){
     const r = await api.get(`/usuario/cartao/${id}`);
-    console.log(r)
+    return r.data
+}
+
+export async function ArtistaProduto(id){
+    const r = await api.get(`/artista/${id}/produto`);
     return r.data
 }

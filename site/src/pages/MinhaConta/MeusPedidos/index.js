@@ -22,18 +22,15 @@ export default function MeusPedidos(){
             carregarPerfilUsuario();
     }, [])
 
-    /*useEffect(()=>{
-        if(!Storage('cliente-logado')){
-            navigate('/login');
-        } 
-    }, [])*/ 
 
     return(
         <main className="meus-pedidos">
             
             <header className='header'>
                 <div className='sub-header-1'>
-                <img src={'../../../../assets/images/Group 1.png'} className='logo-header-conf'/>
+                <Link to='/Feed'>
+                <img src={'../../../../assets/images/Group 1.png'} className='logo-header-conf'/>   
+                </Link>
                 <h1 className='nome-page'>Minha Conta</h1>
                 </div>   
                 <div>
@@ -51,16 +48,6 @@ export default function MeusPedidos(){
         <nav className="nav-pedidos">
             <PedidosUser/>
         </nav>
-                {usuario.map(item =>
-                    <div className='perfil-user'>
-                    <img src={`http://localhost:5000/${item.imagem_usuario}`} className='ftperfil'/>
-
-                        <div className='info-user'>
-                            <h2> {item.nome} </h2>
-                            <h2> {item.cpf} </h2>
-                        </div>  
-                    </div>
-                )}
 
         </main>
         

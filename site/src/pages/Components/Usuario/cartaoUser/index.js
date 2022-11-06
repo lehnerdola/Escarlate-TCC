@@ -3,8 +3,12 @@ import Cards from 'react-credit-cards'
 import { useEffect, useState } from 'react'
 import { listarCartoes } from '../../../../api/usuarioAPI'
 import storage from 'local-storage'
+import {toast, ToastContainer} from 'react-toastify';
+import BotaoADM from "../../../Components/Adm/Button";
+
 export default function CartaoCard() {
     const [cartao, setCartao] = useState([])
+
     
     async function VerCartoes() {
         if (storage('cliente-logado')) {
@@ -14,13 +18,14 @@ export default function CartaoCard() {
             setCartao(resposta)
         }
     }
-
     useEffect(() => {
         VerCartoes();
     }, [])
+
     return (
 <main>
-                    {cartao.map(item =>
+    <ToastContainer/>
+     {cartao.map(item =>
         <nav className="div-cartao">
             <div className="ifos-cartao">
                 <div className="align-itens-cartao">
@@ -30,12 +35,19 @@ export default function CartaoCard() {
                             cvc={item.cvv}
                             expiry={item.vencimento}
                         />
-
-
                 </div>
-
-
+                <div className='BT-CARD'>
+                    <div>
+                    <BotaoADM nome='EDITAR CARTÃO'/>
+                    </div>
+                    <div>
+                    <BotaoADM nome='EXCLUIR CARTÃO'/>
+                    </div>
+                
+                </div>
+                
             </div>
+            
         </nav>
                     )}
         </main>

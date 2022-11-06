@@ -15,7 +15,7 @@ export default function Pagamento() {
     const [endereco, setEndereco] = useState({});
     const [frete, setFrete] = useState('');
     const [modal, setModal] = useState(false);
-
+    const navigate = useNavigate();
 
     const [focus, setFocus] = useState('')
     const [idEndereco, setIdEndereco] = useState();
@@ -108,6 +108,7 @@ export default function Pagamento() {
                 const r = await salvarNovoPedido(id, pedido)
                 toast.success('pedido realizado')
                 storage.remove('carrinho')
+                
             }
 
 

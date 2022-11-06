@@ -18,9 +18,8 @@ export default function Feed() {
     const [artistas, setArtistas] = useState([])
     const [hits, setHits] = useState([])
 
-    const [modal, setModal] = useState(false);
 
-    const {idParam} = useParams();
+    const [modal, setModal] = useState(false);
 
     const toggleModal = () => {
         setModal(!modal);
@@ -33,12 +32,14 @@ export default function Feed() {
         document.body.classList.remove('active-modal')
     }
 
-    function abrirInfo(id) {
-        navigate('/Feed/' + id)
+    const {idParam} = useParams();
+
+    async function abrirInfoArtista(id){
+        navigate(`/ArtistaProd/${id}`)
     }
 
-    function abrirInfoArtista(){
-        navigate('/ArtistaProd/' + idParam)
+    function abrirInfo(id) {
+        navigate('/Feed/' + id)
     }
 
     const breakPoints = [
@@ -63,10 +64,6 @@ export default function Feed() {
     async function carregarTodosArtistas() {
         const resp = await listarArtistas();
         setArtistas(resp)
-    }
-
-    function abrirLink(){
-         
     }
 
     const navigate = useNavigate();
@@ -112,13 +109,13 @@ export default function Feed() {
 
                 <section className="sec-top-hits">
                     <h1 className="tit">TOP HITS</h1>
-                </section>
+                
                 <div className="div-top-hits">
                 <Carousel breakPoints={breakPoints}>
                 {hits.map(item =>
                     <section className='musicas'>
                         <a style={{textDecoration:'none'}} href={item.link}>
-                        <img src={buscarImagem(item.imagem)} alt=''/>
+                            <img src={buscarImagem(item.imagem)} alt='' width={150} height={150} />
 
                         <h1> {item.nomeMusica}</h1>
                         <h1> {item.nomeArtista}</h1>
@@ -128,32 +125,31 @@ export default function Feed() {
                  )}
                 </Carousel>
                 </div> 
-
-
-                <section className="sec-top-hits">
-                    <Link to='/NossosArtistas'>
-                        <h1 className="tit">NOSSOS ARTISTAS</h1>
-                    </Link>
-                    <div className="div-top-hits">
-                    <p></p>
-                    </div>
                 </section>
 
+                <section className="sec-top-hits">
+                    <Link to='/NossosArtistas' className="tit">
+                        <h1>NOSSOS ARTISTAS</h1>
+                    </Link>
+                
+                <div className="div-top-hits">
                 <Carousel breakPoints={breakPoints}>
                     {artistas.map(item =>
-                        <div className="div-artistas">
-                            <motion.img className="img-artista"
-                                onClick={() => abrirInfoArtista(item.idParam)}
+
+                        <motion.img className="img-artista"
+                                onClick={() => abrirInfoArtista(item.id)}
                                 whileHover={{ scale: 1 }}
                                 onHoverStart={e => {}}
                                 onHoverEnd={e => {}}
                                 whileTap={{ scale: 0.8 }}
                                 src={buscarImagem(item.imagem)} 
-                                width={150}/> 
-                        </div>
+                            width={170} height={150} />
+
                     )}
                 </Carousel>
- 
+                </div>
+                </section>
+
                 <section className="sec-top-hits">
                     <Link to='/TodosProdutos' className="tit">
                         <h1>NOSSOS PRODUTOS</h1>
@@ -177,7 +173,7 @@ export default function Feed() {
                     onHoverStart={e => { }}
                     onHoverEnd={e => { }}
                     src={buscarImagem(item.imagem)}
-                    width={170} className="btn-modal"
+                    width={170} height={150} className="btn-modal"
                     onClick={() => abrirInfo(item.id)} />
 
            </motion.div>

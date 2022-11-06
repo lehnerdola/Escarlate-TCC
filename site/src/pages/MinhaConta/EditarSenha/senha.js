@@ -49,7 +49,9 @@ export default function Senha(){
         <ToastContainer/>
         <header className='header'>
          <div className='sub-header-1'>
-         <img src={'../../../../assets/images/Group 1.png'} className='logo-header-conf'/>
+         <Link to='/Feed'>
+                <img src={'../../../../assets/images/Group 1.png'} className='logo-header-conf'/>   
+                </Link>
          <h2 className='nome-page'>Minha Conta</h2>
          </div>   
          <div>

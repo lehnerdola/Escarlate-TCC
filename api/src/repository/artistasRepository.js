@@ -82,19 +82,17 @@ export async function removerArtista(id){
 export async function listarTodosProdutosArtista(){
     const c = 
     `
-    SELECT 
-    id_produto	                id,
-    tb_produto.id_artista       artista,
-    nm_artista       nomeartista,
-    id_categoria     categoria,
-    nm_produto       nome,
-    ds_tam           tamanho,
-    bt_disponivel    disponivel,
-    vl_preco         preco,
-    qtd_produto      quantidade,
-    img_artista      imagem
-    FROM tb_produto
-    join tb_artista on tb_produto.id_artista = tb_artista.id_artista;
+    select
+    tb_artista.id_artista idArtista,
+    tb_artista.nm_artista nomeArtista,
+    tb_artista.ds_artista descricaoArtista,
+    tb_artista.img_artista imagemArtista,
+    tb_produto.id_produto idProduto,
+    tb_produto.img_produto imagemProduto,
+    tb_produto.nm_produto nomeProduto
+    from tb_artista
+    inner join tb_produto on tb_produto.id_produto = tb_produto.id_produto
+    where tb_produto.id_artista = tb_artista.id_artista
     `
     const [resposta] = await con.query (c)
     return resposta;
@@ -103,20 +101,18 @@ export async function listarTodosProdutosArtista(){
 export async function listarProdutosArtista(id){
     const c = 
     `
-    SELECT 
-    id_produto	                id,
-    tb_artista.id_artista       artista,
-    nm_artista       nomeartista,
-    id_categoria     categoria,
-    nm_produto       nome,
-    ds_tam           tamanho,
-    bt_disponivel    disponivel,
-    vl_preco         preco,
-    qtd_produto      quantidade,
-    img_produto      imagem
-    FROM tb_produto
-    join tb_artista on tb_produto.id_artista = tb_artista.id_artista
-    WHERE tb_artista.id_artista = ? ;
+    select
+    tb_artista.id_artista idArtista,
+    tb_artista.nm_artista nomeArtista,
+    tb_artista.ds_artista descricaoArtista,
+    tb_artista.img_artista imagemArtista,
+    tb_produto.id_produto idProduto,
+    tb_produto.img_produto imagemProduto,
+    tb_produto.nm_produto nomeProduto
+    from tb_artista
+    inner join tb_produto on tb_produto.id_produto = tb_produto.id_produto
+    WHERE tb_artista.id_artista = ?
+    and tb_produto.id_artista = tb_artista.id_artista
     `
     const [resposta] = await con.query (c, [id])
     return resposta;

@@ -133,3 +133,19 @@ export async function VerCartoes(idUsuario){
     return resp;
 }
 
+export async function ExcluirCartao(id){
+    const comando= `
+    delete from tb_pag_cartao
+    where id_pag_cartao = ?
+    `;
+    const [resposta] = await con.query(comando, [id])
+
+    return resposta.affectedRows;
+}
+
+export async function verPedidos(){
+    const comando =`
+    select 
+    
+    `
+}

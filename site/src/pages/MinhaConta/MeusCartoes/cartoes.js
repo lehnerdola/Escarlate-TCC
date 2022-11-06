@@ -28,7 +28,9 @@ export default function MeusCartoes(){
 
             <header className='header'>
              <div className='sub-header-1'>
-             <img src={'../../../../assets/images/Group 1.png'} className='logo-header-conf'/>
+             <Link to='/Feed'>
+                <img src={'../../../../assets/images/Group 1.png'} className='logo-header-conf'/>   
+                </Link>
              <h2 className='nome-page'>Minha Conta</h2>
              </div>   
              <div>
@@ -41,13 +43,13 @@ export default function MeusCartoes(){
              </div>
 
         </header>
+        <div style={{display:'flex'}}>
         <Menu/>
         <div className="align-cartao-card"> 
-            <CartaoCard/>
+                <CartaoCard/>
         </div>
-
         
-
+        </div>
         </main>
         
     )
