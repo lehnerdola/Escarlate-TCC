@@ -1,7 +1,6 @@
 import { Router } from "express";
 import { AdicionarImagem, alterarSenha, alterarUsuario, cadastrarUsuario, ExcluirCartao, loginUsuario, TodosUsuarios, VerCartoes, verificarEmail, verificarSenha, verPerfil,  } from "../repository/usuarioRepository.js";
 import multer from "multer";
-import { validarUsuario } from "../service/usuarioValidacao.js";
 
 const upload = multer({ dest: 'storage/usuario' })
 const server = Router();

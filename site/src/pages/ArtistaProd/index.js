@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import './index.scss'
 
 export default function ArtistaProd(){
-    const [artista, setArtista]= useState({});
+    const [artista, setArtista]= useState([]);
     const [produtos, setProdutos]= useState([]);
     const [filtro, setFiltro] = useState('');
 
@@ -13,6 +13,7 @@ export default function ArtistaProd(){
 
     async function carregarPagina(){
         const r = await listarArtistasPorId(idParam) 
+        console.log(r)
         setArtista(r)
     }
 
@@ -50,12 +51,13 @@ export default function ArtistaProd(){
              </div>
         </header>
 
+        {artista.map (item =>
         <article className="faixa-1-artistaprod">
         <section className="section-1-artista-prod">
         <img src={'../../../../assets/images/cbe32534b5d42220e47b16a1a9c9c0dd.png'} className='img-artista'/> 
         <div className="txt-artistaprod">
-        <h1 className="tit-artistaprod"> Metallica</h1>
-        <p className="desc-artista">Metallica é uma banda norte-americana de heavy metal. O seu repertório inclui instrumentais e musicalidade agressiva. O Metallica se formou em 1981.</p>
+        <h1 className="tit-artistaprod"> {item.nomeArtista}</h1>
+        <p className="desc-artista">{item.descricaoArtista}</p>
         </div>   
         </section>
         <section className="sec-artista-prod">
@@ -79,6 +81,7 @@ export default function ArtistaProd(){
         </div>
         </section>
      </article>
+     )}
           
         </main>
     )
