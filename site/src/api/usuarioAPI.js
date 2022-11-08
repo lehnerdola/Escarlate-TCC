@@ -105,6 +105,11 @@ export async function listarCartoes(id){
     return r.data
 }
 
+export async function removerCartao(id) {
+	const resposta = await api.delete(`/usuario/cartao/${id}`);
+	return resposta.status;
+}
+
 export async function ArtistaProduto(id){
     const r = await api.get(`/artista/${id}/produto`);
     return r.data

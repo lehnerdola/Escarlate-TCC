@@ -1,5 +1,5 @@
 
-import { alterarArtista, buscarArtistaPorId, listarArtistas, listarProdutosArtista, listarTodosProdutosArtista, removerArtista, salvarArtista, salvarImagemArtista, listarArtistasHome } from "../repository/artistasRepository.js";
+import { alterarArtista, buscarArtistaPorId, listarArtistas, listarProdutosArtista, removerArtista, salvarArtista, salvarImagemArtista, listarArtistasHome, listarArtista } from "../repository/artistasRepository.js";
 import {validarArtista} from '../service/validarArtista.js'
 
 import { Router } from "express";
@@ -24,7 +24,9 @@ server.get('/artistas/:id' , async (req,resp) => {
     try {
         const {id} = (req.params);
         const artista = await buscarArtistaPorId(id)
-    
+        if(!artista){
+            throw new Error('Artista inexistente')
+        }
         resp.send(artista);
     } catch (err) {
         resp.status(400).send({
@@ -33,10 +35,19 @@ server.get('/artistas/:id' , async (req,resp) => {
     }
 })
 
-server.get('/artista/produto', async (req, resp) => {
+server.get('/artista/produto/:id', async (req, resp) => {
     try {
-        const l = await listarTodosProdutosArtista();
-        resp.send(l);
+        const id = req.params.id;
+        let artista = await listarArtista(id)
+        let produto = await listarProdutosArtista(id);
+        if(artista.length <= 0) {
+            throw new Error('Artista inexistente')
+        }  
+
+        resp.send({
+            artista:artista,
+            produtos:produto
+        });
     }
     catch (err) {
         resp.status(400).send({

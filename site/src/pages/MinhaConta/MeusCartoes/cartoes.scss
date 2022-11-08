@@ -1,11 +1,12 @@
 .cartao{
-    height: 130vh;
-    background-color: #1f1f1f; 
-}
+    height: 100vh;
+    background-color: #1f1f1f;
 
-.align-cartao-card{
-    display: flex;
-    flex-direction: column;
-    margin-top: 5em;
-    justify-content: space-around;
+    .align-cartoes-card{
+        display: flex;
+        flex-direction: column ;
+        min-height: 81vh;
+        justify-content: space-around;
+        align-items: center;
+    }
 }

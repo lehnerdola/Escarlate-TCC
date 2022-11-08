@@ -79,40 +79,30 @@ export async function removerArtista(id){
     return resposta.affectedRows;
 }
 
-export async function listarTodosProdutosArtista(){
+
+export async function listarArtista(id){
     const c = 
     `
     select
-    tb_artista.id_artista idArtista,
-    tb_artista.nm_artista nomeArtista,
-    tb_artista.ds_artista descricaoArtista,
-    tb_artista.img_artista imagemArtista,
-    tb_produto.id_produto idProduto,
-    tb_produto.img_produto imagemProduto,
-    tb_produto.nm_produto nomeProduto
+    id_artista idArtista,
+    nm_artista nomeArtista,
+    ds_artista descricaoArtista,
+    img_artista imagemArtista
     from tb_artista
-    inner join tb_produto on tb_produto.id_produto = tb_produto.id_produto
-    where tb_produto.id_artista = tb_artista.id_artista
+    WHERE id_artista = ?
     `
-    const [resposta] = await con.query (c)
+    const [resposta] = await con.query (c, [id])
     return resposta;
 }
-
 export async function listarProdutosArtista(id){
     const c = 
     `
     select
-    tb_artista.id_artista idArtista,
-    tb_artista.nm_artista nomeArtista,
-    tb_artista.ds_artista descricaoArtista,
-    tb_artista.img_artista imagemArtista,
     tb_produto.id_produto idProduto,
     tb_produto.img_produto imagemProduto,
     tb_produto.nm_produto nomeProduto
-    from tb_artista
-    inner join tb_produto on tb_produto.id_produto = tb_produto.id_produto
-    WHERE tb_artista.id_artista = ?
-    and tb_produto.id_artista = tb_artista.id_artista
+    from tb_produto
+    WHERE tb_produto.id_artista = ?
     `
     const [resposta] = await con.query (c, [id])
     return resposta;

@@ -2,28 +2,10 @@ import { Link } from "react-router-dom";
 import Menu from '../../Components/Usuario/menuMinhaConta/index.js'
 import 'react-credit-cards/lib/styles.scss'
 import './cartoes.scss'
-import Storage from "local-storage";
 import CartaoCard from "../../Components/Usuario/cartaoUser/index.js";
-import { useEffect, useState } from "react";
-import { listarCartoes } from "../../../api/usuarioAPI.js";
-
 
 export default function MeusCartoes(){
-    const [cartao, setCartao] = useState([])
-    const id = Storage ('cliente-logado').id_usuario
-
-    async function CarregarCartoes(){
-        const r = await listarCartoes(id);
-        setCartao(r)
-    }
-
-    useEffect(() => {
-        CarregarCartoes()
-    }, [])
-
     return(
-        
-
         <main className="cartao">
 
             <header className='header'>
@@ -43,10 +25,10 @@ export default function MeusCartoes(){
              </div>
 
         </header>
-        <div style={{display:'flex'}}>
+        <div >
         <Menu/>
-        <div className="align-cartao-card"> 
-                <CartaoCard/>
+        <div className="align-cartoes-card"> 
+        <CartaoCard/>
         </div>
         
         </div>

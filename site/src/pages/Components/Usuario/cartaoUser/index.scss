@@ -1,15 +1,17 @@
 .div-cartao{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     height: 30vh;
     
     .ifos-cartao{
         display: flex;
         height: 30vh;
-        width: 35vw;
+        width: 50vw;
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
+        margin-top: 2em;
+
         border: 2px #A83F37 solid;
     }
 

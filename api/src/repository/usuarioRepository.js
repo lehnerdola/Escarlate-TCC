@@ -122,6 +122,7 @@ export async function VerCartoes(idUsuario){
     `
     select 
     id_usuario idUsuario,
+    id_pag_cartao id,
     nr_cartao   numero,
     nm_cartao  nomeCartao,
     cvv_cartao cvv,
@@ -143,9 +144,16 @@ export async function ExcluirCartao(id){
     return resposta.affectedRows;
 }
 
-export async function verPedidos(){
-    const comando =`
-    select 
-    
+export async function EditarCartao(id, cartao){
+    const c =
     `
+    update tb_pag_cartao
+    set
+    nm_cartao     = ?, 
+    nr_cartao     = ?, 
+    cvv_cartao    = ?, 
+    dt_vencimento = ?
+    where id_pag_cartao = ?
+    `
+    const [resp] = await con.query(c,[id, ])
 }

@@ -1,7 +1,7 @@
 import './index.scss'
 import Cards from 'react-credit-cards'
 import { useEffect, useState } from 'react'
-import { listarCartoes } from '../../../../api/usuarioAPI'
+import { listarCartoes, removerCartao } from '../../../../api/usuarioAPI'
 import storage from 'local-storage'
 import {toast, ToastContainer} from 'react-toastify';
 import BotaoADM from "../../../Components/Adm/Button";
@@ -9,7 +9,6 @@ import BotaoADM from "../../../Components/Adm/Button";
 export default function CartaoCard() {
     const [cartao, setCartao] = useState([])
 
-    
     async function VerCartoes() {
         if (storage('cliente-logado')) {
             const id = storage('cliente-logado').id_usuario
@@ -18,6 +17,12 @@ export default function CartaoCard() {
             setCartao(resposta)
         }
     }
+    async function deletarCartao(id) {
+        const resposta = await removerCartao(id);
+        VerCartoes();
+        toast.success("🔥 Cartão " + " removido!");
+    }
+    
     useEffect(() => {
         VerCartoes();
     }, [])
@@ -40,7 +45,7 @@ export default function CartaoCard() {
                     <div>
                     <BotaoADM nome='EDITAR CARTÃO'/>
                     </div>
-                    <div>
+                    <div onClick={() => deletarCartao(item.id)}>
                     <BotaoADM nome='EXCLUIR CARTÃO'/>
                     </div>
                 
@@ -49,7 +54,7 @@ export default function CartaoCard() {
             </div>
             
         </nav>
-                    )}
+            )}
         </main>
 
     )

@@ -121,12 +121,12 @@ export async function listarArtistas() {
 }
 
 export async function listarArtistasPorId(id){
-    const r = await api.get(`/artista/${id}/produto`);
+    const r = await api.get(`/artista/${id}`);
     return r.data;
 }
 
-export async function listarTodosProdutosArtista() {
-    const r = await api.get('/artista/produto');
+export async function listarTodosProdutosArtista(id) {
+    const r = await api.get(`/artista/produto/${id}`);
     return r.data;
 }
 
