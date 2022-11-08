@@ -54,7 +54,7 @@ export default function ArtistaProd(){
         {artista.map (item =>
         <article className="faixa-1-artistaprod">
         <section className="section-1-artista-prod">
-        <img src={'../../../../assets/images/cbe32534b5d42220e47b16a1a9c9c0dd.png'} className='img-artista'/> 
+        <img src={`http://localhost:5000/${item.imagemArtista}`}className='img-artista'/> 
         <div className="txt-artistaprod">
         <h1 className="tit-artistaprod"> {item.nomeArtista}</h1>
         <p className="desc-artista">{item.descricaoArtista}</p>
@@ -63,21 +63,7 @@ export default function ArtistaProd(){
         <section className="sec-artista-prod">
         <h1>NOSSOS PRODUTOS</h1>   
         <div className="div-artista-prod">
-        <img src={'../../assets/images/CANECA-removebg-preview 1.png'} className='conf-img-feed-produto'/> 
-        <img src={'../../assets/images/BLUSA-removebg-preview 1.png'} className='conf-img-feed-produto'/> 
-        <img src={'../../assets/images/metalica poster.png'} className='conf-img-feed-produto'/> 
-        </div>
-        <h1>NOSSOS PRODUTOS</h1>   
-        <div className="div-artista-prod    ">
-        <img src={'../../assets/images/CANECA-removebg-preview 1.png'} className='conf-img-feed-produto'/> 
-        <img src={'../../assets/images/BLUSA-removebg-preview 1.png'} className='conf-img-feed-produto'/> 
-        <img src={'../../assets/images/metalica poster.png'} className='conf-img-feed-produto'/> 
-        </div>
-        <h1>NOSSOS PRODUTOS</h1>   
-        <div className="div-artista-prod    ">
-        <img src={'../../assets/images/CANECA-removebg-preview 1.png'} className='conf-img-feed-produto'/> 
-        <img src={'../../assets/images/BLUSA-removebg-preview 1.png'} className='conf-img-feed-produto'/> 
-        <img src={'../../assets/images/metalica poster.png'} className='conf-img-feed-produto'/> 
+       <img src={`http://localhost:5000/${item.imagemProduto}`} alt="" width={150} height={150}/>
         </div>
         </section>
      </article>

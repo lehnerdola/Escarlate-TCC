@@ -71,10 +71,6 @@ export default function Endereco(){
         <input className='input-M' value={nomeRemetente} onChange={e => setNomeRemetente(e.target.value)}/>
         </label>    
         <label className='align-inputs-row-cpf'>
-        <label>    
-        <p className='nome-input' >CPF ou CNPJ: <span style={{color: 'red'}}>*</span></p>
-        <input className='input'/>
-        </label>
         <label>
         <p className='nome-input'>CEP: <span style={{color: 'red'}}>*</span></p>
         <input className='input' type='text'value={numeroCep} onChange={e => setNumeroCep(e.target.value)}/>
@@ -112,10 +108,6 @@ export default function Endereco(){
         <label>    
         <p className='nome-input'>Bloco do apartamento:</p>
         <input className='input' value={blocoapt} onChange={e => setBlocoapt(e.target.value)}/>
-        </label>
-        <label>
-        <p className='nome-input'>Telefone para contato: <span style={{color: 'red'}}>*</span></p>
-        <input className='input'/>
         </label>
         </label>
         <label>
