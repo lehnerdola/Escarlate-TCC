@@ -376,17 +376,30 @@
     padding-left: 2em;
     position: relative;
     top: -1.3em;
-    left: 2em;
+  
+   }
+
+   .txt-f4-div{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      
    }
 
    .txt-f4{
+    display: flex;
+    justify-content: center;
     color: red;
     font-family: 'Gothic-Regular';
     font-size: 25px;
     font-weight: 100;
     position: relative;
     top: -1.3em;
-    left: 15.39em;
+    width: 81vw;
+    
+    
+
+
     -webkit-text-stroke: #000000;
     -webkit-text-stroke-width: 0.2px;
 
@@ -401,9 +414,122 @@
     -webkit-text-stroke-width: 0.2px;
     position: relative;
     top: -1em;
-    left: 24.39em;
+    display: flex;
+    justify-content: center;
+    
    }
 
-  //  *{
-  //      border: 1px solid #FF0000;     
-   //   }
+   .f5{
+    display: flex;
+    flex-direction: row;
+    display:flex ;
+    justify-content: space-between;
+    
+    
+   }
+   .img-f5{
+      margin-left: 80vh;
+      position: relative;
+      width: 55vh;
+      height: 55vh;
+      right: 35em;
+
+   }
+   .txtf5{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10em;
+   }
+   .tit-f5{
+    font-family: "CinzelDecorative-Black";
+    color: #FFFFFF;
+    width: 46vh;
+    display: flex;
+    font-size: 2.4em;
+    line-height: 2.5;
+   }
+
+   .txt-f50{
+    display: flex;
+    justify-content: center;
+    font-family: 'Cinzel-Regular';
+  
+   }
+
+.txt-f6{
+    color: #FF0909;
+    display: flex;
+    width: 57vh;
+    text-align: center;
+    margin-top: 7em;
+    
+}
+ .rosas{
+    display: flex;
+    justify-content: space-between;
+ } 
+ .f6{
+    display: flex;
+    justify-content: center;
+ }
+
+ .img-f6{
+    width: 20vh;
+    height: 20vh;
+    margin-top: -1em;
+    margin-right: -1.599em;
+ }
+
+ .img2-f6{
+    width: 25vh;
+    height: 25vh;
+    margin-top: 7em;
+    margin-left: -4.599em;
+ }
+
+ .f7{
+    display: flex;
+    flex-direction: row;
+ }
+
+ .txt-f7{
+    font-family: "Cinzel-Regular" ;
+    margin: 20vh;
+    font-size: 1.3em;
+    text-align: center;
+    margin-top: 2em;
+ }
+
+ .img-f7{
+    width: 70vh;
+    height: 70vh;
+ }
+
+ 
+
+ .div-f8{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    .txt-f8{
+        color: #FA0000;
+        width: 50vh;
+        
+
+        
+     }
+     .img-f8{
+        width: 40vh;
+        height: 40vh;
+        align-items: center;
+     }
+
+ }
+   
+
+   *{
+      border: px solid #FF0000;
+     
+   }

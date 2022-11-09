@@ -5,7 +5,9 @@ export default function Rodape(){
     
 
     return(
-        <footer className="rdp">
+        <footer>
+            <hr className="slinha"/>
+            <div className="rdp">
             <nav className='nav-rdp'>
                 <h1 className='tit'> Páginas </h1>
                 <Link to='/' className="link"> Home </Link>
@@ -22,7 +24,7 @@ export default function Rodape(){
                 <p> (11) 99999-9999 </p>
                 <p> suporteEscarlate@gmail.com </p>
             </div>
-
+            </div>
             <hr className="linha"/>
 
             <div>

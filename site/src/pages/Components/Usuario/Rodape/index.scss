@@ -21,11 +21,26 @@
 .rdp{
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    
 }
 
 .linha{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    width: 65em;
+    color: #A83F37;
+    margin-left: 5em;
 }
-
+.slinha{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 75em;
+    color: #A83F37;
+    margin-left: 1.2em;
+}
+.hr{
+    color: #A83F37;
+}

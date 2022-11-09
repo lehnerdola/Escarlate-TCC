@@ -147,12 +147,14 @@ export default function LandingPage() {
       <h2 className="subtitulo-f4">
       Todos os hits do momento você aqui conosco
       </h2>
+      <div className="txt-f4-div">
       <p className="txt-f4">
          As maiores estrelas do rock você já ouviu 
       </p>
       <p className="txt2-f4"> 
          Conheça nossos artistas
       </p>
+      </div>
    </div>
 
    <div className="artistas-f4">
@@ -167,37 +169,46 @@ export default function LandingPage() {
 </nav>
 
 <section className="faixa-5">
-   <div>
-      <img className="img-f5" src={'../../assets/images/knife.png'} />
+   <div className="f5">
+      
+      <div className="txtf5">
       <h1 className="tit-f5"> Sobre nós: </h1>
-      <p className="txt-f5"> 
+      <p className="txt-f50"> 
       Fundada em 2022, a Escarlate nasceu de uma conversa entre amigos que que queriam resgatar os bons tempos do Rock N' Roll. A Escarlate é uma produtora musical especializada no rock e suas vertentes, que organiza shows e turnês por todo o Brasil, com foco no estado de São Paulo e redondezas
       </p>
+      </div>
+     
+      <img className="img-f5" src={'../../assets/images/knife.png'} />
    </div>
 </section>
 
 <section className="faixa-6">
-   <div>
-      <img className="img-f6" src={'../../assets/images/faquinha.png'} />
-      <img className="img2-f6" src={'../../assets/images/ampulheta.png'} />
+   <div >
+     
+      <div className="rosas">
       <img className="img3-f6" src={'../../assets/images/rosa.png'} />
-      <img className="img4-f6" src={'../../assets/images/rosa.png'} />
-      <img className="img5-f6" src={'../../assets/images/rosa.png'} />
-      <img className="img6-f6" src={'../../assets/images/rosa.png'} />
+      <img className="img4-f6" src={'../../assets/images/faquinhaslouquinhasesquerdacima.png'} />
+      </div>
+      <div className="f6">
+      <img className="img-f6" src={'../../assets/images/faquinha.png'} />
       <p className="txt-f6">
       Reconhecida como umas das principais produtoras do Brasil, nossa prioridade é oferecer o máximo em qualidade ao público e aos profissionais envolvidos.
       </p>
+      <img className="img2-f6" src={'../../assets/images/ampulheta.png'} />
+      </div>
+      <div className="rosas">
+      <img className="img5-f6" src={'../../assets/images/faquinhaslouquinhasdireitabaixo.png'} />
+      <img className="img6-f6" src={'../../assets/images/faquinhaslouquinhasesquerdabaixo.png'} />
+      </div>
    </div>
 </section>
 
 <section className="faixa-7">
-   <div>
+   <div className="f7">
       <img className="img-f7" src={'../../assets/images/stayhm.png'} />
       <p className="txt-f7">
       Sabemos da velocidade da informação hoje em dia e do quão rápido a música está mudando, por isso contamos com uma equipe de produtores musicais, engenheiros e assistentes totalmente qualificados, atualizados e prontos pra qualquer tipo de projeto que envolva uma coisa em especial: música boa. 
-      </p>
-      <p className="txt1-f7">
-      A Escarlate já realizou inúmeros shows em vários lugares do Brasil, promovendo intercâmbio cultural e oferecendo aos amantes da música a possibilidade de ver, ao vivo, espetáculos com artistas de diversas nacionalidades e diferente estilos do Rock.
+A Escarlate já realizou inúmeros shows em vários lugares do Brasil, promovendo intercâmbio cultural e oferecendo aos amantes da música a possibilidade de ver, ao vivo, espetáculos com artistas de diversas nacionalidades e diferente estilos do Rock.
       </p>
    </div>
 </section>
@@ -207,6 +218,7 @@ export default function LandingPage() {
       <p className="txt-f8">
       O objetivo é proporcionar ao fã sempre uma experiência musical memorável, montando uma integração com as bandas com agendamento de shows e incluindo espaços novos no cenário paulistano, auxiliando na programação, produção e divulgação. Nosso lema é  “Não deixar o Rock morrer nunca.”
       </p>
+      <img className="img-f8" src={'../../assets/images/tempf7.png'} />
    </div>
 </section>
 
