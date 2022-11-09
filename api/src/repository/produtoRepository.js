@@ -67,11 +67,14 @@ export async function consultarProdutosPorId(id) {
        nm_produto       nome,
        ds_tam           tamanho,
        bt_disponivel    disponivel,
+       nm_artista       nomeartista,
        vl_preco         preco,
        qtd_produto      quantidade,
        img_produto      imagem
   FROM tb_produto
+ join tb_artista on tb_produto.id_artista = tb_artista.id_artista
   WHERE id_produto = ? 
+
   `;
     const [linhas] = await con.query(comando, [id]);
     return linhas[0];

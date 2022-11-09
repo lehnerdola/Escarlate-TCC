@@ -1,30 +1,53 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import PopUp from "../Components/Usuario/popup/index.js";
 import {buscarProdutoPorNome, listarTodosProdutosArtista } from "../../api/adminAPI.js";
 import { motion } from "framer-motion";
 import './index.scss'
 
 export default function ArtistaProd(){
     const [artista, setArtista]= useState([]);
-    const [produtos, setProdutos]= useState([]);
+    const [produtosArt, setProdutosArt] = useState([])
+    const [produto, setProduto]= useState({});
     const [filtro, setFiltro] = useState('');
+    const [modal, setModal] = useState(false);
+    const [filtrarProduto, setFiltrarProduto] = useState([])
+    
+    const toggleModal = () => {
+        setModal(!modal);
+    };
+    const {id} = useParams();
+    const navigate= useNavigate();
 
-    const {idParam} = useParams();
+    function abrirInfo(id){
+        navigate(`/ArtistaProd/${id}`)
+    }
+
+
+    if(modal) {
+        document.body.classList.add('active-modal')
+    }
+     else {
+        document.body.classList.remove('active-modal')
+    }
+
+    
 
     async function carregarPagina(){
-        const r = await listarTodosProdutosArtista(idParam) 
-        console.log(r)
-        setArtista(r)
+        const r = await listarTodosProdutosArtista(id) 
+        setArtista(r.artista)
+        setProdutosArt(r.produtos)
+        setProduto(r.produtos.idProduto)
     }
 
     async function Filtrar(){
         const resp = await buscarProdutoPorNome(filtro);
-        return setProdutos(resp);
+        setFiltrarProduto(resp);
     }
-
 
     useEffect(() => {
         carregarPagina();
+        console.log(id)
     }, []);
 
     return(
@@ -51,23 +74,47 @@ export default function ArtistaProd(){
              </div>
         </header>
 
-        {artista.map (item =>
         <article className="faixa-1-artistaprod">
+        {artista.map (item =>
         <section className="section-1-artista-prod">
-        <img src={`http://localhost:5000/${item.artista.imagemArtista}`}className='img-artista'/> 
+        <img src={`http://localhost:5000/${item.imagemArtista}`}className='img-artista'/> 
         <div className="txt-artistaprod">
-        <h1 className="tit-artistaprod"> {item.artista.nomeArtista}</h1>
-        <p className="desc-artista">{item.artista.descricaoArtista}</p>
+        <h1 className="tit-artistaprod"> {item.nomeArtista}</h1>
+        <p className="desc-artista">{item.descricaoArtista}</p>
         </div>   
         </section>
+        )}
+        
+            
         <section className="sec-artista-prod">
-        <h1>NOSSOS PRODUTOS</h1>   
+        <h1>PRODUTOS DO ARTISTA</h1>   
         <div className="div-artista-prod">
-       <img src={`http://localhost:5000/${item.produtos.imagemProduto}`} alt="" width={150} height={150}/>
+        {produtosArt.map (item =>
+        <div onClick={toggleModal}>
+       <img src={`http://localhost:5000/${item.imagemProduto}`} alt="" width={150} height={150}  onClick={() => abrirInfo(item.idProduto)}/>
+       </div>
+        )}
         </div>
         </section>
+        
+            {modal && (
+                <div className="modal">
+                <div className="overlay">
+                <motion.div
+                animate={{opacity:[0,1], }}
+                transition={{delay:0.5, type:'spring'}}
+                >
+                <div className="modal-content">
+                    <PopUp produto={id}/>
+                    <img onClick={toggleModal} className='botao-voltar' src="../assets/images/icons8-close-50.png"/>
+                </div>
+                </motion.div>    
+                </div>
+                </div>
+                )}
+        
      </article>
-     )}
+     
           
         </main>
     )

@@ -3,7 +3,7 @@
     flex-direction: row;
     background-color: #1f1f1f;
     align-items: center;
-    .menu-adm{
+    .menu-adm-home{
         display: flex;
         flex-direction: column;
         background-color: #1f1f1f;
@@ -43,4 +43,49 @@
         width: 1.5em;
         margin-bottom: 16em;
     }
+}
+@media screen and (min-width:250px)and (max-width:320px) {
+
+    .tela-inicial-adm{
+
+    .tit-tela-inicial-adm{
+        font-family: 'Poppins-SemiBold';
+        color: #fff;
+        position: relative;
+        padding-left: 0;
+        right: 37px;
+        text-align: center;
+        padding-top: 1em;
+        font-size: 25px;
+    }
+
+    .cards-adm{
+        display: flex;
+        flex-direction: column;
+        width: 130px;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .menu-adm-home{
+        display: flex;
+        flex-direction: column;
+        background-color: #1f1f1f;
+        width: 30vw;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20em;
+        border-right:0;
+    }
+
+    .logo-conf{
+        visibility: hidden;
+    }
+
+    
+    .exit-icon{
+    position: fixed;
+    width: 1.5em;
+    top: 30em;
+    }
+}
 }
