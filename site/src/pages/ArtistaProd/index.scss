@@ -1,13 +1,13 @@
 .artistaprod{
+    height: 100vh;
     background-color: #1f1f1f;
 
 .faixa-1-artistaprod{
     display: flex;
     flex-direction: column;
+    height: 90vh;
     align-items: center;
     justify-content: space-around;
-    margin-top: 50px;
-    height: 100%;
 
     .section-1-artista-prod{
         display: flex;
@@ -56,8 +56,13 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: space-around;
-        margin-top: 5em;
-        height: 140vh;
+        
+        h1{
+            font-size: 20px;
+            font-family: 'Arya-Regular';
+            color: #FFFFFF;
+            font-weight: 100;
+        }
     }
 
     .div-artista-prod{

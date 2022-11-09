@@ -3,7 +3,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    border: 3px solid #a83f37 ;
+    border: 2px solid #a83f37 ;
     width: 30vw;
     height: 25vh;
     margin-top: 5em;
@@ -20,4 +20,29 @@
     }
 
   
+}
+
+@media (max-width:420px) {
+
+    .card-home{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        width: 60vw;
+        height: 25vh;
+        
+        .conf-img-card{
+            width: 5rem;
+        }
+    
+        .txt-card-adm{
+            font-family: 'Poppins-Regular';
+            color: #fff;
+            text-decoration: underline;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+    }
 }

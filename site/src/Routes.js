@@ -69,7 +69,7 @@ export default function Index(){
     <Route exact path='/finalizado' element={<FinalizarPedido/>}/>
     <Route exact path='/editarperfil' element={<EditarConta/>}/>
     <Route exact path='/alterarperfil/:id' element={<EditarConta/>}/>
-    <Route exact path='/ArtistaProd/:idParam' element={<ArtistaProd/>}/>
+    <Route exact path='/ArtistaProd/:id' element={<ArtistaProd/>}/>
   </Routes>
   </BrowserRouter>
   </React.StrictMode>

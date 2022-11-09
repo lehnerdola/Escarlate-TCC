@@ -35,6 +35,8 @@ color: #fff;
 .align-itens-4-pop-up{
     display: flex;
     align-items: flex-start;
+    font-family: 'Poppins-Regular';
+    font-weight: 200;
     width: 21vw;
 }
 
@@ -48,6 +50,11 @@ color: #fff;
 
 
 .nome-prod-popup{
+    font-family: 'Poppins-Regular';
+    font-weight: 200;
+}
+
+.preco-prod{
     font-family: 'Poppins-Regular';
     font-weight: 200;
 }

@@ -32,7 +32,7 @@ export default function TelaInicial(){
     return(
         <div className='tela-inicial-adm'>
 
-            <div className='menu-adm'>
+            <div className='menu-adm-home'>
                 <img src={'../../../assets/images/Captura de Tela (2).png'} width={150} className='logo-conf'/>
                 <motion.img 
                  onClick={sairClick} src={'../../../assets/images/Vector.png'} className='exit-icon'

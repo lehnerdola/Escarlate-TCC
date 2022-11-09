@@ -135,8 +135,7 @@ export default function TodosProdutos(){
                 <div className="modal-content">
                     <PopUp produto={produto}/>
                     <Link to ='/TodosProdutos'>
-                    <button onClick={toggleModal} className='botao-voltar'> voltar</button>
-                    </Link>
+                    <img onClick={toggleModal} className='botao-voltar' src="../assets/images/icons8-close-50.png"/>                    </Link>
                 </div>
                 </motion.div>    
                 </div>
