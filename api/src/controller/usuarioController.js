@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { AdicionarImagem, alterarSenha, alterarUsuario, cadastrarUsuario, ExcluirCartao, loginUsuario, TodosUsuarios, VerCartoes, verificarEmail, verificarSenha, verPerfil,  } from "../repository/usuarioRepository.js";
+import { AdicionarImagem, alterarSenha, alterarUsuario, cadastrarUsuario, ExcluirCartao, loginUsuario, TodosUsuarios, VerCartoes, verificarEmail, verificarSenha, verPerfil  } from "../repository/usuarioRepository.js";
 import multer from "multer";
 
 const upload = multer({ dest: 'storage/usuario' })
@@ -110,7 +110,6 @@ server.put('/alterarperfil/:id', async (req, resp) => {
 
         const resposta = await alterarUsuario(id, usuario);
 
-        await validarUsuario(id, usuario)
 
         if (resposta != 1) {
             throw new Error('O usuario não pode ser alterado!');

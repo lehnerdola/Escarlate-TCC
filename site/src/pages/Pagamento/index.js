@@ -106,7 +106,7 @@ export default function Pagamento() {
             }
             else {
                 const r = await salvarNovoPedido(id, pedido)
-                toast.success('pedido realizado')
+                navigate('/FinalizacaoPagamento')
                 storage.remove('carrinho')
                 
             }
@@ -123,7 +123,6 @@ export default function Pagamento() {
 
     return (
         <main className="pagamento">
-            <ToastContainer />
 
             <header className='header'>
                 <div className='sub-header-1'>
