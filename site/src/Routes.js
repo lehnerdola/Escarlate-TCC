@@ -28,6 +28,7 @@ import Senha from './pages/MinhaConta/EditarSenha/senha';
 import Pedidos from './pages/ADM/Pedidos';
 import MeusPedidos from './pages/MinhaConta/MeusPedidos';
 import FinalizarPedido from './pages/FinalPedido/pedidofinal.js';
+import FinalPagamento from './pages/Pagamento/pagamentoFinal';
 
 
 export default function Index(){
@@ -69,7 +70,8 @@ export default function Index(){
     <Route exact path='/finalizado' element={<FinalizarPedido/>}/>
     <Route exact path='/editarperfil' element={<EditarConta/>}/>
     <Route exact path='/alterarperfil/:id' element={<EditarConta/>}/>
-    <Route exact path='/ArtistaProd/:idParam' element={<ArtistaProd/>}/>
+    <Route exact path='/FinalizacaoPagamento' element={<FinalPagamento/>}/>
+    <Route exact path='/ArtistaProd/:id' element={<ArtistaProd/>}/>
   </Routes>
   </BrowserRouter>
   </React.StrictMode>

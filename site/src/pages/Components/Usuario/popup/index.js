@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Storage from 'local-storage'
 import './index.scss'
@@ -10,7 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function PopUp(props){
 
     const [produto, setProduto] = useState({info: {}})
-   
+
+
     const {id} = useParams();
 
     async function carregarPagina(){
@@ -55,7 +56,8 @@ export default function PopUp(props){
             <h1 className="nome-prod-popup">{produto.info.nome}</h1>
             <div className="align-itens-2-popup">
             <div className="align-itens-3-popup">
-            <h2 >R${produto.info.preco}</h2>
+            <h2 className="preco-prod">R${produto.info.preco}</h2>
+
            
             </div>
             <p>{produto.info.disponivel ? 'Disponivel!': 'Esgotado'}</p>
@@ -72,6 +74,7 @@ export default function PopUp(props){
           </div>
             <div>
             <BotaoADM nome='Comprar'/>
+
             </div>
             </div>
             </div>

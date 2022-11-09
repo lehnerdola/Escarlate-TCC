@@ -44,7 +44,12 @@ export default function EditarConta(){
 
 
         } catch (err) {
-            alert(err.message)
+            if(err.response){
+                alert(err.response.data.erro)
+            }
+            else{
+              alert(err.message)
+            }
         }
     }
 

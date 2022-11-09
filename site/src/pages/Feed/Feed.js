@@ -39,7 +39,8 @@ export default function Feed() {
     }
 
     function abrirInfo(id) {
-        navigate('/Feed/' + id)
+        navigate(`/Feed/${id}`)
+        console.log(id)
     }
 
     const breakPoints = [
@@ -197,7 +198,9 @@ export default function Feed() {
                                         >
                                             <div className="modal-content">
                                                 <PopUp produto={produto} />
-                                                <button onClick={toggleModal} className='botao-voltar'> voltar</button>
+                                                <Link to ='/Feed'>
+                                                <img onClick={toggleModal} className='botao-voltar' src="../assets/images/icons8-close-50.png"/>
+                                                </Link>
                                             </div>
                                         </motion.div>
                                     </div>
