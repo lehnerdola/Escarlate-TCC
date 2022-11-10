@@ -76,19 +76,8 @@ export async function verPerfil (id){
     return c;
 }
 
-export async function alterarUsuario(id, usuario){
-    const comando =
-    `
-    update tb_usuario
-    set nm_usuario         	 = ?,
-        ds_email			 = ?,
-        ds_cpf_usuario		 =?,
-        ds_telefone			 =?
-        where id_usuario = ?
-    `;
-    const [resp] = await con.query(comando, [usuario.nome, usuario.email, usuario.cpf, usuario.telefone, id]);
-    return resp.affectedRows;
-}
+
+
 
 export async function TodosUsuarios(){
     const comando =
@@ -155,5 +144,20 @@ export async function EditarCartao(id, cartao){
     dt_vencimento = ?
     where id_pag_cartao = ?
     `
-    const [resp] = await con.query(c,[id, ])
+    const [resp] = await con.query(c,[cartao.nome, cartao.numero, cartao.cvv, cartao.vencimento, id ]);
+    return resp.affectedRows;
+}
+
+export async function alterarUsuario(id, usuario){
+    const comando =
+    `
+    update tb_usuario
+    set nm_usuario         	 = ?,
+        ds_email			 = ?,
+        ds_cpf_usuario		 =?,
+        ds_telefone			 =?
+        where id_usuario = ?
+    `;
+    const [resp] = await con.query(comando, [usuario.nome, usuario.email, usuario.cpf, usuario.telefone, id]);
+    return resp.affectedRows;
 }

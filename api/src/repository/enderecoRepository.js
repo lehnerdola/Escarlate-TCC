@@ -46,3 +46,4 @@ export async function removerEndereco(id){
 
     return resposta.affectedRows;
 }
+

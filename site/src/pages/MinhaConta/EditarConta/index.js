@@ -35,13 +35,20 @@ export default function EditarConta(){
 
     async function salvarClickPerfil() {
         try {
-            const alterar = await AlterarUsu(id, nome, email, cpf, telefone);
-            if (typeof (imagem) == 'object') {
-                await enviarImagemUsuario(id, imagem)
+            if (!imagem) {
+                const alterar = await AlterarUsu(id, nome, email, cpf, telefone);
+                toast.success('Perfil alterado com sucesso!')    
             }
-            
-            toast.success('Perfil alterado com sucesso!')
+            else if(imagem){
+            ((typeof (imagem) == 'object') (
+                await enviarImagemUsuario(id, imagem)
+            ))
+                const alterar = await AlterarUsu(id, nome, email, cpf, telefone);
+                toast.success('Perfil alterado com sucesso!')
 
+            } 
+            
+            
 
         } catch (err) {
             if(err.response){

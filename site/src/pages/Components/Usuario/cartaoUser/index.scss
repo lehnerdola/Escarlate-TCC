@@ -1,23 +1,22 @@
 .div-cartao{
     display: flex;
     flex-direction: column;
-    height: 30vh;
     
     .ifos-cartao{
         display: flex;
-        height: 30vh;
-        width: 50vw;
+        height: 35vh;
+        width: 35vw;
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
         margin-top: 2em;
-
         border: 2px #A83F37 solid;
     }
 
     .txt-conf-cardcart{
         border: #A83F37 1px solid;
         width: 3.5rem;
+        
         text-align: center;
     }
 }
