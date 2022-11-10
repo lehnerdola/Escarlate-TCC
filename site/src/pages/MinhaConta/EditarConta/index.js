@@ -39,11 +39,9 @@ export default function EditarConta(){
                 const alterar = await AlterarUsu(id, nome, email, cpf, telefone);
                 toast.success('Perfil alterado com sucesso!')    
             }
-            else if(imagem){
-            ((typeof (imagem) == 'object') (
-                await enviarImagemUsuario(id, imagem)
-            ))
-                const alterar = await AlterarUsu(id, nome, email, cpf, telefone);
+            else{
+            const alterar = await AlterarUsu(id, nome, email, cpf, telefone);
+                await enviarImagemUsuario(id, imagem) 
                 toast.success('Perfil alterado com sucesso!')
 
             } 
