@@ -27,9 +27,9 @@ export default function Rodape(){
             </div>
             <hr className="linha"/>
 
-            <div>
+            <div className="finalrdp">
              <Link to='/' href='/LandingPage'>
-                <img className='logo' src={'../../assets/images/logoRdp.png'} width={110} />
+                <img className='logo' src={'../../assets/images/logoRdp.png'} width={310} />
              </Link>
                <img className="rds" src={'../../assets/images/redessociais.png'} />
             </div>
