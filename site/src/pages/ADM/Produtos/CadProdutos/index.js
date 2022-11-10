@@ -2,6 +2,7 @@ import '../../../../Common.scss';
 import MenuADM from '../../../Components/Adm/menu/'
 import './index.scss';
 import { useState } from 'react';
+import storage from 'local-storage'
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { listarCategorias, listarArtistas, enviarImagemProduto, buscarImagem, AlterarProduto, buscarPorId, cadastrarProduto } from '../../../../api/adminAPI.js';
@@ -33,6 +34,9 @@ export default function CadProdutos() {
     useEffect(() => {
         if (idParam) {
             carregarProduto();
+        }
+        if(!storage('adm-logado')){
+            navigate('/LoginADM')
         }
         carregarCategorias();
         carregarArtistas();

@@ -4,9 +4,11 @@ import PopUpEnviarPedido from '../../Components/Adm/popupEnviarPedido/index';
 import {toast, ToastContainer} from 'react-toastify';
 import PopUpCancelarPedido from '../../Components/popupCancelarPedido';
 import MenuADM from '../../Components/Adm/menu';
+import storage from 'local-storage'
 import { motion } from 'framer-motion';
 import BotaoADM from '../../Components/Adm/Button'
 import { listarPedidos,buscarImagem, enviarPedido } from '../../../api/adminAPI.js';
+import { useNavigate } from 'react-router-dom';
 
 export default function Pedidos() {
     const [pedidos, setPedidos] = useState([]);
@@ -30,8 +32,13 @@ export default function Pedidos() {
         const r = await listarPedidos();
         setPedidos(r);
     }
+    const navigate = useNavigate();
+
 
     useEffect(() =>{
+        if(!storage('adm-logado')){
+            navigate('/LoginADM')
+        }
         carregarTodosPedidos();
     },[])
     return (

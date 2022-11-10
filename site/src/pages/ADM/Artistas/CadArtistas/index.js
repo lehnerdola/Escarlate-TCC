@@ -2,6 +2,7 @@ import BotaoADM from "../../../Components/Adm/Button";
 import CardPAH from "../../../Components/Adm/Card"
 import MenuADM from "../../../Components/Adm/menu";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
+import storage from 'local-storage'
 import { Link } from "react-router-dom";
 import '../../Produtos/CadProdutos/index.scss' 
 import {cadastrarArtista, enviarImagemArtista, buscarImagem, listarCategoriasArtistas, listarCategoriasMusicais, salvarArtista, AlterarArtista, listarArtistasPorId} from '../../../../api/adminAPI.js'
@@ -18,6 +19,8 @@ export default function CadArtistas (){
 
     const [id, setId] = useState(0);
     const { idParam } = useParams();
+
+    const navigate = useNavigate();
 
     const [nome, setNome] = useState('');
     const [descricao, setDescricao] = useState('');
@@ -76,6 +79,9 @@ export default function CadArtistas (){
     useEffect(() => {
         if(idParam){
             carregarArtista();
+        }
+        if(!storage('adm-logado')){
+            navigate('/LoginADM')
         }
         carregarCategoriasArtistas();
         carregarCategoriasMusicais();

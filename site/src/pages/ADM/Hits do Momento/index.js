@@ -3,6 +3,7 @@ import BotaoADM from "../../Components/Adm/Button";
 import {toast, ToastContainer} from 'react-toastify';
 import '../Produtos/TodosProdutos/index.scss' 
 import 'react-toastify/dist/ReactToastify.css';
+import storage from 'local-storage'
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { listarTodasMusicas, buscarImagem, apagarMusica } from "../../../api/adminAPI";
@@ -29,6 +30,9 @@ export default function HitsDoMomento(){
     }
 
     useEffect(() => {
+        if(!storage('adm-logado')){
+            navigate('/LoginADM')
+        }
         carregarMusicas();
     })
 

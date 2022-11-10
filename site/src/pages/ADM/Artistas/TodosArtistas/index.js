@@ -4,6 +4,7 @@ import { listarArtistas, buscarImagem, deletarArtista } from "../../../../api/ad
 import { Link, useNavigate } from "react-router-dom";
 import '../../Produtos/TodosProdutos/index.scss' 
 import './index.scss'
+import storage from 'local-storage'
 import { useState, useEffect } from "react";
 import {toast, ToastContainer} from 'react-toastify';
 
@@ -33,6 +34,9 @@ export default function Artistas(){
   
 
     useEffect(() => {
+        if(!storage('adm-logado')){
+            navigate('/LoginADM')
+        }
         setTimeout(() => {
             carregarTodosArtistas();
         })

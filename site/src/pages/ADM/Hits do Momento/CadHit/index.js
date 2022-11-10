@@ -3,7 +3,8 @@ import { buscarImagem, cadastrarMusica, enviarImagemMusica, listarArtistas, busc
 import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import storage from 'local-storage'
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function CadHit(){
 
@@ -21,8 +22,14 @@ export default function CadHit(){
         if(idParam){
             carregarMusica();
         }
+        if(!storage('adm-logado')){
+            navigate('/LoginADM')
+        }
         carregarArtistas();
     }, [])
+
+    const navigate = useNavigate();
+
 
     async function carregarMusica(){
         const r = await buscarMusicaPorId(idParam);
