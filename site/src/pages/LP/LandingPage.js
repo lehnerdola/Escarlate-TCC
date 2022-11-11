@@ -158,10 +158,14 @@ export default function LandingPage() {
    </div>
 
    <div className="artistas-f4">
-      <div>
-         {artistas.map(item =>
-            <CardArtista item={item}/> 
-         )}
+      <div className='div-artistas'>
+      <Link to='/NossosArtistas' className="link">  
+         <img className='img-artista' src={'../../assets/images/ramones.png'} alt="" width={240}/>
+         <img className='img-artista' src={'../../assets/images/bowie.png'} alt="" width={240}/>
+         <img className='star' src={'../../assets/images/star_24px.png'} alt="" width={101.7}/>         
+         <img className='img-artista' src={'../../assets/images/pinkfloyd.png'} alt="" width={240}/>
+         <img className='img-artista' src={'../../assets/images/kiss.png'} alt="" width={240}/>
+      </Link>
       </div>
 
    </div>

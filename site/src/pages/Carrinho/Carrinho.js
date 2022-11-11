@@ -6,7 +6,7 @@ import Storage from 'local-storage'
 import { buscarPorId } from "../../api/adminAPI";
 import CarrinhoItem from "../Components/Usuario/carrinhoitem/carrinhoitem";
 import BotaoADM from '../Components/Adm/Button/index'
-
+import Rodape from '../Components/Usuario/Rodape'
 export default function Carrinho(){
 
   const [itens, setItens] = useState([]);
@@ -56,6 +56,8 @@ return(
         <Link to='/feed'>
         <img src={'../../../../assets/images/Group 1.png'} className='logo-header-conf' alt="img"/>
         </Link>
+
+              <hr className="linha"/>
              <h2 className='nome-page'>Carrinho de Compras</h2>
              </div>   
              <div>
@@ -95,6 +97,9 @@ return(
     </section>
     </div>
 
+  <footer className="rdp-carrinho">
+      <Rodape/>
+  </footer>
     
  </main>
 )

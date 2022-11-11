@@ -25,7 +25,7 @@ export default function Rodape(){
                 <p> suporteEscarlate@gmail.com </p>
             </div>
             </div>
-            <hr className="linha"/>
+            <hr className="blinha"/>
 
             <div className="finalrdp">
              <Link to='/' href='/LandingPage'>

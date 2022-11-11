@@ -1,5 +1,11 @@
 .tit, .tit1, .tit2, p, link{
+    font-family: 'Poppins-Regular';
     color: white;
+}
+
+.tit1{
+    display: flex;
+    justify-content: center;
 }
 
 .nav-rdp{
@@ -25,20 +31,21 @@
     
 }
 
-.linha{
+.blinha{
     display: flex;
     flex-direction: row;
     justify-content: center;
     width: 65em;
-    background-color: #A83F37;
+    background-color: red;
     margin-left: 5em;
+    color: #A83F37;
 }
 .slinha{
     display: flex;
     flex-direction: row;
     justify-content: center;
     width: 75em;
-    background-color: #A83F37;
+    background-color: red;
     margin-left: 1.2em;
 }
 
@@ -47,13 +54,14 @@
     flex-direction: row;
     .logo{
         display: flex;
-        margin-left: -4em;
+        margin-left: 0em;
     }
     .rds{
         width: 21vh;
-        height: -21vh;
-        margin-left: -4em;
+        margin-left: 39em;
         margin-top: 0em;
-        margin-bottom: 9em;
+        margin-bottom: 1em;
     }
 }
+
+

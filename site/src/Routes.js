@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter,Route,Routes,} from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import LandingPage from './pages/LP/LandingPage';
 import Login from './pages/Login e Cadastro/Login';
@@ -33,7 +33,7 @@ import FinalPagamento from './pages/Pagamento/pagamentoFinal';
 
 export default function Index(){
     return(
-  <React.StrictMode>
+      <React.StrictMode>
   <BrowserRouter>
   <Routes>
     <Route exact path='/' element={<LandingPage/>} />
@@ -71,7 +71,7 @@ export default function Index(){
     <Route exact path='/editarperfil' element={<EditarConta/>}/>
     <Route exact path='/alterarperfil/:id' element={<EditarConta/>}/>
     <Route exact path='/FinalizacaoPagamento' element={<FinalPagamento/>}/>
-    <Route exact path='/ArtistaProd/:id' element={<ArtistaProd/>}/>
+    <Route exact path='/ArtistaProd/:id' element={<ArtistaProd/>}/> 
   </Routes>
   </BrowserRouter>
   </React.StrictMode>

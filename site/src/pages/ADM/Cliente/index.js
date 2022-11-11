@@ -19,7 +19,7 @@ export default function Clientes(){
         <MenuADM/>
         <main className='main-clientes'>
             <section className='content-clientes'>
-            <h1>Clientes</h1>
+            <h1 className='div'>Clientes</h1>
             <section className='align-caixas'>            
                 <div className='caixa-clientes'>
                     {clientes.map (item =>

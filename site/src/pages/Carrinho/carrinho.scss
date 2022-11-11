@@ -69,3 +69,18 @@
         align-items: center;
     }
 }
+
+.linha{
+    rotate: 90deg;
+    width: 6vh;
+    margin-left: 2em;
+}
+
+
+.rdp-carrinho{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 26em;
+    right: -1em;
+}

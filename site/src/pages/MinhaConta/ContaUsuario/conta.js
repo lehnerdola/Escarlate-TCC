@@ -58,7 +58,7 @@ export default function MinhaConta(){
             }
             {!item.imagem_usuario &&
                 <Link to='/editarperfil' >
-                <p style={{marginTop:'3rem', textDecoration:'none'}}>Adicionar foto de perfil</p> 
+                <p style={{marginTop:'3rem', textDecoration:'underline #1f1f1f'}}>Adicionar foto de perfil</p> 
             </Link> 
             }
             <div className='div-informacoes'>
@@ -72,7 +72,7 @@ export default function MinhaConta(){
                 }
                 {(!item.cpf||!item.telefone) &&
                     <Link to='/editarperfil' >
-                        <p style={{marginTop:'3rem', textDecoration:'none'}}>Adicionar mais informações</p>
+                        <p style={{marginTop:'3rem', textDecoration:'underline #1f1f1f' }}>Adicionar mais informações</p>
                     </Link> 
                 }
                 
