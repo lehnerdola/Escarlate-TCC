@@ -46,13 +46,16 @@ export async function consultarTodosProdutos() {
     id_produto id,
     nm_categoria categoria,
     nm_produto nome,
+    nm_artista       nomeartista,
     ds_tam tamanho,
     bt_disponivel disponivel,
     vl_preco preco,
     qtd_produto quantidade,
     img_produto imagem
     from tb_produto
-    join tb_categoria on tb_produto.id_categoria = tb_categoria.id_categoria;
+    join tb_categoria on tb_produto.id_categoria = tb_categoria.id_categoria
+    join tb_artista on tb_produto.id_artista = tb_artista.id_artista
+
 `
     const [linhas] = await con.query(comando);
     return linhas;
@@ -292,6 +295,7 @@ export async function consultarTodosPedidosCancelados() {
 }
 
 
+export async function listarTodasCategorias(){
 
-
+}
 

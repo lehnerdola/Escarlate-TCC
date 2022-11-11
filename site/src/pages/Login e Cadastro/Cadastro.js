@@ -44,7 +44,7 @@ return(
        <p className="txt-input-cad" >Nome: <span className="cor">*</span></p>
        <input type='email' className="input-cad"value={nome} onChange={e => setNome(e.target.value)}/>
        <p className="txt-input-cad">Email: <span className="cor">*</span></p>
-       <input type='text' className="input-cad" value={email} onChange={e => setEmail(e.target.value)}/>
+       <input type='email' className="input-cad" value={email} onChange={e => setEmail(e.target.value)}/>
        <p className="txt-input-cad">Senha: <span className="cor">*</span></p>
        <input type='password' className="input-cad" value={senha} onChange={e => setSenha(e.target.value)}/>
        </div>

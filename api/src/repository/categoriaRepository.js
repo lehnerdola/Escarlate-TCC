@@ -29,7 +29,7 @@ export async function listarArtistasCategorias(){
     select 
     id_artista_categoria   as id,
     ds_categoria         as categoriaartista
-    from tb_artista_categoria;
+    from tb_artista_categoria
     `
     const [linhas] = await con.query(c);
     return linhas;
@@ -37,10 +37,13 @@ export async function listarArtistasCategorias(){
 
 export async function buscarProdCategoriaPorId(id) {
     const comando = `
-        select id_categoria         as id,
-               nm_categoria         as categoria
-          from tb_categoria
-         where id_categoria = ?
+    select
+    id_produto as idProduto,	
+    tb_produto.id_categoria         as id,
+    tb_categoria.nm_categoria         as categoria
+    from tb_produto
+    join tb_categoria on tb_categoria.id_categoria = tb_categoria.id_categoria
+    where tb_categoria.id_categoria = ?
     `
 
     const [linhas] = await con.query(comando, [id]);

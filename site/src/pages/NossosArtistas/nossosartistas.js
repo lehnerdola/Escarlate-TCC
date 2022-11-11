@@ -9,8 +9,6 @@ export default function TodosProdutos(){
 
     const [filtro, setFiltro] = useState('');
     const [artistas, setArtistas]= useState([]);
-    const [produtos, setProdutos] = useState([]);
-
     const navigate = useNavigate()
 
     async function Filtrar(){
@@ -67,14 +65,13 @@ export default function TodosProdutos(){
             </div>
             
              <div className='faixa1'>
-             {artistas.map ( item => 
-             <Link to='/ArtistaProd'>
+             {artistas.map(item => 
                  <motion.img src={buscarImagem(item.imagem)} className='artistaimg' 
                 whileHover={{ scale: 1.1}}
                 onHoverStart={e => {}}
                 onHoverEnd={e => {}}
+                onClick={() => abrirInfo(item.id)}
                />
-             </Link>
             
              )}
         

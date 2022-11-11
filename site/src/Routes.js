@@ -29,6 +29,7 @@ import Pedidos from './pages/ADM/Pedidos';
 import MeusPedidos from './pages/MinhaConta/MeusPedidos';
 import FinalizarPedido from './pages/FinalPedido/pedidofinal.js';
 import FinalPagamento from './pages/Pagamento/pagamentoFinal';
+import EditarCartao from './pages/MinhaConta/MeusCartoes/EditarCartao/index.js'
 
 
 export default function Index(){
@@ -72,6 +73,7 @@ export default function Index(){
     <Route exact path='/alterarperfil/:id' element={<EditarConta/>}/>
     <Route exact path='/FinalizacaoPagamento' element={<FinalPagamento/>}/>
     <Route exact path='/ArtistaProd/:id' element={<ArtistaProd/>}/>
+    <Route exact path='/Editarcartao/:idParam' element={<EditarCartao/>}/>
   </Routes>
   </BrowserRouter>
   </React.StrictMode>

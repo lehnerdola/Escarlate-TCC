@@ -1,7 +1,7 @@
 
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import { verPerfil } from '../../../api/usuarioAPI';
+import { verPerfil, ListarPedidosUsuario } from '../../../api/usuarioAPI';
 import Menu from '../../Components/Usuario/menuMinhaConta/index.js'
 import PedidosUser from "../../Components/Usuario/pedidosUser/index.js";
 import storage from 'local-storage';
@@ -12,6 +12,12 @@ export default function MeusPedidos(){
 
     const [usuario, setUsuario] = useState([]);
     const navigate = useNavigate();
+    const [pedido, setPedido] = useState([]);
+
+    async function CarregarPedidos(){
+        const resp = await ListarPedidosUsuario(id)
+        setPedido(resp)
+    }
 
     async function carregarPerfilUsuario() {
         const resp = await verPerfil(id);
@@ -19,6 +25,7 @@ export default function MeusPedidos(){
     }
 
     useEffect(()=>{
+            CarregarPedidos();
             carregarPerfilUsuario();
     }, [])
 
@@ -42,9 +49,7 @@ export default function MeusPedidos(){
                 </Link>
                 </div>
             </header>
-
         <Menu/>
-        
         <nav className="nav-pedidos">
             <PedidosUser/>
         </nav>

@@ -31,6 +31,12 @@ export async function listarCategorias() {
     return r.data;
 }
 
+
+export async function listarCategoriasId(id) {
+    const r = await api.get(`/produto/categoria/${id}`);
+    return r.data;
+}
+
 export function buscarImagem(imagem){
     return `${api.getUri()}/${imagem}`
 }   
@@ -121,7 +127,7 @@ export async function listarArtistas() {
 }
 
 export async function listarArtistasPorId(id){
-    const r = await api.get(`/artista/${id}`);
+    const r = await api.get(`/artistas/${id}`);
     return r.data;
 }
 

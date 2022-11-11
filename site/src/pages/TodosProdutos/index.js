@@ -1,6 +1,6 @@
 import './index.scss'
 import {motion, AnimatePresence} from 'framer-motion'
-import { todosProdutos, buscarProdutoPorNome, buscarPorId } from '../../api/adminAPI.js';
+import { todosProdutos, buscarProdutoPorNome, buscarPorId, listarCategorias, listarCategoriasId } from '../../api/adminAPI.js';
 import { useEffect,useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import PopUp from '../Components/Usuario/popup';
@@ -12,6 +12,8 @@ export default function TodosProdutos(){
     const [produtos, setProdutos]= useState([]);
     const [produto, setProduto] = useState({});
     const [filtro, setFiltro] = useState('');
+    const [categorias, setCategorias] = useState([]);
+
 
     const [modal, setModal] = useState(false);
     const navigate= useNavigate();
@@ -32,7 +34,10 @@ export default function TodosProdutos(){
         navigate('/TodosProdutos/' + id)
     }
 
-    
+    async function carregarCategorias(){
+        const r = await listarCategorias();
+        setCategorias(r)
+    }
     async function carregarTodosProdutos() {
         const resp = await todosProdutos();
         setProdutos(resp);
@@ -48,9 +53,8 @@ export default function TodosProdutos(){
    }
 
     useEffect(() => {
-        setTimeout(() => {
             carregarTodosProdutos();
-        })
+            carregarCategorias();
     }, []);
 
     useEffect(() => {
@@ -63,7 +67,6 @@ export default function TodosProdutos(){
         Filtrar();
     },[produtos])
 
-  
     document.addEventListener("keypress", function  (e) {
         if(e.key === "Enter"){
             const btn = document.querySelector("#send");
@@ -100,7 +103,9 @@ export default function TodosProdutos(){
      
        <div className='todos-prod'>
             <h1 className='titulo-todosprodutos' >Conheça nossos <span style={{color:"#A83F37"}}> produtos</span></h1>
-            <h2 style={{fontFamily:"Cinzel-Regular", color:"#A83F37", fontWeight:'100' }}>Mais vendidos,   canecas,   camisetas,   posters ...</h2>
+            {categorias.map (item => 
+            <h2 style={{fontFamily:"Cinzel-Regular", color:"#A83F37", fontWeight:'100', }} onClick={() => abrirInfo(item.id)}>{item.categoria}</h2>
+            )}
             <div className='faixa-1-todos-prod'>
 
            
@@ -135,7 +140,8 @@ export default function TodosProdutos(){
                 <div className="modal-content">
                     <PopUp produto={produto}/>
                     <Link to ='/TodosProdutos'>
-                    <img onClick={toggleModal} className='botao-voltar' src="../assets/images/icons8-close-50.png"/>                    </Link>
+                    <img onClick={toggleModal} className='botao-voltar' src="../assets/images/icons8-close-50.png"/>
+                    </Link>
                 </div>
                 </motion.div>    
                 </div>

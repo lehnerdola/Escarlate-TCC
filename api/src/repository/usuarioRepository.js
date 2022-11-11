@@ -77,8 +77,6 @@ export async function verPerfil (id){
 }
 
 
-
-
 export async function TodosUsuarios(){
     const comando =
     `
@@ -106,7 +104,7 @@ export async function AdicionarImagem(id, imagem) {
     return resposta.affectedRows;
 }
    
-export async function VerCartoes(idUsuario){
+export async function VerCartoesUsuario(idUsuario){
     const c = 
     `
     select 
@@ -120,6 +118,22 @@ export async function VerCartoes(idUsuario){
     where id_usuario = ?
     `;
     const [resp] = await con.query(c,[idUsuario]);
+    return resp;
+}
+export async function VerCartoes(id){
+    const c = 
+    `
+    select 
+    id_usuario idUsuario,
+    id_pag_cartao id,
+    nr_cartao   numero,
+    nm_cartao  nomeCartao,
+    cvv_cartao cvv,
+    dt_vencimento vencimento	
+    from tb_pag_cartao
+    where id_pag_cartao = ?
+    `;
+    const [resp] = await con.query(c,[id]);
     return resp;
 }
 
@@ -144,7 +158,7 @@ export async function EditarCartao(id, cartao){
     dt_vencimento = ?
     where id_pag_cartao = ?
     `
-    const [resp] = await con.query(c,[cartao.nome, cartao.numero, cartao.cvv, cartao.vencimento, id ]);
+    const [resp] = await con.query(c,[cartao.nomeCartao, cartao.numero, cartao.cvv, cartao.vencimento, id ]);
     return resp.affectedRows;
 }
 
@@ -160,4 +174,25 @@ export async function alterarUsuario(id, usuario){
     `;
     const [resp] = await con.query(comando, [usuario.nome, usuario.email, usuario.cpf, usuario.telefone, id]);
     return resp.affectedRows;
+}
+
+export async function listarPedidosUsuario(id){
+    const c =
+    `
+    select 
+    id_pedido_item                      idPedidoItem,
+    tb_pedido_item.id_pedido            idPedido,
+    tb_pedido_item.id_produto           idProduto,
+    nm_produto                          nomeProduto,
+    img_produto                         imagem,
+    cod_notafiscal                      notaFiscal,
+    dt_pedido                           dataPedido,
+    ds_status                           statusPedido
+    from tb_pedido_item
+    join tb_pedido on tb_pedido_item.id_pedido = tb_pedido.id_pedido 
+    join tb_produto on tb_pedido_item.id_produto = tb_produto.id_produto
+    where id_usuario = ? 
+    `
+    const [resp] = await con.query(c,[id]);
+    return resp;
 }
