@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { AdicionarImagem, alterarSenha, alterarUsuario, cadastrarUsuario, EditarCartao, ExcluirCartao, loginUsuario, TodosUsuarios, VerCartoes, verificarEmail, verificarSenha, verPerfil  } from "../repository/usuarioRepository.js";
+import { AdicionarImagem, alterarSenha, alterarUsuario, cadastrarUsuario, EditarCartao, ExcluirCartao, listarPedidosUsuario, loginUsuario, TodosUsuarios,  VerCartoes,  VerCartoesUsuario, verificarEmail, verificarSenha, verPerfil  } from "../repository/usuarioRepository.js";
 import multer from "multer";
 
 const upload = multer({ dest: 'storage/usuario' })
@@ -157,6 +157,20 @@ server.put('/alterarsenha/:id', async (req, resp) => {
 server.get('/usuario/cartao/:id' , async (req, resp) => {
     try{
         const id = req.params.id
+        const resposta = await VerCartoesUsuario(id);
+        resp.send(resposta)
+
+    }
+    catch(err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+}) 
+
+server.get('/cartao/:id' , async (req, resp) => {
+    try{
+        const id = req.params.id
         const resposta = await VerCartoes(id);
         resp.send(resposta)
 
@@ -177,6 +191,18 @@ server.delete('/usuario/cartao/:id', async (req, resp) => {
             throw new Error('Não foi possivel deletar o cartão')
         }
         resp.status(204).send()
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/usuario/pedido/:id', async (req, resp) => {
+    try {
+        const id = req.params.id
+        const resposta = await listarPedidosUsuario(id);
+        resp.send(resposta)
     } catch (err) {
         resp.status(404).send({
             erro: err.message

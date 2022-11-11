@@ -5,18 +5,25 @@ import { listarCartoes, removerCartao } from '../../../../api/usuarioAPI'
 import storage from 'local-storage'
 import {toast, ToastContainer} from 'react-toastify';
 import BotaoADM from "../../../Components/Adm/Button";
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function CartaoCard() {
     const [cartao, setCartao] = useState([])
 
+    const navigate = useNavigate();
+
     async function VerCartoes() {
         if (storage('cliente-logado')) {
             const id = storage('cliente-logado').id_usuario
-            console.log(id)
             const resposta = await listarCartoes(id)
             setCartao(resposta)
         }
     }
+
+    function alterarCartao(id){
+        navigate(`/Editarcartao/${id}`)
+    }
+
     async function deletarCartao(id) {
         const resposta = await removerCartao(id);
         VerCartoes();
@@ -42,8 +49,10 @@ export default function CartaoCard() {
                         />
                 </div>
                 <div className='BT-CARD'>
-                    <div>
+                    <div onClick={() => alterarCartao(item.id)}>
+                     <Link to ='/EditarCartao'>
                     <BotaoADM nome='EDITAR CARTÃO'/>
+                    </Link>   
                     </div>
                     <div onClick={() => deletarCartao(item.id)}>
                     <BotaoADM nome='EXCLUIR CARTÃO'/>

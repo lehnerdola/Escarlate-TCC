@@ -39,7 +39,7 @@ export default function CadArtistas (){
             else
             {
             await AlterarArtista(idParam,idCategoriaMusical, idCategoriaArtista, nome, descricao);
-            if(typeof(imagem)== 'object'){
+            if(typeof(imagem) == 'object'){
             await enviarImagemArtista(imagem, idParam)
             }
             toast.dark('artista alterado')  
@@ -105,6 +105,8 @@ export default function CadArtistas (){
 
         setId(r.id);
     }
+
+    
 
     
     return(

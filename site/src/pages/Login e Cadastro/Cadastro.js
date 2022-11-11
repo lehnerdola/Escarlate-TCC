@@ -70,7 +70,7 @@ return(
        <p className="txt-input-cad" >Nome: <span className="cor">*</span></p>
        <input type='email' className="input-cad"value={nome} onChange={e => setNome(e.target.value)}/>
        <p className="txt-input-cad">Email: <span className="cor">*</span></p>
-       <input type='text' className="input-cad" value={email} onChange={e => setEmail(e.target.value)}/>
+       <input type='email' className="input-cad" value={email} onChange={e => setEmail(e.target.value)}/>
        <p className="txt-input-cad">Senha: <span className="cor">*</span></p>
        <input className="input-cad" required="required" type={type} id="pass" value={senha}  onChange={e => setSenha(e.target.value)}/>
        <motion.img src={icon} onClick={handleToogle}className='ssconf-olho'  animate={isopen ? "open" : "closed"} variants={variants} width={26}/> 

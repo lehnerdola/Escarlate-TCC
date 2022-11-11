@@ -1,6 +1,7 @@
 import { Navigate, Link } from "react-router-dom"
 import { motion } from "framer-motion"
 import { ToastContainer } from "react-toastify"
+import BotaoADM from "../../Components/Adm/Button"
 import './index.scss'
 
 export default function FinalPagamento(){
@@ -27,10 +28,7 @@ export default function FinalPagamento(){
         <div className="ass">
             <h1>Pagamento finalizado com sucesso!</h1>
             <Link to='/Feed'>
-            <motion.img className="img" src={'/assets/images/beijafloo 1.png'} width={600}
-              whileHover={{ scale: 1.1 }}
-              onHoverStart={e => { }}
-              onHoverEnd={e => { }} />
+            <BotaoADM nome='Continuar comprando'/>
             </Link>
             
             </div>

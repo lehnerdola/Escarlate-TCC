@@ -52,7 +52,6 @@ export default function Pagamento() {
             storage.remove('ender-selecionado')
         }
 
-
     }
 
     if (modal) {
@@ -98,7 +97,6 @@ export default function Pagamento() {
                     produtos: produtos
                 }
             
-
 
 
             if (!storage('carrinho')) {

@@ -1,12 +1,15 @@
 .meus-pedidos{
     background-color: #1f1f1f;
+    align-items: center;
     min-height: 100vh;
 
-      .nav-pedidos{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        min-height: 90vh;
-        justify-content: space-around;
- }
+    .nav-pedidos{
+      display: flex;
+      width: 98vw;
+      min-height: 120vh;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+    }
 }
+

@@ -1,16 +1,36 @@
 import BotaoADM from '../../Adm/Button'
 import { motion } from 'framer-motion'
+import storage from 'local-storage';
+import { useState, useEffect } from 'react';
 import './index.scss'
+import { ListarPedidosUsuario } from '../../../../api/usuarioAPI';
+import Menu from '../menuMinhaConta';
 
 export default function PedidosUser() {
+    const [pedido, setPedido] = useState([]);
+    const id = storage('cliente-logado').id_usuario
+
+    async function CarregarPedidos(){
+        const resp = await ListarPedidosUsuario(id)
+        setPedido(resp)
+    }
+
+    useEffect(()=>{
+        CarregarPedidos();
+    }, [])
+
     return (
-        <nav className="nav-pedidos-itens">
+        <nav className='meuspedis'>
+        {pedido.map (item =>
+
         <div className="info-pedido">
+    
+                
          <div className='align-img-pedido'>   
-         <img src='../assets/images/CANECA-removebg-preview 1.png'/>
+         <img src={`http://localhost:5000/${item.imagem}`}/>
 
          <div className='img-pedido'>
-            <p>Caneca Metallica 450ml</p>
+            <p>{item.nomeProduto}</p>
          <p>Ver informações do produto:</p>
          </div>
          
@@ -19,11 +39,11 @@ export default function PedidosUser() {
          <div className='txt-cardcart'>
          <div className='situacao-pedido'>
          <p className='txt-conf'>Situação do pedido:</p>
-         <p className='txt-conf-pedidos'>Aguardando pagamento!</p>
+         <p className='txt-conf-pedidos'>{item.statusPedido}</p>
          </div>
          <div className='cod-notafiscal'>
          <p className='txt-conf'>Código da nota fiscal:</p>
-         <p className='txt-conf-pedidos'>0205050</p>
+         <p className='txt-conf-pedidos'>{item.notaFiscal}</p>
          </div>   
          <div className='valor-compra'>
          <p className='txt-conf'>Valor da compra:</p>
@@ -33,13 +53,15 @@ export default function PedidosUser() {
          <motion.button className='bt-cancelar-compra'
             whileHover={{ scale: 1.2 }}
             onHoverStart={e => {}}
-            onHoverEnd={e => {}}
-        >
+            onHoverEnd={e => {}}>
           Cancelar compra
          </motion.button>
+         </div>
+         
+         </div>
+         )}
 
-         </div>
-         </div>
+         
          </nav>
     )
 }

@@ -1,4 +1,4 @@
-import { listarCategoriasProduto, listarArtistasCategorias, listarCategoriasMusicais } from "../repository/categoriaRepository.js";
+import { listarCategoriasProduto, listarArtistasCategorias, listarCategoriasMusicais, buscarProdCategoriaPorId } from "../repository/categoriaRepository.js";
 
 import { Router } from "express";
 const server = Router();
@@ -15,6 +15,20 @@ server.get('/produto/categoria', async (req, resp) => {
         })
     }
 })
+
+server.get('/produto/categoria/:id', async (req, resp) => {
+    try {
+        const id = Number(req.params.id);
+
+        const categoria = await buscarProdCategoriaPorId(id);
+        resp.send(categoria)
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
 
 server.get('/artista/categoria', async (req, resp) => {
     try {

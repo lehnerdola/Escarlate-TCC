@@ -105,9 +105,19 @@ export async function listarCartoes(id){
     return r.data
 }
 
-export async function EditarCartao(id, nome, numero,cvv,vencimento){
+export async function ListarPedidosUsuario(id){
+    const resp = await api.get('/usuario/pedido/' + id);
+    return resp.data
+}
+
+export async function listarCartoesPorId(id){
+    const r = await api.get(`/cartao/${id}`);
+    return r.data
+}
+
+export async function EditarCartaoUser(id, nomeCartao,numero,cvv,vencimento){
     const r = await api.put (`/usuario/cartao/${id}`, {
-        nome, numero, cvv, vencimento
+        nomeCartao, numero, cvv, vencimento
     });
     return r.data;
 }
