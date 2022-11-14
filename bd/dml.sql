@@ -285,7 +285,7 @@ inner join tb_categoria on tb_artista.id_artista_categoria = tb_categoria.id_art
        by tb_artista.id_artista,
        nm_artista,
        ds_artista,
-       id_artista_categoria
+       id_artista_categoria;
 
 -- consultar pedidos entregues 
 select 
@@ -309,8 +309,8 @@ select
     from tb_pedido_item
     join tb_pedido on tb_pedido_item.id_pedido = tb_pedido.id_pedido 
     join tb_usuario_endereco on tb_pedido.id_usuario_end = tb_usuario_endereco.id_usuario_end
-    join tb_produto on tb_pedido_item.id_produto = tb_produto.id_produto;
-    where ds_status = 'Pedido enviado com sucesso!'
+    join tb_produto on tb_pedido_item.id_produto = tb_produto.id_produto
+    where ds_status = 'Pedido enviado com sucesso!';
 
   -- consultar pedidos cancelados
 select 
