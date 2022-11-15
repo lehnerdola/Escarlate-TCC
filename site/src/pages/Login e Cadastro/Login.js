@@ -79,12 +79,12 @@ const handleToogle=() => {
           <div className="tit-login">
             <h1 className="txt-1-login">BEM VINDO, <span className='txt-align-login'>DE VOLTA</span></h1>
           </div>
-          <img src={'../../assets/images/image_processing20200408-11472-15bdle1-removebg-preview 1.png'} width={440} />
+          <img className="sthm" src={'../../assets/images/image_processing20200408-11472-15bdle1-removebg-preview 1.png'} width={440} />
         </section>
 
         <section className="sec-2-login">
           <div className="info-sec-2">
-            <img src={'../../assets/images/Captura de Tela (2).png'} width={170} />
+            <img className="logo-login" src={'../../assets/images/Captura de Tela (2).png'} width={170} />
 
             <div className='input-login-div'>
               <p className="txt-input-login">Email: <span className="cor">*</span></p>
@@ -110,7 +110,7 @@ const handleToogle=() => {
           <div className='div-adm-login'>
             <img src={'../../assets/images/1659570118266 1.png'} className='img-cobra' />
             <Link to='/LoginADM'>
-              <p className='txt-login-div'>Sou <span className='login-cor'>Adm</span></p>
+              <p className='txt-login-div-adm'>Sou <span className='login-cor-adm'>Adm</span></p>
             </Link>
           </div>
         </section>
