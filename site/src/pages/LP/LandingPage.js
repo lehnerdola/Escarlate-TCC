@@ -21,22 +21,22 @@ export default function LandingPage() {
 
    return (
       <section className="section-mae">
-         <header className="cabeçalho-lp"> 
+         <header className="cabeçalho-lp" class="modo cabeçalho"> 
 
          <motion.img src={'../../assets/images/Group 1.png'} width={200} height={60}
             whileHover={{ scale: 1.3 }}
             onHoverStart={e => {}}
-            onHoverEnd={e => {}}/>
+            onHoverEnd={e => {}} class="modo img"/>
 
             <div className="botao-cabeçalho-lp">
            < Link to = '/login' >
-            <button className="bt-login">
+            <button className="bt-login" class="modo um">
             <p className="bt-login-txt"> Login </p> 
             </button>
             </Link>
             
             <Link to='/Cadastro'>
-            <button className="bt-cadastro">
+            <button className="bt-cadastro" class="modo dois">
             <p className="bt-cadastro-txt">Cadastre-se</p>
             </button>
             </Link>
@@ -52,18 +52,18 @@ export default function LandingPage() {
          initial={{ opacity: 0 }}
          animate={{ opacity: 1, y:[-100,0]}}
          transition={{ delay: 0, duration: 1 }}
-         >
+          class="texto titulo">
          Bem vindos,
-         <h2 className="titulo-2-lp">AO SUBMUNDO!</h2>
+         <h2 className="titulo-2-lp" class="texto subtitulo" >AO SUBMUNDO!</h2>
          </motion.h1>
          <div className="text-desc0">
-         <p className="txt-1-lp">Apenas 
-         <span className="cor-txt"> você </span> 
+         <p className="txt-1-lp" class="texto textodesc">Apenas 
+         <span className="cor-txt" class="texto textodesccor"> você </span > 
          pode decidir o que te destrói, 
          então afie sua 
-         <span className="cor-txt"> lámina </span>
+         <span className="cor-txt"class="texto textodesccor"> lámina </span>
          e proteja seu 
-         <span className="cor-txt"> coração </span>
+         <span className="cor-txt" class="texto textodesccor"> coração </span>
          </p>
          </div>
          </div>
@@ -71,7 +71,7 @@ export default function LandingPage() {
          <motion.img src={'../../assets/images/zyro-image.png'} width={500}
          animate={{rotate:360}}
          transition={{ease:"linear", delay:0, duration:2, type:"spring"}}
-         />
+         class="imagem guitar"/>
          </nav>
 
          <nav className="faixa-2-lp">
