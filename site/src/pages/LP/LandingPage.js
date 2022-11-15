@@ -79,32 +79,32 @@ export default function LandingPage() {
 <div className="sub-div-2-lp">
 
    <div className="texto-f2-lp">
-   <motion.img src={'../../assets/images/idols.png'} width={310}/>
+   <motion.img src={'../../assets/images/idols.png'} width={310} class="faixa2 imagemf2"/>
       <div className="texto-1-f2-lp">
-      <h2  className="titulo-3-lp"> O que é uma pessoa se não as <span className="cor-txt">marcas</span> que deixa para trás? </h2>
-      <p className="txt-f2-lp">Porquê a felicidade é breve, mas a história é duradoura e, no fim, todo mundo quer ser lembrado.</p>
+      <h2  className="titulo-3-lp" class="faixa2 titulo2"> O que é uma pessoa se não as <span className="cor-txt">marcas</span> que deixa para trás? </h2>
+      <p className="txt-f2-lp" class="faixa2 subtitulo2">Porquê a felicidade é breve, mas a história é duradoura e, no fim, todo mundo quer ser lembrado.</p>
       </div>
       
    </div>
 <div className="desc-icons">
    <div className="desc-lp">
       <div className="desc">
-         <img className="icon" src={'../../assets/images/moon.png'} width={250}/>
-         <p className="txt-desc">
+         <img className="icon" class= "icon2 icon-um" src={'../../assets/images/moon.png'} width={250}/>
+         <p className="txt-desc" class= "icon2 text-um">
          Descubra os hits dos seus artistas favoritos
          </p>
       </div>
 
       <div className="desc">
-         <img className="icon2" src={'../../assets/images/triangleicon.png'} width={250}/>
-         <p className="txt-desc">
+         <img className="icon2" class= "icon2 icon-dois" src={'../../assets/images/triangleicon.png'} width={250}/>
+         <p className="txt-desc" class= "icon2 text-dois">
          Maior acessibilidade a produtos originais do seu ídolo do rock
          </p>
       </div>
 
       <div className="desc">
-         <img className="icon3" src={'../../assets/images/hearticon.png'} width={250}/>
-         <p className="txt-desc">
+         <img className="icon3" class= "icon2 icon-tres" src={'../../assets/images/hearticon.png'} width={250}/>
+         <p className="txt-desc" class= "icon2 text-tres">
          Todos os lançamentos e pré-vendas exclusivas aqui!
          </p>
       </div>
@@ -120,17 +120,17 @@ export default function LandingPage() {
    <div className="div-f3">
       
      <div className="img-text">
-      <p className="txt-f3"> 
+      <p className="txt-f3" class="texto txt-f31"> 
       Escarlate é uma produtora musical especializada no Rock e na realização de sonhos  
       </p>
-      <img className="img-f3" src={'../../assets/images/kingofrock.png'} width={420}/>
-      <p className="txt1-f3"> 
+      <img className="img-f3" src={'../../assets/images/kingofrock.png'} width={420} class="imagem3 imagemf3"/>
+      <p className="txt1-f3" class="texto txt1-f32"> 
       dos nossos marujos em busca de uma voz para serem encantados 
       </p>   
       </div>
       </div>
 
-      <p className="txt2-f3"> 
+      <p className="txt2-f3"class="texto txt1-f32">
       Escarlate é a produtora mais desenvolvida no Brasil, e rumores dizem ser a melhor ja vista! 
       Aqui seus sonhos se tornam realidade 
       </p>
@@ -140,7 +140,7 @@ export default function LandingPage() {
 <nav className="faixa-4">
 <div className="sub-div-4">
    <div className="txt-1-f4">
-      <h1 className="titulo-f4">
+      <h1 className="titulo-f4" class="faixa4 titulof4" >
       SOBRE NOSSOS ARTISTAS,
       </h1>
 

@@ -12,7 +12,8 @@
     background: #A83F37;
     }
 
-    @media screen and (max-width: 480px){
+    //iphone se
+    @media only screen and (max-width: 480px) and (min-width:320px){
        .cabeçalho{ 
         font-size: 2em;
         display: flex;
@@ -109,10 +110,166 @@
                 
             
         }
-        
+        .imagemf2{
+            width: 25vh;
+            height: 25vh;
+            margin-top: -35.5em;
+            margin-left: 2em ;
+        }
+        .titulo2{
+            width: 400px;
+            height: 162px;
+            text-shadow: -4px 2px 2px #000000;
+            margin-left: -24em;
+            color: #FFFFFF;
+            font-family: 'CinzelDecorative-Regular';
+            font-style: normal;
+            font-weight: 200;
+            font-size: 20px;
+            margin-top: -25vh;
+            line-height: 26px;
+            text-align: right;
+            text-indent: 3px;
+            text-transform: capitalize;
+            font-feature-settings: 'kern' off;
+            -webkit-text-stroke:#000000;
+            -webkit-text-stroke-width: 0.25px;
+        }
+        .subtitulo2{
+        text-indent: 3px;
+        font-family: 'Cinzel-Regular';
+        font-style: normal;
+        margin-left:-27em;
+        text-align: center;
+        margin-top: -6.55em;
+        font-size: 15px;
+        color: #FFFFFF; 
+        -webkit-text-stroke:#000000;
+        -webkit-text-stroke-width: 0.2px;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);   
+        width: 300px;
+        }
+              
+    .icon-um, .icon-dois, .icon-tres {
+        width: 25vh;
+        height: 22vh;
+ 
+    } 
+    .icon-um{
+       
+        flex-direction: column;
+        margin-left: -7em;
+        margin-top: -7em;
+       
+    } 
+    
+     .text-um{
+        font-family: 'Cinzel-Regular';
+        width: 240px;
+        font-size: 16px;
+        line-height: 25px;
+        text-align: center;
+        margin-top: -7em;
+        display: flex;
+        justify-content: space-around;
+        color: #FFFFFF;
+        font-weight: 100px;
+        -webkit-text-stroke:#000000;
+        -webkit-text-stroke-width: 0.25px;
+     }
+
+     .icon-dois{
+        flex-direction: column;
+        margin-left: -29.5em;
+        margin-top: 2em;
+     }
+
+     .text-dois{
+        font-family: 'Cinzel-Regular';
+        width: 240px;
+        font-size: 16px;
+        line-height: 25px;
+        text-align: center;
+        margin-top:-8em;
+        margin-left: -22em;
+        display: flex;
+        justify-content: space-around;
+        color: #FFFFFF;
+        -webkit-text-stroke:#000000;
+        -webkit-text-stroke-width: 0.25px;
+     }
+
+     .icon-tres{
+        flex-direction: column;
+        margin-left: -34.5em;
+        margin-top:  12em;
+     }
+     .text-tres{
+        font-family: 'Cinzel-Regular';
+        width: 240px;
+        font-size: 16px;
+        line-height: 25px;
+        text-align: center;
+        margin-top:-8em;
+        margin-left: -27em;
+        display: flex;
+        justify-content: space-around;
+        color: #FFFFFF;
+        -webkit-text-stroke:#000000;
+        -webkit-text-stroke-width: 0.25px;
+     } 
+
+     .imagemf3{
+        display: none;
+     }
+
+     .txt-f31{
+        font-family: 'Cinzel-Regular';
+        width: 400px;
+        font-size: 15px;
+        line-height: 15px;
+        text-align: center;
+        color: #FFFFFF;
+        -webkit-text-stroke:#000000;
+        -webkit-text-stroke-width: 0.25px;
+        display: flex;
+                justify-content: start;
+                word-spacing: -3px;
+                padding: 1em 4em;
+     }
+     .txt-f32{
+        font-family: 'Cinzel-Regular';
+        width: 400px;
+        font-size: 15px;
+        line-height: 15px;
+        text-align: center;
+        color: #FFFFFF;
+        -webkit-text-stroke:#000000;
+        -webkit-text-stroke-width: 0.25px;
+        display: flex;
+                justify-content: start;
+                word-spacing: -3px;
+                padding: 1em 4em;
+     }
+          
+     .txt1-f32{
+        -webkit-text-stroke:#000000;
+        -webkit-text-stroke-width: 0.25px;
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        word-spacing: 0px;
+        word-break: break-word;
+        display: flex;
+        justify-content: start;
+        word-spacing: 0px;
+        margin-top: 1em;
+        margin-bottom: 3em; 
+        font-family: 'Cinzel-Regular';
+    }
     }
 
-    
+    //desktop
     @media only screen and (max-width: 1241.9px) and (min-width: 1000px){
         .cabeçalho{
             display: flex;
@@ -145,7 +302,7 @@
                     font-family: 'CinzelDecorative-Regular';
                     font-style: normal;
                     font-weight: 450;
-                    font-size: 60px;
+                    font-size: 59px;
                     margin-left: 70px;
                     line-height: 54px;
                     color: #A83F37; 
@@ -292,7 +449,125 @@
             
         }
         
+     .txt-f31{
+        font-family: 'Cinzel-Regular';
+        width: 600px;
+        font-size: 15px;
+        line-height: 15px;
+        text-align: center;
+        color: #FFFFFF;
+        -webkit-text-stroke:#000000;
+        -webkit-text-stroke-width: 0.25px;
+        display: flex;
+        justify-content: center;
+        word-spacing: 2.1px;
+        margin-top: 12em;
+    
+     }
         
+        .titulo2{
+            width: 580px;
+            height: 162px;
+            text-shadow: -4px 2px 2px #000000;
+           
+            color: #FFFFFF;
+            font-family: 'CinzelDecorative-Regular';
+            font-style: normal;
+            font-weight: 200;
+            font-size: 38px;
+            line-height: 54px;
+            text-align: right;
+            text-indent: 3px;
+            text-transform: capitalize;
+            font-feature-settings: 'kern' off;
+            -webkit-text-stroke:#000000;
+            -webkit-text-stroke-width: 0.25px;
+        }
+        .subtitulo2{
+            text-align: right;
+            text-indent: 3px;
+            font-family: 'Cinzel-Regular';
+            font-style: normal;
+            
+            font-weight: 50px;
+            font-size: 26px;
+            color: #FFFFFF; 
+            -webkit-text-stroke:#000000;
+            -webkit-text-stroke-width: 0.4px;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);   
+            width: 580px;
+        }
+   
+        .text-um , .text-dois , .text-tres{
+            font-family: 'Cinzel-Regular';
+            width: 240px;
+            font-size: 16px;
+            line-height: 25px;
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            color: #FFFFFF;
+            font-weight: 100px;
+            -webkit-text-stroke:#000000;
+            -webkit-text-stroke-width: 0.25px;
+            }
+            .txt-f3, .txt1-f3 {
+                color: #FFFFFF;
+                font-family: 'Cinzel-Regular';
+                text-align: justify;
+                padding: 10em 4em;
+                padding-top: -1rem;
+                -webkit-text-stroke:#000000;
+            -webkit-text-stroke-width: 0.25px;
+            }
+        
+            .txt-f3{
+                display: flex;
+                justify-content: start;
+                word-spacing: -3px;
+                padding: 10em 4em;
+            }
+        
+            
+            .txt1-f3{
+                display: flex;
+                justify-content: start;
+                word-spacing: 0px;
+                padding: 10em 5em;
+            }
+            
+            .txt1-f32{
+                -webkit-text-stroke:#000000;
+                -webkit-text-stroke-width: 0.25px;
+                display: flex;
+                flex-direction: row;
+                text-align: center;
+                word-spacing: 0px;
+                word-break: break-word;
+                display: flex;
+                justify-content: start;
+                word-spacing: 0px;
+                padding: 10em 5em;   
+                font-family: 'Cinzel-Regular';
+            }
+           .titulof4{
+            left: calc(50% - 553px/2 - 349.5px);
+            top: calc(50% - 138px/2 - 114px);
+            font-family: 'CinzelDecorative-Black';
+            font-style: normal;
+            font-weight: 900;
+            font-size: 66px;
+            text-shadow: -9px 6px 8px #000000;
+            line-height: 94px;
+            text-transform: capitalize;
+            color: #FFFFFF;
+            -webkit-text-stroke:#000000;
+            -webkit-text-stroke-width: 1.7px;
+            mix-blend-mode: normal;
+            padding: 1em 5em;
+            padding-left: 2em;  
+           
+           }
      }
     
     
