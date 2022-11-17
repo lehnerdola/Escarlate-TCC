@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import PopUpEnviarPedido from '../../Components/Adm/popupEnviarPedido/index';
 import {toast, ToastContainer} from 'react-toastify';
 import PopUpCancelarPedido from '../../Components/popupCancelarPedido';
+import caminhao from '../../../assets/images/caminhao.png'
+import caminhaoCancelar from '../../../assets/images/Group 70.png'
 import MenuADM from '../../Components/Adm/menu';
 import storage from 'local-storage'
 import { motion } from 'framer-motion';
@@ -19,6 +21,11 @@ export default function Pedidos() {
         const pedido = await enviarPedido(id);
         carregarTodosPedidos();
         }
+
+        function abrirInfo(id){
+            navigate('/Pedidos/' + id)
+        }
+    
 
     const toggleModal = () => {
         setModalEnviar(!modalEnviar);
@@ -80,7 +87,7 @@ export default function Pedidos() {
 
                  <div className='botao-pedido-adm'>
                  <div className='enviar-pedido' onClick={toggleModal}>
-                 <img src={'../../assets/images/🦆 icon _truck check outline_.png'}/>
+                 <img src={caminhao} className='caminhao-enviado'/>
                  <div onClick={() =>enviarPedidoClick(item.idPedido)}> 
                  <button className='bt-pedido-enviar'>Enviar Pedido</button>
                  </div>
@@ -102,8 +109,10 @@ export default function Pedidos() {
     
                  </div>
                   <div className='cancelar-pedido'  onClick={toggleModalCancelar}>
-                   <img src={'../../assets/images/Group 68.png'}/>
+                  <img src={caminhaoCancelar} className='caminhao-enviado'/>
+                  <div>
                   <BotaoADM nome='Cancelar Pedido'/>
+                  </div>
                   {modalCancelar && (
                     <div className="modal-enviar-pedido">
                     <div className="overlay-enviar-pedido">

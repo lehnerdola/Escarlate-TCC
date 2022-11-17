@@ -1,0 +1,46 @@
+.cancelar-pedido-popup{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 30vh;
+    align-items: center;
+
+    span{
+  color: #A83F37;
+  
+    }
+
+    .txt-cancelar{
+        font-size: 20px;
+        width: 25vw;
+        text-align: center;
+        color: #000;
+    }
+
+    .botoes-cancelar{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 23vw;
+
+        .bt-nao{
+            padding: 6px;
+            width: 10vw;
+            margin-bottom: 1rem;
+            background-color: #1f1f1f;
+            font-family: 'Poppins-Regular';
+            color: #fff;
+            cursor: pointer;    
+        }
+        .bt-sim{
+            padding: 6px;
+            width: 10vw;
+            margin-bottom: 1rem;
+            background-color: #1f1f1f;
+            font-family: 'Poppins-Regular';
+            color: #A83F37;
+            cursor: pointer;   
+        }
+    }
+    
+}
