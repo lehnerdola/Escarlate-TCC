@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter,Route,Routes,} from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import LandingPage from './pages/LP/LandingPage';
 import Login from './pages/Login e Cadastro/Login';
@@ -34,7 +34,7 @@ import EditarCartao from './pages/MinhaConta/MeusCartoes/EditarCartao/index.js'
 
 export default function Index(){
     return(
-  <React.StrictMode>
+      <React.StrictMode>
   <BrowserRouter>
   <Routes>
     <Route exact path='/' element={<LandingPage/>} />
@@ -74,6 +74,10 @@ export default function Index(){
     <Route exact path='/FinalizacaoPagamento' element={<FinalPagamento/>}/>
     <Route exact path='/ArtistaProd/:id' element={<ArtistaProd/>}/>
     <Route exact path='/Editarcartao/:idParam' element={<EditarCartao/>}/>
+    <Route exact path='/MeusPedidos/:id' element={<Feed/>}/> 
+    <Route exact path='/ArtistaProd/:id' element={<ArtistaProd/>}/> 
+    <Route exact path='/Editarcartao/:idParam' element={<EditarCartao/>}/>
+
   </Routes>
   </BrowserRouter>
   </React.StrictMode>

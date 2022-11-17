@@ -47,10 +47,19 @@
         border: none;
         margin-left: 6.3em;
     }
+    .botao-login-adm:hover{
+        width: 100px;
+        height: 30px;
+        background: #000000;
+        border-radius: 10px;
+        margin-top: 1rem;
+        border: none;
+        margin-left: 6.3em;
+    }
     .bt-login-adm{
         color: #a3281f;
         font-size: 17px;
-        font-family: 'CinzelDecorative-Bold';
+        font-family: 'Poppins-Medium';
     }
     .logo{
         margin-bottom: 20px;

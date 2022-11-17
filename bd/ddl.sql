@@ -2,6 +2,28 @@
 create database Escarlate;
 use Escarlate;
 
+create table tb_artista_categoria(
+id_artista_categoria int primary key auto_increment,
+ds_categoria varchar(250) 
+);
+
+create table tb_artista_categoria_musical (
+id_artista_categoria_musical int primary key auto_increment,
+ds_categoria_musical varchar(150)
+);
+
+create table tb_artista(
+id_artista int primary key auto_increment,
+id_artista_categoria_musical int,
+id_artista_categoria int,
+nm_artista varchar(150) ,
+ds_artista varchar(150) ,
+img_artista varchar(700),
+
+foreign key (id_artista_categoria_musical) references tb_artista_categoria_musical(id_artista_categoria_musical),
+foreign key (id_artista_categoria) references tb_artista_categoria(id_artista_categoria)
+);
+
 create table tb_musica(
 id_musica int primary key auto_increment,
 id_artista int,
@@ -16,28 +38,6 @@ create table tb_admin_login(
 id_login_admin int primary key auto_increment,
 nr_cpf varchar(50) not null,
 ds_senha varchar(50) not null
-);
-
-create table tb_artista_categoria_musical (
-id_artista_categoria_musical int primary key auto_increment,
-ds_categoria_musical varchar(150)
-);
-
-create table tb_artista_categoria(
-id_artista_categoria int primary key auto_increment,
-ds_categoria varchar(250) 
-);
-
-create table tb_artista(
-id_artista int primary key auto_increment,
-id_artista_categoria_musical int,
-id_artista_categoria int,
-nm_artista varchar(150) ,
-ds_artista varchar(150) ,
-img_artista varchar(700),
-
-foreign key (id_artista_categoria_musical) references tb_artista_categoria_musical(id_artista_categoria_musical),
-foreign key (id_artista_categoria) references tb_artista_categoria(id_artista_categoria)
 );
 
 create table tb_categoria(
@@ -95,7 +95,6 @@ vl_frete decimal(15,2),
 cod_notafiscal varchar(200),
 dt_pedido datetime,
 ds_status varchar(30),
-
 
 foreign key (id_usuario) references tb_usuario(id_usuario),
 foreign key (id_usuario_end) references tb_usuario_endereco(id_usuario_end)

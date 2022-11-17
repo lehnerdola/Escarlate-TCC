@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import Storage from 'local-storage'
 import { loginUsuario } from "../../api/usuarioAPI.js";
 import LoadingBar from "react-top-loading-bar";
+import {motion} from 'framer-motion';
 
 
 export default function Login() {
@@ -11,10 +12,33 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [erro, setErro] = useState('');
+  const [icon, setIcon] = useState('/assets/images/icons8-ocultar-30.png');
+  const [type, setType] = useState('password');
+  const [isopen, setIsopen] = useState(false);
+
   const [carregando, setCarregando] = useState(false);
-  const ref = useRef();
+  
 
   const navigate = useNavigate();
+  const ref = useRef();
+
+  const variants = {
+    open: {opacity: [0,1], y:[-1,0], duration:1},
+    closed:{opacity: [0,1], y:[2,0]}
+}
+
+const handleToogle=() => {
+    if(type=== "password"){
+        setIcon('/assets/images/icons8-visível-30.png')
+        setType('text')
+        setIsopen(true)
+    }
+    else{
+        setIcon('/assets/images/icons8-ocultar-30.png')
+        setType('password')
+        setIsopen(false)
+    }
+}
 
   async function entrarClick() {
     ref.current.continuousStart();
@@ -55,18 +79,19 @@ export default function Login() {
           <div className="tit-login">
             <h1 className="txt-1-login">BEM VINDO, <span className='txt-align-login'>DE VOLTA</span></h1>
           </div>
-          <img src={'../../assets/images/image_processing20200408-11472-15bdle1-removebg-preview 1.png'} width={350} />
+          <img className="sthm" src={'../../assets/images/image_processing20200408-11472-15bdle1-removebg-preview 1.png'} width={440} />
         </section>
 
         <section className="sec-2-login">
           <div className="info-sec-2">
-            <img src={'../../assets/images/Captura de Tela (2).png'} width={170} />
+            <img className="logo-login" src={'../../assets/images/Captura de Tela (2).png'} width={170} />
 
             <div className='input-login-div'>
               <p className="txt-input-login">Email: <span className="cor">*</span></p>
-              <input type='text' className="input-login" value={email} onChange={e => setEmail(e.target.value)} />
+              <input type='text' className="sinput-login" value={email} onChange={e => setEmail(e.target.value)} />
               <p className="txt-input-login">Senha: <span className="cor">*</span></p>
-              <input type='password' className="input-login" value={senha} onChange={e => setSenha(e.target.value)} />
+              <input className="sinput-login"  required="required" type={type} id="pass" value={senha}  onChange={e => setSenha(e.target.value)}/>
+              <motion.img src={icon} onClick={handleToogle}className='sconf-olho'  animate={isopen ? "open" : "closed"} variants={variants} width={26}/> 
             </div>
 
             <div className="div-txt-login">
@@ -85,7 +110,7 @@ export default function Login() {
           <div className='div-adm-login'>
             <img src={'../../assets/images/1659570118266 1.png'} className='img-cobra' />
             <Link to='/LoginADM'>
-              <p className='txt-login-div'>Sou <span className='login-cor'>Adm</span></p>
+              <p className='txt-login-div-adm'>Sou <span className='login-cor-adm'>Adm</span></p>
             </Link>
           </div>
         </section>

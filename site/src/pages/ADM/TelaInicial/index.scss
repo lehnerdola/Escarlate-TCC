@@ -20,6 +20,8 @@
 
    .conf-card-produto{
     cursor: default;
+    text-decoration: underline #1f1f1f;
+
    }
 
     .tit-tela-inicial-adm{
@@ -36,7 +38,7 @@
         flex-wrap: wrap;
         justify-content: space-around;
         align-items: center;
-
+        text-decoration: underline #1f1f1f;
     }
 
     .exit-icon{

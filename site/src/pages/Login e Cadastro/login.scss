@@ -5,6 +5,8 @@
     align-items: center;
     padding-top: 6em;
     width: 95%;
+    margin-top: 15vh;
+    
 
     .sec-1-login{
         display: flex;
@@ -19,7 +21,7 @@
 
       .txt-1-login{
         font-family: 'CinzelDecorative-Black';
-        font-size: 30px;
+        font-size: 35px;
     }
 
     .txt-2-login{
@@ -39,8 +41,9 @@
         background-color: #1f1f1f;
         align-items: center;
         width: 40vw;
-        height: 75vh;
+        height: 51vh;
         border-radius: 25px;
+        
     }
 
    .input-login-div{
@@ -50,7 +53,7 @@
     height: 25vh;
    }
 
-    .input-login{
+    .sinput-login{
         height: 4.5vh;
         border-radius: 7px;
         width: 20vw;
@@ -67,7 +70,7 @@
     }
 
     .img-cobra{
-        width: 7em;
+        width: 6em;
         height: 12em;
     }
 
@@ -81,6 +84,14 @@
     .txt-login-div{
         color: #fff;
         font-size: 15px;
+        text-decoration: underline #1f1f1f;
+        font-family: 'Poppins-Regular';
+    }
+
+    .txt-login-div-adm{
+        color: #fff;
+        font-size: 15px;
+        text-decoration: underline #1f1f1f;
         font-family: 'Poppins-Regular';
     }
 
@@ -91,8 +102,25 @@
         color: rgb(175, 46, 46);
     }
 
+    .login-cor-adm{
+        text-decoration: underline;
+        font-size: 15px;
+        font-family: 'Poppins-Medium';
+        color: rgb(175, 46, 46);
+    }
+
     .bt-login-usuario{
         background-color: #fff;
+        border-radius: 10px;
+        border: none;
+        padding: 0.5em;
+        width: 5em;
+        height: 2.5em;
+        text-align: center;
+        align-items: center;
+    }
+    .bt-login-usuario:hover{
+        background-color: rgb(0, 0, 0);
         border-radius: 10px;
         border: none;
         padding: 0.5em;
@@ -117,3 +145,102 @@
     }
 }
 
+.sconf-olho{
+    margin-left: 11.5em;
+    width: 1em;
+    position: relative;
+    top: -2.9999999999em;
+    left: 3em;
+   }
+
+   @media only screen and (max-width: 480px) and (min-width: 320px) {
+    .txt-1-login{
+        font-size: clamp(1em, 1em + 1vw, 1.5em);
+        margin-top: -11em;
+        margin-left: 7.1em;    
+    }
+
+    .sthm{
+        max-width: 36%;
+        margin-top: -27em;
+        margin-left: 50em;
+
+    }
+
+    .logo-login{
+        max-width: 80%;
+        margin-top: 4em;
+        margin-left: -0.4em;
+    }
+
+    .input-login-div{
+        max-width: 75%;
+        max-height: 60%;
+        margin-top: 4em;
+        margin-left: 4em;
+    }
+
+    .sec-2-login{
+        max-width: 75%;
+        max-height: 60%;
+        position: relative;
+        top: 4em;
+        left: -24em;        
+        padding: 0em 16em 0em 14em;
+    }
+
+    .txt-input-login{
+        max-width: 70%;
+        position: relative;
+        top: -4.5em;
+        left: -4em;
+    }
+
+    .sinput-login{
+        max-width: 70%;
+        max-height: 70%;
+        position: relative;
+        top: -5.8em;
+        left: -4.8em;
+    } 
+
+    .sconf-olho{
+        max-width: 100%;
+        position: relative;
+        top: -6.4em;
+        left: -9.4em;
+    }
+
+    .txt-login-div{
+        font-size: 4rem;
+        position: relative;
+        top: -7.5em;
+        right: 0.5em;
+    }
+
+    .login-cor{
+        font-size: 4rem;
+        position: relative;
+        top: -7.7em;
+        left: -0.6em;
+    }
+
+    .bt-login-usuario{
+        padding: 0em;
+        position: relative;
+        top: -8.9em;
+    }
+
+    .img-cobra{
+        position: relative;
+        top: -3em;
+        left: 3em;        
+    }
+
+    .txt-login-div-adm{
+        font-size: 4rem;
+        position: relative;
+        top: -3em;
+        left: 3.43em;
+    }   
+}
