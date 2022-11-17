@@ -1,7 +1,17 @@
-.enviar-pedido{
+.enviar-pedido-popup{
     display: flex;
+    justify-content: center;
     flex-direction: column;
+    height: 30vh;
     align-items: center;
+
+    span{
+        color: #37A83C;
+    }
+
+    p{
+        margin-top: 30px;
+    }
 
     .txt-popup-pedido{
         font-family: 'Poppins-Regular';

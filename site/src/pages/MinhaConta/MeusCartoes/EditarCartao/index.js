@@ -63,27 +63,36 @@ export default function EditarCartao() {
                 </div>
                 <p>Edite seu cartão</p>
             </header>
-                <article>
-                <Cards
+                <article className="editar-cartao">
+              
+                    <section className="editar-cartao-sec" >
+                    <Cards
                     number={numero}
                     name={nomeCartao}
                     cvc={cvv}
                     expiry={vencimento}
-            />
-                    <section >
-                        <div>
-                            <div>
-                                <p>Número do cartão:</p>
-                                <input name="numero" value={numero} onChange={e => setNumero(e.target.value)}/>
+                     />
+                        <div className="inputs-editar-cartao">
+                            <div className="align-num-nome">
 
+                                <div className="align-input-cartao">
+                                <p>Número do cartão:</p>
+                                <input name="numero" value={numero} onChange={e => setNumero(e.target.value)} className='input-num-nome'/>
+                                </div>
+                                <div className="align-input-cartao">
                                 <p>Nome registrado no cartão:</p>
-                                <input name="nome" value={nomeCartao} onChange={e => setNomeCartao(e.target.value)}/>
+                                <input name="nome" value={nomeCartao} onChange={e => setNomeCartao(e.target.value)} className='input-num-nome'/>
+                                </div>
                             </div>
-                            <div>
+                            <div className="align-cvv-validade">
+                              <div className="align-input-cartao">
                                 <p>CVV:</p>
                                 <input max={2} name="cvc" value={cvv} onChange={e => setCvv(e.target.value)}/>
+                                </div>
+                                <div className="align-input-cartao">
                                 <p>Validade:</p>
                                 <input name="validade"  value={vencimento} onChange={e => setVencimento(e.target.value)}/>
+                                </div>
                             </div>
                         </div>
                         <button onClick={alterarCartao}>Alterar Cartão</button>

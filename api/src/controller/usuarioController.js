@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { AdicionarImagem, alterarSenha, alterarUsuario, cadastrarUsuario, EditarCartao, ExcluirCartao, listarPedidosUsuario, loginUsuario, TodosUsuarios,  VerCartoes,  VerCartoesUsuario, verificarEmail, verificarSenha, verPerfil  } from "../repository/usuarioRepository.js";
+import { AdicionarImagem, alterarSenha, alterarUsuario, cadastrarUsuario, compraCancelada, EditarCartao, ExcluirCartao, listarPedidosUsuario, loginUsuario, TodosUsuarios,  VerCartoes,  VerCartoesUsuario, verificarEmail, verificarSenha, verPerfil  } from "../repository/usuarioRepository.js";
 import multer from "multer";
 
 const upload = multer({ dest: 'storage/usuario' })
@@ -232,4 +232,19 @@ server.put('/usuario/cartao/:id', async (req,resp) => {
     }
 })
 
+server.put('/cancelarCompra/:id', async (req, resp) => {
+    try {
+        const { id } = req.params;
+
+        const resposta = await compraCancelada(id);
+
+        resp.status(204).send()
+    }
+    catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+
+});
 export default server;

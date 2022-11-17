@@ -104,6 +104,10 @@
     .trigger-input{
         display: none;
     }
+
+    .botao-voltar-endereco{
+        margin-left: 35em;
+    }    
 }
 
 body.active-modal {
@@ -142,6 +146,7 @@ body.active-modal {
     height: 60vh;
     overflow: auto;
 }
+
 
 .close-modal {
     position: absolute;

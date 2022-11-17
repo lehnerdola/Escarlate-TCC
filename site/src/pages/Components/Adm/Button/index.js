@@ -1,7 +1,8 @@
 import './index.scss'
 import { motion } from 'framer-motion'
-
+import { useNavigate } from 'react-router-dom'
 export default function BotaoADM(props){
+
     return(
         <div onClick={props.click}>
             <motion.button className='botao-adm'

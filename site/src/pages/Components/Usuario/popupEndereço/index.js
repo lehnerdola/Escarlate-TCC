@@ -10,15 +10,8 @@ export default function CardEndereco({ item:{id,nomeRemetente, estado, cidade, b
     
     const [enderecos, setEnderecos] = useState([]); 
 
-    async function deletarEndereco(id) {
-	const resposta = await removerEndereco(id);
-	carregarEnderecos();
-	toast.success("Endereço removido!");
-}
-
-
     async function carregarEnderecos(){
-    const id =Storage('cliente-logado').id_usuario;
+    const id = Storage('cliente-logado').id_usuario;
     const r = await listarEnderecos(id);
     setEnderecos(r)
   }
@@ -35,11 +28,14 @@ export default function CardEndereco({ item:{id,nomeRemetente, estado, cidade, b
 
     return(
         <main className="align-endereços">
+            <ToastContainer/>
+
         <div onClick={() => selecionar(id)} className='meus-enderecos' style={{borderColor: selecionado ? '#ff8279' :'#A83F37' }} >
         <div  >
         <div> 
-        <img src={'../assets/images/trash.png'} width={30}  onClick={() => deletarEndereco(id)}/>
         </div>
+
+
         <h1>{nomeRemetente}</h1>
         <p>{estado}</p>
         <p>{cidade}</p>
@@ -47,6 +43,8 @@ export default function CardEndereco({ item:{id,nomeRemetente, estado, cidade, b
         <p>{logradouro}</p>
         </div>
         </div>
+
+
         </main>
     )
 }
