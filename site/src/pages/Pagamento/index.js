@@ -121,7 +121,7 @@ export default function Pagamento() {
 
     return (
         <main className="pagamento">
-
+            <ToastContainer/>
             <header className='header'>
                 <div className='sub-header-1'>
                     <Link to='/Feed'>

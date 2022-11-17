@@ -1,7 +1,8 @@
 import { Router } from "express";
 import multer from 'multer';
 import randomString from 'randomstring'
-import { salvarProduto, inserirImagemProduto, alterarProduto, excluirProduto, consultarTodosProdutos, consultarProdutosPorId, buscarProdutoPorNome, inserirPedido, inserirPagamento, inserirPedidoItem, pedidoEnviado, pedidoCancelado, consultarTodosPedidos, consultarTodosPedidosEntregues, consultarTodosPedidosCancelados } from "../repository/produtoRepository.js";
+import { salvarProduto, inserirImagemProduto, alterarProduto, excluirProduto, consultarTodosProdutos, consultarProdutosPorId, buscarProdutoPorNome, inserirPedido, inserirPagamento, inserirPedidoItem, pedidoEnviado, pedidoCancelado, consultarTodosPedidos, consultarTodosPedidosEntregues, consultarTodosPedidosCancelados,
+     listarCompras, cardClientesADM } from "../repository/produtoRepository.js";
 import { criarNovoPedido, gerarNotaFiscal, validarProduto } from "../service/produtoValidacao.js";
 
 const server = Router();
@@ -207,6 +208,21 @@ server.get('/pedidos/cancelados', async (req, resp) => {
     try {
         const resposta = await consultarTodosPedidosCancelados();
         resp.send(resposta);
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/adm/clientes', async (req, resp) => {
+    try {
+        const resposta = await cardClientesADM();
+        const resp2 = await listarCompras(resposta.clientes.id)
+        resp.send({
+            clientes:resposta,
+            compras:resp2
+        })
     } catch (err) {
         resp.status(404).send({
             erro: err.message

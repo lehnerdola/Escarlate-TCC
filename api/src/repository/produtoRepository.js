@@ -301,3 +301,28 @@ const c = `
 `
 }
 
+export async function listarCompras(id) {
+    const comando = `
+    select id_usuario   id,
+    FLOOR(COUNT(tb_pedido.id_usuario) / 3) as 'compras'
+    FROM tb_pedido
+    where id_usuario = ?
+
+    `
+    const [linhas] = await con.query(comando, [id])
+    return linhas
+}
+
+export async function cardClientesADM() {
+    const comando = `
+    select
+        id_usuario      id,
+        nm_usuario		nome,
+        ds_email		email
+        from tb_usuario
+
+    `
+    const [linhas] = await con.query(comando)
+    return linhas
+}
+

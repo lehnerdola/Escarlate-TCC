@@ -37,8 +37,8 @@ export default function Carrinho(){
     carregarCarrinho();
   }
 
+  let total = 0;
   function carregarValorTotal(){
-    let total = 0;
     for (let item of itens){
       total = total + item.produto.info.preco * item.quantidade;    
     }
@@ -48,6 +48,14 @@ export default function Carrinho(){
   useEffect(() => {
       carregarCarrinho();
   }, [])
+
+  function pegarPreco() {
+    const preco = {
+      "preco": total
+    }
+    Storage("preco", preco)
+    
+  }
 
 return(
  <main className="corzinha-cart">
@@ -90,7 +98,7 @@ return(
     </div>
 
     <Link to='/Endereco'>  
-    <div>
+    <div onClick={pegarPreco}>
     <BotaoADM nome='Continuar Pedido'/>  
     </div>
     </Link>

@@ -336,3 +336,14 @@ select
     join tb_usuario_endereco on tb_pedido.id_usuario_end = tb_usuario_endereco.id_usuario_end
     join tb_produto on tb_pedido_item.id_produto = tb_produto.id_produto
     where ds_status = 'Pedido cancelado!'
+
+    select FLOOR(COUNT(tb_pedido.id_usuario) / 3) as 'compras',
+		nm_usuario		nome,
+        ds_email		email,
+        ds_cidade		cidade,
+        ds_bairro		bairro,
+        nr_endereco		endereco
+FROM tb_pedido
+inner join tb_usuario on tb_usuario.id_usuario = tb_pedido.id_usuario
+inner join tb_usuario_endereco on tb_usuario_endereco.id_usuario = tb_usuario.id_usuario
+where tb_pedido.id_usuario = 1;

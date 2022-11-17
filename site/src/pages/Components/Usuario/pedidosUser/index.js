@@ -62,7 +62,7 @@ export default function PedidosUser() {
          </div>   
          <div className='valor-compra'>
          <p className='txt-conf'>Valor da compra:</p>
-         <p className='txt-conf-pedidos'>R$50,00</p>
+         <p className='txt-conf-pedidos'>R${storage("preco").preco}</p>
          </div>   
          </div>
          <motion.button className='bt-cancelar-compra'

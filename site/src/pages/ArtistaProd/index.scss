@@ -18,10 +18,14 @@
     }
 
     .img-artista{
-        width: 230px;
-        height: 230px;
+        margin-left: 10em;
+        border-radius: 100px;
+        min-width: 200px;
+        height: 200px;
+        max-width: 210px;
+        width: 100%;
+
         object-fit: cover;
-        border-radius: 150px;
     }
 
     .txt-artistaprod{
@@ -37,9 +41,8 @@
         line-height: 94px;
         text-transform: capitalize;
         color: #FFFFFF;
-        -webkit-text-stroke:#000000;
-        -webkit-text-stroke-width: 1.7px;
-        mix-blend-mode: normal;
+        text-align: center;
+    
     }
 
     .desc-artista{
@@ -47,7 +50,7 @@
         font-weight: 100;
         color: #FFFFFF;
         font-size: 20px;
-        text-align:start;
+        text-align: center;
         width: 30vw;
     }
 

@@ -5,6 +5,13 @@
     align-items: center;
     height: 100vh;
     
+    .categoria-align{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+    }
+
     .faixa-1-todos-prod{
         display: flex;
         flex-direction: row;
