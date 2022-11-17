@@ -219,6 +219,6 @@ export async function enviarPedido(id){
     return r.data;
 }
 export async function cancelarPedido(id){
-    const r = api.put('/cancelarPedido/' + id)
-    return r.data;
+    const r = api.put(`/cancelarPedido/${id}`)
+    return r.status;
 }

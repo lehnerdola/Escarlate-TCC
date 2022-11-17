@@ -196,3 +196,15 @@ export async function listarPedidosUsuario(id){
     const [resp] = await con.query(c,[id]);
     return resp;
 }
+
+export async function compraCancelada(id) {
+    const c =
+        `
+    update tb_pedido
+    set ds_status = 'Compra cancelada!'
+    where id_pedido = ? 
+    `;
+
+    const [resposta] = await con.query(c, [id])
+    return resposta.affectedRows;
+}

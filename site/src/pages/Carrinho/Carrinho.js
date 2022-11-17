@@ -96,10 +96,6 @@ return(
     </Link>
     </section>
     </div>
-
-  <footer className="rdp-carrinho">
-      <Rodape/>
-  </footer>
     
  </main>
 )

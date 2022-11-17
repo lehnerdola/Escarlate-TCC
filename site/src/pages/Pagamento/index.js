@@ -199,6 +199,8 @@ export default function Pagamento() {
                             >
 
                                 <div className="modal-content-pagamento" >
+                                <img onClick={toggleModal} className='botao-voltar-endereco' src="../assets/images/icons8-close-50.png"/>
+
                                     {enderecos.map(item =>
                                         <div onClick={() => selecionarEndereco(item.id)}>
                                             <CardEndereco item={item} selecionar={setIdEndereco} selecionado={item.id === idEndereco} />
@@ -206,7 +208,6 @@ export default function Pagamento() {
                                         </div>
                                     )}
                                 </div>
-                                <button onClick={toggleModal}>Voltar</button>
 
                             </motion.div>
                         </div>

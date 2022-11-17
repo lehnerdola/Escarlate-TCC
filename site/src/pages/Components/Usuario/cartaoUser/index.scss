@@ -5,7 +5,7 @@
     .ifos-cartao{
         display: flex;
         height: 35vh;
-        width: 35vw;
+        width: 45vw;
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
@@ -18,6 +18,12 @@
         width: 3.5rem;
         
         text-align: center;
+    }
+
+    .BT-CARD{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
 

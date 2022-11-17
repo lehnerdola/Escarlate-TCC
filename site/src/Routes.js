@@ -44,6 +44,7 @@ export default function Index(){
     <Route exact path='/TodosProdutos/:id' element={<TodosProdutos/>}/>
     <Route exact path='/Produtos' element={<Produtos/>}/>  
     <Route exact path='/Pedidos' element={<Pedidos/>}/>  
+    <Route exact path='/Pedidos/:id' element={<Pedidos/>}/>
     <Route exact path='/MeusPedidos' element={<MeusPedidos/>}/>  
     <Route exact path='/CadProdutos' element={<CadProdutos/>}/>  
     <Route exact path='/CadArtistas' element={<CadArtistas/>}/> 

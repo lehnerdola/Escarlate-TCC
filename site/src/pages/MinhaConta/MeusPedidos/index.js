@@ -1,7 +1,7 @@
 
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import { verPerfil, ListarPedidosUsuario } from '../../../api/usuarioAPI';
+import { verPerfil, ListarPedidosUsuario ,cancelarPedido} from '../../../api/usuarioAPI';
 import Menu from '../../Components/Usuario/menuMinhaConta/index.js'
 import PedidosUser from "../../Components/Usuario/pedidosUser/index.js";
 import storage from 'local-storage';
@@ -18,6 +18,8 @@ export default function MeusPedidos(){
         const resp = await ListarPedidosUsuario(id)
         setPedido(resp)
     }
+
+
 
     async function carregarPerfilUsuario() {
         const resp = await verPerfil(id);

@@ -3,9 +3,10 @@ import { motion } from 'framer-motion'
 import storage from 'local-storage';
 import { useState, useEffect } from 'react';
 import './index.scss'
-import { ListarPedidosUsuario } from '../../../../api/usuarioAPI';
+import { ListarPedidosUsuario,cancelarPedido} from '../../../../api/usuarioAPI';
 import Menu from '../menuMinhaConta';
 import { buscarPorId } from '../../../../api/adminAPI';
+import { toast, ToastContainer } from 'react-toastify';
 
 export default function PedidosUser() {
     const [pedido, setPedido] = useState([]);
@@ -16,6 +17,13 @@ export default function PedidosUser() {
         const resp = await ListarPedidosUsuario(id)
         setPedido(resp)
     }
+
+    async function cancelarCompraClick(id) {
+        const pedido = await cancelarPedido(id);
+        CarregarPedidos();
+        toast.success('Compra cancelada!')
+    }
+
 
     async function CarregarInfoProduto(id){
         const resp = await buscarPorId(id)
@@ -29,7 +37,7 @@ export default function PedidosUser() {
 
     return (
         <nav className='meuspedis'>
-        
+        <ToastContainer/>
         {pedido.map (item =>
 
         <div className="info-pedido">
@@ -65,12 +73,15 @@ export default function PedidosUser() {
          <p className='txt-conf-pedidos'>R$50,00</p>
          </div>   
          </div>
+         <div  onClick={() => cancelarCompraClick(item.idPedido)}>
          <motion.button className='bt-cancelar-compra'
             whileHover={{ scale: 1.2 }}
             onHoverStart={e => {}}
             onHoverEnd={e => {}}>
           Cancelar compra
          </motion.button>
+         </div>
+  
          </div>
          
          </div>

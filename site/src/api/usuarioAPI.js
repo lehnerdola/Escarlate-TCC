@@ -131,3 +131,8 @@ export async function ArtistaProduto(id){
     const r = await api.get(`/artista/${id}/produto`);
     return r.data
 }
+
+export async function cancelarPedido(id){
+    const r = api.put(`/cancelarCompra/${id}`)
+    return r.status;
+}
