@@ -75,6 +75,9 @@ export default function Index(){
     <Route exact path='/ArtistaProd/:id' element={<ArtistaProd/>}/>
     <Route exact path='/Editarcartao/:idParam' element={<EditarCartao/>}/>
     <Route exact path='/MeusPedidos/:id' element={<Feed/>}/> 
+    <Route exact path='/ArtistaProd/:id' element={<ArtistaProd/>}/> 
+    <Route exact path='/Editarcartao/:idParam' element={<EditarCartao/>}/>
+
   </Routes>
   </BrowserRouter>
   </React.StrictMode>
