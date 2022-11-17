@@ -72,12 +72,9 @@ export default function Index(){
     <Route exact path='/editarperfil' element={<EditarConta/>}/>
     <Route exact path='/alterarperfil/:id' element={<EditarConta/>}/>
     <Route exact path='/FinalizacaoPagamento' element={<FinalPagamento/>}/>
-<<<<<<< HEAD
-    <Route exact path='/ArtistaProd/:id' element={<ArtistaProd/>}/> 
-=======
     <Route exact path='/ArtistaProd/:id' element={<ArtistaProd/>}/>
     <Route exact path='/Editarcartao/:idParam' element={<EditarCartao/>}/>
->>>>>>> 3ab8ae0bb26f9b71e7bbb730bdac8f7e9d7290b6
+    <Route exact path='/MeusPedidos/:id' element={<Feed/>}/> 
   </Routes>
   </BrowserRouter>
   </React.StrictMode>

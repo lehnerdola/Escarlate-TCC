@@ -295,7 +295,9 @@ export async function consultarTodosPedidosCancelados() {
 }
 
 
-export async function listarTodasCategorias(){
-
+export async function CancelarCompraUsuario(){
+const c = `
+    
+`
 }
 

@@ -5,9 +5,11 @@ import { useState, useEffect } from 'react';
 import './index.scss'
 import { ListarPedidosUsuario } from '../../../../api/usuarioAPI';
 import Menu from '../menuMinhaConta';
+import { buscarPorId } from '../../../../api/adminAPI';
 
 export default function PedidosUser() {
     const [pedido, setPedido] = useState([]);
+    const [produto, setProduto] = useState([]);
     const id = storage('cliente-logado').id_usuario
 
     async function CarregarPedidos(){
@@ -15,12 +17,19 @@ export default function PedidosUser() {
         setPedido(resp)
     }
 
+    async function CarregarInfoProduto(id){
+        const resp = await buscarPorId(id)
+        setProduto(resp)
+    }
+
     useEffect(()=>{
         CarregarPedidos();
+        CarregarInfoProduto();
     }, [])
 
     return (
         <nav className='meuspedis'>
+        
         {pedido.map (item =>
 
         <div className="info-pedido">
@@ -31,7 +40,13 @@ export default function PedidosUser() {
 
          <div className='img-pedido'>
             <p>{item.nomeProduto}</p>
-         <p>Ver informações do produto:</p>
+            <div>
+            <p>Ver informações do produto:</p>
+            {produto.map (item =>
+                <p>{item.info.preco}</p>
+                )}
+            </div>
+            
          </div>
          
          </div>
@@ -61,7 +76,8 @@ export default function PedidosUser() {
          </div>
          )}
 
-         
+
+
          </nav>
     )
 }
