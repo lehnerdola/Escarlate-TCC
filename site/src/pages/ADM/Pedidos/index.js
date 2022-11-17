@@ -7,7 +7,7 @@ import MenuADM from '../../Components/Adm/menu';
 import storage from 'local-storage'
 import { motion } from 'framer-motion';
 import BotaoADM from '../../Components/Adm/Button'
-import { listarPedidos,buscarImagem, enviarPedido } from '../../../api/adminAPI.js';
+import { listarPedidos,buscarImagem, enviarPedido,cancelarPedido } from '../../../api/adminAPI.js';
 import { useNavigate } from 'react-router-dom';
 
 export default function Pedidos() {
@@ -17,6 +17,11 @@ export default function Pedidos() {
 
         async function enviarPedidoClick(id){
         const pedido = await enviarPedido(id);
+        carregarTodosPedidos();
+        }
+
+        async function cancelarPedidoClick(id){
+        const pedido = await cancelarPedido(id);
         carregarTodosPedidos();
         }
 
