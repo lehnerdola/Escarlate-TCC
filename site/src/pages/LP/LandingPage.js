@@ -144,27 +144,27 @@ export default function LandingPage() {
       SOBRE NOSSOS ARTISTAS,
       </h1>
 
-      <h2 className="subtitulo-f4">
+      <h2 className="subtitulo-f4" class="faixa4 subtitulof4">
       Todos os hits do momento você aqui conosco
       </h2>
       <div className="txt-f4-div">
-      <p className="txt-f4">
+      <p className="txt-f4" class="faixa4 txtf4">
          As maiores estrelas do rock você já ouviu 
       </p>
-      <p className="txt2-f4"> 
+      <p className="txt2-f4" class="faixa4 txt2"> 
          Conheça nossos artistas
       </p>
       </div>
    </div>
 
    <div className="artistas-f4">
-      <div className='div-artistas'>
-      <Link to='/NossosArtistas' className="link">  
-         <img className='img-artista' src={'../../assets/images/ramones.png'} alt="" width={240}/>
-         <img className='img-artista' src={'../../assets/images/bowie.png'} alt="" width={240}/>
-         <img className='star' src={'../../assets/images/star_24px.png'} alt="" width={101.7}/>         
-         <img className='img-artista' src={'../../assets/images/pinkfloyd.png'} alt="" width={240}/>
-         <img className='img-artista' src={'../../assets/images/kiss.png'} alt="" width={240}/>
+      <div className='div-artistas' class="faixa4 divartistas">
+      <Link to='/NossosArtistas' className="link" class="faixa4 links">  
+         <img className='img-artista' class="faixa4 imgartista" src={'../../assets/images/ramones.png'} alt="" width={240}/>
+         <img className='img-artista' class="faixa imgartista" src={'../../assets/images/bowie.png'} alt="" width={240}/>
+         <img className='star' class="faixa star" src={'../../assets/images/star_24px.png'} alt="" width={40} height={20}/>         
+         <img className='img-artista' class="faixa4 imgartista" src={'../../assets/images/pinkfloyd.png'} alt="" width={240}/>
+         <img className='img-artista' class="faixa4 imgartista" src={'../../assets/images/kiss.png'} alt="" width={240}/>
       </Link>
       </div>
 
