@@ -128,3 +128,144 @@
 }
 }
 
+@media screen and (max-width:1920px) and (min-width:1750px) 
+{
+    .page-cadastro{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding-top: 6em;
+        width: 90%;
+        margin-top: 8.5vh;
+    
+        .sec-1-cad{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .tit-cad{
+            width: 44%;
+        }
+    
+          .txt-1-cad{
+            font-family: 'CinzelDecorative-Black';
+            font-size: 45px;
+            color: black;
+        }
+    
+        .txt-2-cad{
+            font-family: 'Poppins-Regular';
+            mix-blend-mode: darken;
+            padding-top: 10px;
+            color: black;
+            font-size: 25px;
+        }
+    
+        .sec-2-cad{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            background-color: #1f1f1f;
+            align-items: center;
+            width: 62vw;
+            height: 58vh;
+            border-radius: 25px;
+        }
+    
+       .input-cad-div{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 35vh;
+       }
+    
+        .input-cad{
+            height: 4.5vh;
+            border-radius: 7px;
+            width: 20vw;
+            font-family: 'Poppins-Regular';
+            font-size: 20px;
+        }
+    
+        .txt-input-cad{
+            font-family: 'Poppins-Regular';
+            color: #fff;
+            font-size: 25px;
+            font-weight: 100;
+        }
+    
+        .cor{
+            color: rgb(175, 46, 46);
+        }
+    
+        .img-cobra{
+            width: 13em;
+            height: 22em;
+        }
+    
+        .div-txt-cad{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-top: 1em;
+        }
+    
+        .txt-cad-div{
+            color: #fff;
+            font-size: 24px;
+            font-family: 'Poppins-Regular';
+        }
+    
+        .cad-cor{
+            text-decoration: underline;
+            font-size: 23px;
+            font-family: 'Poppins-Regular';
+            color: rgb(175, 46, 46);
+        }
+    
+        .bt-cadastro-usuario{
+            background-color: #fff;
+            border-radius: 10px;
+            border: none;
+            padding: 0.3em;
+            height: 3.5em;
+            text-align: center;
+            align-items: center;
+        }
+        
+        .bt-cadastro-usuario:hover{
+            background-color: rgb(0, 0, 0);
+            border-radius: 10px;
+            border: none;
+            padding: 0.3em;
+            height: 3.5em;
+            text-align: center;
+            align-items: center;
+    
+        }
+    
+        .ssconf-olho{
+            margin-left: 11.5em;
+            width: 1.2em;
+            position: relative;
+            top: -3.2em;
+            left: 10em;
+        }
+
+        .logo-cad{
+            width: 250px;
+        }
+    
+    
+        .txt-bt-cad-usuario{  
+            text-align: center;      
+            font-family: 'Poppins-Medium';
+            color: rgb(175, 46, 46);
+            font-size:22px;
+    }
+    }
+    
+}

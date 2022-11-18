@@ -14,13 +14,11 @@ import CadProdutos from './pages/ADM/Produtos/CadProdutos';
 import TodosProdutos from './pages/TodosProdutos/index';
 import Artistas from './pages/ADM/Artistas/TodosArtistas';
 import CadArtistas from './pages/ADM/Artistas/CadArtistas';
-import PopUp from './pages/Components/Usuario/popup';
 import NossosArtistas from './pages/NossosArtistas/nossosartistas.js'
 import MinhaConta from './pages/MinhaConta/ContaUsuario/conta.js'
 import HitsDoMomento from './pages/ADM/Hits do Momento/index';
 import CadHit from './pages/ADM/Hits do Momento/CadHit/index';
 import Endereco from './pages/Pedido/Endereço/index';
-import Clientes from './pages/ADM/Cliente/index';
 import ArtistaProd from './pages/ArtistaProd/index';
 import EditarConta from './pages/MinhaConta/EditarConta/index.js'
 import MeusCartoes from './pages/MinhaConta/MeusCartoes/cartoes.js'
@@ -65,7 +63,6 @@ export default function Index(){
     <Route exact path='/Endereco' element={<Endereco/>}/>
     <Route exact path='/Pagamento' element={< Pagamento/>}/>
     <Route exact path='/Pagamento/:id' element={< Pagamento/>}/>
-    <Route exact path='/Clientes' element={<Clientes/>}/>
     <Route exact path='/ArtistaProd' element={<ArtistaProd/>}/>
     <Route exact path='/MeusCartoes' element={<MeusCartoes/>}/>
     <Route exact path='/AlterarSenha' element={<Senha/>}/>

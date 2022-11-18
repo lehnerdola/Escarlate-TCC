@@ -4,6 +4,7 @@
     margin-left: 9em;
     min-height: 100vh;
     background-color: #1f1f1f;  
+    
     .content-produtos-adm{
         display: flex;
         flex-direction: column;
@@ -28,7 +29,6 @@
     .align-itens-produtos{
         display: flex;
         flex-direction: column;
-       
     }
 
     .conf-card{
@@ -37,7 +37,7 @@
     justify-content: space-around;
     align-items: center;
     width: 70vw;
-    height: 70vh;
+    height: 50vh;
 
     .cardpah{
         display: flex;

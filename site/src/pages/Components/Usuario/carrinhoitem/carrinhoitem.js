@@ -65,9 +65,6 @@ export default function CarrinhoItem({item: {produto: {info},quantidade } , remo
      </div> 
       </div>  
       </div>  
-
-      <button className="botao-carrinho">Continuar</button>
-
     </section>
     
     </main>

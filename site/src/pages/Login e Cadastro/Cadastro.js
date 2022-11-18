@@ -64,7 +64,7 @@ return(
 
     <section className="sec-2-cad">
        <div className="info-sec-2">
-       <img src={'../../assets/images/Captura de Tela (2).png'} width={170}/>
+       <img src={'../../assets/images/Captura de Tela (2).png'} width={170} className='logo-cad'/>
 
        <div className='input-cad-div'>
        <p className="txt-input-cad" >Nome: <span className="cor">*</span></p>
