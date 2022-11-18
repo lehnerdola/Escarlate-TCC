@@ -1,6 +1,6 @@
 import { Router } from "express";
 import multer from 'multer';
-import randomString from 'randomstring'
+import randomString from 'randomstring';
 import { salvarProduto, inserirImagemProduto, alterarProduto, excluirProduto, consultarTodosProdutos, consultarProdutosPorId, buscarProdutoPorNome, inserirPedido, inserirPagamento, inserirPedidoItem, pedidoEnviado, pedidoCancelado, consultarTodosPedidos, consultarTodosPedidosEntregues, consultarTodosPedidosCancelados,
      listarCompras, cardClientesADM } from "../repository/produtoRepository.js";
 import { criarNovoPedido, gerarNotaFiscal, validarProduto } from "../service/produtoValidacao.js";
@@ -12,6 +12,7 @@ const upload = multer({ dest: 'storage/produtos' })
 server.post('/admin/produto', async (req, resp) => {
     try {
         const produto = req.body;
+        console.log(produto);
 
        // await validarProduto(produto);
 
@@ -133,6 +134,7 @@ server.post('/pedido/:idUsuario', async (req, resp) => {
     try {
         const { idUsuario } = req.params;
         const info = req.body;
+        console.log(info);
         const novoPedido = criarNovoPedido(idUsuario, info);
        
         const idPedidoCriado = await inserirPedido(novoPedido);

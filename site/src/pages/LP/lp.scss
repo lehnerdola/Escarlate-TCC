@@ -4,13 +4,15 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 90px;
     max-width: 580vh;
     top: 0px;
     background: #A83F37;
     }
+    
+   
 
     //iphone se
     @media only screen and (max-width: 480px) and (min-width:320px){
