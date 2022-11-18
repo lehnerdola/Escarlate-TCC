@@ -58,6 +58,7 @@ export default function HitsDoMomento(){
         <div className='cardpah'>
         <img style={{width:"150px", height:"150px", objectFit:"cover"}}  src={buscarImagem(item.imagem)}/>
         <div className='txt-cardpah'>
+        <p className='txt-conf-cardpah'>{item.nomeMusica}</p>
         <p className='txt-conf-cardpah'>{item.musica}</p>
         <p className='txt-conf-cardpah'>{item.nomeArtista}</p>
         <a href={item.link}><p className='txt-conf-cardpah'>Link</p></a>    

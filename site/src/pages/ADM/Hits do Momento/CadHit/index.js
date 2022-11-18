@@ -57,7 +57,7 @@ export default function CadHit(){
            if(typeof(imagem)== 'object'){
             await enviarImagemArtista(imagem, id)
         } 
-        toast.dark('prod. alt.')
+        toast.dark('Música alterada!')
         }
 
         }

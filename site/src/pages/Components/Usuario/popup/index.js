@@ -35,8 +35,9 @@ export default function PopUp(props){
         if(!carrinho.find(item => item.id === id)){
             carrinho.push({
                 id: id,
-                quantidade: 1
-
+                quantidade: 1,
+                produto: produto.info.nome,
+                imagem: produto.info.imagem
             })
             
           
@@ -73,8 +74,6 @@ export default function PopUp(props){
             <BotaoADM nome='Adicionar ao carrinho'/>
           </div>
             <div>
-            <BotaoADM nome='Comprar'/>
-
             </div>
             </div>
             </div>

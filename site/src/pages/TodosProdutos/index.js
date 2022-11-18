@@ -142,10 +142,10 @@ return (
                                 transition={{ delay: 0.5, type: 'spring' }}
                             >
                                 <div className="modal-content">
+                                <Link to='/TodosProdutos'>
+                                <img onClick={toggleModal} className='botao-voltar-prod' src="../assets/images/icons8-close-50.png" />
+                                </Link>
                                     <PopUp produto={produto} />
-                                    <Link to='/TodosProdutos'>
-                                        <img onClick={toggleModal} className='botao-voltar' src="../assets/images/icons8-close-50.png" />
-                                    </Link>
                                 </div>
                             </motion.div>
                         </div>

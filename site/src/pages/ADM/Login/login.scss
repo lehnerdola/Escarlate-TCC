@@ -79,6 +79,101 @@
     }
 }
 
-@media (max-width:490) {
+@media screen and (max-width:1920px) and (min-width:1720px) {
+    .f1-loginADM{
+        
+        .login{
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .logo{
+            width: 300px;
+            height: 100px;
+        }
+        .infos{
+            display: flex;
+            align-items: flex-start;
+            background-color: #1f1f1f;
+            flex-direction: column;
+            width: 700px;
+            height: 600px;
+            justify-content: center;
+            border-radius: 50px;
+            padding-left: 3.5rem;
+        }
+
+        .info-adm{
+            font-family: 'Cinzel-Regular';
+            color: #ffff;
+            line-height: 30px;
+            font-size: 28px;
+            margin-bottom: 10px;
+            }
+        .input-adm{
+            width: 20vw;
+            height: 3.8vh;
+            left: 123px;
+            top: 387px;
+            font-weight: bold;
+            font-family: 'Cinzel-Regular';    
+            text-align: center;
+            outline: 0px;
+            background-color: #fff;
+            border-radius: 7px;
+            font-size: 20px;
+
+            border: none;
+        }
+
+        .abelha{
+            width: 700px;
+        }
     
+        .botao-login-adm{
+            width: 100px;
+            text-align: center;
+            height: 50px;
+            background: #EBEBEB;
+            border-radius: 10px;
+            margin-top: 1rem;
+            border: none;
+            margin-left: 0;
+        }
+        .botao-login-adm:hover{
+            width: 100px;
+            height: 30px;
+            background: #000000;
+            border-radius: 10px;
+            margin-top: 1rem;
+            border: none;
+            margin-left:0;
+        }
+        .bt-login-adm{
+            color: #a3281f;
+            font-size: 25px;
+            font-family: 'Poppins-Medium';
+        }
+        .logo{
+            margin-bottom: 20px;
+    
+        }
+        .div-info-adm{
+            margin-bottom: 3em;
+        }
+        .conf-olho{
+         margin-left: -2em;
+         margin-bottom: -0.2em;
+         width: 1.2em;
+        }
+    
+        .txt-erro-login-adm{
+             font-family: 'Cinzel-Regular';
+             color: #a3281f;
+             margin-top: 1rem;
+        }
+    }
 }

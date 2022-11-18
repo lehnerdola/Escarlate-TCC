@@ -51,9 +51,6 @@ export default function TelaInicial(){
                 <Link to='/HitsDoMomento'>
                 <CardHome img={'../../../assets/images/Screenshot_20220806-195359-947 3.png'} nome='Visualizar Músicas' />
                 </Link>
-                <Link to='/Clientes'>
-                <CardHome img={'../../../assets/images/1659575103611 1.png'} nome='Visualizar Clientes'/>
-                </Link>
                 <Link to='/Pedidos'>
                 <CardHome img={'../../../assets/images/adicionar-ao-carrinho    .png'} nome='Visualizar Pedidos'/>
                 </Link>

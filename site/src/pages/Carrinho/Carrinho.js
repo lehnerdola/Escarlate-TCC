@@ -65,7 +65,6 @@ return(
         <img src={'../../../../assets/images/Group 1.png'} className='logo-header-conf' alt="img"/>
         </Link>
 
-              <hr className="linha"/>
              <h2 className='nome-page'>Carrinho de Compras</h2>
              </div>   
              <div>

@@ -17,15 +17,9 @@
         justify-content: space-between;
     }
 
-    .img-artista{
-        margin-left: 10em;
-        border-radius: 100px;
-        min-width: 200px;
-        height: 200px;
-        max-width: 210px;
-        width: 100%;
-
-        object-fit: cover;
+    .img-artista-prod{
+      border-radius: 150px;
+      width: 250px;
     }
 
     .txt-artistaprod{
@@ -76,6 +70,7 @@
         width: 70vw;
         height: 35vh;
         border: 2px solid #A83F37;
+        text-align: center;
     }
 
     .conf-img-feed-produto{
@@ -83,5 +78,134 @@
         height: 150px;
         object-fit: cover ;
     }
+
+    .fAVBsF {
+        box-sizing: border-box;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        overflow: hidden;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        align-items: center;
+
+    }    
+    .rec.rec-arrow:disabled {
+        visibility: hidden;
+        cursor: pointer;
+    }
+    .rec-dot{
+        background-color: #1bbef000 !important;
+        box-shadow: 0 0 1px 3px #ffffff00 !important;
+    }
+
+    .lguFiu {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        width: 90%;
+    }
+
+    .cVXxbE {
+        box-sizing: border-box;
+        padding: 0;
+        -webkit-transition: all 250ms ease;
+        transition: all 250ms ease;
+        border: none;
+        margin-top: -90px;
+        background-color: #A83F37;
+        font-size: 1.3em;
+        content: "";
+        height: 10px;
+        width: 10px;
+        box-shadow: 0 0 1px 3px #5b221e;
+        border-radius: 50%;
+        outline: none;
+    }
+
+    .kXteup {
+        box-sizing: border-box;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        font-size: 1.6em;
+        background-color: #A83F37;
+        color: #333;
+        box-shadow: 0 0 2px 0px #333;
+        border-radius: 50%;
+        border: none;
+        padding: 0;
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        line-height: 50px;
+        -webkit-align-self: center;
+        -ms-flex-item-align: center;
+        align-self: center;
+        cursor: pointer;
+        outline: none;
+    }
+
+   .artistaprod .Slxdj {
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    font-size: 1.6em;
+    background-color: rgba(255, 9, 9, 0.928);
+    color: #fff;
+    box-shadow: 0 0 2px 0px #333;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    line-height: 50px;
+    align-self: center;
+    cursor: pointer;
+    outline: none;
 }
+
+.kXteup:hover:enabled, .kXteup:focus:enabled {
+    color: #fff;
+    background-color: rgb(183, 58, 58);
+    box-shadow: 0 0 2px 0 #333;
+}
+
+.Slxdj {
+    box-sizing: border-box;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    font-size: 1.6em;
+    background-color: #A83F37;
+    color: #fff;
+    box-shadow: 0 0 2px 0px #333;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    line-height: 50px;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    cursor: pointer;
+    outline: none;
+}
+
+}
+.botao-voltar-artista-prod{
+    margin-left: 36em;
+     cursor: pointer;
+ }
 }
