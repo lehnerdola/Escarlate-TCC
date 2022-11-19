@@ -31,14 +31,14 @@ export default function CadArtistas (){
         try {
             if(id === 0)
             {
-            const novoArtista = await salvarArtista(idCategoriaMusical, idCategoriaArtista, nome, descricao);
+            const novoArtista = await salvarArtista(idCategoriaArtista,idCategoriaMusical,  nome, descricao);
             await enviarImagemArtista(imagem, novoArtista.id);
             setId(novoArtista.id)
             toast.dark('artista cadastrado')  
             }
             else
             {
-            await AlterarArtista(idParam,idCategoriaMusical, idCategoriaArtista, nome, descricao);
+            await AlterarArtista(idParam,idCategoriaArtista,idCategoriaMusical,  nome, descricao);
             if(typeof(imagem) == 'object'){
             await enviarImagemArtista(imagem, idParam)
             }

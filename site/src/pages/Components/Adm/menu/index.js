@@ -39,13 +39,7 @@ export default function MenuADM(props){
             <img alt='' src={'../assets/images/🦆 icon _headphone music alt_.png'} width={18} height={18}  style={{marginLeft:"0.2em"}}/>
             <p className='txt-menu-adm'>Músicas</p>
             </div>
-            </Link>
-            <Link to ='/Clientes' className='link-config-txt'>
-            <div className='align-itens-menu' >
-            <img alt='' src={'../assets/images/🦆 icon _people_.png'} width={18} height={14}  style={{marginLeft:"0.2em"}}/>
-            <p className='txt-menu-adm'>Clientes</p>
-            </div>
-            </Link>
+            </Link>   
             <Link to ='/Pedidos' className='link-config-txt'>
             <div className='align-itens-menu' >
             <img alt='' src={'../assets/images/Carrinho.png'} width={18} height={18}  style={{marginLeft:"0.2em"}}/>

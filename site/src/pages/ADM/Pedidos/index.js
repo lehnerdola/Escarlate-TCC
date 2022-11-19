@@ -61,11 +61,7 @@ export default function Pedidos() {
             <main className='pedidos'>
                 <section className='sec-1-pedidos'>
                     <h1>Pedidos</h1>
-                    <div className='align-txt-sec-1'>
-                        <p>Todos Pedidos</p>
-                        <p>Pedidos Enviados</p>
-                        <p>Pedidos Cancelados</p>
-                    </div>
+                
                 </section>
 
                 <section className='sec-2-pedidos'>

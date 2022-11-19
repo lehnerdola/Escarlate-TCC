@@ -156,7 +156,7 @@ export async function inserirPagamento(id, novoPagamento) {
 
     const [info] = await con.query(c, [id, novoPagamento.idUsuario,  novoPagamento.nomeCartao, novoPagamento.numeroCartao, novoPagamento.codSeguranca, novoPagamento.vencimento, novoPagamento.formaPagamento]);
 
-    return info.affectedRows;
+    return info;
 }
 
 export async function pedidoEnviado(id) {

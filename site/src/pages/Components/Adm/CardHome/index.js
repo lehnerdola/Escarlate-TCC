@@ -7,6 +7,7 @@ export default function CardHome(props){
         whileHover={{borderColor:'#89221b',border:2, scale:1.1} }    
         >
             <img src={props.img} className='conf-img-card'/>
+            
             <p className='txt-card-adm'>{props.nome}</p>
         </motion.div>
     )
