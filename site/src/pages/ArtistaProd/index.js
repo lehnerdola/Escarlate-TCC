@@ -12,7 +12,7 @@ export default function ArtistaProd(){
     const [filtro, setFiltro] = useState('');
     const [modal, setModal] = useState(false);
     const [filtrarProduto, setFiltrarProduto] = useState([])
-    
+    //desmerge
     const toggleModal = () => {
         setModal(!modal);
     };
