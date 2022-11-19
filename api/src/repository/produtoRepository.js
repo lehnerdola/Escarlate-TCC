@@ -46,7 +46,7 @@ export async function consultarTodosProdutos() {
     id_produto id,
     nm_categoria categoria,
     nm_produto nome,
-    nm_artista       nomeartista,
+    tb_artista.id_artista       nomeartista,
     ds_tam tamanho,
     bt_disponivel disponivel,
     vl_preco preco,
@@ -155,7 +155,7 @@ export async function inserirPagamento(id, novoPagamento) {
 
     const [info] = await con.query(c, [id, novoPagamento.idUsuario,  novoPagamento.nomeCartao, novoPagamento.numeroCartao, novoPagamento.codSeguranca, novoPagamento.vencimento, novoPagamento.formaPagamento]);
 
-    return info.affectedRows;
+    return info;
 }
 
 export async function pedidoEnviado(id) {

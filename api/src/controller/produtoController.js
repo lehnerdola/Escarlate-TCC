@@ -1,10 +1,11 @@
 import { Router } from "express";
 import multer from 'multer';
-import randomString from 'randomstring'
+import randomString from 'randomstring';
 import { salvarProduto, inserirImagemProduto, alterarProduto, excluirProduto, consultarTodosProdutos, consultarProdutosPorId, buscarProdutoPorNome, inserirPedido, inserirPagamento, inserirPedidoItem, pedidoEnviado, pedidoCancelado, consultarTodosPedidos, consultarTodosPedidosEntregues, consultarTodosPedidosCancelados,
      listarCompras, cardClientesADM } from "../repository/produtoRepository.js";
+import { validarCartao } from "../service/cartaoValidacao.js";
 import { criarNovoPedido, gerarNotaFiscal, validarProduto } from "../service/produtoValidacao.js";
-
+import nodemailer from 'nodemailer'
 const server = Router();
 const upload = multer({ dest: 'storage/produtos' })
 
@@ -12,6 +13,7 @@ const upload = multer({ dest: 'storage/produtos' })
 server.post('/admin/produto', async (req, resp) => {
     try {
         const produto = req.body;
+        console.log(produto);
 
        // await validarProduto(produto);
 
@@ -133,10 +135,13 @@ server.post('/pedido/:idUsuario', async (req, resp) => {
     try {
         const { idUsuario } = req.params;
         const info = req.body;
+        console.log(info);
         const novoPedido = criarNovoPedido(idUsuario, info);
-       
+        await validarCartao(info.cartao)
         const idPedidoCriado = await inserirPedido(novoPedido);
+     
         await inserirPagamento(idPedidoCriado,info.cartao);
+        
         
 
         for (let item of info.produtos) {
@@ -232,6 +237,37 @@ server.get('/adm/clientes', async (req, resp) => {
     }
 })
 
+server.post('/enviar-email', async (req, resp) =>{
+    let data = req.body;
+    const transport = nodemailer.createTransport({
+    host: process.env.HOST,
+    service: process.env.SERVICE,
+    secure:process.env.SECURE,
+    auth:{
+        user: process.env.EMAIL,
+        pass: process.env.SENHA
+    }
+    })
+    
+    const message = {
+    from: process.env.EMAIL,
+     to: data.email,
+     subject:'Seu pedido foi um sucesso!',
+     html: `
+     <h1> Parabéns, seu pedido foi concluído com sucesso! </h1>
+     <h2> Informações de seu pedido </h2>
+     <h3> ${data.produto} </h3>
+     <img src='../../storage/produtos/${data.imagem}.png'/>
+     `
+     
+    }
+    transport.sendMail(message, (error, info)=> {
+        if(error){
+            return resp.status(400).send('Erro, tente novamente')
+        }
+        return resp.status(200).send('Email enviado com sucesso!')
+    })
+})
 
 
 export default server;

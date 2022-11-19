@@ -19,6 +19,7 @@ export default function Produtos(){
 
     async function carregarTodosProdutos() {
         const resp = await todosProdutos();
+        console.log(resp);
         setProdutos(resp);
     }
 

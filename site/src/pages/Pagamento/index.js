@@ -2,13 +2,14 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import './pagamento.scss';
 import { motion } from "framer-motion";
 import CardEndereco from "../Components/Usuario/popupEndereço";
-import { listarEnderecos, salvarNovoPedido } from '../../api/usuarioAPI.js'
+import { enviarEmail, listarEnderecos, salvarNovoPedido } from '../../api/usuarioAPI.js'
 import { useState, useEffect, useRef } from "react";
 import Cards from 'react-credit-cards'
 import 'react-credit-cards/lib/styles.scss'
 import storage from 'local-storage';
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import InputMask from 'react-input-mask'
 
 export default function Pagamento() {
     const [enderecos, setEnderecos] = useState([]);
@@ -27,6 +28,7 @@ export default function Pagamento() {
     const [parcelas, setParcelas] = useState();
     const [tipo, setTipo] = useState('');
     // const [pedido, setPedido] = useState([])
+    
 
     async function carregarEnderecos() {
         const id = storage('cliente-logado').id_usuario;
@@ -66,20 +68,31 @@ export default function Pagamento() {
         carregarEnderecos();
     }, [])
 
-    useEffect(() => {
-        ref.current.focus();
-    }, [])
+    
 
     const ref = useRef(null);
 
     async function salvarPedido() {
         try {
-            let produtos = storage('carrinho');
+            let email = storage('cliente-logado').ds_email
             let id = storage('cliente-logado').id_usuario;
+
             let idEnd = storage('ender-selecionado').idEndereco
+            
+            let produtos = storage('carrinho');
 
 
+            let nomeProduto = {
+                produto:produtos[0].produto
+            }
+            let imagemProduto = {
+                imagem: produtos[0].imagem
+            }
 
+            let nome = nomeProduto.produto
+            let imagem = imagemProduto.imagem.substr(17, 32)
+            
+            console.log(imagem)
             const pedido = 
                 {
                     frete: frete,
@@ -103,19 +116,21 @@ export default function Pagamento() {
                 toast.error('É necessário selecionar um item no carrinho')
             }
             else {
+
                 const r = await salvarNovoPedido(id, pedido)
                 navigate('/FinalizacaoPagamento')
+                await enviarEmail(email, nome, imagem)
                 storage.remove('carrinho')
-                
             }
 
 
         }
         catch (err) {
-            toast.error(err.response.data.erro)
             if (!storage('ender-selecionado')) {
                 toast.error('É necessário selecionar um endereço')
             }
+            toast.error(err.response.data.erro)
+       
         }
     }
 
@@ -151,16 +166,16 @@ export default function Pagamento() {
                         <div className="align-inputs-pagamento">
                             <div>
                                 <p>Número do cartão:</p>
-                                <input name="numero" value={numeroCartao} onChange={e => setNumeroCartao(Number(e.target.value))} onFocus={e => setFocus(e.target.name)} ref={ref} className='input-pag' />
+                                <input mask='9999 9999 9999 9999'name="numero" value={numeroCartao} onChange={e => setNumeroCartao(e.target.value)} ref={ref} className='input-pag' onFocus={e => setFocus(e.target.name)}/>
 
                                 <p>Nome registrado no cartão:</p>
-                                <input name="nome" value={nomeCartao} onChange={e => setNomeCartao(e.target.value)} onFocus={e => setFocus(e.target.name)} className='input-pag' />
+                                <input name="nome" value={nomeCartao} onChange={e => setNomeCartao(e.target.value)} className='input-pag' onFocus={e => setFocus(e.target.name)}/>
                             </div>
                             <div>
                                 <p>CVV:</p>
-                                <input max={2} name="cvc" value={codSeguranca} onChange={e => setCodSeguranca((e.target.value))} onFocus={(e) => setFocus(e.target.name)} className='input-pag' />
+                                <InputMask max={2} mask='999' name="cvc" value={codSeguranca} onChange={e => setCodSeguranca((e.target.value))}className='input-pag' onFocus={e => setFocus(e.target.name)}/>
                                 <p>Validade:</p>
-                                <input name="validade" value={vencimento} onChange={e => setVencimento(e.target.value)} onFocus={(e) => setFocus(e.target.name)} className='input-pag' />
+                                <input name="validade" value={vencimento} onChange={e => setVencimento(e.target.value)} className='input-pag' onFocus={e => setFocus(e.target.name)}/>
                             </div>
                         </div>
 

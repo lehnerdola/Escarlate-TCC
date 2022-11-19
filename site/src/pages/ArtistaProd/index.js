@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import PopUp from "../Components/Usuario/popup/index.js";
+import Carousel from 'react-elastic-carousel';
+import "react-multi-carousel/lib/styles.css";
+
 import {buscarProdutoPorNome, listarTodosProdutosArtista } from "../../api/adminAPI.js";
 import { motion } from "framer-motion";
 import './index.scss'
@@ -12,7 +15,7 @@ export default function ArtistaProd(){
     const [filtro, setFiltro] = useState('');
     const [modal, setModal] = useState(false);
     const [filtrarProduto, setFiltrarProduto] = useState([])
-    
+    //desmerge
     const toggleModal = () => {
         setModal(!modal);
     };
@@ -31,7 +34,13 @@ export default function ArtistaProd(){
         document.body.classList.remove('active-modal')
     }
 
-    
+    const breakPoints = [
+        { width: 1, itemsToShow: 1 },
+        { width: 480, itemsToShow: 1.4 },
+        { width: 750, itemsToShow: 2.4, itemsToScroll: 2 },
+        { width: 1100, itemsToShow: 3.4, itemsToScroll: 3 },
+        { width: 1560, itemsToShow: 4.4, itemsToScroll: 4 }
+    ];
 
     async function carregarPagina(){
         const r = await listarTodosProdutosArtista(id) 
@@ -47,7 +56,6 @@ export default function ArtistaProd(){
 
     useEffect(() => {
         carregarPagina();
-        console.log(id)
     }, []);
 
     return(
@@ -77,7 +85,7 @@ export default function ArtistaProd(){
         <article className="faixa-1-artistaprod">
         {artista.map (item =>
         <section className="section-1-artista-prod">
-        <img src={`http://localhost:5000/${item.imagemArtista}`}className='img-artista'/> 
+        <img src={`http://localhost:5000/${item.imagemArtista}`}className='img-artista-prod'/> 
         <div className="txt-artistaprod">
         <h1 className="tit-artistaprod"> {item.nomeArtista}</h1>
         <p className="desc-artista">{item.descricaoArtista}</p>
@@ -89,11 +97,14 @@ export default function ArtistaProd(){
         <section className="sec-artista-prod">
         <h1>PRODUTOS DO ARTISTA</h1>   
         <div className="div-artista-prod">
+        <Carousel breakPoints={breakPoints}>
         {produtosArt.map (item =>
         <div onClick={toggleModal}>
        <img src={`http://localhost:5000/${item.imagemProduto}`} alt="" width={150} height={150}  onClick={() => abrirInfo(item.idProduto)}/>
+       <p>{item.nomeProduto}</p>
        </div>
         )}
+        </Carousel>
         </div>
         </section>
         
@@ -105,8 +116,9 @@ export default function ArtistaProd(){
                 transition={{delay:0.5, type:'spring'}}
                 >
                 <div className="modal-content">
+                <img onClick={toggleModal} className='botao-voltar-artista-prod' src="../assets/images/icons8-close-50.png" />
                     <PopUp produto={id}/>
-                    <img onClick={toggleModal} className='botao-voltar' src="../assets/images/icons8-close-50.png"/>
+                  
                 </div>
                 </motion.div>    
                 </div>

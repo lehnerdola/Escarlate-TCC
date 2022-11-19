@@ -88,7 +88,7 @@ export async function removerProduto(id) {
 	return resposta.status;
 }
 
-export async function salvarArtista(idCategoriaMusical, idCategoriaArtista, nome, descricao){
+export async function salvarArtista( idCategoriaArtista, idCategoriaMusical, nome, descricao){
     const r = await api.post('/admin/artista' , {
         idCategoriaMusical, 
         idCategoriaArtista, 
@@ -98,11 +98,11 @@ export async function salvarArtista(idCategoriaMusical, idCategoriaArtista, nome
     return r.data;
 }
 
-export async function AlterarArtista(id,idCategoriaMusical, idCategoria, nome, descricao){
+export async function AlterarArtista(id,idCategoriaArtista, idCategoriaMusical,  nome, descricao){
     const resposta = await api.put(`/admin/artista/${id}`, 
     {
         idCategoriaMusical, 
-        idCategoria, 
+        idCategoriaArtista, 
         nome, 
         descricao
     });

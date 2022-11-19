@@ -76,15 +76,17 @@ return(
 
         <div className="login">
 
-        <img src={'../../../assets/images/belha sem fundo 1.png'} width={400}/>
+        <img src={'../../../assets/images/belha sem fundo 1.png'} width={400} className='abelha'/>
 
         <div className="infos">
 
             <img className="logo" src={'/assets/images/Captura de Tela (2).png'} width={200} height={60} />
             <div>
             <form>
+            <div className="div-info-adm">
             <p className="info-adm">CPF:</p>
             <input className="input-adm" required="required" type="text" value={cpf} onChange={e => setCpf(e.target.value)}/>
+            </div>    
             <p className="info-adm" >Senha:</p>
             <input className="input-adm"  required="required" type={type} id="pass" value={senha}  onChange={e => setSenha(e.target.value)}/>
              <motion.img src={icon} onClick={handleToogle}className='conf-olho'  animate={isopen ? "open" : "closed"} variants={variants}/> 

@@ -61,7 +61,7 @@ export default function Endereco(){
              <div>
            
              </div>
-            <p style={{width: 200, fontSize: 20}}>Efetuando pagamento (1/2)</p>
+            <p className='pag-ender'>Efetuando pagamento (1/2)</p>
         </header>
         <section className='align-row-endereco'>
         <main className='align-center-input'>
