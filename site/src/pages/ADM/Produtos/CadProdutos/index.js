@@ -45,7 +45,7 @@ export default function CadProdutos() {
     async function carregarProduto() {
         const r = await buscarPorId(idParam);
         
-        setIdArtista(r.info.nomeartista);
+        setIdArtista(r.info.artista);
         setIdCategoria(r.info.categoria);
 
         setNome(r.info.nome);
@@ -56,7 +56,6 @@ export default function CadProdutos() {
         setQuantidade(r.info.quantidade);
 
         setId(r.info.id);
-        console.log(idArtista)
     }
 
 
@@ -66,7 +65,6 @@ export default function CadProdutos() {
             if (id === 0) {
 
                 const r = await cadastrarProduto(idArtista, idCategoria, nome, tamanho, disponivel, preco, quantidade);
-                console.log(r);
                 await enviarImagemProduto(imagem, r.id)
                 toast.dark('produto cadastrado')
 

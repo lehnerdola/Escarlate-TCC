@@ -46,7 +46,7 @@ export async function consultarTodosProdutos() {
     id_produto id,
     nm_categoria categoria,
     nm_produto nome,
-    tb_artista.id_artista       nomeartista,
+    nm_artista       nomeartista,
     ds_tam tamanho,
     bt_disponivel disponivel,
     vl_preco preco,

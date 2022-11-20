@@ -58,9 +58,7 @@ drop table tb_pag_boleto;
 
 -- Cadastro admin
 insert into tb_admin_login
-        values (1, '54420003880', '1234');
-insert into tb_admin_login
-        values (2, '53762186863', '1234');
+        values (1, '544200038-80', '1234');
 
 -- Login admin
 select * from tb_admin_login
@@ -99,28 +97,18 @@ select * from tb_usuario;
  -- cadrastar nova categoria musical
 insert into tb_artista_categoria_musical(ds_categoria_musical)
 	    values ('Heavy metal');
-insert into tb_artista_categoria_musical(ds_categoria_musical)
-	    values ('Hard Rock');
     
 -- cadrastar nova categoria de artista
 insert into tb_artista_categoria(ds_categoria)
 		values('banda');
-insert into tb_artista_categoria(ds_categoria)
-		values('solo');
-insert into tb_artista_categoria(ds_categoria)
-		values('duplas');
-        
-
 
 -- cadastrar novo artista
 insert into tb_artista (id_artista_categoria_musical, id_artista_categoria, nm_artista, ds_artista, img_artista)
-        values(1, 1,'MELICA', 'Metallia é uma banda norte-americana de heavy metal. O seu repertório inclui instrumentos e musicalidade agressiva. O Metallica formou-se em 1981.', 'https://www.google.com/url?sa=i&url=https%3A%2F%2Frollingstone.uol.com.br%2Fartigo%2Ftrinta-anos-do-album-preto-metallica-no-topo-do-mundo%2F&psig=AOvVaw0mw_vk50FeJcFhDaoQl8Hl&ust=1668885044247000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCKjG7uq2uPsCFQAAAAAdAAAAABAI');        
- insert into tb_artista (id_artista_categoria_musical, id_artista_categoria, nm_artista, ds_artista, img_artista)
-        values(2, 1,'MELICA', 'Metallia é uma banda norte-americana de heavy metal. O seu repertório inclui instrumentos e musicalidade agressiva. O Metallica formou-se em 1981.', '');        
-               
+        values(1, 1,'MELICAAA', 'Metallia é uma banda norte-americana de heavy metal. O seu repertório inclui instrumentos e musicalidade agressiva. O Metallica formou-se em 1981.', '');        
+                
 	-- inserir imagem artista
 	UPDATE tb_artista
-    SET img_artista      = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com.br%2FABCs-Metallica%2Fdp%2F1682618994&psig=AOvVaw2thR2t7RQkHC5ow9q-_eqm&ust=1668885105779000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCOCi-4i3uPsCFQAAAAAdAAAAABAJ'
+    SET img_artista      = 'basjlaskdvhjsdv'
     WHERE id_artista     = 5;
     
      select 
@@ -347,7 +335,7 @@ select
     join tb_pedido on tb_pedido_item.id_pedido = tb_pedido.id_pedido 
     join tb_usuario_endereco on tb_pedido.id_usuario_end = tb_usuario_endereco.id_usuario_end
     join tb_produto on tb_pedido_item.id_produto = tb_produto.id_produto
-    where ds_status = 'Pedido cancelado!';
+    where ds_status = 'Pedido cancelado!'
 
     select FLOOR(COUNT(tb_pedido.id_usuario) / 3) as 'compras',
 		nm_usuario		nome,

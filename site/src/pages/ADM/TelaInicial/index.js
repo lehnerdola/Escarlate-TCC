@@ -52,7 +52,7 @@ export default function TelaInicial(){
                 <CardHome img={'../../../assets/images/Screenshot_20220806-195359-947 3.png'} nome='Visualizar Músicas' />
                 </Link>
                 <Link to='/Pedidos'>
-                <CardHome img={'../../../assets/images/adicionar-ao-carrinho    .png'} nome='Visualizar Pedidos'/>
+                <CardHome nome='Visualizar Pedidos'/>
                 </Link>
                 <Link to='/Produtos' className='conf-card-produto'>
                 <CardHome img={'../../../assets/images/🦆 icon _box seam_.png'} nome='Visualizar Produtos'/>
