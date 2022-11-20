@@ -144,10 +144,11 @@ export async function inserirPagamento(id, novoPagamento) {
     (
         id_pedido,
         id_usuario,
+        nm_cartao,
         nr_cartao,
         cvv_cartao,
-        nm_cartao,
         dt_vencimento,
+        ds_forma_pagamento
         
     )
     values(?,?,?,?,?,?,?)
