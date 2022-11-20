@@ -1,7 +1,8 @@
 import { Router } from "express";
 import { AdicionarImagem, alterarSenha, alterarUsuario, cadastrarUsuario, compraCancelada, EditarCartao, ExcluirCartao, listarPedidosUsuario, loginUsuario, TodosUsuarios,  VerCartoes,  VerCartoesUsuario, verificarEmail, verificarSenha, verPerfil  } from "../repository/usuarioRepository.js";
 import multer from "multer";
-
+import { validarCartao } from "../service/cartaoValidacao.js";
+import minhacontaValidacao from '../service/minhacontaValidacao.js'
 const upload = multer({ dest: 'storage/usuario' })
 const server = Router();
 
@@ -110,6 +111,7 @@ server.put('/alterarperfil/:id', async (req, resp) => {
 
         const resposta = await alterarUsuario(id, usuario);
 
+        await minhacontaValidacao(id, usuario)
 
         if (resposta != 1) {
             throw new Error('O usuario não pode ser alterado!');
@@ -214,17 +216,17 @@ server.put('/usuario/cartao/:id', async (req,resp) => {
     try {
         const { id } = req.params;
         const cartao = req.body;
-
         const resposta = await EditarCartao(id, cartao);
 
         if (resposta != 1) {
             throw new Error('O cartao não pode ser alterado!');
         }
-
+        
         else {
             resp.status(204).send()
         }
 
+        
     } catch (err) {
         resp.status(404).send({
             erro: err.message

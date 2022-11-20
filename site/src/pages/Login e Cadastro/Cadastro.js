@@ -40,7 +40,9 @@ export default function Cadastro(){
     async function SalvarClick(){
         try {
             const r = await cadastrarUsuario(nome,email,senha);
-            toast.dark('cadastro efetuado com sucesso')
+            toast.dark('Cadastro efetuado com sucesso!', {
+                icon: () =>  <img src="./lightning.png" width={35}/>
+            })
         } catch (err) {
             toast.error(err.response.data.erro);
         }

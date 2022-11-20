@@ -144,17 +144,16 @@ export async function inserirPagamento(id, novoPagamento) {
     (
         id_pedido,
         id_usuario,
-        nm_cartao,
         nr_cartao,
+        nm_cartao,
         cvv_cartao,
-        dt_vencimento,
-        ds_forma_pagamento
+        dt_vencimento
         
     )
-    values(?,?,?,?,?,?,?)
+    values(?,?,?,?,?,?)
     `
 
-    const [info] = await con.query(c, [id, novoPagamento.idUsuario,  novoPagamento.nomeCartao, novoPagamento.numeroCartao, novoPagamento.codSeguranca, novoPagamento.vencimento, novoPagamento.formaPagamento]);
+    const [info] = await con.query(c, [id, novoPagamento.idUsuario, novoPagamento.numeroCartao,  novoPagamento.nomeCartao,  novoPagamento.codSeguranca, novoPagamento.vencimento, novoPagamento.formaPagamento]);
 
     return info;
 }

@@ -37,6 +37,11 @@ export async function listarCategoriasId(id) {
     return r.data;
 }
 
+export async function ListarCategoriasMusicaisPorid(id) {
+    const r = await api.get(`/artista/categoriamusical/${id}`);
+    return r.data;
+}
+
 export function buscarImagem(imagem){
     return `${api.getUri()}/${imagem}`
 }   
@@ -136,6 +141,10 @@ export async function listarTodosProdutosArtista(id) {
     return r.data;
 }
 
+export async function listarPorNome(nome){
+    const resposta = await api.get(`/artistas/buscar/nome?nm=${nome}`);
+    return resposta.data;
+} 
 
 export async function listarCategoriasArtistas() {
     const r = await api.get('/artista/categoria');

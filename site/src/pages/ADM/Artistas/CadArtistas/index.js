@@ -34,7 +34,9 @@ export default function CadArtistas (){
             const novoArtista = await salvarArtista(idCategoriaArtista,idCategoriaMusical,  nome, descricao);
             await enviarImagemArtista(imagem, novoArtista.id);
             setId(novoArtista.id)
-            toast.dark('artista cadastrado')  
+            toast.dark('Artista cadastrado com sucesso!', {
+                icon: () =>  <img src="../lightning.png" width={35}/>
+            })
             }
             else
             {
@@ -42,7 +44,9 @@ export default function CadArtistas (){
             if(typeof(imagem) == 'object'){
             await enviarImagemArtista(imagem, idParam)
             }
-            toast.dark('artista alterado')  
+            toast.dark('Artista alterado com sucesso!', {
+                icon: () =>  <img src="../lightning.png" width={35}/>
+            })
 
           }
 

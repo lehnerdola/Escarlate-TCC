@@ -28,7 +28,7 @@ export default function Artistas(){
 
         const deletar = await deletarArtista(id, artista);
         carregarTodosArtistas();
-        toast.success("🔥 Artista " + artista + " removido!");
+        toast.dark("🔥 Artista " + artista + " removido!");
     }
 
   

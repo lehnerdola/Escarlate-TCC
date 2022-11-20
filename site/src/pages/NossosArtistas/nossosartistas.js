@@ -2,7 +2,7 @@ import './index.scss'
 import {motion, AnimatePresence} from 'framer-motion'
 import { useEffect,useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { listarArtistas,listarTodosProdutosArtista, buscarImagem } from '../../api/adminAPI.js'
+import { listarArtistas,listarTodosProdutosArtista, buscarImagem, listarPorNome } from '../../api/adminAPI.js'
 
 
 export default function TodosProdutos(){
@@ -12,23 +12,26 @@ export default function TodosProdutos(){
     const navigate = useNavigate()
 
     async function Filtrar(){
-        const resp = await listarArtistas(filtro);
+        const resp = await listarPorNome(filtro);
         return setArtistas(resp);
     }
 
+    useEffect(() => {
+        Filtrar();
+    },[filtro]);
 
     async function carregarTodosArtistas(){
         const r = await listarArtistas();
         setArtistas(r);
     }
 
-    
     function abrirInfo(id){
         navigate('/ArtistaProd/' + id)
     }
 
     useEffect(() => {
        carregarTodosArtistas()
+    
     }, []);
 
 
@@ -60,14 +63,12 @@ export default function TodosProdutos(){
        <div className='nossosartistas'>
         <div >
             <h1 className='h1-nossosartistas' style={{textAlign:"center"}}>Conheça nossos <span style={{fontFamily:"CinzelDecorative-Regular", color:"#A83F37"}}> artistas</span></h1>
-            <div className='categorias'>
-            <h3 >Hits do momento</h3>
-            </div>
             
              <div className='faixa1'>
             
                     {artistas.map(item => 
-                    <div className='align'>
+                    <div className='align-artista-nome-foto'>
+                        <div className='align'>
                         <motion.img src={buscarImagem(item.imagem)} className='artistaimg' 
                         whileHover={{ scale: 1.1}}
                         onHoverStart={e => {}}
@@ -75,6 +76,9 @@ export default function TodosProdutos(){
                         onClick={() => abrirInfo(item.id)}
                                           
                     />
+                    <p className='nome-artitsa'> {item.artista}</p>
+                    </div>
+                    
     
                      </div>
 

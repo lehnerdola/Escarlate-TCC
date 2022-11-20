@@ -5,6 +5,22 @@
     align-items: center;
     height: 90vh;
 
+    .align-artista-nome-foto{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nome-artitsa{
+        align-items: center;
+        text-align: center;
+        margin-left: 10rem;
+        margin-top: 1rem;
+        font-family: 'Cinzel';
+        font-size: 1.3rem;
+    }
+
     .header {
         display: flex;
         flex-direction: row;

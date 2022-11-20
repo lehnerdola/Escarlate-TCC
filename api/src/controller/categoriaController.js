@@ -1,4 +1,4 @@
-import { listarCategoriasProduto, listarArtistasCategorias, listarCategoriasMusicais, buscarProdCategoriaPorId } from "../repository/categoriaRepository.js";
+import { listarCategoriasProduto, listarArtistasCategorias, listarCategoriasMusicais, buscarProdCategoriaPorId, listarCategoriasMusicaisPorid } from "../repository/categoriaRepository.js";
 
 import { Router } from "express";
 const server = Router();
@@ -54,4 +54,17 @@ server.get('/artista/categoriamusical', async (req, resp) => {
     }
 })
 
+server.get('/artista/categoriamusical/:id', async (req, resp) => {
+    try {
+        const id = Number(req.params.id);
+
+        const linhas = await listarCategoriasMusicaisPorid(id);
+        resp.send(linhas);
+    }
+    catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
 export default server;

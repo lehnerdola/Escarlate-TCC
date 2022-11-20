@@ -78,7 +78,9 @@ export default function CadProdutos() {
                 if (typeof (imagem) == 'object') {
                     await enviarImagemProduto(imagem, idParam)
                 }
-                toast.dark('produto alterado!')
+                toast.dark('Produto alterado com sucesso!', {
+                    icon: () =>  <img src="./lightning.png" width={35}/>
+                })
             }
         }
         catch (err) {

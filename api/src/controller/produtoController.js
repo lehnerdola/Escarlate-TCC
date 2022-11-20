@@ -135,12 +135,11 @@ server.post('/pedido/:idUsuario', async (req, resp) => {
         const { idUsuario } = req.params;
         const info = req.body;
         const novoPedido = criarNovoPedido(idUsuario, info);
-        await validarCartao(info.cartao)
+       
         const idPedidoCriado = await inserirPedido(novoPedido);
      
         await inserirPagamento(idPedidoCriado,info.cartao);
-        
-        
+        await validarCartao(info.cartao)
 
         for (let item of info.produtos) {
             const prod = await consultarProdutosPorId(item.id);
@@ -259,7 +258,7 @@ server.post('/enviar-email', async (req, resp) =>{
      `
      
     }
-    transport.sendMail(message, (error, info)=> {
+    transport.sendMail(message, (error)=> {
         if(error){
             return resp.status(400).send('Erro, tente novamente')
         }

@@ -24,6 +24,18 @@ export async function listarCategoriasMusicais(){
     return linhas;
 }
 
+export async function listarCategoriasMusicaisPorid(id){
+    const c = `
+    select 
+    id_artista_categoria_musical   as id,
+    ds_categoria_musical         as categoria
+    from tb_artista_categoria_musical
+    where id_artista_categoria_musical = ?
+    `
+    const [linhas] = await con.query(c, [id]);
+    return linhas[0];
+}
+
 export async function listarArtistasCategorias(){
     const c = `
     select 

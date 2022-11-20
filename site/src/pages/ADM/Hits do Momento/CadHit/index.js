@@ -49,7 +49,9 @@ export default function CadHit(){
             const r = await cadastrarMusica(idArtista, nomeMusica, link);
             await enviarImagemMusica(imagem, r.id)
             setId(r.id)
-            toast.dark('Música cadastrada!')
+            toast.dark('Musica cadastrada com sucesso!', {
+                icon: () =>  <img src="./lightning.png" width={35}/>
+            })
 
         }
         else{
@@ -57,7 +59,9 @@ export default function CadHit(){
            if(typeof(imagem)== 'object'){
             await enviarImagemArtista(imagem, id)
         } 
-        toast.dark('Música alterada!')
+        toast.dark('Música alterada com sucesso!', {
+            icon: () =>  <img src="./lightning.png" width={35}/>
+        })
         }
 
         }

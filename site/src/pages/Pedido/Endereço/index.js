@@ -27,8 +27,9 @@ export default function Endereco(){
     try {
     const id = Storage('cliente-logado').id_usuario;
     const r = await salvarEndereco(id, nomeRemetente, estado, cidade, bairro, blocoapt, logradouro,complemento,numeroEndereco,numeroCep);
-    toast.dark('endereco cadastrado')
-    } catch (err) {
+    toast.dark('Endereço salvo com sucesso!', {
+      icon: () =>  <img src="./lightning.png" width={35}/>
+  })    } catch (err) {
       toast.error(err.response.data.erro);
     }
     

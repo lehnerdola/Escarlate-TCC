@@ -46,7 +46,7 @@ export default function Pagamento() {
         storage.remove('ender-selecionado')
         storage('ender-selecionado', id)
         const senha = document.getElementById("faq-titulo-2");
-        if (senha.checked == false) {
+        if (senha.checked === false) {
             senha.checked = true;
         }
         else {
@@ -119,7 +119,6 @@ export default function Pagamento() {
 
                 const r = await salvarNovoPedido(id, pedido)
                 navigate('/FinalizacaoPagamento')
-                await enviarEmail(email, nome, imagem)
                 storage.remove('carrinho')
             }
 

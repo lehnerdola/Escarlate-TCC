@@ -1,5 +1,5 @@
 
-import { alterarArtista, buscarArtistaPorId, listarArtistas, listarProdutosArtista, removerArtista, salvarArtista, salvarImagemArtista, listarArtistasHome, listarArtista } from "../repository/artistasRepository.js";
+import { alterarArtista, buscarArtistaPorId, listarArtistas, listarProdutosArtista, removerArtista, salvarArtista, salvarImagemArtista, listarArtistasHome, listarArtista,BuscaArtista } from "../repository/artistasRepository.js";
 import {validarArtista} from '../service/validarArtista.js'
 
 import { Router } from "express";
@@ -19,6 +19,25 @@ server.get('/artistas', async (req, resp) => {
         })
     }
 })
+
+server.get('/artista/busca/nome', async(req, resp) => {
+    try{
+    const {nome} = req.query;
+
+    const resposta = await BuscaArtista(nome)
+    if(!resposta){
+        resp.status(404).send([])
+    }
+    else{
+    resp.send(resposta)
+}
+    } catch(err){
+        resp.send({
+            erro: err.message
+        })
+    }
+})
+
 
 server.get('/artistas/:id' , async (req,resp) => {
     try {

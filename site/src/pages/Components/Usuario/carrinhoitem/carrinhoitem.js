@@ -20,7 +20,7 @@ export default function CarrinhoItem({item: {produto: {info},quantidade } , remo
         setQtdProduto(novaQtd);
 
         let carrinho = Storage('carrinho');
-        let itemStorage = carrinho.find(item => item.id == info.id);
+        let itemStorage = carrinho.find(item => item.id === info.id);
         itemStorage.quantidade = novaQtd;
 
         Storage('carrinho', carrinho);

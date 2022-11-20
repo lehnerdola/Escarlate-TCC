@@ -19,12 +19,19 @@
             height: 40vh;
             justify-content: space-around;
         }
+
+        .imagem-produto-pedido{
+            align-items: center;
+            justify-content: center;
+            margin-top:4rem ;
+        }
     
         .img-pedido{
             display: flex;
             height: 30vh;
             flex-direction: column;
             align-items: center;
+            margin-bottom: 3rem;
         }
     
         .img-pedido p{
@@ -35,6 +42,8 @@
         .align-img-pedido img{
             width: 150px;
             height: 150px;
+            align-items: center;
+            justify-content: center;
             object-fit: contain;
         }
     

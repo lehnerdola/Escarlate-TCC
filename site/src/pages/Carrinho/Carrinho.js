@@ -40,7 +40,7 @@ export default function Carrinho(){
   let total = 0;
   function carregarValorTotal(){
     for (let item of itens){
-      total = total + item.produto.info.preco * item.quantidade;    
+      total = total + item.produto.preco * item.quantidade;    
     }
     return total;
   }
@@ -58,7 +58,7 @@ export default function Carrinho(){
   }
 
 return(
- <main className="corzinha-cart">
+ <main className="corzinha-cart ">
     <header className="header">
     <div className='sub-header-1'>
         <Link to='/feed'>

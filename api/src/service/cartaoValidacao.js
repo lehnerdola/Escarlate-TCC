@@ -1,13 +1,14 @@
-export async function validarCartao(cartao){
+export async function validarCartao( id, cartao){
+    if(id < 1)
 
     if (cartao.nomeCartao == undefined || cartao.nomeCartao == '') {
         throw new Error('Nome do cartao é obrigatório!');
     }
-    if (cartao.numeroCartao == '') {
+    if (cartao.numero == '') {
         throw new Error('Número do cartao é obrigatório!');
     }
 
-    if ((cartao.codSeguranca == undefined) || cartao.codSeguranca.length > 3) {
+    if (cartao.codSeguranca == undefined || cartao.codSeguranca.length > 3) {
         throw new Error('CVV do cartao é obrigatório!');
     }
     if (cartao.vencimento == undefined || cartao.vencimento.length > 5) {

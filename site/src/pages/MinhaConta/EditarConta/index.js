@@ -37,26 +37,25 @@ export default function EditarConta(){
         try {
             if (!imagem) {
                 const alterar = await AlterarUsu(id, nome, email, cpf, telefone);
-                toast.success('Perfil alterado com sucesso!')    
+                toast.dark('Perfil alterado com sucesso!', {
+                    icon: () =>  <img src="./lightning.png" width={35}/>
+                })    
             }
             else{
             const alterar = await AlterarUsu(id, nome, email, cpf, telefone);
-                await enviarImagemUsuario(id, imagem) 
-                toast.success('Perfil alterado com sucesso!')
-
+            if (typeof (imagem) == 'object') {
+                await enviarImagemUsuario(id, imagem)
+            }
+               
+                toast.dark('Perfil alterado com sucesso!', {
+                    icon: () =>  <img src="./lightning.png" width={35}/>
+                })
             } 
-            
-            
-
         } catch (err) {
-            if(err.response){
-                alert(err.response.data.erro)
-            }
-            else{
-              alert(err.message)
-            }
+            toast.error(err.response.data.erro)
         }
     }
+
 
     function escolherimg() {
         document.getElementById('image').click();

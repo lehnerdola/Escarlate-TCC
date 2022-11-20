@@ -137,11 +137,10 @@ export async function cancelarPedido(id){
     return r.status;
 }
 
-export async function enviarEmail(email, produto, imagem){
+export async function enviarEmail(email, produto){
     const resp = await api.post (`/enviar-email`, {
         email:email, 
-        produto:produto, 
-        imagem:imagem
+        produto:produto
     })
     return resp.data
 }

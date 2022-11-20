@@ -42,7 +42,7 @@ export default function PopUp(props){
             
           
             Storage('carrinho', carrinho);
-            toast.success('🛒 Item adicionado ao carrinho')
+            toast.dark('🛒 Item adicionado ao carrinho')
             
         }
     }

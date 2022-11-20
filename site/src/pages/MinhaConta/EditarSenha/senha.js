@@ -38,7 +38,9 @@ export default function Senha(){
         try {
             let id = Storage('cliente-logado').id_usuario
             await AltSenha(id, senha, senhaNova)
-            toast.success('senha alterada')
+            toast.dark('Senha alterada com sucesso!', {
+                icon: () =>  <img src="../lightning.png" width={35}/>
+            })
         } catch (err) {
             toast.error(err.response.data.erro);
         }

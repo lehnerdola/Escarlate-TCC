@@ -44,16 +44,10 @@ export default function PedidosUser() {
     
                 
          <div className='align-img-pedido'>   
-         <img src={`http://localhost:5000/${item.imagem}`}/>
+         <img className='imagem-produto-pedido' src={`http://localhost:5000/${item.imagem}`}/>
 
          <div className='img-pedido'>
             <p>{item.nomeProduto}</p>
-            <div>
-            <p>Ver informações do produto:</p>
-            {produto.map (item =>
-                <p>{item.info.preco}</p>
-                )}
-            </div>
             
          </div>
          

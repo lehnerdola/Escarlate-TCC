@@ -127,3 +127,13 @@ export async function listarArtistasHome(){
     const [registros] = await con.query(c);
     return registros;
 }
+
+export async function BuscaArtista(nome) {
+    const comando =
+        `
+        select nm_artista, img_artista from tb_artista where nm_artista like ?
+    `
+
+    const [linhas] = await con.query(comando, [`%${nome}%`])
+    return linhas
+}

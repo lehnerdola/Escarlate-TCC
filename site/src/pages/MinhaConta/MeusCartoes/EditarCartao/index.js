@@ -25,7 +25,9 @@ export default function EditarCartao() {
     async function alterarCartao(){
         try {
             const r = await EditarCartaoUser(idParam,nomeCartao, numero,cvv,vencimento);
-            toast.success('Cartão Alterado!')
+            toast.dark('Cartão alterado com sucesso!', {
+                icon: () =>  <img src="../lightning.png" width={35}/>
+            })
         } catch (err) {
             toast.error(err.response.data.erro)
         }
@@ -45,6 +47,7 @@ export default function EditarCartao() {
     useEffect(() => {
     carregarCartao();
     },[])
+    
     return(
         <main>
            <ToastContainer/>
