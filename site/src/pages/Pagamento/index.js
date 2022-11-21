@@ -113,13 +113,16 @@ export default function Pagamento() {
 
 
             if (!storage('carrinho')) {
-                toast.error('É necessário selecionar um item no carrinho')
+                toast.error('É necessário adicionar um item no carrinho')
             }
             else {
 
                 const r = await salvarNovoPedido(id, pedido)
                 navigate('/FinalizacaoPagamento')
                 storage.remove('carrinho')
+                storage.remove('preco')
+                storage.remove('ender-selecionado')
+                
             }
 
 
@@ -128,7 +131,7 @@ export default function Pagamento() {
             if (!storage('ender-selecionado')) {
                 toast.error('É necessário selecionar um endereço')
             }
-            toast.error(err.response.data.erro)
+            toast.error(err.response.erro)
        
         }
     }
@@ -182,6 +185,7 @@ export default function Pagamento() {
                             <div>
                                 <p>Tipo Pagamento:</p>
                                 <select value={tipo} onChange={e => setTipo(e.target.value)}>
+                                <option selected disabled hidden>Selecione</option>
                                     <option value={"Débito"}>Débito</option>
                                     <option value={"Crédito"}>Crédito</option>
                                 </select>
@@ -189,6 +193,7 @@ export default function Pagamento() {
                             <div>
                                 <p>Frete:</p>
                                 <select value={frete} onChange={e => setFrete(e.target.value)}>
+                                    <option selected disabled hidden>Selecione</option>
                                     <option value={"Sedex"}>Sedex(25,00)</option>
                                     <option value={"Normal"}>Normal(15,00)</option>
                                 </select>
@@ -216,10 +221,14 @@ export default function Pagamento() {
                                 <img onClick={toggleModal} className='botao-voltar-endereco' src="../assets/images/icons8-close-50.png"/>
 
                                     {enderecos.map(item =>
-                                        <div onClick={() => selecionarEndereco(item.id)}>
+                                        <div>
+                                            <div onClick={() => selecionarEndereco(item.id)}>
                                             <CardEndereco item={item} selecionar={setIdEndereco} selecionado={item.id === idEndereco} />
                                             <input class="trigger-input" id="faq-titulo-2" type="radio" />
                                         </div>
+                                       
+                                        </div>
+                                        
                                     )}
                                 </div>
 

@@ -63,10 +63,7 @@ export async function todosProdutos(){
     return resposta.data;
 }
 
-export async function buscarProdutoPorNome(nome){
-    const resposta = await api.get(`/produto/buscar?nome=${nome}`);
-    return resposta.data;
-}
+
 
 export async function buscarPorId(id){
     const resposta =  await api.get(`/produto/${id}`);
@@ -141,10 +138,15 @@ export async function listarTodosProdutosArtista(id) {
     return r.data;
 }
 
-export async function listarPorNome(nome){
-    const resposta = await api.get(`/artistas/buscar/nome?nm=${nome}`);
+export async function listarPorNome(nm){
+    const resposta = await api.get(`/artista/busca?nm=${nm}`);
     return resposta.data;
 } 
+
+export async function buscarProdutoPorNome(nome){
+    const resposta = await api.get(`/produto/buscar?nome=${nome}`);
+    return resposta.data;
+}
 
 export async function listarCategoriasArtistas() {
     const r = await api.get('/artista/categoria');

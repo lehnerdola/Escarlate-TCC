@@ -4,7 +4,7 @@ export async function validarCartao( id, cartao){
     if (cartao.nomeCartao == undefined || cartao.nomeCartao == '') {
         throw new Error('Nome do cartao é obrigatório!');
     }
-    if (cartao.numero == '') {
+    if (cartao.numeroCartao == '') {
         throw new Error('Número do cartao é obrigatório!');
     }
 

@@ -104,12 +104,7 @@ return (
 
         <div className='todos-prod'>
             <h1 className='titulo-todosprodutos' >Conheça nossos <span style={{ color: "#A83F37" }}> produtos</span></h1>
-            <div className='categoria-align'>
-
-                {categorias.map(item =>
-                    <h2 style={{ fontFamily: "Cinzel-Regular", color: "#A83F37", fontWeight: '100', justifyContent: 'row' }} onClick={() => abrirInfo(item.id)}>{item.categoria} &nbsp;</h2>
-                )}
-            </div>
+           
             <div className='faixa-1-todos-prod'>
 
 
@@ -124,7 +119,7 @@ return (
                                 onHoverStart={e => { }}
                                 onHoverEnd={e => { }}
                                 src={`http://localhost:5000/${item.imagem}`}
-                                width={170} className="btn-modal"
+                                width={200} className="btn-modal"
                                 onClick={() => abrirInfo(item.id)} />
 
                             <p className='nome-prod'>{item.nome}</p>

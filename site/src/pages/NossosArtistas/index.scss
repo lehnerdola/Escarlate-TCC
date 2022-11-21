@@ -3,13 +3,14 @@
     flex-direction: column;
     background-color: hsl(0, 0%, 12%);
     align-items: center;
-    height: 90vh;
+    height: 400vh;
 
     .align-artista-nome-foto{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        justify-content: center;
+        flex-wrap: nowrap;
+        justify-content: space-around;
     }
 
     .nome-artitsa{
@@ -34,7 +35,8 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
+        flex-wrap: wrap;
+        justify-content: space-around;
         height: 100%;
         margin-right: 10em;
 
@@ -106,24 +108,3 @@ body.active-modal {
     font-size: 1.5em;
 }
 
-
-
-.overlay {
-    background: rgba(49,49,49,0.8);
-}
-
-.lupa{
-    display: flex;
-    margin-bottom: 9em;
-    margin-right: 90em;
-}
-
-
-.lupa-conf {
-    width: 25px;
-    border: none;
-    background: transparent;
-    margin-left: -28em;
-    margin-top: 1px;
-    position: absolute;
-}

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import '../../Common.scss' 
 import './carrinho.scss'
 import Storage from 'local-storage'
+import {toast, ToastContainer} from 'react-toastify';
 import { buscarPorId } from "../../api/adminAPI";
 import CarrinhoItem from "../Components/Usuario/carrinhoitem/carrinhoitem";
 import BotaoADM from '../Components/Adm/Button/index'
@@ -11,8 +12,11 @@ export default function Carrinho(){
 
   const [itens, setItens] = useState([]);
 
+  const navigate = useNavigate();
+
   async function carregarCarrinho(){
-    let carrinho = Storage('carrinho');
+    try {
+      let carrinho = Storage('carrinho');
     if(carrinho) {
 
       let temp = [];
@@ -27,6 +31,19 @@ export default function Carrinho(){
       }
       setItens(temp);
     }
+   
+    } catch (err) {
+      
+    }
+  }
+
+  function EnderecoClick(){
+    if(Storage('carrinho')){
+      navigate('/Endereco')
+    }
+    else if (!Storage('carrinho')) {
+      toast.error('É necessario adicionar um item ao carrinho')
+  }
   }
 
   function removerItem(id){
@@ -40,7 +57,7 @@ export default function Carrinho(){
   let total = 0;
   function carregarValorTotal(){
     for (let item of itens){
-      total = total + item.produto.preco * item.quantidade;    
+      total = total + item.produto.info.preco * item.quantidade;    
     }
     return total;
   }
@@ -59,6 +76,7 @@ export default function Carrinho(){
 
 return(
  <main className="corzinha-cart ">
+  <ToastContainer/>
     <header className="header">
     <div className='sub-header-1'>
         <Link to='/feed'>
@@ -96,11 +114,11 @@ return(
     <p style={{fontFamily:'Arya-Regular', color:"#ffff", fontWeight:"100"}}>R$ {carregarValorTotal()}</p>
     </div>
 
-    <Link to='/Endereco'>  
+    <div onClick={EnderecoClick}>  
     <div onClick={pegarPreco}>
     <BotaoADM nome='Continuar Pedido'/>  
     </div>
-    </Link>
+    </div>
     </section>
     </div>
     

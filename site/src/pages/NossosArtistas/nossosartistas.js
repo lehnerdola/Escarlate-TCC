@@ -2,7 +2,7 @@ import './index.scss'
 import {motion, AnimatePresence} from 'framer-motion'
 import { useEffect,useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { listarArtistas,listarTodosProdutosArtista, buscarImagem, listarPorNome } from '../../api/adminAPI.js'
+import { listarArtistas, buscarImagem, listarPorNome } from '../../api/adminAPI.js'
 
 
 export default function TodosProdutos(){
@@ -16,9 +16,14 @@ export default function TodosProdutos(){
         return setArtistas(resp);
     }
 
-    useEffect(() => {
-        Filtrar();
-    },[filtro]);
+ 
+
+    document.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+            const btn = document.querySelector("#send");
+            btn.click();
+        }
+    })
 
     async function carregarTodosArtistas(){
         const r = await listarArtistas();
@@ -31,8 +36,10 @@ export default function TodosProdutos(){
 
     useEffect(() => {
        carregarTodosArtistas()
-    
+       
     }, []);
+
+   
 
 
     return(
@@ -47,11 +54,7 @@ export default function TodosProdutos(){
                 onHoverEnd={e => {}}
                 />
                 </Link>
-             </div>   
-             <div>
-             <input type='text' className='input-busca' value={filtro} onChange={(e) => setFiltro(e.target.value)} />
-             <button className='lupa-conf' onClick={Filtrar}><img src={'../../../../assets/images/search.png'} className='lupa' id='send'/></button>
-             </div>
+             </div>  
              <div className='sub-header-2'>
                 <img src={'../../../../assets/images/user.png'} className='conf-img-header'/>
                 <img src={'../../../../assets/images/cart.png'} className='conf-img-header'/>

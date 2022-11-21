@@ -139,7 +139,7 @@ server.post('/pedido/:idUsuario', async (req, resp) => {
         const idPedidoCriado = await inserirPedido(novoPedido);
      
         await inserirPagamento(idPedidoCriado,info.cartao);
-        await validarCartao(info.cartao)
+       
 
         for (let item of info.produtos) {
             const prod = await consultarProdutosPorId(item.id);

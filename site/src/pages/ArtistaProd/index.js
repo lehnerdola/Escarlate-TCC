@@ -58,6 +58,7 @@ export default function ArtistaProd(){
         carregarPagina();
     }, []);
 
+
     return(
         <main className="artistaprod">
             <header className='header'>
@@ -70,10 +71,7 @@ export default function ArtistaProd(){
                 />
                 </Link>
              </div>   
-             <div>
-             <input type='text' className='input-busca' value={filtro} onChange={(e) => setFiltro(e.target.value)} />
-             <button className='lupa-conf' onClick={Filtrar}><img src={'../../../../assets/images/search.png'} className='lupa' id='send'/></button>
-             </div>
+             
              <div className='sub-header-2'>
                 <img src={'../../../../assets/images/user.png'} className='conf-img-header'/>
                 <Link to ='/Carrinho'>

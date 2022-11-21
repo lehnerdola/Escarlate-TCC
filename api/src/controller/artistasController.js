@@ -20,11 +20,11 @@ server.get('/artistas', async (req, resp) => {
     }
 })
 
-server.get('/artista/busca/nome', async(req, resp) => {
+server.get('/artista/busca', async(req, resp) => {
     try{
-    const {nome} = req.query;
+    const {nm} = req.query;
 
-    const resposta = await BuscaArtista(nome)
+    const resposta = await BuscaArtista(nm)
     if(!resposta){
         resp.status(404).send([])
     }
